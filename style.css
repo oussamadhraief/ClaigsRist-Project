@@ -1,0 +1,131 @@
+body {
+    background-color: rgb(46, 146, 192);
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+nav {
+    width: 100%;
+    background-color: rgb(216, 213, 213);
+    position: fixed;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 1px 1px 3px black;
+}
+
+#prodimg {
+    border-radius: 5%;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(46, 146, 192);
+    margin-left: 35px;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a:hover {
+    color: rgb(45, 119, 153);
+}
+
+#body {
+    height: 100%;
+    display: flex;
+}
+
+#left {
+    display: flex;
+    flex-wrap: wrap;
+    height: 325px;
+    width: 850px;
+    margin-left: 10px;
+}
+
+.prod {
+    background-color: rgb(177, 175, 175);
+    border-radius: 5px;
+    padding: 5px 5px 0px 5px;
+    margin: 70px 5px 15px 5px;
+    box-shadow: 1px 1px 5px black;
+    position: relative;
+}
+
+#right {
+    display: grid;
+    padding: 10px;
+    box-shadow: 1px 1px 5px black;
+    margin-top: 85px;
+    margin-left: 50px;
+    height: 538px;
+    background-color: rgb(232, 232, 232);
+    width: 30%;
+    border-radius: 1%
+}
+
+#form {
+    display: grid;
+    height: 400px;
+    width: 100%;
+}
+
+#caption {
+    text-align: center;
+    font-size: x-large;
+    font-weight: 500;
+    color: rgb(46, 146, 192);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#form>* {
+    margin: 10px;
+}
+
+.editicon {
+    height: 25px;
+    width: 25px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.icon {
+    background-color: rgba(240, 248, 255, 0);
+    position: absolute;
+    border: none;
+    left: 130px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.click {
+    background-color: rgb(67, 189, 245);
+    border-radius: 5%;
+    border: none;
+    font-weight: bold;
+}
+
+button:active, button:hover {
+    background-color: rgb(12, 255, 223);
+    cursor: pointer;
+}
+
+#resetButton {
+    margin-top: 65px;
+}
+
+.butt {
+    width: 369.374px;
+    height: 39.602px;
+    margin-left: 12px;
+}
+
+.prod p {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}

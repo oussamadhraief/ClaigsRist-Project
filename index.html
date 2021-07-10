@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Admin Panel</title>
+    <link href="https://img.icons8.com/cotton/2x/4a90e2/settings.png" rel="icon">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <nav>
+            <a href="#">Admin</a>
+            <a href="Client.html">Client</a>
+        </nav>
+    </div>
+    <div id="body">
+        <div id="left">
+            <div class="prod" id="">
+                <a href="#" class="icon"><img class="editicon"
+                        src="https://icon-library.com/images/icon-edit/icon-edit-11.jpg" alt="edit"></a>
+                <img src="https://m.media-amazon.com/images/I/51c+NXm8zLL._AC_SS450_.jpg" alt="product image"
+                    width="150px" height="150px">
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                <p>Asus 001</p>
+                <p>1345 DT (58 pieces)</p>
+            </div>
+        </div>
+        <div id="right">
+            <div>
+                <form id="form">
+                    <p id="caption">Admin Panel</p>
+                    <input type="text" name="name" id="name" placeholder="Name" required>
+                    <input type="number" name="price" placeholder="Price" id="price" min="0">
+                    <input type="number" name="quantity" placeholder="Quantity" id="quantity" min="0">
+                    <input type="url" name="picture" placeholder="Picture link" id="picture" required>
+                    <button id="saveButton" class="click">Save</button>
+                    <button type="submit" id="createButton" class="click">Create</button>
+                </form>
+                <button id="resetButton" onclick="handleResetButton()" class="butt click">Reset</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="data.js"></script>
+<script src="ui.js"></script>
+<script src="main.js"></script>
+
+</html>
