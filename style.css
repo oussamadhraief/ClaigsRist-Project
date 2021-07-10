@@ -9,6 +9,8 @@ body {
 }
 
 nav {
+    display: flex;
+    justify-content: center;
     width: 100%;
     background-color: rgb(216, 213, 213);
     position: fixed;
@@ -37,21 +39,24 @@ a:hover {
 #body {
     height: 100%;
     display: flex;
+    justify-content: space-around;
 }
 
 #left {
     display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     height: 325px;
     width: 850px;
-    margin-left: 10px;
+    margin-left: 0px;
+    z-index: -1;
 }
 
 .prod {
     background-color: rgb(177, 175, 175);
     border-radius: 5px;
     padding: 5px 5px 0px 5px;
-    margin: 70px 5px 15px 5px;
+    margin: 70px 10px 15px 5px;
     box-shadow: 1px 1px 5px black;
     position: relative;
 }
