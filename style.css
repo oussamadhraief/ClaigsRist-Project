@@ -34,7 +34,7 @@ a {
 }
 
 a:hover {
-    color: rgb(45, 119, 153);
+    color: rgb(204, 139, 140);
 }
 
 #body {
@@ -50,7 +50,6 @@ a:hover {
     height: 325px;
     width: 850px;
     margin-left: 0px;
-    z-index: -1;
 }
 
 .prod {
@@ -129,7 +128,7 @@ input::placeholder {
 }
 
 button:active, button:hover {
-    background-color: rgb(12, 255, 223);
+    background-color: rgb(204, 139, 140);
     cursor: pointer;
 }
 
