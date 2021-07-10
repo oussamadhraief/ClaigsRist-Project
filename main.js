@@ -15,5 +15,3 @@ document.querySelector("#saveButton").addEventListener("click", function (e) {
     displayProducts(products);
 });
 
-let myStorage = window.localStorage;
-

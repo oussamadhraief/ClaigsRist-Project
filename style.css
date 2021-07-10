@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(46, 146, 192);
+    background-color: #4971D8;
     margin: 0;
     padding: 0;
 }
@@ -8,11 +8,12 @@ body {
     box-sizing: border-box; 
 }
 
+
 nav {
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: rgb(216, 213, 213);
+    background-color: #444444;
     position: fixed;
     text-align: center;
     padding: 15px;
@@ -25,7 +26,7 @@ nav {
 
 a {
     text-decoration: none;
-    color: rgb(46, 146, 192);
+    color: #4971D8;
     margin-left: 35px;
     font-size: 24px;
     font-weight: 500;
@@ -53,7 +54,7 @@ a:hover {
 }
 
 .prod {
-    background-color: rgb(177, 175, 175);
+    background-color: rgb(143, 143, 143);
     border-radius: 5px;
     padding: 5px 5px 0px 5px;
     margin: 70px 10px 15px 5px;
@@ -68,7 +69,7 @@ a:hover {
     margin-top: 85px;
     margin-left: 50px;
     height: 538px;
-    background-color: rgb(232, 232, 232);
+    background-color: rgb(143, 143, 143);
     width: 30%;
     border-radius: 1%
 }
@@ -79,11 +80,22 @@ a:hover {
     width: 100%;
 }
 
+input {
+    background-color: rgb(123, 121, 121);
+    border-radius: 5%;
+    border: 0.5px solid black;
+}
+
+input::placeholder {
+    color: black;
+}
+
 #caption {
     text-align: center;
     font-size: x-large;
-    font-weight: 500;
-    color: rgb(46, 146, 192);
+    font-size: xx-large;
+    font-weight: 900;
+    color: #4971D8;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -108,7 +120,7 @@ a:hover {
 }
 
 .click {
-    background-color: rgb(67, 189, 245);
+    background-color: #4971D8;
     border-radius: 5%;
     border: none;
     font-weight: bold;
