@@ -39,8 +39,23 @@ function displayProducts(products) {
     }
     
     for (let i = 0; i < products.length; i++) {
+        // let myArray= [];
+        // if(myArray.indexOf(products[i].id) ==-1){
         productsElement.innerHTML += productBox(products[i]);
+        // myArray.push(products[i].id);
+        // }
     }
+
+    //console.log(products.findIndex(x => x.id === 2));
+    console.log(products);
+
+    //      if (localStorage.length > 0) {
+    //          for (let j = 0; j < localStorage.length; j++) {
+    //              let key = localStorage.key(j);
+    //              productsElement.innerHTML += productBox(JSON.parse(localStorage.getItem(key)));
+    //              console.log(JSON.parse(localStorage.getItem(key)));
+    //        }
+    //    }
 }
 
 function getFormData() {
@@ -69,6 +84,13 @@ function addProduct({ name, price, quantity, picture }) {
     addToLocal(newProduct);
 
 }
+
+// function createNewArray(products) {
+//     for (let j = 0; j < localStorage.length; j++) {
+//         let key = localStorage.key(j);
+//         products.push(JSON.parse(localStorage.getItem(key)));
+//     }
+// }
 
 let ind = 3;
 function addToLocal(lclstrg) {
@@ -107,3 +129,29 @@ function handleSaveProduct(gg) {
     products[gg].quantity = document.querySelector("#quantity").value;
     products[gg].picture = document.querySelector("#picture").value;
 }
+
+
+
+// let inpName = "name";
+// let nameVal = document.querySelector("#name");
+// let inpPrice = "price";
+// let priceVal = document.querySelector("#price");
+// let inpQuant = "quantity";
+// let quantVal = document.querySelector("#quantity");
+// let inpPic = "picture";
+// let picVal = document.querySelector("#picture");
+
+// const btnInsert = document.querySelector("#createButton");
+// const prodHTML = document.querySelector("#left");
+
+// function lclstrg() {
+
+//     localStorage.setItem(inpName,nameVal);
+//     localStorage.setItem(inpPrice,priceVal);
+//     localStorage.setItem(inpQuant,quantVal);
+//     localStorage.setItem(inpVal,picVal);
+// }
+
+// let gg1 = localStorage.getItem(index);
+
+// let gglast = JSON.parse(gg1);
