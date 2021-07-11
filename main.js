@@ -12,3 +12,4 @@ document.querySelector("#saveButton").addEventListener("click", function (e) {
     handleSaveProduct(gg);
     handleResetButton();
 });
+

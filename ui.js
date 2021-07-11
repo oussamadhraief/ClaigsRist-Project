@@ -10,7 +10,7 @@ function productBox({ id, name, price, quantity, picture }) {
     `;
 }
 
-let insertionSort = (arr) => {
+function insertionSort(arr){
     let length = arr.length;
     for (let h = 1; h < length; h++) {
         let k = arr[h].id;
@@ -32,12 +32,12 @@ function displayProducts(products) {
         for (let j = 0; j < localStorage.length; j++) {
             let key = localStorage.key(j);
             let value = JSON.parse(localStorage.getItem(key));
-            if (products.findIndex(v => v.id === value.id) == -1) {
+            if (products.findIndex(v => v.id == value.id) == -1) {
                 products.push(value);
             }
         }
     }
-
+    products = insertionSort(products);
     for (let i = 0; i < products.length; i++) {
         productsElement.innerHTML += productBox(products[i]);
     }
@@ -80,7 +80,6 @@ function addToLocal(lclstrg) {
 function handleCreateButton() {
     console.log("create button");
     addProduct(getFormData());
-    products = insertionSort(products);
     displayProducts(products);
 }
 
