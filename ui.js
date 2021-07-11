@@ -14,12 +14,13 @@ function insertionSort(arr){
     let length = arr.length;
     for (let h = 1; h < length; h++) {
         let k = arr[h].id;
+        let obj = arr[h];
         let g = h - 1;
         while (g >= 0 && arr[g].id > k) {
-            arr[g + 1].id = arr[g].id;
+            arr[g + 1] = arr[g];
             g = g - 1;
         }
-        arr[g + 1].id = k;
+        arr[g + 1] = obj;
     }
     return arr;
 };
@@ -28,16 +29,20 @@ function displayProducts(products) {
     let productsElement = document.querySelector("#left");
 
     productsElement.innerHTML = "";
+
     if (localStorage.length > 0) {
         for (let j = 0; j < localStorage.length; j++) {
             let key = localStorage.key(j);
             let value = JSON.parse(localStorage.getItem(key));
             if (products.findIndex(v => v.id == value.id) == -1) {
+                console.log("value",value);
                 products.push(value);
             }
         }
     }
+    console.log(products);
     products = insertionSort(products);
+    console.log(products);
     for (let i = 0; i < products.length; i++) {
         productsElement.innerHTML += productBox(products[i]);
     }
@@ -48,7 +53,7 @@ function getFormData() {
     let formData = {
         name: document.querySelector("#name").value,
         price: parseInt(document.querySelector("#price").value),
-        quantity: document.querySelector("#quantity").value,
+        quantity: parseInt(document.querySelector("#quantity").value),
         picture: document.querySelector("#picture").value,
     };
 
@@ -58,27 +63,29 @@ function getFormData() {
 
 
 function addProduct({ name, price, quantity, picture }) {
+    let x=products.length;
     let newProduct = {
-        id: ++lastId,
+        id: x,
         name: name,
         price: price,
         quantity: quantity,
         picture: picture,
     };
-
+    x++;
+    console.log("New product",newProduct);
     addToLocal(newProduct);
 
 }
 
-let ind = 3;
+let ind = products.length;
 function addToLocal(lclstrg) {
-
+    console.log("lcl",lclstrg);
     localStorage.setItem(ind, JSON.stringify(lclstrg));
+    console.log("inlcl",localStorage.getItem(ind));
     ind++;
 }
 
 function handleCreateButton() {
-    console.log("create button");
     addProduct(getFormData());
     displayProducts(products);
 }
@@ -97,12 +104,17 @@ function addToForm(id) {
     document.querySelector("#price").value = products[id].price;
     document.querySelector("#quantity").value = products[id].quantity;
     document.querySelector("#picture").value = products[id].picture;
-    globalThis.gg = id;
+    globalThis.bruh = id;
 }
 
-function handleSaveProduct(gg) {
-    products[gg].name = document.querySelector("#name").value;
-    products[gg].price = document.querySelector("#price").value;
-    products[gg].quantity = document.querySelector("#quantity").value;
-    products[gg].picture = document.querySelector("#picture").value;
+function handleSaveProduct(bruh) {
+    products[bruh].name = document.querySelector("#name").value;
+    products[bruh].price = document.querySelector("#price").value;
+    products[bruh].quantity = document.querySelector("#quantity").value;
+    products[bruh].picture = document.querySelector("#picture").value;
+    console.log(products[bruh].id);
+    console.log(products[bruh].name);
+    console.log(products[bruh].price);
+    console.log(products[bruh].quantity);
+    console.log(products[bruh].picture);
 }

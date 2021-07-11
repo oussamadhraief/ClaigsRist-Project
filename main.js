@@ -9,7 +9,7 @@ document.querySelector("#form").addEventListener("submit", function (e) {
 
 document.querySelector("#saveButton").addEventListener("click", function (e) {
     e.preventDefault();
-    handleSaveProduct(gg);
+    handleSaveProduct(bruh);
+    displayProducts(products);
     handleResetButton();
 });
-
