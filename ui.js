@@ -1,54 +1,56 @@
-function addProdsToLocal() {
-    localStorage.setItem(
-        0,
-        JSON.stringify({
-            id: 0,
-            name: "Lenovo Ideapad 1",
-            price: 2450,
-            quantity: 25,
-            picture: "https://images-na.ssl-images-amazon.com/images/I/61Dw5Z8LzJL._SY450_.jpg",
-        })
-    );
-    localStorage.setItem(
-        1,
-        JSON.stringify({
-            id: 1,
-            name: "Asus X550VX",
-            price: 1800,
-            quantity: 14,
-            picture: "https://www.tunisianet.com.tn/53878-large/pc-portable-asus-x550vx-xx057d-i7-6e-gen-16-go.jpg",
-        })
-    );
-    localStorage.setItem(
-        2,
-        JSON.stringify({
-            id: 2,
-            name: "MSI Gaming GF65",
-            price: 3300,
-            quantity: 10,
-            picture: "https://www.tunisianet.com.tn/143911-large/pc-portable-msi-gaming-gf65-thin-9sd-i7-9e-gen-32-go-sim-orange-30-go.jpg",
-        })
-    );
-}
+// function addProdsToLocal() {
+//     localStorage.setItem(
+//         0,
+//         JSON.stringify({
+//             id: 0,
+//             name: "Lenovo Ideapad 1",
+//             price: 2450,
+//             quantity: 25,
+//             picture: "https://images-na.ssl-images-amazon.com/images/I/61Dw5Z8LzJL._SY450_.jpg",
+//         })
+//     );
+//     localStorage.setItem(
+//         1,
+//         JSON.stringify({
+//             id: 1,
+//             name: "Asus X550VX",
+//             price: 1800,
+//             quantity: 14,
+//             picture: "https://www.tunisianet.com.tn/53878-large/pc-portable-asus-x550vx-xx057d-i7-6e-gen-16-go.jpg",
+//         })
+//     );
+//     localStorage.setItem(
+//         2,
+//         JSON.stringify({
+//             id: 2,
+//             name: "MSI Gaming GF65",
+//             price: 3300,
+//             quantity: 10,
+//             picture: "https://www.tunisianet.com.tn/143911-large/pc-portable-msi-gaming-gf65-thin-9sd-i7-9e-gen-32-go-sim-orange-30-go.jpg",
+//         })
+//     );
+// }
 
-function addToProds() {
-    let p = localStorage.key(0);
-    products.push(JSON.parse(localStorage.getItem(p)));
-    p = localStorage.key(1);
-    products.push(JSON.parse(localStorage.getItem(p)));
-    p = localStorage.key(2);
-    products.push(JSON.parse(localStorage.getItem(p)));
-}
+// function addToProds() {
+//     let p = localStorage.key(0);
+//     products.push(JSON.parse(localStorage.getItem(p)));
+//     console.log(localStorage.getItem(p));
+//     p = localStorage.key(1);
+//     products.push(JSON.parse(localStorage.getItem(p)));
+//     p = localStorage.key(2);
+//     products.push(JSON.parse(localStorage.getItem(p)));
 
-function useless() {
-    if (localStorage.length == 0) {
-        addProdsToLocal();
-        addToProds();
-        displayProducts(products);
-    }else{
-        displayProducts(products);
-    }
-}
+// }
+
+// function useless() {
+//     if (localStorage.length == 0) {
+//         addProdsToLocal();
+//         addToProds();
+//         displayProducts(products);
+//     }else{
+//         displayProducts(products);
+//     }
+// }
 
 
 function productBox({
@@ -73,7 +75,7 @@ function insertionSort(arr) {
     for (let h = 1; h < arr.length; h++) {
         let obj = arr[h];
         let g = h - 1;
-        while (g >= 0 && arr[g].id > arr[h].id) {
+        while (g >= 0 && parseInt(arr[g].id) > parseInt(arr[h].id)) {
             arr[g + 1] = arr[g];
             g = g - 1;
         }
@@ -87,9 +89,10 @@ function displayProducts(products) {
 
     productsElement.innerHTML = "";
 
-    for (let j = 0; j < localStorage.length; j++) {
-        let key = localStorage.key(j);
-        let value = JSON.parse(localStorage.getItem(key));
+    for (let j = 0; j < myStg.length; j++) {
+        let key = myStg.key(j);
+        console.log(key);
+        let value = JSON.parse(myStg.getItem(key));
         if (products.findIndex((v) => v.id == value.id) == -1) {
             products.push(value);
         } else {
@@ -99,11 +102,12 @@ function displayProducts(products) {
             products[value.id].picture = value.picture;
         }
     }
+    console.log(products);
     products = insertionSort(products);
+    console.log(products);
     for (let i = 0; i < products.length; i++) {
         productsElement.innerHTML += productBox(products[i]);
     }
-    console.log(products);
 }
 
 function getFormData() {
@@ -117,7 +121,7 @@ function getFormData() {
     return formData;
 }
 
-let x = localStorage.length;
+let x = myStg.length;
 
 function addProduct({
     name,
@@ -133,14 +137,14 @@ function addProduct({
         picture: picture,
     };
     ++x;
+    console.log(newProduct);
     addToLocal(newProduct);
 }
 
-let ind = localStorage.length;
-
+let nig = "yedek";
 function addToLocal(lclstrg) {
-    localStorage.setItem(ind, JSON.stringify(lclstrg));
-    ++ind;
+
+    myStg.setItem(nig+=nig, JSON.stringify(lclstrg));
 }
 
 function handleCreateButton() {
@@ -174,10 +178,10 @@ function handleSaveProduct(bruh) {
         picture: document.querySelector("#picture").value,
     };
     let saveKey;
-    for (u = 0; u < localStorage.length; u++) {
-        saveKey = localStorage.key(u);
-        if (JSON.parse(localStorage.getItem(saveKey)).id === bruh) {
-            localStorage.setItem(saveKey, JSON.stringify(saveVal));
+    for (u = 0; u < myStg.length; u++) {
+        saveKey = myStg.key(u);
+        if (JSON.parse(myStg.getItem(saveKey)).id === bruh) {
+            myStg.setItem(saveKey, JSON.stringify(saveVal));
         }
     }
 }

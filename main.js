@@ -1,5 +1,5 @@
-useless();
-
+// useless();
+displayProducts(products);
 
 
 document.querySelector("#form").addEventListener("submit", function (e) {
