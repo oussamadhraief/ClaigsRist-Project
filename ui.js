@@ -44,10 +44,12 @@ function useless() {
     if (localStorage.length == 0) {
         addProdsToLocal();
         addToProds();
+        displayProducts(products);
+    }else{
+        displayProducts(products);
     }
 }
 
-useless();
 
 function productBox({
     id,
@@ -68,12 +70,10 @@ function productBox({
 }
 
 function insertionSort(arr) {
-    let length = arr.length;
-    for (let h = 1; h < length; h++) {
-        let k = arr[h].id;
+    for (let h = 1; h < arr.length; h++) {
         let obj = arr[h];
         let g = h - 1;
-        while (g >= 0 && arr[g].id > k) {
+        while (g >= 0 && arr[g].id > arr[h].id) {
             arr[g + 1] = arr[g];
             g = g - 1;
         }
@@ -103,6 +103,7 @@ function displayProducts(products) {
     for (let i = 0; i < products.length; i++) {
         productsElement.innerHTML += productBox(products[i]);
     }
+    console.log(products);
 }
 
 function getFormData() {
@@ -116,7 +117,7 @@ function getFormData() {
     return formData;
 }
 
-let x = products.length;
+let x = localStorage.length;
 
 function addProduct({
     name,
@@ -135,7 +136,7 @@ function addProduct({
     addToLocal(newProduct);
 }
 
-let ind = products.length;
+let ind = localStorage.length;
 
 function addToLocal(lclstrg) {
     localStorage.setItem(ind, JSON.stringify(lclstrg));
@@ -145,6 +146,7 @@ function addToLocal(lclstrg) {
 function handleCreateButton() {
     addProduct(getFormData());
     displayProducts(products);
+    console.log(products);
 }
 
 function handleResetButton() {
