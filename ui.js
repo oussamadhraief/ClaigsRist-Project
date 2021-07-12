@@ -10,7 +10,7 @@ function productBox({ id, name, price, quantity, picture }) {
     `;
 }
 
-function insertionSort(arr){
+function insertionSort(arr) {
     let length = arr.length;
     for (let h = 1; h < length; h++) {
         let k = arr[h].id;
@@ -35,14 +35,18 @@ function displayProducts(products) {
             let key = localStorage.key(j);
             let value = JSON.parse(localStorage.getItem(key));
             if (products.findIndex(v => v.id == value.id) == -1) {
-                console.log("value",value);
                 products.push(value);
+            } else {
+                products[value.id].name = value.name;
+                products[value.id].price = value.price;
+                products[value.id].quantity = value.quantity;
+                products[value.id].picture = value.picture;
             }
         }
     }
-    console.log(products);
+
     products = insertionSort(products);
-    console.log(products);
+
     for (let i = 0; i < products.length; i++) {
         productsElement.innerHTML += productBox(products[i]);
     }
@@ -63,7 +67,7 @@ function getFormData() {
 
 
 function addProduct({ name, price, quantity, picture }) {
-    let x=products.length;
+    let x = products.length;
     let newProduct = {
         id: x,
         name: name,
@@ -72,16 +76,16 @@ function addProduct({ name, price, quantity, picture }) {
         picture: picture,
     };
     x++;
-    console.log("New product",newProduct);
+
     addToLocal(newProduct);
 
 }
 
 let ind = products.length;
 function addToLocal(lclstrg) {
-    console.log("lcl",lclstrg);
+    console.log("lcl", lclstrg);
     localStorage.setItem(ind, JSON.stringify(lclstrg));
-    console.log("inlcl",localStorage.getItem(ind));
+    console.log("inlcl", localStorage.getItem(ind));
     ind++;
 }
 
@@ -108,13 +112,20 @@ function addToForm(id) {
 }
 
 function handleSaveProduct(bruh) {
-    products[bruh].name = document.querySelector("#name").value;
-    products[bruh].price = document.querySelector("#price").value;
-    products[bruh].quantity = document.querySelector("#quantity").value;
-    products[bruh].picture = document.querySelector("#picture").value;
-    console.log(products[bruh].id);
-    console.log(products[bruh].name);
-    console.log(products[bruh].price);
-    console.log(products[bruh].quantity);
-    console.log(products[bruh].picture);
+    if (bruh < 3) {
+        products[bruh].name = document.querySelector("#name").value;
+        products[bruh].price = document.querySelector("#price").value;
+        products[bruh].quantity = document.querySelector("#quantity").value;
+        products[bruh].picture = document.querySelector("#picture").value;
+    } else {
+        let saveVal = {
+            id: bruh,
+            name: document.querySelector("#name").value,
+            price: parseInt(document.querySelector("#price").value),
+            quantity: parseInt(document.querySelector("#quantity").value),
+            picture: document.querySelector("#picture").value,
+        };
+        let saveKey = localStorage.key(bruh - 3);
+        localStorage.setItem(saveKey, JSON.stringify(saveVal));
+    }
 }
