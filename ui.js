@@ -2,7 +2,7 @@ function productBox({ id, name, price, quantity, picture }) {
     return `
     <div class="prod" id="${id}">
         <a href="#" class="icon" onClick="addToForm(${id})"><img class="editicon" src="https://icon-library.com/images/icon-edit/icon-edit-11.jpg" alt="edit"></a>
-        <img src="${picture}" id="prodimg" alt="product image" width="150px" height="150px">
+        <img src="${picture}" class="prodimg" alt="product image" width="150px" height="150px">
         <hr style="height:2px;border-width:0;color:gray;background-color:gray">
         <p>${name}</p>
         <p>${price} DT (${quantity} pieces)</p>
