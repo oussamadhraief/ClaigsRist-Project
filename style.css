@@ -29,7 +29,7 @@ a {
     color: #4971D8;
     margin-left: 35px;
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 900;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -91,10 +91,9 @@ input::placeholder {
 
 #caption {
     text-align: center;
-    font-size: x-large;
     font-size: xx-large;
     font-weight: 900;
-    color: #4971D8;
+    color: rgb(28, 98, 191);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
