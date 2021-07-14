@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow-y: hidden;
+    height: 50vw;
+    max-height: 100vh;
+    --n: 1;
+    width: calc(var(--n)*100%);
+  }
+
+  .container div {
+    min-width: 100%; 
+    width: 100%;
+    width: calc(100%/var(--n));
+  }
