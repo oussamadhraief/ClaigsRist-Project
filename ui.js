@@ -44,7 +44,7 @@ function displayProducts(products) {
         localStorage.setItem("Table", JSON.stringify(whatever));
 
     }
-
+    console.log(products);
     if (products.length > 0 && products[0] !== 0) {
         for (let c = 0; c < products.length; c++) {
             productsElement.innerHTML += productBox(products[c]);
@@ -123,9 +123,9 @@ function handleDeleteButton(bruh) {
     edited = false;
     if (conf == true) {
         products.splice(bruh, 1);
-        if (bruh > 0) {
+        if (products.length > 0) {
             for (let z = bruh; z < products.length; z++) {
-                products[z].id -= 1;
+                products[z].id = products[z].id -1;
             }
         }
         edited= true;
