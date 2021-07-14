@@ -7,16 +7,18 @@ function productBox({
 }) {
     return `
     <div class="prod" id="${id}">
-        <a href="#" class="icon" onClick="addToForm(${id})"><img class="editicon" src="https://icon-library.com/images/icon-edit/icon-edit-11.jpg" alt="edit"></a>
+        <a href="#" class="icon" onClick="addToForm(${id})"><img class="editicon" src="https://manula.r.sizr.io/large/user/1/img/editbutton-android_v1.png" alt="edit"></a>
+        <a href="#" class="delicon" onClick="handleDeleteButton(${id})"><img class="deleteicon" src="https://icon-library.com/images/delete-icon/delete-icon-14.jpg" alt="edit"></a> 
         <img src="${picture}" class="prodimg" alt="product image" width="150px" height="150px">
         <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+        <br>
         <p>${name}</p>
         <p>${price} DT (${quantity} pieces)</p>
     </div>
     `;
 }
 
-function createProducts(thisarr,hyper) {
+function createProducts(thisarr, hyper) {
 
     for (let w = 0; w < hyper.length; w++) {
         thisarr.push(hyper[w]);
@@ -29,20 +31,21 @@ function displayProducts(products) {
     let productsElement = document.querySelector("#left");
     productsElement.innerHTML = "";
     if (localStorage.length > 0) {
-        if(products.length<localStorage.length){
-        hyper = JSON.parse(localStorage.getItem("Table"));
-        for (let w = 0; w < hyper.length; w++) {
-            products.push(hyper[w]);
-        }
-        }else{
-        localStorage["Table"]=JSON.stringify(products);
+        if (products.length < localStorage.length && edited == false) {
+            hyper = JSON.parse(localStorage.getItem("Table"));
+            for (let w = 0; w < hyper.length; w++) {
+                products.push(hyper[w]);
+            }
+        } else {
+            localStorage.setItem("Table", JSON.stringify(products));
         }
     } else {
-        localStorage.setItem("Table", JSON.stringify(products));
-        
+        let whatever=[];
+        localStorage.setItem("Table", JSON.stringify(whatever));
+
     }
 
-    if (products.length > 0) {
+    if (products.length > 0 && products[0] !== 0) {
         for (let c = 0; c < products.length; c++) {
             productsElement.innerHTML += productBox(products[c]);
         }
@@ -74,7 +77,12 @@ function addProduct({
         quantity: quantity,
         picture: picture,
     };
-    products.push(newProduct);
+    if (products[0] !== 0) {
+        products.push(newProduct);
+    } else {
+        products.length = 0;
+        products.push(newProduct);
+    }
 }
 
 function handleCreateButton() {
@@ -107,4 +115,20 @@ function handleSaveProduct(bruh) {
         picture: document.querySelector("#picture").value,
     };
     products[bruh] = saveVal;
+}
+
+function handleDeleteButton(bruh) {
+    let conf;
+    conf = confirm("Are you sure you want to delete this product ?", "confirm");
+    edited = false;
+    if (conf == true) {
+        products.splice(bruh, 1);
+        if (bruh > 0) {
+            for (let z = bruh; z < products.length; z++) {
+                products[z].id -= 1;
+            }
+        }
+        edited= true;
+        displayProducts(products);
+    }
 }

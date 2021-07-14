@@ -55,7 +55,7 @@ a:hover {
 .prod {
     background-color: rgb(143, 143, 143);
     border-radius: 5px;
-    padding: 5px 5px 0px 5px;
+    padding: 1% 1% 0% 1%;
     margin: 70px 10px 15px 5px;
     box-shadow: 1px 1px 5px black;
     position: relative;
@@ -108,13 +108,31 @@ input::placeholder {
     padding: 0px;
 }
 
+.deleteicon {
+    height: 25px;
+    width: 25px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.delicon{
+    background-color: rgba(240, 248, 255, 0);
+    position: absolute;
+    border: none;
+    bottom: 80px;
+    left: 100px;
+    margin: 0px;
+    padding: 0px; 
+}
+
 .icon {
     background-color: rgba(240, 248, 255, 0);
     position: absolute;
     border: none;
+    bottom: 80px;
     left: 130px;
     margin: 0px;
-    padding: 0px;
+    padding: 0px; 
 }
 
 .click {
