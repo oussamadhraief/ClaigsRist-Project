@@ -5,31 +5,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gastar Shop</title>
-    <link href="Style.css" href="stylesheet">
+    <title>Heretics Store</title>
+    <link href="Style.css" rel="stylesheet">
+    <link href="Logo.png" rel="icon">
 </head>
 
 <body>
     <div>
         <nav>
-            <div>
-                <p>Gastar Shop</p>
+            <div class="navleft">
+                <img id="Logo" src="Logo.png" alt="website logo">
+                <p><span>H</span>eretics <span>S</span>tore</p>
             </div>
-            <div>
-                <a href="#">Explore</a>
-                <a href="MyChart.html">My Chart</a>
-                <a href="Login.html"><img src="https://icon-library.com/images/google-login-icon/google-login-icon-0.jpg" alt="login icon"></a>
-                <img src="https://cdn.icon-icons.com/icons2/2566/PNG/512/search_icon_153438.png" alt="search icon">
-            </div>
+            <div class="navright">
+                <a class="space underline" href="#">Explore</a>
+                <a class="space underline" href="MyChart.html">My Chart</a>
+                <a class="space" href="Login.html"><img class="icon" src="login.png" alt="login icon"></a>
+                <input type="text" placeholder="Search">
+                <button id="searchbutt"><img class="iconsearch" src="search.png" alt="search icon" onclick=""></button>
+                </div>
         </nav>
     </div>
     <div>
         <div class="container">
-            <div>
-
-            </div>
-            <div>
-                
+            <img id="banner" src="Game with HERETICS STORE.png" alt="Page Banner">
+            <div class="products">
+                <div class="prod1" id="0">
+                    <img src="https://www.tunisianet.com.tn/143911-large/pc-portable-msi-gaming-gf65-thin-9sd-i7-9e-gen-32-go-sim-orange-30-go.jpg" class="prodimg" alt="product image" width="150px" height="150px">
+                    <p class="const1 formargin">Product Name:</p>
+                    <p class="vari1"> MSI Gaming GF65</p>
+                    <p class="const1">Price:</p>
+                    <p class="vari1"> 3300 DT.</p>
+                    <p class="const1">Quantity Available: </p>
+                    <p class="vari1 forpadding">20 pieces.</p>
+                    <button class="addtochart">Add To Chart</button>
+                </div>
+                <div class="prod1" id="0">
+                    <img src="https://www.tunisianet.com.tn/53878-large/pc-portable-asus-x550vx-xx057d-i7-6e-gen-16-go.jpg" class="prodimg" alt="product image" width="150px" height="150px">
+                    <p class="const1">Product Name:</p>
+                    <p class="vari1"> Asus X550V</p>
+                    <p class="const1">Price:</p>
+                    <p class="vari1"> 1800 DT.</p>
+                    <p class="const1">Quantity Available: </p>
+                    <p class="vari1">14 pieces.</p>
+                    <button class="addtochart">Add To Chart</button>
+                </div>
             </div>
         </div>
     </div>
