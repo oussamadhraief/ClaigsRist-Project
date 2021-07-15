@@ -1,7 +1,8 @@
 function productsBox ({id,name,price,quantity,picture}) {
     return `<div class="prod1" id="${id}">
     <img src="${picture}" class="prodimg" alt="product image" width="150px" height="150px">
-    <p class="const1">Product Name:</p>
+    <div class="hr"></div>
+    <p class="const1 formargin">Product Name:</p>
     <p class="vari1">${name}</p>
     <p class="const1">Price:</p>
     <p class="vari1">${price} DT.</p>
