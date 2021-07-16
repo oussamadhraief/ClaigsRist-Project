@@ -1,5 +1,5 @@
 body {
-    background-color: #4971D8;
+    background-image: linear-gradient(60deg,  #4971D8 , rgba(104, 214, 209, 0.665)) ;
     margin: 0;
     padding: 0;
 }
@@ -8,12 +8,13 @@ body {
     box-sizing: border-box;
 }
 
+
 nav {
     position: fixed;
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: #444444;
+    background-color: #383838;
     text-align: center;
     padding: 15px;
     box-shadow: 1px 1px 3px black;
@@ -47,16 +48,23 @@ a:hover {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    height: 325px;
-    width: 50%;
-    margin-left: 0px;
+    align-content: flex-start;
+    min-height: 325px;
+    width: 60%;
+    margin-top: 80px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.494);
+    background: #5f5f5f;
+   
 }
 
 .prod {
     background-color: rgb(143, 143, 143);
     border-radius: 5px;
     padding: 1% 1% 0% 1%;
-    margin: 70px 10px 15px 5px;
+    margin: 30px 10px 15px 5px;
     box-shadow: 1px 1px 5px black;
     position: relative;
 }
@@ -68,7 +76,7 @@ a:hover {
     margin-top: 85px;
     margin-left: 50px;
     height: 538px;
-    background-color: rgb(143, 143, 143);
+    background-color: #5f5f5f;
     width: 30%;
     border-radius: 1%
 }
@@ -80,7 +88,7 @@ a:hover {
 }
 
 input {
-    background-color: rgb(123, 121, 121);
+    background-color: rgb(143, 143, 143);
     border-radius: 5%;
     border: 0.5px solid black;
 }
