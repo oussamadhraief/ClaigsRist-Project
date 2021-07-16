@@ -17,6 +17,7 @@ nav {
     background-color: #383838;
     text-align: center;
     padding: 15px;
+    height: 5vm;
     box-shadow: 1px 1px 3px black;
     z-index: 69;
 }
@@ -25,11 +26,17 @@ nav {
     border-radius: 5%;
 }
 
+nav div{
+    margin-left:  auto;
+    margin-right: auto;
+    display: flex;
+} 
+
 a {
     text-decoration: none;
     color: #4971D8;
-    margin-left: 35px;
-    font-size: 24px;
+    margin-left: 20%;
+    font-size: 2vw;
     font-weight: 900;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -183,16 +190,29 @@ button:active, button:hover {
 }
 
 @media screen and (min-width: 1333px){
+    #left {
+        margin-top: 120px;
+    }
     #right {
         width: 25%;
+        margin-top: 7em;
     }
 }
 
 @media screen and (max-width:1332px) and (min-width: 993px){
+    #left {
+        margin-top: 90px;
+    }
      #right {
         width: 30%;
         margin-left: 30px;
         margin-right: 10px;
+    }
+    a{
+        font-size: x-large;
+    }
+    #caption{
+        font-size: x-large;
     }
 }
 
@@ -202,20 +222,34 @@ button:active, button:hover {
        margin-left: 30px;
        margin-right: 10px;
    }
+   a{
+    font-size: large;
+}
+   #caption{
+    font-size: large;
+}
 }
 
 
 @media screen and (max-width: 768px) {
     #body{ display: grid;} 
+    #caption{
+        font-size: medium;
+    }
+
+    a{
+        font-size: medium;
+    }
+
     #right {
-        width: 70% !important;
+        width: 35em !important;
          order: 1;
          margin-left: auto;
          margin-right: auto;
      }
 
      #left {
-         width: 90% !important;
+         width: 38em !important;
          order: 2;
          margin-left: auto;
          margin-right: auto;
