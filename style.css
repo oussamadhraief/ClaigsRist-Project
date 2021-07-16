@@ -74,10 +74,10 @@ a:hover {
     padding: 10px;
     box-shadow: 1px 1px 5px black;
     margin-top: 85px;
-    margin-left: 50px;
+    margin-left: 30px;
     height: 538px;
     background-color: #5f5f5f;
-    width: 30%;
+    width: 20em;
     border-radius: 1%
 }
 
@@ -90,6 +90,7 @@ a:hover {
 input {
     background-color: rgb(143, 143, 143);
     border-radius: 5%;
+    width: 95%;
     border: 0.5px solid black;
 }
 
@@ -152,6 +153,15 @@ input::placeholder {
     box-shadow: 1px 1px 3px black;
 }
 
+.clickable {
+    background-color: #4971D8;
+    border-radius: 5%;
+    border: none;
+    font-weight: bold;
+    width: 95%;
+    box-shadow: 1px 1px 3px black;
+}
+
 button:active, button:hover {
     background-color: rgb(204, 139, 140);
     cursor: pointer;
@@ -170,4 +180,44 @@ button:active, button:hover {
     color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
+}
+
+@media screen and (min-width: 1333px){
+    #right {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width:1332px) and (min-width: 993px){
+     #right {
+        width: 30%;
+        margin-left: 30px;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width:992px) and (min-width: 769px){
+    #right {
+       width: 30%;
+       margin-left: 30px;
+       margin-right: 10px;
+   }
+}
+
+
+@media screen and (max-width: 768px) {
+    #body{ display: grid;} 
+    #right {
+        width: 70% !important;
+         order: 1;
+         margin-left: auto;
+         margin-right: auto;
+     }
+
+     #left {
+         width: 90% !important;
+         order: 2;
+         margin-left: auto;
+         margin-right: auto;
+     }
 }
