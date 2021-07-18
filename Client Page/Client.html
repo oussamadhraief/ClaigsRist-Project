@@ -12,8 +12,8 @@
 
 <body>
     <div>
-        <div>
-            <nav>
+        <header>
+            <nav id="nav">
                 <div class="navleft">
                     <img id="Logo" src="Logo.png" alt="website logo">
                     <p><span>H</span>eretics <span>S</span>tore</p>
@@ -21,18 +21,21 @@
                 <div class="navright">
                     <a class="space underline" href="#">Explore</a>
                     <a class="space underline" href="MyChart.html">My Chart</a>
-                    <a class="space" href="Login.html"><img class="icon" src="login.png" alt="login icon"></a>
+                    <a class="space" id="margon" href="Login.html"><img class="icon" src="login.png" alt="login icon"></a>
                     <div class="searchbar">
-                    <input type="text" placeholder="Search">
-                    <button id="searchbutt"><img class="iconsearch" src="search.png" alt="search icon"
-                            onclick=""></button>
-                        </div>
+                        <input type="text" placeholder="Search">
+                        <button id="searchbutt"><img class="iconsearch" src="search.png" alt="search icon"
+                                onclick=""></button>
+                    </div>
                 </div>
             </nav>
-        </div>
+        </header>
         <div>
             <div class="container">
-                <img id="banner" class="" src="Game with HERETICS STORE.png" alt="Page Banner">
+                <video id="banner" width="100%" height="auto" loop muted autoplay>
+                    <source src="video.webm" type="video/WEBM">
+                    <source src="video.mp4" type="video/mp4">
+                </video>
                 <div class="products" id="products">
                 </div>
             </div>
@@ -40,5 +43,6 @@
     </div>
 </body>
 <script src="Shop.js"></script>
+<script src="observer.js"></script>
 
 </html>

@@ -1,4 +1,11 @@
-*{
+:root {
+  --dark: #383838;
+  --light: rgb(235, 235, 215);
+  --more: rgb(143, 143, 143);
+  --another: #6971d8;
+}
+
+* {
   box-sizing: border-box;
 }
 
@@ -6,39 +13,47 @@ body {
   margin: 0%;
   padding: 0%;
   overflow-x: hidden;
-  background-color: rgb(235, 235, 215);
+  background-color: var(--light);
 }
-.searchbar{
+
+.searchbar {
   display: flex;
   flex-wrap: nowrap;
 }
 
 nav {
+  --fornav: transparent;
+
   position: fixed;
   width: 100%;
   padding: 5px;
-  background-color: #4971D8;
-  border-bottom: 3px solid #fed361;
+  background-color: var(--fornav);
   min-height: 60px;
+  border-bottom: 2px solid var(--more);
   z-index: 7;
+  transition: background 250ms ease-in;
+}
+
+.nav-scrolled {
+  --fornav: #383838;
+  border-bottom: 3px solid var(--more);
 }
 
 span {
-  color: #fed361;
+  color: #dfba53;
 }
 
 a {
   text-decoration: none;
-  color: #f2f2c9;
-  font-size: small;
-  font-weight: 500;
+  color: rgb(235, 235, 215);
+  font-size: xx-small;
 }
 
 #searchbutt {
   margin: 2.4% 15px 3% 0px;
   height: 49%;
   background-color: rgba(255, 255, 255, 0);
-  border-bottom: 3px solid #f2f2c9;
+  border-bottom: 2px solid var(--light);
   border-top: none;
   border-left: none;
   border-right: none;
@@ -46,10 +61,10 @@ a {
 
 input {
   font-size: large;
-  font-weight: 700;
-  margin: 8% 0px 15px 15px;
+  font-weight: 500;
+  margin: 8.4% 0px 15px 15px;
   height: 22%;
-  border-bottom: 3px solid #f2f2c9;
+  border-bottom: 2px solid rgb(235, 235, 215);
   border-top: none;
   border-left: none;
   border-right: none;
@@ -57,9 +72,10 @@ input {
 }
 
 input::placeholder {
-  color: #f2f2c9;
-  font-size: medium;
-  font-weight: 700;
+  color: rgb(235, 235, 215);
+  font-size: small;
+  font-weight: 500;
+  margin: 1px;
 }
 
 .iconsearch {
@@ -79,10 +95,9 @@ input::placeholder {
 }
 
 .underline:hover,
-.underline:active,
-.underline:visited {
-  border-bottom: 3px solid rgb(242, 242, 201);
-  color: #fed361;
+.underline:active {
+  border-bottom: 3px solid var(--more);
+  color: var(--more);
 }
 
 #Logo {
@@ -98,8 +113,8 @@ input::placeholder {
 }
 
 .space {
-  font-size: large;
-  font-weight: 900;
+  font-size: small;
+  font-weight: 0;
   margin: 12px 15px 10px 15px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 5px;
@@ -107,7 +122,7 @@ input::placeholder {
 
 nav div p {
   font-size: x-large;
-  color: #f2f2c9;
+  color: rgb(235, 235, 215);
   font-weight: 900;
   margin: 0px;
   padding: 10px;
@@ -125,23 +140,16 @@ nav div p {
 }
 
 #banner {
-  width: 60%;
-  margin-top: 9%;
-  margin-bottom: 20px;
-  margin-left: 20%;
-  margin-right: 20%;
-  height: auto;
-  border: 7px solid #4971D8;
-  box-shadow: 7px 7px 13px black;
+  border-bottom: 3px solid var(--more);
 }
 
 .prod1 {
   position: relative;
   width: 95%;
   min-height: 350px;
-  background-color: #4971D8;
-  border: 3px solid #fed361;
-  margin-bottom: 20px;
+  background-color: var(--dark);
+  border: 3px solid rgb(143, 143, 143);
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   padding: 0px;
@@ -154,26 +162,26 @@ nav div p {
   margin-left: 30px;
   padding: 0;
   width: 20%;
-  border: 5px solid #fed361;
+  border: 5px solid rgb(143, 143, 143);
   border-radius: 3%;
 }
 
-.prod1 p{
+.prod1 p {
   float: center;
   margin: 10px 10px 10px 28%;
   padding: 5px;
 }
 
-.const1{
-  color: #fed361;
+.const1 {
+  color: rgb(143, 143, 143);
   font-size: medium;
   font-weight: 500;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.vari1{
+.vari1 {
   font-size: large;
-  color: #f2f2c9;
+  color: var(--light);
   font-weight: 900;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -182,7 +190,7 @@ nav div p {
   position: absolute;
   margin: 0px 0px 0px 60%;
   bottom: 30px;
-  background-color: #fed361;
+  background-color: rgb(143, 143, 143);
   border: none;
   border-radius: 5%;
   padding: 20px;
@@ -194,7 +202,7 @@ nav div p {
 
 .addtochart:hover {
   cursor: pointer;
-  background-color: #dfba53;
+  background-color: var(--another);
 }
 
 .formargin {
@@ -204,116 +212,123 @@ nav div p {
 .hr {
   position: absolute;
   margin: 10px 0px 0px 25%;
-  border-left: 3px solid #fed361;
+  border-left: 3px solid rgb(143, 143, 143);
   height: 85%;
 }
 
-@media screen and (min-width: 1357px){
-  *{
+@media screen and (min-width: 1357px) {
+  * {
     box-sizing: border-box;
   }
+
+  .nav-scrolled {
+    background-color: var(--dark);
+    border-bottom: 3px solid var(--more);
+  }
+
   body {
     margin: 0%;
     padding: 0%;
     overflow-x: hidden;
-    background-color: rgb(235, 235, 215);
+    background-color: var(--light);
   }
-  
+
   nav {
     position: fixed;
     width: 100%;
     padding: 5px;
-    background-color: #4971D8;
-    border-bottom: 3px solid #fed361;
+    background-color: var(--fornav);
     min-height: 60px;
     z-index: 7;
   }
-  
+
   span {
-    color: #fed361;
+    color: #dfba53;
   }
-  
+
   a {
     text-decoration: none;
-    color: #f2f2c9;
-    font-size: small;
-    font-weight: 500;
+    color: rgb(235, 235, 215);
+    font-size: xx-small;
   }
-  
+
   #searchbutt {
     margin: 2.5% 15px 3% 0px;
     height: 45%;
     background-color: rgba(255, 255, 255, 0);
-    border-bottom: 3px solid #f2f2c9;
+    border-bottom: 2px solid rgb(235, 235, 215);
     border-top: none;
     border-left: none;
     border-right: none;
   }
-  
+
   input {
     font-size: large;
-    font-weight: 700;
-    margin: 8% 0px 15px 15px;
+    font-weight: 500;
+    margin: 8.2% 0px 15px 15px;
     height: 20%;
-    border-bottom: 3px solid #f2f2c9;
+    border-bottom: 2px solid rgb(235, 235, 215);
     border-top: none;
     border-left: none;
     border-right: none;
     background-color: rgba(255, 255, 255, 0);
   }
-  
+
   input::placeholder {
-    color: #f2f2c9;
-    font-size: medium;
-    font-weight: 700;
+    color: rgb(235, 235, 215);
+    font-size: small;
+    font-weight: 500;
   }
-  
+
   .iconsearch {
     padding: 0;
     margin: 0;
     height: 100%;
     width: 30px;
   }
-  
+
   .iconsearch:hover {
     cursor: pointer;
   }
-  
+
   .icon {
     height: 30px;
     width: 30px;
   }
-  
+
   .underline:hover,
-  .underline:active,
-  .underline:visited {
-    border-bottom: 3px solid rgb(242, 242, 201);
-    color: #fed361;
+  .underline:active {
+    border-bottom: 3px solid var(--more);
+    color: var(--more);
   }
-  
+
   #Logo {
     width: 40px;
     height: 40px;
     padding: 5px;
     margin: 8px 5px 15px 15px;
   }
-  
+
   .navleft {
     float: left;
     display: flex;
   }
-  
+
+  #margon{
+    margin-top: 15px;
+  }
+
   .space {
-    font-size: large;
-    font-weight: 900;
-    margin: 12px 15px 10px 15px;
+    font-size: small;
+    font-weight: 700;
+    margin: 20px 15px 10px 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 5px;
   }
-  
+
   nav div p {
     font-size: x-large;
-    color: #f2f2c9;
+    color: rgb(235, 235, 215);
     font-weight: 900;
     margin: 0px;
     padding: 10px;
@@ -322,11 +337,11 @@ nav div p {
     margin: 10px 15px 15px 5px;
   }
 
-  .searchbar{
+  .searchbar {
     display: flex;
     flex-wrap: nowrap;
   }
-  
+
   .navright {
     display: flex;
     flex-wrap: wrap;
@@ -335,82 +350,74 @@ nav div p {
     margin-right: 10px;
   }
 
-  #banner {
-    width: 60%;
-    margin-top: 6em;
-    margin-bottom: 20px;
-    margin-left: 20%;
-    margin-right: 20%;
-    height: auto;
-    border: 7px solid #4971D8;
-    box-shadow: 7px 7px 13px black;
-  }
-  
+
   .prod1 {
     position: relative;
     width: 95%;
     min-height: 350px;
-    background-color: #4971D8;
-    border: 3px solid #fed361;
-    margin: 0px 0px 20px 30px;
+    background-color: var(--dark);
+    border: 3px solid rgb(143, 143, 143);
+    margin-top: 30px;
+     margin-left: auto;
+     margin-right: auto;
     padding: 0px;
   }
-  
+
   .prod1 img {
     height: auto;
     margin-top: 20px;
     margin-left: 30px;
     padding: 0;
     width: 15%;
-    border: 5px solid #fed361;
+    border: 5px solid rgb(143, 143, 143);
     border-radius: 3%;
   }
-  
-  .prod1 p{
+
+  .prod1 p {
     float: center;
     margin: 10px 10px 10px 23%;
     padding: 5px;
   }
-  
-  .const1{
-    color: #fed361;
+
+  .const1 {
+    color: var(--light);
     font-size: medium;
     font-weight: 500;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-  
-  .vari1{
+
+  .vari1 {
     font-size: large;
-    color: #f2f2c9;
+    color: rgb(143, 143, 143);
     font-weight: 900;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-  
+
   .addtochart {
     position: absolute;
     margin: 0px 50px 0px 70%;
     bottom: 30px;
-    background-color: #fed361;
+    background-color: var(--more);
     border: none;
     border-radius: 5%;
     padding: 20px;
     font-size: large;
     font-weight: 700;
   }
-  
+
   .addtochart:hover {
     cursor: pointer;
-    background-color: #dfba53;
+    background-color: var(--another);
   }
-  
+
   .formargin {
     margin-top: 20px !important;
   }
-  
+
   .hr {
     position: absolute;
     margin: 10px 0px 0px 20%;
-    border-left: 3px solid #fed361;
+    border-left: 3px solid rgb(143, 143, 143);
     height: 85%;
   }
 }
@@ -449,17 +456,22 @@ nav div p {
   }
 } */
 
-@media screen and (min-width:769px) and (max-width: 992px){
-  .const1{
-    color: #fed361;
+@media screen and (min-width:769px) and (max-width: 992px) {
+  .const1 {
+    color: var(--light);
     font-size: small;
     font-weight: 500;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-  
-  .vari1{
+
+  .nav-scrolled {
+    background-color: var(--dark);
+    border-bottom: 3px solid var(--more);
+  }
+
+  .vari1 {
     font-size: medium;
-    color: #f2f2c9;
+    color: rgb(143, 143, 143);
     font-weight: 900;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -468,7 +480,7 @@ nav div p {
     margin: 1.8% 15px 0% 0px;
     height: 49%;
     background-color: rgba(255, 255, 255, 0);
-    border-bottom: 3px solid #f2f2c9;
+    border-bottom: 2px solid rgb(235, 235, 215);
     border-top: none;
     border-left: none;
     border-right: none;
@@ -482,190 +494,182 @@ nav div p {
     margin-right: 10px;
   }
 
-  
-  .searchbar{
+
+  .searchbar {
     display: flex;
     flex-wrap: nowrap;
   }
 
   input {
     font-size: large;
-    font-weight: 700;
-    margin: 8% 0px 15px 15px;
+    font-weight: 500;
+    margin: 8.5% 0px 15px 15px;
     height: 20%;
-    border-bottom: 3px solid #f2f2c9;
+    border-bottom: 2px solid rgb(235, 235, 215);
     border-top: none;
     border-left: none;
     border-right: none;
     background-color: rgba(255, 255, 255, 0);
   }
-  
+
   input::placeholder {
-    color: #f2f2c9;
-    font-size: medium;
-    font-weight: 700;
+    color: rgb(235, 235, 215);
+    font-size: small;
+    font-weight: 500;
   }
-  
+
   .iconsearch {
     padding: 0;
     margin: 0;
     height: 100%;
     width: 30px;
   }
-  .hr {
-    height: 0px;
-  }
-  #banner {
-    margin-top: 15%;
-  }
-}
 
-@media screen and (max-width: 768px) and (min-width: 571px){
-  .const1{
-    color: #fed361;
-    font-size: x-small;
-    font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .vari1{
-    font-size: small;
-    color: #f2f2c9;
-    font-weight: 700;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  .prod1{
-    display: grid;
-  }
-
-  .navright {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    float: right;
-    margin-right: 10px;
-  }
-
-
-  .searchbar{
-    display: flex;
-    flex-wrap: nowrap;
-  }
-
-  .prod1 img {
-    height: auto;
-    margin-right: 30%;
-    margin-left: 30%;
-    padding: 0;
-    width: 40%;
-    border: 5px solid #fed361;
-    border-radius: 3%;
-  }
-  .addtochart{
-    margin-left: 70%;
-  }
-  #banner {
-    margin-top: 11em;
-  }
   .hr {
     height: 0px;
   }
 }
+  @media screen and (max-width: 768px) and (min-width: 571px) {
+    .const1 {
+      color: var(--light);
+      font-size: x-small;
+      font-weight: 500;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-@media screen and (max-width: 570px){
-  .const1{
-    color: #fed361;
-    font-size: xx-small;
-    font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .vari1{
-    font-size: x-small;
-    color: #f2f2c9;
-    font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  .navright {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    float: right;
-    margin-right: 10px;
-  }
 
-  .searchbar{
-    display: flex;
-    flex-wrap: nowrap;
-  }
-  #banner {
-    margin-top: 12em;
-  }
-  .hr {
-    height: 0px;
-  }
-  .prod1{
-    display: grid;
-  }
+    .vari1 {
+      font-size: small;
+      color: rgb(143, 143, 143);
+      font-weight: 700;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-  .searchbar{
-    display: flex;
-    flex-wrap: nowrap;
-  }
+    .prod1 {
+      display: grid;
+    }
 
-  .prod1 img {
-    height: auto;
-    margin-right: 30%;
-    margin-left: 30%;
-    padding: 0;
-    width: 40%;
-    border: 5px solid #fed361;
-    border-radius: 3%;
-  }
-  .prod1 p {
-    margin-left: 10%;
+    .navright {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      float: right;
+      margin-right: 10px;
+    }
+
+
+    .searchbar {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+
+    .prod1 img {
+      height: auto;
+      margin-right: 30%;
+      margin-left: 30%;
+      padding: 0;
+      width: 40%;
+      border: 5px solid var(--more);
+      border-radius: 3%;
+    }
+
+    .addtochart {
+      margin-left: 70%;
+    }
+
+    .hr {
+      height: 0px;
+    }
   }
 
-  .addtochart{
-    margin-left: 60%;
-  }
-  #banner {
-    margin-top: 11em;
-  }
-  .hr {
-    height: 0px;
-  }
-} 
+  @media screen and (max-width: 570px) {
+    .const1 {
+      color: var(--light);
+      font-size: xx-small;
+      font-weight: 500;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-@media screen and (max-width: 631px){
-  #searchbutt {
-    margin-top: 2.4% !important;
+    .vari1 {
+      font-size: x-small;
+      color: rgb(143, 143, 143);
+      font-weight: 500;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navright {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      float: right;
+      margin-right: 10px;
+    }
+
+    input {
+      margin-top: 8.2%;
+    }
+
+    .searchbar {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+
+    .hr {
+      height: 0px;
+    }
+
+    .prod1 {
+      display: grid;
+    }
+
+    .searchbar {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+
+    .prod1 img {
+      height: auto;
+      margin-right: 30%;
+      margin-left: 30%;
+      padding: 0;
+      width: 40%;
+      border: 5px solid var(--more);
+      border-radius: 3%;
+    }
+
+    .prod1 p {
+      margin-left: 10%;
+    }
+
+    .addtochart {
+      margin-left: 60%;
+    }
+
+    .hr {
+      height: 0px;
+    }
   }
 
-  #banner {
-    
-    margin-top: 14em !important;
+  @media screen and (max-width: 631px) {
+    #searchbutt {
+      margin-top: 2.4% !important;
+    }
+
+
   }
 
-}
+  @media screen and (max-width: 433px) {
+    .info {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
-@media screen and (max-width: 888px) and (min-width: 769px){
-  #banner {
-    margin-top: 14em !important;
-  }
-}
 
-@media screen and (max-width: 433px){
-  .info{
-    display: flex;
-    flex-wrap: wrap;
-  }
-.addtochart{
-  margin-left: 50% !important;
-  padding: 10px;
-  bottom: 15px;
-  font-weight: 500;
-  width: 40%;
-}
-
+    .addtochart {
+      margin-left: 50% !important;
+      padding: 10px;
+      bottom: 15px;
+      font-weight: 500;
+      width: 40%;
+    }
 }
