@@ -21,6 +21,10 @@ body {
   flex-wrap: nowrap;
 }
 
+#menu-icon {
+  display: none;
+}
+
 footer {
   width: 100%;
   background-color: var(--dark);
@@ -458,41 +462,8 @@ nav div p {
   }
 }
 
-/* @media screen and (max-width: 884px) and (min-width:746){
-  #banner {
-    margin-top: 20% !important;
-  }
-}
-
-@media screen and (max-width: 745px) and (min-width:636){
-  #banner {
-    margin-top: 30% !important;
-  }
-}
-
-@media screen and (max-width: 635px) and (min-width:506){
-  #banner {
-    margin-top: 40% !important;
-  }
-}
-
-@media screen and (max-width: 505px) and (min-width:746){
-  #banner {
-    margin-top: 50% !important;
-  }
-}
-@media screen and (max-width: 400px) and (min-width:301){
-  #banner {
-    margin-top: 60% !important;
-  }
-}
-@media screen and (max-width: 300px){
-  #banner {
-    margin-top: 70% !important;
-  }
-} */
-
 @media screen and (min-width:769px) and (max-width: 992px) {
+  
   .const1 {
     color: var(--light);
     font-size: small;
@@ -512,59 +483,47 @@ nav div p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
-  #searchbutt {
-    margin: 1.8% 15px 0% 0px;
-    height: 49%;
-    background-color: rgba(255, 255, 255, 0);
-    border-bottom: 2px solid rgb(235, 235, 215);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-  }
-
-  .navright {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    float: right;
-    margin-right: 10px;
-  }
-
-
-  .searchbar {
-    display: flex;
-    flex-wrap: nowrap;
-  }
-
-  input {
-    font-size: large;
-    font-weight: 500;
-    margin: 8.5% 0px 15px 15px;
-    height: 20%;
-    border-bottom: 2px solid rgb(235, 235, 215);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background-color: rgba(255, 255, 255, 0);
-  }
-
-  input::placeholder {
-    color: rgb(235, 235, 215);
-    font-size: small;
-    font-weight: 500;
-  }
-
-  .iconsearch {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    width: 30px;
-  }
-
   .hr {
     height: 0px;
   }
 }
+
+  @media screen and (max-width: 992px) {
+    .navright {
+      margin-top: 5%;
+      display: none;
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .navright div input {
+      margin: 0;
+    }
+  
+    input {
+      height: 31.4px;
+    }
+
+    .navright div img {
+      margin: 0;
+    }
+  
+    #menu-icon {
+    margin-top: 2%;
+    margin-right: 5%;
+    display: grid;
+    float: right;
+    }
+    
+    #menu-icon:hover {
+      cursor: pointer;
+    }
+  
+    .navright > * {
+      height: 50px;
+    }  
+  }
+
   @media screen and (max-width: 768px) and (min-width: 571px) {
     .const1 {
       color: var(--light);
@@ -583,20 +542,6 @@ nav div p {
 
     .prod1 {
       display: grid;
-    }
-
-    .navright {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-      float: right;
-      margin-right: 10px;
-    }
-
-
-    .searchbar {
-      display: flex;
-      flex-wrap: nowrap;
     }
 
     .prod1 img {
@@ -633,23 +578,7 @@ nav div p {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    .navright {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-      float: right;
-      margin-right: 10px;
-    }
-
-    input {
-      margin-top: 8.2%;
-    }
-
-    .searchbar {
-      display: flex;
-      flex-wrap: nowrap;
-    }
-
+    
     .hr {
       height: 0px;
     }
@@ -684,14 +613,6 @@ nav div p {
     .hr {
       height: 0px;
     }
-  }
-
-  @media screen and (max-width: 631px) {
-    #searchbutt {
-      margin-top: 2.4% !important;
-    }
-
-
   }
 
   @media screen and (max-width: 433px) {
