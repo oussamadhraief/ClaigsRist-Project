@@ -27,6 +27,25 @@ footer {
   min-height: 40px;
   margin-top: 20px;
   border-top: 3px solid var(--more);
+  bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+footer div {
+  margin-right: 20px;
+  min-width: 20%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+footer div a {
+  margin-right: 10%;
+}
+
+.nomarg  {
+  margin-top: 3px;
 }
 
 footer a {
@@ -34,7 +53,6 @@ footer a {
   color: var(--light);
   font-size: medium;
   font-weight: 500;
-  float: left;
   margin-top: 10px;
   margin-left: 10px;
 }
@@ -122,7 +140,7 @@ input::placeholder {
   width: 40px;
   height: 40px;
   padding: 5px;
-  margin: 8px 5px 15px 15px;
+  margin: 5% 5px 15px 15px;
 }
 
 .navleft {
@@ -324,7 +342,7 @@ nav div p {
     width: 40px;
     height: 40px;
     padding: 5px;
-    margin: 8px 5px 15px 15px;
+    margin: 5% 5px 15px 15px;
   }
 
   .navleft {
