@@ -1,14 +1,14 @@
-const mq= window.matchMedia("(max-width: 992px)");
+const mq = window.matchMedia("(max-width: 992px)");
 
-if (mq.matches){
+if (mq.matches) {
     const mainNav = document.querySelector(".navright");
     const menuIcon = document.querySelector("#menu-icon");
 
-    menuIcon.addEventListener("click", function(){
-        if(mainNav.style.display != "grid"){
+    menuIcon.addEventListener("click", function () {
+        if (mainNav.style.display != "grid") {
             mainNav.style.display = "grid";
-        }else {
-            mainNav.style.display ="None";
+        } else {
+            mainNav.style.display = "None";
         }
     });
 }

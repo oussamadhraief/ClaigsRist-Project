@@ -494,6 +494,7 @@ nav div p {
       display: none;
       flex-direction: column;
       text-align: center;
+      transition: display 250ms ease-out;
     }
   
     .navright div input {
@@ -569,6 +570,10 @@ nav div p {
   }
 
   @media screen and (max-width: 570px) {
+    #banner {
+      margin-top: 10px;
+    }
+
     .const1 {
       color: var(--light);
       font-size: xx-small;
