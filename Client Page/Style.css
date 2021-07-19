@@ -588,11 +588,6 @@ nav div p {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    .nav-scrolled {
-      --fornav: #383838;
-      border-bottom: 3px solid var(--more);
-    }
-    
     .hr {
       height: 0px;
     }
@@ -633,11 +628,6 @@ nav div p {
     .info {
       display: flex;
       flex-wrap: wrap;
-    }
-
-    .nav-scrolled {
-      --fornav: #383838;
-      border-bottom: 3px solid var(--more);
     }
 
     .addtochart {
