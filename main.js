@@ -1,5 +1,5 @@
 // useless();
-displayProducts(products);
+displayProducts();
 
 
 document.querySelector("#form").addEventListener("submit", function (e) {
@@ -11,6 +11,6 @@ document.querySelector("#form").addEventListener("submit", function (e) {
 document.querySelector("#saveButton").addEventListener("click", function (e) {
     e.preventDefault();
     handleSaveProduct(bruh);
-    displayProducts(products);
+    displayProducts();
     handleResetButton();
 });

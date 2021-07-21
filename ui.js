@@ -1,3 +1,5 @@
+// I used Firebase in this version of my website
+
 function productBox({
     id,
     name,
@@ -18,37 +20,27 @@ function productBox({
     `;
 }
 
-function createProducts(thisarr, hyper) {
 
-    for (let w = 0; w < hyper.length; w++) {
-        thisarr.push(hyper[w]);
-    }
-    return thisarr;
+function displayProducts() {
+    ref.on("value", gotData, errData);
 }
 
-function displayProducts(products) {
+function errData(error) {
+    console.log(error.message, error.code);
+}
 
+function gotData(data) {
     let productsElement = document.querySelector("#left");
     productsElement.innerHTML = "";
-    if (localStorage.length > 0) {
-        if (products.length < localStorage.length && edited == false) {
-            hyper = JSON.parse(localStorage.getItem("Table"));
-            for (let w = 0; w < hyper.length; w++) {
-                products.push(hyper[w]);
-            }
-        } else {
-            localStorage.setItem("Table", JSON.stringify(products));
+    if (data.exists()) {
+        data = data.val();
+        let keys = Object.keys(data);
+        globalThis.x = data[keys[keys.length - 1]].id + 1;
+        for (let a = 0; a < keys.length; a++) {
+            productsElement.innerHTML += productBox(data[keys[a]]);
         }
     } else {
-        let whatever=[];
-        localStorage.setItem("Table", JSON.stringify(whatever));
-
-    }
-    console.log(products);
-    if (products.length > 0 && products[0] !== 0) {
-        for (let c = 0; c < products.length; c++) {
-            productsElement.innerHTML += productBox(products[c]);
-        }
+        globalThis.x = 0;
     }
 }
 
@@ -69,7 +61,6 @@ function addProduct({
     quantity,
     picture
 }) {
-    x = products.length;
     let newProduct = {
         id: x,
         name: name,
@@ -77,17 +68,12 @@ function addProduct({
         quantity: quantity,
         picture: picture,
     };
-    if (products[0] !== 0) {
-        products.push(newProduct);
-    } else {
-        products.length = 0;
-        products.push(newProduct);
-    }
+    ref.push(newProduct);
 }
 
 function handleCreateButton() {
     addProduct(getFormData());
-    displayProducts(products);
+    displayProducts();
 }
 
 function handleResetButton() {
@@ -99,11 +85,22 @@ function handleResetButton() {
 
 function addToForm(id) {
     handleResetButton();
-    document.querySelector("#name").value = products[id].name;
-    document.querySelector("#price").value = products[id].price;
-    document.querySelector("#quantity").value = products[id].quantity;
-    document.querySelector("#picture").value = products[id].picture;
-    globalThis.bruh = id;
+    ref.on("value", getData, errData);
+
+    function getData(data) {
+        data = data.val();
+        let keys = Object.keys(data);
+        for (let j = 0; j < keys.length; j++) {
+            if (data[keys[j]].id == id) {
+                globalThis.fbi = keys[j];
+            }
+        }
+        document.querySelector("#name").value = data[fbi].name;
+        document.querySelector("#price").value = data[fbi].price;
+        document.querySelector("#quantity").value = data[fbi].quantity;
+        document.querySelector("#picture").value = data[fbi].picture;
+        globalThis.bruh = id;
+    }
 }
 
 function handleSaveProduct(bruh) {
@@ -114,21 +111,37 @@ function handleSaveProduct(bruh) {
         quantity: parseInt(document.querySelector("#quantity").value),
         picture: document.querySelector("#picture").value,
     };
-    products[bruh] = saveVal;
-}
+    ref.on("value", geteData, errData);
 
-function handleDeleteButton(bruh) {
-    let conf;
-    conf = confirm("Are you sure you want to delete this product ?", "confirm");
-    edited = false;
-    if (conf == true) {
-        products.splice(bruh, 1);
-        if (products.length > 0) {
-            for (let z = bruh; z < products.length; z++) {
-                products[z].id = products[z].id -1;
+    function geteData(data) {
+        data = data.val();
+        let keys = Object.keys(data);
+        for (let i = 0; i < keys.length; i++) {
+            if (data[keys[i]].id == bruh) {
+                database.ref("Products/" + keys[i]).update(saveVal);
             }
         }
-        edited= true;
-        displayProducts(products);
     }
+}
+
+function handleDeleteButton(bro) {
+    let conf;
+    conf = confirm("Are you sure you want to delete this product ?", "confirm");
+    if (conf) {
+        let r = true;
+        ref.on("value", geatData, errData);
+
+        function geatData(data) {
+            if (r) {
+                data = data.val();
+                let keys = Object.keys(data);
+                for (let index = 0; index < keys.length; index++) {
+                    if (data[keys[index]].id == bro) {
+                        ref.child(keys[index]).remove().then(r = false).catch(console.log("gg"));
+                    }
+                }
+            }
+        }
+    }
+    displayProducts();
 }
