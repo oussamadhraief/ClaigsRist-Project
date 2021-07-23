@@ -108,6 +108,10 @@ a {
   padding: 5px 5px 3px 5px;
 }
 
+.searchTerm::placeholder {
+  color: var(--light);
+}
+
 .sb-example-1 .searchTerm {
   width: 100%;
   border: 3px solid var(--light);
