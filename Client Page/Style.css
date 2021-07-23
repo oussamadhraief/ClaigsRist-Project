@@ -89,44 +89,48 @@ a {
   font-size: xx-small;
 }
 
-#searchbutt {
-  margin: 2.4% 15px 3% 0px;
-  height: 49%;
-  background-color: rgba(255, 255, 255, 0);
-  border-bottom: 2px solid var(--light);
-  border-top: none;
+.sb-example-1 .search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.search button {
+  background-color: transparent;
+  outline: none;
+  border: 3px solid var(--light);
   border-left: none;
+  padding: 5px;
+  border-radius: 0px 5px 5px 0px;
+  height: max-content;
+  margin-top: 23px;
+  padding: 5px 5px 3px 5px;
+}
+
+.sb-example-1 .searchTerm {
+  width: 100%;
+  border: 3px solid var(--light);
   border-right: none;
+  padding: 5px;
+  height: 37px;
+  margin-top: 23px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: var(--light);
+  background-color: transparent;
 }
-
-input {
-  font-size: large;
-  font-weight: 500;
-  margin: 8.4% 0px 15px 15px;
-  height: 22%;
-  border-bottom: 2px solid rgb(235, 235, 215);
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  background-color: rgba(255, 255, 255, 0);
+.sb-example-1 .searchTerm:focus{
+  color: var(--light);
 }
-
-input::placeholder {
-  color: rgb(235, 235, 215);
-  font-size: small;
-  font-weight: 500;
-  margin: 1px;
-}
-
-.iconsearch {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  width: 30px;
-}
-
-.iconsearch:hover {
+.sb-example-1 #search-icon {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  text-align: center;
+  border-radius: 0 5px 5px 0;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .icon {
@@ -290,45 +294,6 @@ nav div p {
     text-decoration: none;
     color: rgb(235, 235, 215);
     font-size: xx-small;
-  }
-
-  #searchbutt {
-    margin: 2.5% 15px 3% 0px;
-    height: 45%;
-    background-color: rgba(255, 255, 255, 0);
-    border-bottom: 2px solid rgb(235, 235, 215);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-  }
-
-  input {
-    font-size: large;
-    font-weight: 500;
-    margin: 8.2% 0px 15px 15px;
-    height: 20%;
-    border-bottom: 2px solid rgb(235, 235, 215);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background-color: rgba(255, 255, 255, 0);
-  }
-
-  input::placeholder {
-    color: rgb(235, 235, 215);
-    font-size: small;
-    font-weight: 500;
-  }
-
-  .iconsearch {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    width: 30px;
-  }
-
-  .iconsearch:hover {
-    cursor: pointer;
   }
 
   .icon {
@@ -495,14 +460,6 @@ nav div p {
     flex-direction: column;
     text-align: center;
     transition: display 250ms ease-out;
-  }
-
-  .navright div input {
-    margin: 0;
-  }
-
-  input {
-    height: 31.4px;
   }
 
   .navright div img {

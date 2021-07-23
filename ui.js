@@ -31,7 +31,7 @@ function errData(error) {
 
 function gotData(data) {
     let productsElement = document.querySelector("#left");
-    productsElement.innerHTML = "";
+    productsElement.innerHTML = `<button id="json-button">Download products</button>`;
     if (data.exists()) {
         data = data.val();
         let keys = Object.keys(data);
@@ -143,4 +143,8 @@ function handleDeleteButton(bro) {
         ref.child(delVar).remove();
     }
     displayProducts();
+}
+
+function handleDownloadButton(){
+    const fs = require ('fs');
 }
