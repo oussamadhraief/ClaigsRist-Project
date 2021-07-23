@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(60deg,  #4971D8 , rgba(104, 214, 209, 0.665)) ;
+    background-image: linear-gradient(60deg, #4971D8, rgba(104, 214, 209, 0.665));
     margin: 0;
     padding: 0;
 }
@@ -26,11 +26,11 @@ nav {
     border-radius: 5%;
 }
 
-nav div{
-    margin-left:  auto;
+nav div {
+    margin-left: auto;
     margin-right: auto;
     display: flex;
-} 
+}
 
 a {
     text-decoration: none;
@@ -64,7 +64,7 @@ a:hover {
     border-radius: 15px;
     box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.494);
     background: #5f5f5f;
-   
+
 }
 
 .prod {
@@ -131,14 +131,14 @@ input::placeholder {
     padding: 0px;
 }
 
-.delicon{
+.delicon {
     background-color: rgba(240, 248, 255, 0);
     position: absolute;
     border: none;
     bottom: 80px;
     left: 100px;
     margin: 0px;
-    padding: 0px; 
+    padding: 0px;
 }
 
 .icon {
@@ -148,7 +148,7 @@ input::placeholder {
     bottom: 80px;
     left: 130px;
     margin: 0px;
-    padding: 0px; 
+    padding: 0px;
 }
 
 .click {
@@ -169,7 +169,8 @@ input::placeholder {
     box-shadow: 1px 1px 3px black;
 }
 
-button:active, button:hover {
+button:active,
+button:hover {
     background-color: rgb(204, 139, 140);
     cursor: pointer;
 }
@@ -189,69 +190,78 @@ button:active, button:hover {
     font-weight: 500;
 }
 
-@media screen and (min-width: 1333px){
+@media screen and (min-width: 1333px) {
     #left {
         margin-top: 120px;
     }
+
     #right {
         width: 25%;
         margin-top: 7em;
     }
 }
 
-@media screen and (max-width:1332px) and (min-width: 993px){
+@media screen and (max-width:1332px) and (min-width: 993px) {
     #left {
         margin-top: 90px;
     }
-     #right {
+
+    #right {
         width: 30%;
         margin-left: 30px;
         margin-right: 10px;
     }
-    a{
+
+    a {
         font-size: x-large;
     }
-    #caption{
+
+    #caption {
         font-size: x-large;
     }
 }
 
-@media screen and (max-width:992px) and (min-width: 769px){
+@media screen and (max-width:992px) and (min-width: 769px) {
     #right {
-       width: 30%;
-       margin-left: 30px;
-       margin-right: 10px;
-   }
-   a{
-    font-size: large;
-}
-   #caption{
-    font-size: large;
-}
+        width: 30%;
+        margin-left: 30px;
+        margin-right: 10px;
+    }
+
+    a {
+        font-size: large;
+    }
+
+    #caption {
+        font-size: large;
+    }
 }
 
 
 @media screen and (max-width: 768px) {
-    #body{ display: grid;} 
-    #caption{
+    #body {
+        display: grid;
+    }
+
+    #caption {
         font-size: medium;
     }
 
-    a{
+    a {
         font-size: medium;
     }
 
     #right {
         width: 6vm !important;
-         order: 1;
-         margin-left: auto;
-         margin-right: auto;
-     }
+        order: 1;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-     #left {
-         width: 80% !important;
-         order: 2;
-         margin-left: 10%;
-         margin-right: 10%;
-     }
+    #left {
+        width: 80% !important;
+        order: 2;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }

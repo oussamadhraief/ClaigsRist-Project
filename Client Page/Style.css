@@ -48,7 +48,7 @@ footer div a {
   margin-right: 10%;
 }
 
-.nomarg  {
+.nomarg {
   margin-top: 3px;
 }
 
@@ -343,7 +343,7 @@ nav div p {
   }
 
   #Logo {
-     width: 40px;
+    width: 40px;
     height: 40px;
     padding: 5px;
     margin: 5% 5px 15px 15px;
@@ -354,7 +354,7 @@ nav div p {
     display: flex;
   }
 
-  #margon{
+  #margon {
     margin-top: 15px;
   }
 
@@ -398,8 +398,8 @@ nav div p {
     background-color: var(--dark);
     border: 3px solid rgb(143, 143, 143);
     margin-top: 30px;
-     margin-left: auto;
-     margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0px;
   }
 
@@ -463,7 +463,7 @@ nav div p {
 }
 
 @media screen and (min-width:769px) and (max-width: 992px) {
-  
+
   .const1 {
     color: var(--light);
     font-size: small;
@@ -488,153 +488,153 @@ nav div p {
   }
 }
 
-  @media screen and (max-width: 992px) {
-    .navright {
-      margin-top: 5%;
-      display: none;
-      flex-direction: column;
-      text-align: center;
-      transition: display 250ms ease-out;
-    }
-  
-    .navright div input {
-      margin: 0;
-    }
-  
-    input {
-      height: 31.4px;
-    }
+@media screen and (max-width: 992px) {
+  .navright {
+    margin-top: 5%;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    transition: display 250ms ease-out;
+  }
 
-    .navright div img {
-      margin: 0;
-    }
-  
-    #menu-icon {
+  .navright div input {
+    margin: 0;
+  }
+
+  input {
+    height: 31.4px;
+  }
+
+  .navright div img {
+    margin: 0;
+  }
+
+  #menu-icon {
     margin-top: 2%;
     margin-right: 5%;
     display: grid;
     float: right;
-    }
-    
-    #menu-icon:hover {
-      cursor: pointer;
-    }
-  
-    .navright > * {
-      height: 50px;
-    }  
   }
 
-  @media screen and (max-width: 768px) and (min-width: 571px) {
-    .const1 {
-      color: var(--light);
-      font-size: x-small;
-      font-weight: 500;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .nav-scrolled {
-      --fornav: #383838;
-      border-bottom: 3px solid var(--more);
-    }
-
-
-    .vari1 {
-      font-size: small;
-      color: rgb(143, 143, 143);
-      font-weight: 700;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .prod1 {
-      display: grid;
-    }
-
-    .prod1 img {
-      height: auto;
-      margin-right: 30%;
-      margin-left: 30%;
-      padding: 0;
-      width: 40%;
-      border: 5px solid var(--more);
-      border-radius: 3%;
-    }
-
-    .addtochart {
-      margin-left: 70%;
-    }
-
-    .hr {
-      height: 0px;
-    }
+  #menu-icon:hover {
+    cursor: pointer;
   }
 
-  @media screen and (max-width: 570px) {
-    #banner {
-      margin-top: 10px;
-    }
+  .navright>* {
+    height: 50px;
+  }
+}
 
-    .const1 {
-      color: var(--light);
-      font-size: xx-small;
-      font-weight: 500;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .vari1 {
-      font-size: x-small;
-      color: rgb(143, 143, 143);
-      font-weight: 500;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .hr {
-      height: 0px;
-    }
-
-    .prod1 {
-      display: grid;
-    }
-
-    .searchbar {
-      display: flex;
-      flex-wrap: nowrap;
-    }
-
-    .prod1 img {
-      height: auto;
-      margin-right: 30%;
-      margin-left: 30%;
-      padding: 0;
-      width: 40%;
-      border: 5px solid var(--more);
-      border-radius: 3%;
-    }
-
-    .prod1 p {
-      margin-left: 10%;
-    }
-
-    .addtochart {
-      margin-left: 60%;
-    }
-
-    .hr {
-      height: 0px;
-    }
+@media screen and (max-width: 768px) and (min-width: 571px) {
+  .const1 {
+    color: var(--light);
+    font-size: x-small;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
-  @media screen and (max-width: 433px) {
-    .info {
-      display: flex;
-      flex-wrap: wrap;
-    }
+  .nav-scrolled {
+    --fornav: #383838;
+    border-bottom: 3px solid var(--more);
+  }
 
-    .addtochart {
-      margin-left: 50% !important;
-      padding: 10px;
-      bottom: 15px;
-      font-weight: 500;
-      width: 40%;
-    }
+
+  .vari1 {
+    font-size: small;
+    color: rgb(143, 143, 143);
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .prod1 {
+    display: grid;
+  }
+
+  .prod1 img {
+    height: auto;
+    margin-right: 30%;
+    margin-left: 30%;
+    padding: 0;
+    width: 40%;
+    border: 5px solid var(--more);
+    border-radius: 3%;
+  }
+
+  .addtochart {
+    margin-left: 70%;
+  }
+
+  .hr {
+    height: 0px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  #banner {
+    margin-top: 10px;
+  }
+
+  .const1 {
+    color: var(--light);
+    font-size: xx-small;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .vari1 {
+    font-size: x-small;
+    color: rgb(143, 143, 143);
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .hr {
+    height: 0px;
+  }
+
+  .prod1 {
+    display: grid;
+  }
+
+  .searchbar {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .prod1 img {
+    height: auto;
+    margin-right: 30%;
+    margin-left: 30%;
+    padding: 0;
+    width: 40%;
+    border: 5px solid var(--more);
+    border-radius: 3%;
+  }
+
+  .prod1 p {
+    margin-left: 10%;
+  }
+
+  .addtochart {
+    margin-left: 60%;
+  }
+
+  .hr {
+    height: 0px;
+  }
+}
+
+@media screen and (max-width: 433px) {
+  .info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .addtochart {
+    margin-left: 50% !important;
+    padding: 10px;
+    bottom: 15px;
+    font-weight: 500;
+    width: 40%;
+  }
 }

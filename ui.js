@@ -42,7 +42,6 @@ function gotData(data) {
     } else {
         globalThis.x = 0;
     }
-    console.log("gg");
 }
 
 function getFormData() {
@@ -112,25 +111,12 @@ function handleSaveProduct(bruh) {
         quantity: parseInt(document.querySelector("#quantity").value),
         picture: document.querySelector("#picture").value,
     };
-//     ref.on("value", geteData, errData);
-
-//     function geteData(data) {
-//         data = data.val();
-//         let keys = Object.keys(data);
-//         for (let o = 0; o < keys.length; o++) {
-//             if (data[keys[o]].id == bruh) {
-//                 database.ref("Products/" + keys[o]).update(saveVal);
-//                 console.log(o);
-//             }
-
-//     }
-// }
     ref.on("value", (snapshot) => {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
-        for(let o = 0; o < keys.length; o++){
-            if(snapshot[keys[o]].id == bruh){
-            globalThis.saveVar = keys[o];
+        for (let o = 0; o < keys.length; o++) {
+            if (snapshot[keys[o]].id == bruh) {
+                globalThis.saveVar = keys[o];
             }
         }
     });
@@ -154,7 +140,7 @@ function handleDeleteButton(bro) {
                 }
             }
         }
-    ref.child(delVar).remove();
+        ref.child(delVar).remove();
     }
     displayProducts();
 }
