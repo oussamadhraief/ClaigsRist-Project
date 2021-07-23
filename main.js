@@ -11,6 +11,7 @@ document.querySelector("#form").addEventListener("submit", function (e) {
 document.querySelector("#saveButton").addEventListener("click", function (e) {
     e.preventDefault();
     handleSaveProduct(bruh);
+    database.ref("Products/" + saveVar).update(saveVal);
     displayProducts();
     handleResetButton();
 });

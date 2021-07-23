@@ -42,6 +42,7 @@ function gotData(data) {
     } else {
         globalThis.x = 0;
     }
+    console.log("gg");
 }
 
 function getFormData() {
@@ -104,44 +105,56 @@ function addToForm(id) {
 }
 
 function handleSaveProduct(bruh) {
-    let saveVal = {
+    globalThis.saveVal = {
         id: bruh,
         name: document.querySelector("#name").value,
         price: parseInt(document.querySelector("#price").value),
         quantity: parseInt(document.querySelector("#quantity").value),
         picture: document.querySelector("#picture").value,
     };
-    ref.on("value", geteData, errData);
+//     ref.on("value", geteData, errData);
 
-    function geteData(data) {
-        data = data.val();
-        let keys = Object.keys(data);
-        for (let i = 0; i < keys.length; i++) {
-            if (data[keys[i]].id == bruh) {
-                database.ref("Products/" + keys[i]).update(saveVal);
+//     function geteData(data) {
+//         data = data.val();
+//         let keys = Object.keys(data);
+//         for (let o = 0; o < keys.length; o++) {
+//             if (data[keys[o]].id == bruh) {
+//                 database.ref("Products/" + keys[o]).update(saveVal);
+//                 console.log(o);
+//             }
+
+//     }
+// }
+    ref.on("value", (snapshot) => {
+        snapshot = snapshot.val();
+        let keys = Object.keys(snapshot);
+        for(let o = 0; o < keys.length; o++){
+            if(snapshot[keys[o]].id == bruh){
+            globalThis.saveVar = keys[o];
             }
         }
-    }
+    });
 }
+
+
 
 function handleDeleteButton(bro) {
     let conf;
     conf = confirm("Are you sure you want to delete this product ?", "confirm");
     if (conf) {
-        let r = true;
+
         ref.on("value", geatData, errData);
 
         function geatData(data) {
-            if (r) {
-                data = data.val();
-                let keys = Object.keys(data);
-                for (let index = 0; index < keys.length; index++) {
-                    if (data[keys[index]].id == bro) {
-                        ref.child(keys[index]).remove().then(r = false).catch(console.log("gg"));
-                    }
+            data = data.val();
+            let keys = Object.keys(data);
+            for (let index = 0; index < keys.length; index++) {
+                if (data[keys[index]].id == bro) {
+                    globalThis.delVar = keys[index];
                 }
             }
         }
+    ref.child(delVar).remove();
     }
     displayProducts();
 }
