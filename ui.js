@@ -145,22 +145,22 @@ function handleDeleteButton(bro) {
     displayProducts();
 }
 
- function handleDownloadButton() {
-     ref.on("value", (snapshot) => {
+function handleDownloadButton() {
+    ref.on("value", (snapshot) => {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
-         for (let i = 0; i < keys.length; i++) {
+        for (let i = 0; i < keys.length; i++) {
             products.push(snapshot[keys[i]]);
-       }
-     });
+        }
+    });
 
-    download("products.json",JSON.stringify(products))
- }
+    download("products.json", JSON.stringify(products))
+}
 
-function download(filename,text){
+function download(filename, text) {
     var element = document.createElement('a');
     element.style.display = "none";
-    element.setAttribute('href','data:text/plain;charset=utf-8,'+ encodeURIComponent(text));
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
 
     element.setAttribute('download', filename);
     document.body.appendChild(element);

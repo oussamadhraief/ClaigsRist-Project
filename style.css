@@ -101,12 +101,12 @@ a:hover {
     margin: 0;
 }
 
-#form label:hover{
+#form label:hover {
     cursor: pointer;
     background-color: #b59643;
 }
 
-#form label{
+#form label {
     background-color: #dfba53;
     padding: 10px 5px 10px 5px;
     height: fit-content;
@@ -118,7 +118,7 @@ a:hover {
     text-align: center;
 }
 
-input[type="file"]{
+input[type="file"] {
     display: none;
 }
 
@@ -130,7 +130,7 @@ input {
     margin-bottom: 5px;
 }
 
-#form > * {
+#form>* {
     margin-left: auto;
     margin-right: auto;
 }
@@ -323,6 +323,7 @@ button:hover {
         margin-left: 10%;
         margin-right: 10%;
     }
+
     #json-button {
         width: 50%;
         margin-left: 20%;
