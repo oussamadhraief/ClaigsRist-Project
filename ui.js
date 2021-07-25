@@ -154,7 +154,7 @@ function handleDownloadButton() {
         }
     });
 
-    
+
 
     fs.writeFile('./products.json', JSON.stringify(products, null, 2), err => {
         if (err) {

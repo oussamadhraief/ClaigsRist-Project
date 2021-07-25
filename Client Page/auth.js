@@ -3,10 +3,10 @@ const loggedOutLinks = document.querySelectorAll(".logged-out");
 const loggedInLinks = document.querySelectorAll(".logged-in");
 
 const setupUI = (user) => {
-    if(user){
+    if (user) {
         loggedInLinks.forEach(item => item.style.display = "block");
         loggedOutLinks.forEach(item => item.style.display = "none");
-    }else {
+    } else {
         loggedInLinks.forEach(item => item.style.display = "none");
         loggedOutLinks.forEach(item => item.style.display = "block");
     }
@@ -15,9 +15,9 @@ const setupUI = (user) => {
 //Listen for auth status changes
 
 auth.onAuthStateChanged(user => {
-    if(user){
+    if (user) {
         setupUI(user);
-    }else{
+    } else {
         setupUI();
     }
 });
@@ -54,7 +54,7 @@ loginForm.addEventListener("submit", (e) => {
     const email = loginForm['login-email'].value;
     const password = loginForm['login-password'].value;
 
-    auth.signInWithEmailAndPassword(email,password).then(cred => {
+    auth.signInWithEmailAndPassword(email, password).then(cred => {
         const modal = document.querySelector("#modal-login");
         M.Modal.getInstance(modal).close();
         loginForm.reset();
