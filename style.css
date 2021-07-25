@@ -89,8 +89,37 @@ a:hover {
 
 #form {
     display: grid;
-    height: 400px;
+    height: 430px;
     width: 100%;
+}
+
+.label {
+    font-size: small;
+    font-weight: 600;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+#form label:hover{
+    cursor: pointer;
+    background-color: #b59643;
+}
+
+#form label{
+    background-color: #dfba53;
+    padding: 10px 5px 10px 5px;
+    height: fit-content;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px black;
+    text-align: center;
+}
+
+input[type="file"]{
+    display: none;
 }
 
 input {
@@ -98,6 +127,12 @@ input {
     border-radius: 5%;
     width: 95%;
     border: 0.5px solid black;
+    margin-bottom: 5px;
+}
+
+#form > * {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 input::placeholder {
@@ -106,15 +141,17 @@ input::placeholder {
 
 #caption {
     text-align: center;
-    font-size: xx-large;
+    font-size: 30px !important;
     font-weight: 900;
     color: #4971D8;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
 }
 
-#form>* {
-    margin: 10px;
+#form button {
+    margin-bottom: 10px;
 }
+
 
 .editicon {
     height: 25px;
@@ -175,7 +212,9 @@ button:hover {
 }
 
 #resetButton {
-    margin-top: 65px;
+    margin-top: 35px;
+    margin-right: auto;
+    margin-left: 7px;
 }
 
 .butt {
@@ -284,7 +323,6 @@ button:hover {
         margin-left: 10%;
         margin-right: 10%;
     }
-
     #json-button {
         width: 50%;
         margin-left: 20%;
