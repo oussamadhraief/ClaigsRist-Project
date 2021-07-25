@@ -31,7 +31,7 @@ function errData(error) {
 
 function gotData(data) {
     let productsElement = document.querySelector("#left");
-    productsElement.innerHTML = `<button id="json-button">Download products</button>`;
+    productsElement.innerHTML = `<button id="json-button" onclick="handleDownloadButton()">Download products</button>`;
     if (data.exists()) {
         data = data.val();
         let keys = Object.keys(data);
@@ -145,10 +145,23 @@ function handleDeleteButton(bro) {
     displayProducts();
 }
 
-function handleDownloadButton(){
-    try {
+function handleDownloadButton() {
+    ref.on("value", (snapshot) => {
+        snapshot = snapshot.val();
+        let keys = Object.keys(snapshot);
+        for (let i = 0; i < keys.length; i++) {
+            products.push(snapshot[keys[i]]);
+        }
+    });
 
-    } catch(err) {
-        
-    }
+    
+
+    fs.writeFile('./products.json', JSON.stringify(products, null, 2), err => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("File successfully written!");
+        }
+    });
+
 }

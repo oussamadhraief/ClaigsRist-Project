@@ -10,7 +10,14 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-
 let database = firebase.database();
 
-let ref = database.ref("Products");
+let ref =  database.ref("Products");
+
+let products= [];
+
+const auth = firebase.auth();
+
+const fs = require(['browserify-fs'], function (fs) {
+  
+});

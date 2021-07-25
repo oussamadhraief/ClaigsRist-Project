@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "sf": "^0.1.9",
+    "uniq": "^1.0.1"
+  }
+}
