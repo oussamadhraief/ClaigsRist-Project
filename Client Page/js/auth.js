@@ -60,3 +60,8 @@ loginForm.addEventListener("submit", (e) => {
         loginForm.reset();
     });
 })
+
+function handleCloseModal(id){
+    let modal = document.querySelector("#"+id+"");
+    M.Modal.getInstance(modal).close();
+}

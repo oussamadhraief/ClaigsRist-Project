@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClaigsRist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="Style.css" rel="stylesheet">
+    <link href="./css/Style.css" rel="stylesheet">
     <link href="Logo.png" rel="icon">
 </head>
 
@@ -42,6 +42,7 @@
         </header>
         <div id="modal-signup" class="modal">
             <h4>Sign up</h4><br>
+            <a class="close-modal" onClick="handleCloseModal('modal-signup')" href="#">x</a>
             <form id="signup-form">
                 <div class="input-field">
                     <input type="email" id="signup-email" required>
@@ -57,6 +58,7 @@
 
         <div id="modal-login" class="modal">
             <h4>Login</h4><br>
+            <a class="close-modal" onClick="handleCloseModal('modal-login')" href="#">x</a>
             <form id="login-form">
                 <div class="input-field">
                     <input type="email" id="login-email" required>
@@ -72,6 +74,7 @@
 
         <div id="modal-account" class="modal">
             <h4>My account</h4><br>
+            <a class="close-modal" onClick="handleCloseModal('modal-account')" href="#">x</a>
             <div id="account-form">
                 <div id="profile-pic">
                     <img src="https://i2.wp.com/proseawards.com/wp-content/uploads/2015/08/no-profile-pic.png" id="user-pic" alt="profile picture">
@@ -141,12 +144,12 @@
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="index.js"></script>
-<script src="Shop.js"></script>
-<script src="observer.js"></script>
-<script src="menu.js"></script>
-<script src="banner.js"></script>
-<script src="auth.js"></script>
-<script src="search.js"></script>
-<script src="account.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/Shop.js"></script>
+<script src="./js/observer.js"></script>
+<script src="./js/menu.js"></script>
+<script src="./js/banner.js"></script>
+<script src="./js/auth.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/account.js"></script>
 </html>
