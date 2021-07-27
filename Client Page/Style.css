@@ -9,6 +9,26 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0%;
+  padding: 0%;
+  overflow-x: hidden;
+  background-color: var(--light);
+}
+
+.navright a {
+  margin-top: 0% !important;
+  color: var(--light);
+  padding: 0% !important;
+  margin-bottom: 0% !important;
+  height: 10%;
+}
+
+.searchbar {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
 .modal {
   background-color: var(--dark);
   padding: 20px;
@@ -34,29 +54,118 @@
   background-color: #aa8f43;
 }
 
+#profile-pic label:hover {
+  cursor: pointer;
+  background-color: #aa8f43;
+}
+
+#profile-pic {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--light);
+  padding: 7px;
+  position: relative;
+  
+}
+
+#profile-pic img {
+  width: 17%;
+  height: 8em;
+  border-radius: 50%;
+}
+
+#account-email .editicon {
+  height: 30px;
+  width: 30px;
+  margin-top: 1%;
+  margin-left: 79%;
+  position: absolute;
+}
+
+#account-password .editicon {
+  height: 30px;
+  width: 30px;
+  margin-top: 1%;
+  margin-left: 75%;
+  position: absolute;
+}
+
+#account-bio .editicon {
+  height: 30px;
+  width: 30px;
+  margin-top: 1%;
+  margin-left: 81%;
+  position: absolute;
+}
+
+.input-field {
+  position: relative;
+  height: 60px;
+  width: 100%;
+}
+
+#account-form .input-field p {
+  color: var(--light);
+}
+
+#account-form .input-field {
+  border: 1px solid var(--light);
+  display: flex;
+  padding: 5px;
+}
+
+.save-info:hover {
+  cursor: pointer;
+  background-color: #aa8f43;
+}
+
+.save-info {
+  width: 10%;
+  height: auto;
+  padding: 5px;
+  background-color: #dfba53;
+  border: none;
+  border-radius: 5%;
+  margin-top: 1%;
+  margin-left: 79%;
+  position: absolute;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 1px 1px 3px black;
+}
+
+
+#account-email input, #account-password input,#account-bio input {
+  width: 75%;
+}
+
+#account-email label {
+  margin-left: 5px;
+}
+
+#profile-pic label {
+    background-color: #dfba53;
+    color: black;
+    padding: 10px 5px 10px 5px;
+    height: fit-content;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px black;
+    text-align: center;
+    position: relative;
+    margin-top: 7%;
+    margin-left: 5%;
+}
+
+#profilepic {
+  display: none;
+}
+
 h4 {
   color: var(--light);
   text-align: center;
-}
-
-body {
-  margin: 0%;
-  padding: 0%;
-  overflow-x: hidden;
-  background-color: var(--light);
-}
-
-.navright a {
-  margin-top: 0% !important;
-  color: var(--light);
-  padding: 0% !important;
-  margin-bottom: 0% !important;
-  height: 10%;
-}
-
-.searchbar {
-  display: flex;
-  flex-wrap: nowrap;
 }
 
 #signup {
@@ -189,7 +298,7 @@ a {
   outline: none !important;
   color: var(--light) !important;
   background-color: transparent !important;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 .sb-example-1 .searchTerm:focus {
@@ -324,6 +433,22 @@ a {
   margin: 10px 0px 0px 25%;
   border-left: 3px solid rgb(143, 143, 143);
   height: 85%;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
 
 @media screen and (min-width: 1357px) {

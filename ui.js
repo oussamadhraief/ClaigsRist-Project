@@ -150,7 +150,13 @@ function handleDownloadButton() {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
         for (let i = 0; i < keys.length; i++) {
-            products.push(snapshot[keys[i]]);
+            let newObj = {
+                name: snapshot[keys[i]].name,
+                price: snapshot[keys[i]].price,
+                quantity: snapshot[keys[i]].quantity,
+                picture: snapshot[keys[i]].picture,
+            }
+            products.push(newObj);
         }
     });
 

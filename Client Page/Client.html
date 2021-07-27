@@ -22,6 +22,7 @@
                 <div class="navright">
                     <a class="space underline" href="#">Explore</a>
                     <a class="space underline logged-in" href="MyChart.html" style="display: none;">My Chart</a>
+                    <a class="space underline logged-in modal-trigger" href="#" style="display: none;" data-target="modal-account">Account</a>
                     <a class="space underline logged-in" id="logout" href="#" style="display: none;">Logout</a>
                     <a class="space underline logged-out modal-trigger" href="#" data-target="modal-login"
                         style="display: none;">Login</a>
@@ -68,14 +69,59 @@
                 <button class="login-button z-depth-0">Login</button>
             </form>
         </div>
+
+        <div id="modal-account" class="modal">
+            <h4>My account</h4><br>
+            <div id="account-form">
+                <div id="profile-pic">
+                    <img src="https://i2.wp.com/proseawards.com/wp-content/uploads/2015/08/no-profile-pic.png" id="user-pic" alt="profile picture">
+                    <label for="profilepic">Edit your profile picture</label>
+                    <input type="file" id="profilepic" accept="image/png, image/gif, image/jpeg">
+                </div>
+
+                
+
+                <div id="account-email" class="input-field">
+                    <p class="temp" style="display: grid;">Edit your email.</p>
+                    
+                    <input style="display: none;" type="text" class="edit-email" name="edit-email" required>
+                    <label style="display: none;" class="edit-email">Email</label>
+                    <button onClick="handleSaveButton('account-email')" style="display: none;" class="save-info">Save</button>
+                    <a href="#" style="display: grid;" onClick="handleEditButton('account-email')"><img class="editicon" src="edit-form.png" alt="edit"></a>
+                </div>
+
+                
+
+                <div id="account-password" class="input-field">
+                    <p class="temp" style="display: grid;">Edit your password.</p>
+                    
+                    <input style="display: none;" type="text" class="edit-email" name="edit-password" required>
+                    <label style="display: none;" class="edit-email">Password</label>
+                    <button onClick="handleSaveButton('account-password')" style="display: none;" class="save-info">Save</button>
+                    <a href="#" style="display: grid;" onClick="handleEditButton('account-password')"><img class="editicon" src="edit-form.png" alt="edit"></a>
+                </div>
+
+
+
+                <div id="account-bio" class="input-field">
+                    <p class="temp" style="display: grid;">Edit your bio.</p>
+                    
+                    <input style="display: none;" type="text" class="edit-email" name="edit-bio" required>
+                    <label style="display: none;" class="edit-email">Bio</label>
+                    <button onClick="handleSaveButton('account-bio')" style="display: none;" class="save-info">Save</button>
+                    <a href="#" style="display: grid;" onClick="handleEditButton('account-bio')"><img class="editicon" src="edit-form.png" alt="edit"></a>
+                </div>
+        
+            </div>
+           
+        </div>
+
         <video id="banner" width="100%" height="auto" loop muted autoplay>
             <source src="video.webm" type="video/WEBM">
             <source src="video.mp4" type="video/mp4">
         </video>
         <div class="products" id="products">
         </div>
-
-
 
         <footer>
             <a href="../index.html" class="underline">&larr; Go back to Admin Panel</a>
@@ -102,5 +148,5 @@
 <script src="banner.js"></script>
 <script src="auth.js"></script>
 <script src="search.js"></script>
-
+<script src="account.js"></script>
 </html>
