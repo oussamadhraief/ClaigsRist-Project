@@ -17,6 +17,19 @@ const setupUI = (user) => {
 auth.onAuthStateChanged(user => {
     if (user) {
         setupUI(user);
+        database.ref("Users").on("value", (snapshot) => {
+            let emailInput = document.querySelector("#acc-email");
+            let passwordInput = document.querySelector("#acc-password");
+            let bioInput = document.querySelector("#acc-bio");
+            let picInput = document.querySelector("#user-pic");
+
+            snapshot = snapshot.val();
+
+            emailInput.value = user.email;
+            passwordInput.value = user.password;
+            bioInput.value = snapshot[user.uid].bio;
+            picInput.src = snapshot[user.uid].picture;
+        });
     } else {
         setupUI();
     }
@@ -60,8 +73,7 @@ loginForm.addEventListener("submit", (e) => {
     const password = loginForm['login-password'].value;
 
     auth.signInWithEmailAndPassword(email, password).then(cred => {
-        let ref = database.ref("Users/" + cred.user.uid);
-        ref.on("value", (snapshot) => {
+        database.ref("Users").on("value", (snapshot) => {
             let emailInput = document.querySelector("#acc-email");
             let passwordInput = document.querySelector("#acc-password");
             let bioInput = document.querySelector("#acc-bio");
@@ -72,7 +84,7 @@ loginForm.addEventListener("submit", (e) => {
             emailInput.value = email;
             passwordInput.value = password;
             bioInput.value = snapshot[cred.user.uid].bio;
-            picInput.value = snapshot[cred.user.uid].picture;
+            picInput.src = snapshot[cred.user.uid].picture;
         });
         const modal = document.querySelector("#modal-login");
         M.Modal.getInstance(modal).close();
@@ -80,7 +92,7 @@ loginForm.addEventListener("submit", (e) => {
     });
 })
 
-function handleCloseModal(id){
-    let modal = document.querySelector("#"+id+"");
+function handleCloseModal(id) {
+    let modal = document.querySelector("#" + id + "");
     M.Modal.getInstance(modal).close();
 }

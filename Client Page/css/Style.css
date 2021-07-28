@@ -240,6 +240,13 @@ footer a {
   margin-left: 10px;
 }
 
+footer p {
+  margin-top: 10px;
+  color: var(--light);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+}
+
 nav {
   --fornav: transparent;
 
@@ -438,12 +445,6 @@ a {
   margin: 10px 0px 0px 25%;
   border-left: 3px solid rgb(143, 143, 143);
   height: 85%;
-}
-
-footer p {
-  color: var(--light);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 500;
 }
 
 ::-webkit-scrollbar {

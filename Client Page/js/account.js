@@ -17,7 +17,7 @@ function handleEditButton(id){
     let element = document.querySelector("#"+id+"");
     
     for(let i =0; i < element.children.length; i++){
-        console.log(element.children[i].style.width);
+        
         if(element.children[i].style.display == "none" ){
             element.children[i].style.display = "grid";
             
@@ -28,11 +28,11 @@ function handleEditButton(id){
     }
 }
 
-function handleSaveButton(id){
+function saveButtonAppearance(id){
     let element = document.querySelector("#"+id+"");
     
     for(let i =0; i < element.children.length; i++){
-        console.log(element.children[i].style.width);
+        
         if(element.children[i].style.display == "none" ){
             element.children[i].style.display = "grid";
             
@@ -42,3 +42,42 @@ function handleSaveButton(id){
         }
     }
 }
+
+function handleSaveEmail(){
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            let inp = document.querySelector("#acc-email").value;
+            user.updateEmail(inp);
+        }
+});
+}
+
+function handleSavePassword(){
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            let inp = document.querySelector("#acc-password").value;
+            user.updatePassword(inp);
+        }
+});
+}
+
+function handleSaveBio(){
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            let inp = document.querySelector("#acc-bio").value;
+            database.ref("Users/"+ user.uid).update({bio: inp});
+        }
+});
+}
+
+document.querySelector("#save-email").addEventListener("click", () => {
+    handleSaveEmail();
+});
+
+document.querySelector("#save-password").addEventListener("click", () => {
+    handleSavePassword();
+});
+
+document.querySelector("#save-bio").addEventListener("click", () => {
+    handleSaveBio();
+});

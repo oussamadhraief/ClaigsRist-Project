@@ -89,7 +89,7 @@
                     
                     <input style="display: none;" id="acc-email" type="text" class="edit-email" name="edit-email" required>
                     
-                    <button onClick="handleSaveButton('account-email')" style="display: none;" class="save-info">Save</button>
+                    <button onClick="saveButtonAppearance('account-email')" id="save-email" style="display: none;" class="save-info">Save</button>
                     <a href="#" style="display: grid;" onClick="handleEditButton('account-email')"><img class="editicon" src="edit-form.png" alt="edit"></a>
                 </div>
 
@@ -98,9 +98,9 @@
                 <div id="account-password" class="input-field">
                     <p class="temp" style="display: grid;">Edit your password.</p>
                     
-                    <input style="display: none;" id="acc-password" type="text" class="edit-email" name="edit-password" required>
+                    <input style="display: none;" id="acc-password" type="password" class="edit-email" name="edit-password" required>
                     
-                    <button onClick="handleSaveButton('account-password')" style="display: none;" class="save-info">Save</button>
+                    <button onClick="saveButtonAppearance('account-password')" id="save-password" style="display: none;" class="save-info">Save</button>
                     <a href="#" style="display: grid;" onClick="handleEditButton('account-password')"><img class="editicon" src="edit-form.png" alt="edit"></a>
                 </div>
 
@@ -111,7 +111,7 @@
                     
                     <input style="display: none;" id="acc-bio" type="text" class="edit-email" name="edit-bio" required>
                     
-                    <button onClick="handleSaveButton('account-bio')" style="display: none;" class="save-info">Save</button>
+                    <button onClick="saveButtonAppearance('account-bio')" id="save-bio" style="display: none;" class="save-info">Save</button>
                     <a href="#" style="display: grid;" onClick="handleEditButton('account-bio')"><img class="editicon" src="edit-form.png" alt="edit"></a>
                 </div>
         
