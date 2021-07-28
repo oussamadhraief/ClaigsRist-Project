@@ -31,6 +31,11 @@ signupForm.addEventListener("submit", (e) => {
     const password = signupForm['signup-password'].value;
 
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
+        return database.ref("Users/" + cred.user.uid).set({
+            picture: "https://i2.wp.com/proseawards.com/wp-content/uploads/2015/08/no-profile-pic.png",
+            bio: "",
+        });
+    }).then(() => {
         const modal = document.querySelector("#modal-signup");
         M.Modal.getInstance(modal).close();
         signupForm.reset();
@@ -55,6 +60,20 @@ loginForm.addEventListener("submit", (e) => {
     const password = loginForm['login-password'].value;
 
     auth.signInWithEmailAndPassword(email, password).then(cred => {
+        let ref = database.ref("Users/" + cred.user.uid);
+        ref.on("value", (snapshot) => {
+            let emailInput = document.querySelector("#acc-email");
+            let passwordInput = document.querySelector("#acc-password");
+            let bioInput = document.querySelector("#acc-bio");
+            let picInput = document.querySelector("#user-pic");
+
+            snapshot = snapshot.val();
+
+            emailInput.value = email;
+            passwordInput.value = password;
+            bioInput.value = snapshot[cred.user.uid].bio;
+            picInput.value = snapshot[cred.user.uid].picture;
+        });
         const modal = document.querySelector("#modal-login");
         M.Modal.getInstance(modal).close();
         loginForm.reset();

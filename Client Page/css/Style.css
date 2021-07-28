@@ -81,6 +81,10 @@ body {
   border-radius: 50%;
 }
 
+#acc-email, #acc-password, #acc-bio {
+  color: var(--light);
+}
+
 #account-email .editicon {
   height: 30px;
   width: 30px;
@@ -109,6 +113,8 @@ body {
   position: relative;
   height: 60px;
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #account-form .input-field p {
@@ -274,19 +280,17 @@ a {
 }
 
 .search {
-  margin-top: -10px;
+  border: 3px solid var(--light);
+  border-radius: 15px;
+  margin-top: 10px;
 }
 
 .search button {
   background-color: transparent;
-  outline: none;
-  border: 3px solid var(--light);
-  border-left: none;
-  padding: 5px;
-  border-radius: 0px 5px 5px 0px;
+  border: none;
   height: max-content;
-  margin-top: 23px;
-  padding: 5px 5px 3px 5px;
+  margin-top: 2px;
+  padding: 5px;
 }
 
 .searchTerm::placeholder {
@@ -296,13 +300,9 @@ a {
 
 .sb-example-1 .searchTerm {
   width: 100% !important;
-  border: 3px solid var(--light) !important;
-  border-right: none !important;
   padding: 5px !important;
   height: 21px !important;
-  margin-top: 23px !important;
-  border-radius: 5px 0 0 5px !important;
-  outline: none !important;
+  border: none !important;
   color: var(--light) !important;
   background-color: transparent !important;
   box-sizing: content-box;
@@ -424,8 +424,6 @@ a {
   font-weight: 700;
 }
 
-
-
 .addtochart:hover {
   cursor: pointer;
   background-color: var(--another);
@@ -440,6 +438,12 @@ a {
   margin: 10px 0px 0px 25%;
   border-left: 3px solid rgb(143, 143, 143);
   height: 85%;
+}
+
+footer p {
+  color: var(--light);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
 }
 
 ::-webkit-scrollbar {

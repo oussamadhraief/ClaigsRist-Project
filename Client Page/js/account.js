@@ -4,7 +4,10 @@ imgInput.addEventListener("change", function (e) {
     const reader = new FileReader();
     const img = document.querySelector("#user-pic");
     reader.onload = function () {
+        auth.onAuthStateChanged(user => {
+        database.ref("Users/" + user.uid).update({picture: reader.result});
         img.src = reader.result;
+        });
     }
     reader.readAsDataURL(imgInput.files[0]);
 }, false);
