@@ -293,11 +293,42 @@ h4 {
   display: none;
 }
 
+#pages {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.page {
+  margin: 0px 3px 0px 0px !important;
+  padding: 3px 3px 3px 3px !important;
+  border: 1px solid var(--dark);
+  color: var(--dark);
+  font-size: medium;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.page-selected {
+  background-color: var(--dark) !important;
+  color: var(--light) !important;
+  border: 1px solid var(--more) !important;
+}
+
+.page:hover {
+  background-color: var(--dark);
+  color: var(--light);
+  border: 1px solid var(--more);
+  cursor: pointer;
+}
+
 footer {
   width: 100%;
   background-color: var(--dark);
   min-height: 40px;
-  margin-top: 20px;
   border-top: 3px solid var(--more);
   bottom: 0px;
   display: flex;
@@ -436,7 +467,7 @@ a {
   color: rgb(235, 235, 215);
   font-weight: 900;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Slackey', cursive;
   padding: 5px;
 }
 

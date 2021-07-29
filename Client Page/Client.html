@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClaigsRist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
     <link href="./css/Style.css" rel="stylesheet">
     <link href="Logo.png" rel="icon">
 </head>
@@ -41,7 +44,7 @@
                 </div>
             </nav>
         </header>
-        
+
         <div id="modal-signup" class="modal">
             <h4>Sign up</h4><br>
             <a class="close-modal" onClick="handleCloseModal('modal-signup')" href="#">x</a>
@@ -155,7 +158,9 @@
         </video>
         <div class="products" id="products">
         </div>
-
+        <div id="pages">
+            <a href="#" id="page-1" onClick="handlePageButton('page-1',1)" class="page">1</a>
+        </div>
         <footer>
             <a href="../index.html" class="underline">&larr; Go back to Admin Panel</a>
 

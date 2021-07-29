@@ -43,16 +43,73 @@ function productsBox({
 </div>`;
 }
 
-function displayProduct() {
+function displayProduct(start, end) {
   ref.on("value", (snapshot) => {
     snapshot = snapshot.val();
     let keys = Object.keys(snapshot);
     let shopProducts = document.querySelector("#products");
     shopProducts.innerHTML = "";
-    for (let i = 0; i < keys.length; i++) {
-      shopProducts.innerHTML += productsBox(snapshot[keys[i]]);
+
+    if (pageInd == (pagesNumber + 1)) {
+
+      for (let i = start; i < keys.length; i++) {
+        shopProducts.innerHTML += productsBox(snapshot[keys[i]]);
+
+      }
+    } else {
+      for (let i = start; i < end; i++) {
+        shopProducts.innerHTML += productsBox(snapshot[keys[i]]);
+
+      }
     }
   });
 }
 
-displayProduct();
+function handlePageButton(id, pageIndex) {
+  let classRemoval = document.querySelector("#pages");
+  for (let h = 0; h < classRemoval.children.length; h++) {
+    classRemoval.children[h].classList.remove("page-selected");
+  }
+  let selected = document.querySelector("#" + id);
+
+  selected.classList.add("page-selected");
+
+  globalThis.pageInd = pageIndex;
+
+  if (pageIndex == 1) {
+    globalThis.end = 7;
+    globalThis.start = 0;
+  } else {
+    let bannerRemoval = document.querySelector("#banner");
+    let navHeight = document.querySelector("#nav");
+    console.log(navHeight.offsetHeight);
+    bannerRemoval.style.height = navHeight.offsetHeight.toString() + "px";
+   
+    globalThis.end = 7 + ((pageIndex - 1) * 10);
+    globalThis.start = 7 + ((pageIndex - 1) * 10) - 10;
+  }
+
+  displayProduct(start, end);
+}
+
+function displayPages() {
+  ref.on("value", (snapshot) => {
+    snapshot = snapshot.val();
+    let keys = Object.keys(snapshot);
+    let shopPages = document.querySelector("#pages");
+
+    globalThis.pagesNumber = Math.floor((keys.length - 7) / 10);
+
+    if (pagesNumber < ((keys.length - 7) / 10)) {
+      pagesNumber++;
+    }
+
+    for (let j = 0; j < pagesNumber; j++) {
+      shopPages.innerHTML += `<a href="#" id='page-${j+2}' onClick='handlePageButton("page-${j+2}",${j+2})' class="page">${j+2}</p>`
+    }
+  });
+}
+
+displayPages();
+
+handlePageButton("page-1", 1);
