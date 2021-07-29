@@ -2,8 +2,10 @@ const mq1 = window.matchMedia("(max-width: 570px)");
 
 if (mq1.matches) {
     const bannerMarg = document.querySelector("#banner");
-    const navHeight = document.querySelector("#nav");
-    let forstring = navHeight.style.height.toString();
+    let navHeight = document.querySelector("#nav");
 
-    bannerMarg.style.marginTop = forstring + "px";
+    console.log(navHeight.offsetHeight);
+
+    bannerMarg.style.marginTop = navHeight.offsetHeight.toString() + "px";
+    console.log(bannerMarg.style.marginTop);
 }
