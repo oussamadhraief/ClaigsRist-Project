@@ -85,6 +85,10 @@ function handleResetButton() {
 
 function addToForm(id) {
     handleResetButton();
+    let disab = document.querySelector("#saveButton");
+    disab.disabled = false;
+    disab.classList.remove("clickable-save");
+    disab.classList.add("clickable");
     ref.on("value", getData, errData);
 
     function getData(data) {
@@ -111,6 +115,10 @@ function handleSaveProduct(bruh) {
         quantity: parseInt(document.querySelector("#quantity").value),
         picture: document.querySelector("#picture").value,
     };
+    let disab = document.querySelector("#saveButton");
+    disab.disabled = true;
+    disab.classList.add("clickable-save");
+    disab.classList.remove("clickable");
     ref.on("value", (snapshot) => {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);

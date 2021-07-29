@@ -22,7 +22,8 @@
                 <div class="navright">
                     <a class="space underline" href="#">Explore</a>
                     <a class="space underline logged-in" href="MyChart.html" style="display: none;">My Chart</a>
-                    <a class="space underline logged-in modal-trigger" href="#" style="display: none;" data-target="modal-account">Account</a>
+                    <a class="space underline logged-in modal-trigger" href="#" style="display: none;"
+                        data-target="modal-account">Account</a>
                     <a class="space underline logged-in" id="logout" href="#" style="display: none;">Logout</a>
                     <a class="space underline logged-out modal-trigger" href="#" data-target="modal-login"
                         style="display: none;">Login</a>
@@ -77,46 +78,74 @@
             <a class="close-modal" onClick="handleCloseModal('modal-account')" href="#">x</a>
             <div id="account-form">
                 <div id="profile-pic">
-                    <img src="https://i2.wp.com/proseawards.com/wp-content/uploads/2015/08/no-profile-pic.png" id="user-pic" alt="profile picture">
-                    <label for="profilepic">Edit your profile picture</label>
-                    <input type="file" id="profilepic" accept="image/png, image/gif, image/jpeg">
+                    <img src="https://i2.wp.com/proseawards.com/wp-content/uploads/2015/08/no-profile-pic.png"
+                        id="user-pic" alt="profile picture">
+                    <div id="picture-edit">
+                        <label for="profilepic">Edit your profile picture</label>
+                        <input type="file" id="profilepic" accept="image/png, image/gif, image/jpeg">
+                        <a href="#" onClick="handleRemoveButton()" id="remove-picture">Remove picture</a>
+                        <a id="save-picture" onClick="handleSavePicture()" disabled>Save</a>
+                    </div>
                 </div>
 
-                
+
 
                 <div id="account-email" class="input-field">
                     <p class="temp" style="display: grid;">Edit your email.</p>
-                    
-                    <input style="display: none;" id="acc-email" type="text" class="edit-email" name="edit-email" required>
-                    
-                    <button onClick="saveButtonAppearance('account-email')" id="save-email" style="display: none;" class="save-info">Save</button>
-                    <a href="#" style="display: grid;" onClick="handleEditButton('account-email')"><img class="editicon" src="edit-form.png" alt="edit"></a>
+
+                    <a href="#" class="editanchor" style="display: grid;"
+                        onClick="handleEditButton('account-email')"><img class="editicon" src="edit-form.png"
+                            alt="edit"></a>
+
+                    <input style="display: none;" id="acc-email" type="text" class="edit-email" name="edit-email"
+                        required>
+
+                    <button onClick="saveButtonAppearance('account-email')" id="save-email" style="display: none;"
+                        class="save-info">Save</button>
+
+                    <a href="#" style="display: none;" class="cancel-button"
+                        onClick="handleCancelButton('account-email')">cancel</a>
+
                 </div>
 
-                
+
 
                 <div id="account-password" class="input-field">
                     <p class="temp" style="display: grid;">Edit your password.</p>
-                    
-                    <input style="display: none;" id="acc-password" type="password" class="edit-email" name="edit-password" required>
-                    
-                    <button onClick="saveButtonAppearance('account-password')" id="save-password" style="display: none;" class="save-info">Save</button>
-                    <a href="#" style="display: grid;" onClick="handleEditButton('account-password')"><img class="editicon" src="edit-form.png" alt="edit"></a>
+
+                    <a href="#" class="editanchor" style="display: grid;"
+                        onClick="handleEditButton('account-password')"><img class="editicon" src="edit-form.png"
+                            alt="edit"></a>
+
+                    <input style="display: none;" id="acc-password" type="password" class="edit-email"
+                        name="edit-password" required>
+
+                    <button onClick="saveButtonAppearance('account-password')" id="save-password" style="display: none;"
+                        class="save-info">Save</button>
+
+                    <a href="#" style="display: none;" class="cancel-button"
+                        onClick="handleCancelButton('account-password')">cancel</a>
                 </div>
 
 
 
                 <div id="account-bio" class="input-field">
                     <p class="temp" style="display: grid;">Edit your bio.</p>
-                    
+
+                    <a href="#" class="editanchor" style="display: grid;" onClick="handleEditButton('account-bio')"><img
+                            class="editicon" src="edit-form.png" alt="edit"></a>
+
                     <input style="display: none;" id="acc-bio" type="text" class="edit-email" name="edit-bio" required>
-                    
-                    <button onClick="saveButtonAppearance('account-bio')" id="save-bio" style="display: none;" class="save-info">Save</button>
-                    <a href="#" style="display: grid;" onClick="handleEditButton('account-bio')"><img class="editicon" src="edit-form.png" alt="edit"></a>
+
+                    <button onClick="saveButtonAppearance('account-bio')" id="save-bio" style="display: none;"
+                        class="save-info">Save</button>
+
+                    <a href="#" style="display: none;" class="cancel-button"
+                        onClick="handleCancelButton('account-bio')">cancel</a>
                 </div>
-        
+
             </div>
-           
+
         </div>
 
         <video id="banner" width="100%" height="auto" loop muted autoplay>
@@ -154,4 +183,5 @@
 <script src="./js/auth.js"></script>
 <script src="./js/search.js"></script>
 <script src="./js/account.js"></script>
+
 </html>

@@ -188,12 +188,7 @@ input::placeholder {
 }
 
 .click {
-    background-color: #4971D8;
-    border-radius: 5%;
-    border: none;
-    font-weight: bold;
     width: 95% !important;
-    box-shadow: 1px 1px 3px black;
 }
 
 .clickable {
@@ -205,8 +200,17 @@ input::placeholder {
     box-shadow: 1px 1px 3px black;
 }
 
-button:active,
-button:hover {
+.clickable-save {
+    background-color: #5f5f5f;
+    border-radius: 5%;
+    border: none;
+    font-weight: bold;
+    width: 95%;
+    box-shadow: 1px 1px 3px black;
+}
+
+.clickable:active,
+.clickable:hover {
     background-color: rgb(204, 139, 140);
     cursor: pointer;
 }

@@ -72,40 +72,65 @@ body {
   border: 1px solid var(--light);
   padding: 7px;
   position: relative;
-  
+
 }
 
 #profile-pic img {
   width: 17%;
-  height: 8em;
+  height: 8rem;
   border-radius: 50%;
 }
 
-#acc-email, #acc-password, #acc-bio {
+#acc-email,
+#acc-password,
+#acc-bio {
   color: var(--light);
 }
 
-#account-email .editicon {
+#account-email .editanchor {
   height: 30px;
   width: 30px;
   margin-top: 1%;
-  margin-left: 79%;
+  margin-left: 90%;
   position: absolute;
 }
 
-#account-password .editicon {
+#account-email .editanchor .editicon {
   height: 30px;
   width: 30px;
-  margin-top: 1%;
-  margin-left: 75%;
   position: absolute;
 }
 
-#account-bio .editicon {
+#account-email {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#account-password .editanchor {
   height: 30px;
   width: 30px;
   margin-top: 1%;
-  margin-left: 81%;
+  margin-left: 90%;
+  position: absolute;
+}
+
+#account-password .editanchor .editicon {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+}
+
+#account-bio .editanchor {
+  height: 30px;
+  width: 30px;
+  margin-top: 1%;
+  margin-left: 90%;
+  position: absolute;
+}
+
+#account-bio .editanchor .editicon {
+  height: 30px;
+  width: 30px;
   position: absolute;
 }
 
@@ -148,7 +173,9 @@ body {
 }
 
 
-#account-email input, #account-password input,#account-bio input {
+#account-email input,
+#account-password input,
+#account-bio input {
   width: 75%;
 }
 
@@ -156,20 +183,82 @@ body {
   margin-left: 5px;
 }
 
+.cancel-button {
+  padding: 3px 1px 3px 1px;
+  font-size: small;
+  margin-left: 90%;
+  margin-top: 1%;
+  position: absolute;
+}
+
+.cancel-button:hover {
+  border-bottom: 1px solid var(--light);
+}
+
 #profile-pic label {
-    background-color: #dfba53;
-    color: black;
-    padding: 10px 5px 10px 5px;
-    height: fit-content;
-    font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px black;
-    text-align: center;
-    position: relative;
-    margin-top: 7%;
-    margin-left: 5%;
+  background-color: var(--another);
+  color: black;
+  width: 100%;
+  padding: 10px 5px 10px 5px;
+  height: fit-content;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px black;
+  text-align: center;
+  position: relative;
+}
+
+#picture-edit>* {
+  margin-bottom: 5px;
+}
+
+#picture-edit>a {
+  font-size: small;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#remove-picture {
+  background-color: red;
+  padding: 3px 1px 3px 1px;
+  border: none;
+  border-radius: 3px;
+}
+
+#remove-picture:hover {
+  background-color: rgb(181, 10, 10);
+}
+
+#save-picture {
+  background-color: #888;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 3px 5px 3px;
+  width: 30%;
+  text-align: center;
+  color: black;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.disabled {
+  background-color: var(--another) !important;
+}
+
+.disabled:hover {
+  background-color: #aa8f43 !important;
+}
+
+
+#picture-edit {
+  margin-left: 5%;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 25%;
+  display: grid;
 }
 
 #profilepic {
@@ -452,20 +541,29 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
- 
+
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 
 @media screen and (min-width: 1357px) {
   * {
     box-sizing: border-box;
+  }
+
+  #profile-pic label {
+    height: fit-content;
+    font-weight: 700;
+  }
+
+  #picture-edit {
+    max-width: 300px;
   }
 
   .nav-scrolled {
@@ -630,6 +728,12 @@ a {
     border-bottom: 3px solid var(--more);
   }
 
+  #profile-pic img {
+
+    height: 6rem;
+
+  }
+
   .vari1 {
     font-size: medium;
     color: rgb(143, 143, 143);
@@ -690,6 +794,12 @@ a {
     border-bottom: 3px solid var(--more);
   }
 
+  #profile-pic img {
+
+    height: 4rem;
+
+  }
+
 
   .vari1 {
     font-size: small;
@@ -724,6 +834,12 @@ a {
 @media screen and (max-width: 570px) {
   #banner {
     margin-top: 10px;
+  }
+
+  #profile-pic img {
+
+    height: 3rem;
+
   }
 
   .const1 {

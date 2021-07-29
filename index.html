@@ -31,12 +31,12 @@
                     <input type="number" name="price" placeholder="Price" id="price" min="0">
                     <input type="number" name="quantity" placeholder="Quantity" id="quantity" min="0">
                     <input type="url" name="picture" placeholder="Picture link" id="picture" required>
-                    <button id="saveButton" class="clickable">Save</button>
+                    <button id="saveButton" class="clickable-save" disabled>Save</button>
                     <button type="submit" id="createButton" class="clickable">Create</button>
                     <label for="file-upload">Or import it from <br> a JSON file !</label>
                     <input type="file" id="file-upload" accept=".json">
                 </form>
-                <button id="resetButton" onclick="handleResetButton()" class="butt click">Reset</button>
+                <button id="resetButton" onclick="handleResetButton()" class="butt clickable click">Reset</button>
             </div>
         </div>
     </div>
