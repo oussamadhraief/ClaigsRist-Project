@@ -4,7 +4,7 @@ if (mq.matches) {
     const mainNav = document.querySelector(".navright");
     const menuIcon = document.querySelector("#menu-icon");
     mainNav.style.display = "none";
-    
+
     menuIcon.addEventListener("click", function () {
         if (mainNav.style.display == "none") {
             mainNav.style.display = "grid";
@@ -12,7 +12,7 @@ if (mq.matches) {
             mainNav.style.display = "none";
         }
 
-        
+
     });
 }
 

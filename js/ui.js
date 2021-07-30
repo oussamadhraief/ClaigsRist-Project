@@ -73,6 +73,10 @@ function addProduct({
 
 function handleCreateButton() {
     addProduct(getFormData());
+    let disab = document.querySelector("#saveButton");
+    disab.disabled = true;
+    disab.classList.add("clickable-save");
+    disab.classList.remove("clickable");
     displayProducts();
 }
 
@@ -81,6 +85,10 @@ function handleResetButton() {
     document.querySelector("#price").value = "";
     document.querySelector("#quantity").value = "";
     document.querySelector("#picture").value = "";
+    let disab = document.querySelector("#saveButton");
+    disab.disabled = true;
+    disab.classList.add("clickable-save");
+    disab.classList.remove("clickable");
 }
 
 function addToForm(id) {
@@ -150,6 +158,10 @@ function handleDeleteButton(bro) {
         }
         ref.child(delVar).remove();
     }
+    let disab = document.querySelector("#saveButton");
+    disab.disabled = true;
+    disab.classList.add("clickable-save");
+    disab.classList.remove("clickable");
     displayProducts();
 }
 

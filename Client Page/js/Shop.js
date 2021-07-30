@@ -84,7 +84,7 @@ function handlePageButton(id, pageIndex) {
     let navHeight = document.querySelector("#nav");
     console.log(navHeight.offsetHeight);
     bannerRemoval.style.height = navHeight.offsetHeight.toString() + "px";
-   
+
     globalThis.end = 7 + ((pageIndex - 1) * 10);
     globalThis.start = 7 + ((pageIndex - 1) * 10) - 10;
   }
