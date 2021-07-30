@@ -29,6 +29,35 @@ auth.onAuthStateChanged(user => {
             passwordInput.value = user.password;
             bioInput.value = snapshot[user.uid].bio;
             picInput.src = snapshot[user.uid].picture;
+
+            let footer = document.querySelector("#footer");
+            if (snapshot[user.uid].moderator === true) {
+                footer.innerHTML = `<a href="../index.html" class="underline">&larr; Go back to Admin Panel</a>
+
+                <p>Oussama Dhraief © 2021</p>
+            <div>
+            <a href="About.html" target="_blank" class="underline">About Us</a>
+            <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/facebook-2-icon-256.png"
+                    alt="facebook"></a>
+            <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/instagram-2-icon-256.png"
+                    alt="instagram"></a>
+        </div>`;
+            } else {
+                footer.innerHTML = `
+
+        <p>Oussama Dhraief © 2021</p>
+        <div>
+            <a href="About.html" target="_blank" class="underline">About Us</a>
+            <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/facebook-2-icon-256.png"
+                    alt="facebook"></a>
+            <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/instagram-2-icon-256.png"
+                    alt="instagram"></a>
+        </div>`;
+            }
         });
     } else {
         setupUI();
@@ -47,8 +76,22 @@ signupForm.addEventListener("submit", (e) => {
         return database.ref("Users/" + cred.user.uid).set({
             picture: "https://i2.wp.com/proseawards.com/wp-content/uploads/2015/08/no-profile-pic.png",
             bio: "",
+            moderator: false,
         });
     }).then(() => {
+        let footer = document.querySelector("#footer");
+        footer.innerHTML = `
+
+        <p>Oussama Dhraief © 2021</p>
+        <div>
+            <a href="About.html" target="_blank" class="underline">About Us</a>
+            <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/facebook-2-icon-256.png"
+                    alt="facebook"></a>
+            <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/instagram-2-icon-256.png"
+                    alt="instagram"></a>
+        </div>`;
         const modal = document.querySelector("#modal-signup");
         M.Modal.getInstance(modal).close();
         signupForm.reset();
@@ -85,7 +128,39 @@ loginForm.addEventListener("submit", (e) => {
             passwordInput.value = password;
             bioInput.value = snapshot[cred.user.uid].bio;
             picInput.src = snapshot[cred.user.uid].picture;
+
+            let footer = document.querySelector("#footer");
+            if (snapshot[cred.user.uid].moderator === true) {
+                footer.innerHTML = `<a href="../index.html" class="underline">&larr; Go back to Admin Panel</a>
+
+        <p>Oussama Dhraief © 2021</p>
+        <div>
+            <a href="About.html" target="_blank" class="underline">About Us</a>
+            <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/facebook-2-icon-256.png"
+                    alt="facebook"></a>
+            <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/instagram-2-icon-256.png"
+                    alt="instagram"></a>
+        </div>`;
+            } else {
+                footer.innerHTML = `
+
+        <p>Oussama Dhraief © 2021</p>
+        <div>
+            <a href="About.html" target="_blank" class="underline">About Us</a>
+            <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/facebook-2-icon-256.png"
+                    alt="facebook"></a>
+            <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/instagram-2-icon-256.png"
+                    alt="instagram"></a>
+        </div>`;
+            }
         });
+
+
+
         const modal = document.querySelector("#modal-login");
         M.Modal.getInstance(modal).close();
         loginForm.reset();
