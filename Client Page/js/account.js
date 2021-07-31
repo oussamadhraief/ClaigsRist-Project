@@ -134,7 +134,7 @@ function handleCancelButton(id) {
 
                 emailInput.value = user.password;
             } else {
-                database.ref("Users").on("value", (snapshot) => {
+                database.ref("Users/"+ user.uid).on("value", (snapshot) => {
 
                     let bioInput = document.querySelector("#acc-bio");
 
@@ -142,7 +142,7 @@ function handleCancelButton(id) {
                     snapshot = snapshot.val();
 
 
-                    bioInput.value = snapshot[user.uid].bio;
+                    bioInput.value = snapshot.bio;
 
                 });
             }
