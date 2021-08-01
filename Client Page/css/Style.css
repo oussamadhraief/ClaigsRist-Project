@@ -467,19 +467,42 @@ a {
 }
 
 #webname {
-  margin-top: -3%;
-  margin-left: 10%;
+  margin-top: -5px;
   font-size: xx-large;
-  color: rgb(235, 235, 215);
   font-weight: 900;
   padding: 0;
   font-family: 'Slackey', cursive;
   padding: 5px;
+  background: linear-gradient(to right, var(--light) 0, var(--dark) 10%, var(--light) 20%);
+  background-position: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+  animation-fill-mode: forwards;
+  -webkit-text-size-adjust: none;
+  white-space: nowrap;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0;
+  }
+
+  60% {
+    background-position: 180px;
+  }
+
+  100% {
+    background-position: 180px;
+  }
+
 }
 
 .navleft {
   float: left;
   display: flex;
+  margin-left: 10px;
+  margin-top: 0px;
 }
 
 .space {
@@ -549,7 +572,7 @@ a {
   position: absolute;
   margin: 0px 0px 0px 60%;
   bottom: 30px;
-  background-color: rgb(143, 143, 143);
+  background-color: var(--another);
   border: none;
   border-radius: 5%;
   padding: 20px;
@@ -559,7 +582,7 @@ a {
 
 .addtochart:hover {
   cursor: pointer;
-  background-color: var(--another);
+  background-color: var(--more);
 }
 
 .formargin {
@@ -726,7 +749,7 @@ a {
     position: absolute;
     margin: 0px 50px 0px 70%;
     bottom: 30px;
-    background-color: var(--more);
+    background-color: var(--another);
     border: none;
     border-radius: 5%;
     padding: 20px;
@@ -736,7 +759,7 @@ a {
 
   .addtochart:hover {
     cursor: pointer;
-    background-color: var(--another);
+    background-color: var(--more);
   }
 
   .formargin {
@@ -813,8 +836,12 @@ a {
     cursor: pointer;
   }
 
+  .navright a:hover {
+    border: none;
+  }
+
   .navright>* {
-    height: 50px;
+    height: 40px;
   }
 }
 

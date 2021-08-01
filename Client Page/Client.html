@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClaigsRist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,12 +20,13 @@
         <header>
             <nav id="nav">
                 <div class="navleft">
-                    <p id="webname"><span>C</span>laigs<span>R</span>ist</p>
+                    <p id="webname"></p>
                 </div>
                 <img id="menu-icon" src="Menu.png" alt="menu" height="30px" width="30px">
                 <div class="navright">
                     <a class="space underline" href="#">Explore</a>
-                    <a class="space underline logged-in" href="MyChart.html" style="display: none;">My Chart</a>
+                    <a class="space underline logged-in" href="MyChart.html" style="display: none;">My
+                        Chart</a>
                     <a class="space underline logged-in modal-trigger" href="#" style="display: none;"
                         data-target="modal-account">Account</a>
                     <a class="space underline logged-in" id="logout" href="#" style="display: none;">Logout</a>
@@ -35,7 +37,7 @@
                         started</button>
                     <div class="sb-example-1">
                         <div class="search">
-                            <input type="text" class="searchTerm" placeholder="What are you looking for?">
+                            <input type="search" class="searchTerm">
                             <button type="submit">
                                 <img src="search.png" alt="icon" id="search-icon">
                             </button>
@@ -165,10 +167,12 @@
             <p>Oussama Dhraief © 2021</p>
             <div>
                 <a href="About.html" target="_blank" class="underline">About Us</a>
-                <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg center"><img class="icon"
+                <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg center"><img
+                        class="icon"
                         src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/facebook-2-icon-256.png"
                         alt="facebook"></a>
-                <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg center"><img class="icon"
+                <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg center"><img
+                        class="icon"
                         src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/instagram-2-icon-256.png"
                         alt="instagram"></a>
             </div>
@@ -179,6 +183,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./js/search.js"></script>
 <script src="./js/index.js"></script>
 <script src="./js/Shop.js"></script>
 <script src="./js/observer.js"></script>
