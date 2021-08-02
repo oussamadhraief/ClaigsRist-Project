@@ -6,7 +6,7 @@
   ;
   --light: #d19fe8;
   --more: rgb(143, 143, 143);
-  --another: #966fd6;
+  --another: hsl(263, 56%, 64%);
 }
 
 * {
