@@ -3,13 +3,59 @@ let placeholder = "";
 const txt = "What are you looking for?";
 const txt1 = "ClaigsRist"
 const speed = 120;
+let searchBox = document.querySelector(".searchTerm");
+let searchButton = document.querySelector("#search-icon");
 
 function type() {
     placeholder += txt.charAt(i);
     document.querySelector("#webname").innerHTML += txt1.charAt(i);
-    document.querySelector(".searchTerm").setAttribute("placeholder", placeholder);
+    searchBox.setAttribute("placeholder", placeholder);
     i++;
     setTimeout(type, speed);
 }
 
 type();
+
+//Search Functionnality
+
+function productBox({
+  id,
+  name,
+  price,
+  quantity,
+  picture
+}) {
+  return `<div class="prod2" id="${id}">
+    <img src="${picture}" class="prodimg1" alt="product image">
+    <div>
+    <p class="const1 formargin">Product Name:</p>
+    <p class="vari1">${name}</p>
+    <p class="const1">Price:</p>
+    <p class="vari1">${price} DT.</p>
+    <p class="const1">Quantity Available: </p>
+    <p class="vari1">${quantity} pieces.</p>
+    <button class="addtochart1">Add To Chart</button></div>
+    </div>
+    
+</div>`;
+}
+
+
+searchButton.addEventListener("click", () => {
+    let searchedFor = searchBox.value;
+
+        ref.on("value", (snapshot) => {
+          snapshot = snapshot.val();
+          let keys = Object.keys(snapshot);
+          let searchProducts = document.querySelector("#modal-search");
+          searchProducts.innerHTML = `<a class="close-modal" onClick="handleCloseModal('modal-search')" href="#">x</a>`;
+        
+      
+            for (let i = start; i < keys.length; i++) {
+                if(snapshot[keys[i]].name.toUpperCase().includes(searchedFor.toUpperCase())){
+                    searchProducts.innerHTML += productBox(snapshot[keys[i]]);
+                }
+              
+            } 
+        });
+});

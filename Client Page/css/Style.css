@@ -1,5 +1,6 @@
 :root {
   --dark: #51484f
+  /* #242124 */
 
 
   ;
@@ -414,6 +415,7 @@ a {
 
 .sb-example-1 {
   margin-bottom: 5%;
+  height: 40px;
 }
 
 .search {
@@ -607,14 +609,64 @@ a {
   border-radius: 3%;
 }
 
+.prod2 {
+  position: relative;
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 350px;
+  background-color: var(--dark);
+  border: 3px solid rgb(143, 143, 143);
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+.prod2 img {
+  height: fit-content;
+  margin: 10px;
+  padding: 0;
+  width: 40%;
+  border: 5px solid rgb(143, 143, 143);
+  border-radius: 3%;
+}
+
+.prod2 div {
+  margin-left: 10px;
+}
+
+.prod2 p {
+  padding: 5px;
+}
+
 .prod1 p {
   float: center;
   margin: 10px 10px 10px 28%;
   padding: 5px;
 }
 
+
+.addtochart1 {
+  margin: 0;
+  max-height: 60px;
+  bottom: 30px;
+  background-color: var(--another);
+  border: none;
+  border-radius: 5%;
+  padding: 10px;
+  font-size: large;
+  font-weight: 700;
+}
+
+.addtochart1:hover {
+  cursor: pointer;
+  background-color: var(--more);
+}
+
+
 .const1 {
-  color: rgb(143, 143, 143);
+  color: var(--light);
   font-size: medium;
   font-weight: 500;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

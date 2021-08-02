@@ -1,6 +1,7 @@
 const mq1 = window.matchMedia("(max-width: 570px)");
 const banner = document.querySelector(".banner");
 const header = document.querySelector("#nav");
+const sectionOne = document.querySelector("#products");
 
 let randomize = Math.floor((Math.random() * 2) + 1);
 

@@ -36,12 +36,13 @@
                         style="display: none;">Get
                         started</button>
                     <div class="sb-example-1">
-                        <div class="search">
+                        <form class="search">
                             <input type="search" class="searchTerm">
-                            <button type="submit">
-                                <img src="search.png" alt="icon" id="search-icon">
+                            <button>
+                                <img src="search.png" alt="icon" id="search-icon" class="modal-trigger"
+                                    data-target="modal-search">
                             </button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </nav>
@@ -153,8 +154,12 @@
             </div>
 
         </div>
+        <div id="modal-search" class="modal">
+
+        </div>
+
         <section class="banner">
-       
+
         </section>
         <div class="products" id="products">
         </div>
@@ -181,9 +186,10 @@
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="./js/search.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./js/index.js"></script>
 <script src="./js/Shop.js"></script>
+<script src="./js/search.js"></script>
 <script src="./js/menu.js"></script>
 <script src="./js/banner.js"></script>
 <script src="./js/auth.js"></script>

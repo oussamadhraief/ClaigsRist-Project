@@ -1,9 +1,11 @@
 const mq = window.matchMedia("(max-width: 992px)");
 
-if (mq.matches) {
-    const mainNav = document.querySelector(".navright");
+const mainNav = document.querySelector(".navright");
     const menuIcon = document.querySelector("#menu-icon");
     const search = document.querySelector(".search");
+
+if (mq.matches) {
+    
     mainNav.style.display = "none";
 
     menuIcon.addEventListener("click", function () {
@@ -32,7 +34,6 @@ mq.addEventListener("change", (e) => {
     if (e.matches == false) {
         const mainNav = document.querySelector(".navright");
         mainNav.style.display = "flex";
-        search.style.marginTop = "10%";
 
     } else {
         const mainNav = document.querySelector(".navright");
