@@ -1,8 +1,12 @@
 :root {
-  --dark: #383838;
-  --light: rgb(235, 235, 215);
+  --dark: #51484f
+
+
+  ;
+  --light: #d19fe8;
   --more: rgb(143, 143, 143);
-  --another: #dfba53;
+  --another: #966fd6
+  ;
 }
 
 * {
@@ -525,6 +529,61 @@ a {
   border-bottom: 3px solid var(--more);
 }
 
+.banner {
+  width: 100%;
+}
+
+#slider {
+	box-shadow: 1px 1px 3px black;
+  overflow: hidden;
+  width: 100%;
+}
+
+#slider figure {
+	position: relative;
+	width: 500%;
+	margin: 0;
+	left: 0;
+  animation: 20s slider infinite;
+}
+
+#slider figure img {
+	width: 20%;
+	float: left;
+}
+
+
+@keyframes slider {
+	0% {
+		left: 0;
+	}
+	20% {
+		left: 0;
+	}
+	25% {
+		left: -100%;
+	}
+	45% {
+		left: -100%;
+	}
+	50% {
+		left: -200%;
+	}
+	70% {
+		left: -200%;
+	}
+	75% {
+		left: -300%;
+	}
+	95% {
+		left: -300%;
+	}
+	100% {
+		left: -400%;
+	}
+}
+
+
 .prod1 {
   position: relative;
   width: 95%;
@@ -563,7 +622,7 @@ a {
 
 .vari1 {
   font-size: large;
-  color: var(--light);
+  color: whitesmoke;
   font-weight: 900;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -740,7 +799,7 @@ a {
 
   .vari1 {
     font-size: large;
-    color: rgb(143, 143, 143);
+    color: whitesmoke;
     font-weight: 900;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -796,7 +855,7 @@ a {
 
   .vari1 {
     font-size: medium;
-    color: rgb(143, 143, 143);
+    color: whitesmoke;
     font-weight: 900;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -867,7 +926,7 @@ a {
 
   .vari1 {
     font-size: small;
-    color: rgb(143, 143, 143);
+    color: whitesmoke;
     font-weight: 700;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -915,7 +974,7 @@ a {
 
   .vari1 {
     font-size: x-small;
-    color: rgb(143, 143, 143);
+    color: whitesmoke;
     font-weight: 500;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
