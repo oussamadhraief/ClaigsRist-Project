@@ -159,14 +159,14 @@ body {
 
 .save-info:hover {
   cursor: pointer;
-  background-color: #aa8f43;
+  background-color: var(--another);
 }
 
 .save-info {
   width: 10%;
   height: auto;
   padding: 5px;
-  background-color: #dfba53;
+  background-color: var(--another);
   border: none;
   border-radius: 5%;
   margin-top: 1%;
@@ -197,7 +197,7 @@ body {
 }
 
 .cancel-button:hover {
-  border-bottom: 1px solid var(--light);
+  border-bottom: 1px solid white;
 }
 
 #profile-pic label {
