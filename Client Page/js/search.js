@@ -48,14 +48,20 @@ searchButton.addEventListener("click", () => {
           snapshot = snapshot.val();
           let keys = Object.keys(snapshot);
           let searchProducts = document.querySelector("#modal-search");
-          searchProducts.innerHTML = `<a class="close-modal" onClick="handleCloseModal('modal-search')" href="#">x</a>`;
+          searchProducts.innerHTML = `<a class="close-modal" onClick="handleCloseModal('modal-search')" href="#">x</a>
+          <p>Showing the search results for... "${searchedFor}" :</p>`;
         
-      
+      let x =0;
             for (let i = start; i < keys.length; i++) {
                 if(snapshot[keys[i]].name.toUpperCase().includes(searchedFor.toUpperCase())){
                     searchProducts.innerHTML += productBox(snapshot[keys[i]]);
+                    x++;
                 }
               
             } 
+        if(x==0){
+          searchProducts.innerHTML = `<a class="close-modal" onClick="handleCloseModal('modal-search')" href="#">x</a>
+          <p>There are no products that match with "${searchedFor}".</p>`;
+        }
         });
 });

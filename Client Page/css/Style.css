@@ -48,6 +48,10 @@ body {
   font-size: x-large;
 }
 
+.modal > p {
+  color: var(--another);
+}
+
 .login-button,
 .signup-button {
   background-color: var(--another);
