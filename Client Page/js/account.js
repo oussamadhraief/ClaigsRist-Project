@@ -134,7 +134,7 @@ function handleCancelButton(id) {
 
                 emailInput.value = user.password;
             } else {
-                database.ref("Users/"+ user.uid).on("value", (snapshot) => {
+                database.ref("Users/" + user.uid).on("value", (snapshot) => {
 
                     let bioInput = document.querySelector("#acc-bio");
 
