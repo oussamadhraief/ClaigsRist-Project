@@ -33,7 +33,7 @@ if (mq1.matches == false) {
 
         sectionOneObserver.observe(sectionOne);
 
-
+ 
     } else {
 
         let navHeight = document.querySelector("#nav");
