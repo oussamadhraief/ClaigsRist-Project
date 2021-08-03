@@ -10,7 +10,6 @@ if (mq1.matches == false) {
         banner.innerHTML = `<video id="banner" width="100%" height="auto" loop muted autoplay>
     <source src="video.mp4" type="video/mp4">
     <source src="video.webm" type="video/WEBM">
-    <source src="video.ogv" type="video/ogg"> 
     </video>`;
 
 
