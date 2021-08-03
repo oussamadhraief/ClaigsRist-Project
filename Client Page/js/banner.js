@@ -3,6 +3,7 @@ const banner = document.querySelector(".banner");
 const header = document.querySelector("#nav");
 const sectionOne = document.querySelector("#products");
 
+
 let randomize = Math.floor((Math.random() * 2) + 1);
 
 if (mq1.matches == false) {
@@ -33,11 +34,8 @@ if (mq1.matches == false) {
 
         sectionOneObserver.observe(sectionOne);
 
- 
+
     } else {
-
-        let navHeight = document.querySelector("#nav");
-
         header.classList.add("nav-scrolled");
         header.style.border = "none";
         header.style.boxShadow = "1px 1px 5px black";
@@ -53,8 +51,8 @@ if (mq1.matches == false) {
         
 	</div>`;
         document.querySelector("#slider").style.height = document.querySelector("#slider img").style.height.toString() + "px";
-        console.log("1");
-        document.querySelector("#slider img").style.marginTop = navHeight.offsetHeight.toString() + "px";
+
+        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
         slider2();
 
         function slider1() {
@@ -71,8 +69,8 @@ if (mq1.matches == false) {
         
 	</div>`;
 
-                console.log("1");
-                document.querySelector("#slider img").style.marginTop = navHeight.offsetHeight.toString() + "px";
+
+    document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
                 slider2();
             }, 3000);
         }
@@ -92,8 +90,8 @@ if (mq1.matches == false) {
 		
         
 	</div>`;
-                document.querySelector("#slider img").style.marginTop = navHeight.offsetHeight.toString() + "px";
-                console.log("2");
+    document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+
                 slider3();
 
             }, 3000);
@@ -112,8 +110,8 @@ if (mq1.matches == false) {
             
             
         </div>`;
-                document.querySelector("#slider img").style.marginTop = navHeight.offsetHeight.toString() + "px";
-                console.log("3");
+        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+
                 slider4();
             }, 3000);
 
@@ -132,8 +130,8 @@ if (mq1.matches == false) {
             
             
         </div>`;
-                document.querySelector("#slider img").style.marginTop = navHeight.offsetHeight.toString() + "px";
-                console.log("4");
+        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+
                 slider5();
             }, 3000);
 
@@ -152,8 +150,8 @@ if (mq1.matches == false) {
             
             
         </div>`;
-                document.querySelector("#slider img").style.marginTop = navHeight.offsetHeight.toString() + "px";
-                console.log("5");
+        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+
                 slider1();
             }, 3000);
 
@@ -162,12 +160,10 @@ if (mq1.matches == false) {
 
     }
 } else {
-    let navHeight = document.querySelector("#nav");
-
-        header.classList.add("nav-scrolled");
-        header.style.border = "none";
-        header.style.boxShadow = "1px 1px 5px black";
-        banner.innerHTML = ` 
+    header.classList.add("nav-scrolled");
+    header.style.border = "none";
+    header.style.boxShadow = "1px 1px 5px black";
+    banner.innerHTML = ` 
     <div id="slider">
     
 		
@@ -178,14 +174,15 @@ if (mq1.matches == false) {
 		
         
 	</div>`;
-        document.querySelector("#slider").style.height = document.querySelector("#slider img").style.height.toString() + "px";
-        console.log("1");
-        document.querySelector("#slider img").style.marginTop = navHeight.offsetHeight.toString() + "px";
-        slider2();
+    
+    document.querySelector("#slider").style.height = document.querySelector("#slider img").style.height.toString() + "px";
 
-        function slider1() {
-            setTimeout(() => {
-                banner.innerHTML = ` 
+    document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+    slider2();
+
+    function slider1() {
+        setTimeout(() => {
+            banner.innerHTML = ` 
     <div id="slider">
     
 		
@@ -197,17 +194,17 @@ if (mq1.matches == false) {
         
 	</div>`;
 
-                console.log("1");
-                document.querySelector("#slider img").style.marginTop = navHeight.offsetHeight.toString() + "px";
-                slider2();
-            }, 3000);
-        }
+
+    document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+            slider2();
+        }, 3000);
+    }
 
 
 
-        function slider2() {
-            setTimeout(() => {
-                banner.innerHTML = ` 
+    function slider2() {
+        setTimeout(() => {
+            banner.innerHTML = ` 
     <div id="slider">
     
 		
@@ -218,16 +215,16 @@ if (mq1.matches == false) {
 		
         
 	</div>`;
-                document.querySelector("#slider img").style.marginTop = navHeight.offsetHeight.toString() + "px";
-                console.log("2");
-                slider3();
+    document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
-            }, 3000);
-        }
+            slider3();
 
-        function slider3() {
-            setTimeout(() => {
-                banner.innerHTML = ` 
+        }, 3000);
+    }
+
+    function slider3() {
+        setTimeout(() => {
+            banner.innerHTML = ` 
         <div id="slider">
         
             
@@ -238,16 +235,16 @@ if (mq1.matches == false) {
             
             
         </div>`;
-                document.querySelector("#slider img").style.marginTop = navHeight.offsetHeight.toString() + "px";
-                console.log("3");
-                slider4();
-            }, 3000);
+        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
-        }
+            slider4();
+        }, 3000);
 
-        function slider4() {
-            setTimeout(() => {
-                banner.innerHTML = ` 
+    }
+
+    function slider4() {
+        setTimeout(() => {
+            banner.innerHTML = ` 
         <div id="slider">
         
             
@@ -258,16 +255,16 @@ if (mq1.matches == false) {
             
             
         </div>`;
-                document.querySelector("#slider img").style.marginTop = navHeight.offsetHeight.toString() + "px";
-                console.log("4");
-                slider5();
-            }, 3000);
+        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
-        }
+            slider5();
+        }, 3000);
 
-        function slider5() {
-            setTimeout(() => {
-                banner.innerHTML = ` 
+    }
+
+    function slider5() {
+        setTimeout(() => {
+            banner.innerHTML = ` 
         <div id="slider">
         
             
@@ -278,10 +275,10 @@ if (mq1.matches == false) {
             
             
         </div>`;
-                document.querySelector("#slider img").style.marginTop = navHeight.offsetHeight.toString() + "px";
-                console.log("5");
-                slider1();
-            }, 3000);
+        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
-        }
+            slider1();
+        }, 3000);
+
+    }
 }
