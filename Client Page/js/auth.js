@@ -37,14 +37,14 @@ auth.onAuthStateChanged(user => {
             if (snapshot.moderator) {
                 footer.innerHTML = `<a href="../index.html" class="underline">&larr; Go back to Admin Panel</a>
 
-                <p>Oussama Dhraief © 2021</p>
+                <p>Oussama Dhraief <span>© </span>2021</p>
             <div>
             <a href="About.html" target="_blank" class="underline">About Us</a>
             <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/facebook-2-icon-256.png"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/9770d7/256/png/facebook-2-icon-256.png"
                     alt="facebook"></a>
             <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/instagram-2-icon-256.png"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/9770d7/256/png/instagram-2-icon-256.png"
                     alt="instagram"></a>
         </div>`;
 
@@ -85,14 +85,14 @@ logout.addEventListener("click", (e) => {
     let footer = document.querySelector("#footer");
     footer.innerHTML = `
 
-                <p>Oussama Dhraief © 2021</p>
+    <p>Oussama Dhraief <span>© </span>2021</p>
             <div>
             <a href="About.html" target="_blank" class="underline">About Us</a>
             <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/facebook-2-icon-256.png"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/9770d7/256/png/facebook-2-icon-256.png"
                     alt="facebook"></a>
             <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/instagram-2-icon-256.png"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/9770d7/256/png/instagram-2-icon-256.png"
                     alt="instagram"></a>
         </div>`;
 });
@@ -123,14 +123,14 @@ loginForm.addEventListener("submit", (e) => {
             if (snapshot.moderator) {
                 footer.innerHTML = `<a href="../index.html" class="underline">&larr; Go back to Admin Panel</a>
 
-        <p>Oussama Dhraief © 2021</p>
+                <p>Oussama Dhraief <span>© </span>2021</p>
         <div>
             <a href="About.html" target="_blank" class="underline">About Us</a>
             <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/facebook-2-icon-256.png"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/9770d7/256/png/facebook-2-icon-256.png"
                     alt="facebook"></a>
             <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/instagram-2-icon-256.png"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/9770d7/256/png/instagram-2-icon-256.png"
                     alt="instagram"></a>
         </div>`;
 

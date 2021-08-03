@@ -2,7 +2,11 @@ const mq1 = window.matchMedia("(max-width: 570px)");
 const banner = document.querySelector(".banner");
 const header = document.querySelector("#nav");
 const sectionOne = document.querySelector("#products");
-
+const anchors = document.querySelectorAll("#nav a");
+const searchTerm = document.querySelector(".searchTerm");
+const webname = document.querySelector("#webname");
+const searchBorder = document.querySelector(".search");
+const searchIcon = document.querySelector("#search-icon");
 
 let randomize = Math.floor((Math.random() * 2) + 1);
 
@@ -25,8 +29,20 @@ if (mq1.matches == false) {
                 entries.forEach(entry => {
                     if (!entry.isIntersecting) {
                         header.classList.remove("nav-scrolled");
+                        anchors.forEach(item => item.classList.add("nav-anchors-unscrolled"));
+                        searchTerm.classList.add("nav-input-unscrolled");
+                        webname.classList.remove("webname");
+                        webname.classList.add("webname-unscrolled");
+                        searchBorder.classList.add("search-unscrolled");
+                        searchIcon.src = "search-unscrolled.png";    
                     } else {
                         header.classList.add("nav-scrolled");
+                        anchors.forEach(item => item.classList.remove("nav-anchors-unscrolled"));
+                        searchTerm.classList.remove("nav-input-unscrolled");
+                        webname.classList.add("webname");
+                        webname.classList.remove("webname-unscrolled");
+                        searchBorder.classList.remove("search-unscrolled");
+                        searchIcon.src = "search.png";
                     }
                 });
             },

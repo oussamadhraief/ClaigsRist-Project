@@ -15,14 +15,14 @@ if (mq.matches) {
             search.style.margin = "10px";
             search.style.marginTop = "0px";
             mainNav.style.display = "grid";
-            menuIcon.src = "https://iconsplace.com/wp-content/uploads/_icons/ebebd7/256/png/close-window-icon-256.png";
+            menuIcon.src = "close-icon.png";
             menuIcon.style.borderRadius = "50%";
 
         } else {
             mainNav.classList.remove("animate__animated", "animate__fadeInDown");
             mainNav.style.display = "none";
             search.style.marginTop = "10px";
-            menuIcon.src = "Menu.png";
+            menuIcon.src = "menu-icon.png";
 
         }
 
