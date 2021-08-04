@@ -388,7 +388,7 @@ nav {
 }
 
 span {
-  color: #dfba53;
+  color: var(--teeth);
 }
 
 a {
@@ -637,6 +637,7 @@ a {
   padding: 10px;
   font-size: large;
   font-weight: 700;
+  color: var(--teeth);
 }
 
 .addtochart1:hover {
@@ -669,6 +670,7 @@ a {
   padding: 20px;
   font-size: large;
   font-weight: 700;
+  color: var(--teeth);
 }
 
 .addtochart:hover {
@@ -744,7 +746,6 @@ a {
 
   a {
     text-decoration: none;
-    color: rgb(235, 235, 215);
     font-size: xx-small;
   }
 
@@ -846,6 +847,7 @@ a {
     padding: 20px;
     font-size: large;
     font-weight: 700;
+    color: var(--teeth);
   }
 
   .addtochart:hover {
@@ -993,6 +995,11 @@ a {
 @media screen and (max-width: 570px) {
   #banner {
     margin-top: 10px;
+  }
+
+  .prod2 img {
+    width: 95%;
+    height: auto;
   }
 
   #profile-pic img {
