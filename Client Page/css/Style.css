@@ -999,7 +999,7 @@ a {
 
   .prod2 img {
     width: 95%;
-    height: auto;
+    max-height: 200px;
   }
 
   #profile-pic img {
