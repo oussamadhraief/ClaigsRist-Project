@@ -586,7 +586,7 @@ a {
 }
 
 #sort-menu-area select {
-  width: 20%;
+  width: max-content;
   height: 25px;
   margin: 5px;
   padding: 0;
