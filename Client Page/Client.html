@@ -161,6 +161,18 @@
         <section class="banner">
 
         </section>
+
+        <form id="sort-menu-area">
+            <p>Sort by:</p>
+            <select name="sort-menu" id="sort-menu" onchange="handleSortMenu()" style="display: block;">
+                <option value="ascend">From lowest to highest price</option>
+                <option value="descend">From highest to lowest price</option>
+                <option value="newest">From newest to oldest</option>
+                <option value="oldest" selected>From oldest to newest</option>
+            </select>
+            <noscript><input type=”submit” value=”Submit”></noscript>
+        </form>
+
         <div class="products" id="products">
         </div>
         <div id="pages">
@@ -188,10 +200,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./js/index.js"></script>
+<script src="./js/banner.js"></script>
 <script src="./js/Shop.js"></script>
 <script src="./js/search.js"></script>
 <script src="./js/menu.js"></script>
-<script src="./js/banner.js"></script>
 <script src="./js/auth.js"></script>
 <script src="./js/account.js"></script>
 

@@ -262,7 +262,7 @@ h4 {
   text-align: center;
 }
 
-.temp  {
+.temp {
   color: var(--teeth);
 }
 
@@ -479,7 +479,7 @@ a {
   white-space: nowrap;
 }
 
-.webname{
+.webname {
   background: linear-gradient(to right, var(--light) 0, var(--dark) 10%, var(--light) 20%);
 }
 
@@ -517,7 +517,7 @@ a {
   color: var(--teeth) !important;
 }
 
-.nav-input-unscrolled{
+.nav-input-unscrolled {
   color: var(--teeth) !important;
 }
 
@@ -525,7 +525,7 @@ a {
   color: var(--teeth) !important;
 }
 
-.search-unscrolled{
+.search-unscrolled {
   border: 3px solid var(--teeth) !important;
 }
 
@@ -547,6 +547,7 @@ a {
 
 #banner {
   border-bottom: 3px solid var(--more);
+
 }
 
 .banner {
@@ -565,6 +566,38 @@ a {
   float: left;
 }
 
+#sort-menu-area {
+  margin-top: 20px;
+  border-top: 3px solid var(--more);
+  border-bottom: 3px solid var(--more);
+  background-color: var(--dark);
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#sort-menu-area p {
+  color: var(--teeth);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 3%;
+  margin-right: 5px;
+}
+
+#sort-menu-area select {
+  width: 20%;
+  height: 25px;
+  margin: 5px;
+  padding: 0;
+  background-color: var(--more);
+  border: none;
+  border-radius: 5px;
+}
+
+#sort-menu-area select:hover {
+  cursor: pointer;
+}
 
 .prod1 {
   position: relative;
@@ -929,7 +962,7 @@ a {
     cursor: pointer;
   }
 
-  .search{
+  .search {
     margin-top: 10px !important;
   }
 

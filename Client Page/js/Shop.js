@@ -19,6 +19,10 @@ let database = firebase.database();
 
 let ref = database.ref("Products");
 
+let products = new Array();
+
+let s = 0;
+
 //Functions
 
 function productsBox({
@@ -43,26 +47,19 @@ function productsBox({
 </div>`;
 }
 
-function displayProduct(start, end) {
-  ref.on("value", (snapshot) => {
-    snapshot = snapshot.val();
-    let keys = Object.keys(snapshot);
-    let shopProducts = document.querySelector("#products");
-    shopProducts.innerHTML = "";
+function displayProduct() {
+  let shopProducts = document.querySelector("#products");
+  shopProducts.innerHTML = ``;
 
-    if (pageInd == (pagesNumber + 1)) {
-
-      for (let i = start; i < keys.length; i++) {
-        shopProducts.innerHTML += productsBox(snapshot[keys[i]]);
-
-      }
-    } else {
-      for (let i = start; i < end; i++) {
-        shopProducts.innerHTML += productsBox(snapshot[keys[i]]);
-
-      }
+  if (pageInd == (pagesNumber + 1)) {
+    for (let i = start; i < products.length; i++) {
+      shopProducts.innerHTML += productsBox(products[i]);
     }
-  });
+  } else {
+    for (let i = start; i < end; i++) {
+      shopProducts.innerHTML += productsBox(products[i]);
+    }
+  }
 }
 
 function handlePageButton(id, pageIndex) {
@@ -76,29 +73,27 @@ function handlePageButton(id, pageIndex) {
 
   globalThis.pageInd = pageIndex;
 
+
   if (pageIndex == 1) {
+
     globalThis.end = 7;
     globalThis.start = 0;
-  } else {
-    let bannerRemoval = document.querySelector("#banner");
-    let navHeight = document.querySelector("#nav");
-    console.log(navHeight.offsetHeight);
-    bannerRemoval.style.height = navHeight.offsetHeight.toString() + "px";
 
+  } else {
     globalThis.end = 7 + ((pageIndex - 1) * 10);
     globalThis.start = 7 + ((pageIndex - 1) * 10) - 10;
   }
-
-  displayProduct(start, end);
+  displayProduct();
 }
 
 function displayPages() {
-  ref.on("value", (snapshot) => {
+
+  ref.once("value", (snapshot) => {
     snapshot = snapshot.val();
     let keys = Object.keys(snapshot);
     let shopPages = document.querySelector("#pages");
 
-    globalThis.pagesNumber = Math.floor((keys.length - 7) / 10);
+    globalThis.pagesNumber = Math.floor(Math.abs((keys.length - 7) / 10));
 
     if (pagesNumber < ((keys.length - 7) / 10)) {
       pagesNumber++;
@@ -107,9 +102,124 @@ function displayPages() {
     for (let j = 0; j < pagesNumber; j++) {
       shopPages.innerHTML += `<a href="#" id='page-${j+2}' onClick='handlePageButton("page-${j+2}",${j+2})' class="page">${j+2}</p>`
     }
+    handleSortMenu();
   });
+
+}
+
+function handleSortMenu() {
+  let sortMenu = document.querySelector("#sort-menu");
+  switch (sortMenu.value) {
+    case 'ascend':
+      ref.on("value", (snapshot) => {
+        snapshot = snapshot.val();
+        let keys = Object.keys(snapshot);
+        products.length = 0;
+        for (let i = 0; i < keys.length; i++) {
+          products.push(snapshot[keys[i]]);
+        }
+      });
+      for (let i = products.length - 1; i >= 0; i--) {
+        for (let j = 1; j <= i; j++) {
+          if (products[j - 1].price > products[j].price) {
+            let temp = products[j - 1];
+            products[j - 1] = products[j];
+            products[j] = temp;
+          }
+        }
+      }
+      if (pageInd !== 1) {
+        handlePageButton("page-1", 1);
+      }
+
+      displayProduct();
+
+      break;
+
+    case 'descend':
+      ref.on("value", (snapshot) => {
+        snapshot = snapshot.val();
+        let keys = Object.keys(snapshot);
+        products.length = 0;
+        for (let i = 0; i < keys.length; i++) {
+          products.push(snapshot[keys[i]]);
+        }
+      });
+      for (let i = 0; i < products.length; i++) {
+        for (let j = 0; j < products.length; j++) {
+          if (products[i].price > products[j].price) {
+            let temp = products[i];
+            products[i] = products[j];
+            products[j] = temp;
+          }
+        }
+      }
+      if (pageInd !== 1) {
+        handlePageButton("page-1", 1);
+      }
+
+      displayProduct();
+
+      break;
+
+    case 'newest':
+      ref.on("value", (snapshot) => {
+        snapshot = snapshot.val();
+        let keys = Object.keys(snapshot);
+        products.length = 0;
+        for (let i = 0; i < keys.length; i++) {
+          products.push(snapshot[keys[i]]);
+        }
+      });
+      products = products.reverse();
+      if (pageInd !== 1) {
+        handlePageButton("page-1", 1);
+      }
+
+      displayProduct();
+
+      break;
+
+    case 'oldest':
+
+      ref.on("value", (snapshot) => {
+        snapshot = snapshot.val();
+        let keys = Object.keys(snapshot);
+        products.length = 0;
+        for (let i = 0; i < keys.length; i++) {
+          products.push(snapshot[keys[i]]);
+
+        }
+        if (s == 0 || pageInd !== 1) {
+          s++;
+          handlePageButton("page-1", 1);
+        }
+        displayProduct();
+      });
+
+
+      break;
+
+    default:
+
+      ref.on("value", (snapshot) => {
+        snapshot = snapshot.val();
+        let keys = Object.keys(snapshot);
+        products.length = 0;
+        for (let i = 0; i < keys.length; i++) {
+          products.push(snapshot[keys[i]]);
+
+        }
+        if (pageInd !== 1) {
+          handlePageButton("page-1", 1);
+        }
+
+        displayProduct();
+      });
+
+
+      break;
+  }
 }
 
 displayPages();
-
-handlePageButton("page-1", 1);
