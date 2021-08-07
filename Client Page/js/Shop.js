@@ -73,13 +73,94 @@ function handlePageButton(id, pageIndex) {
 
   globalThis.pageInd = pageIndex;
 
+  let bannerRemoval = document.querySelector(".banner");
 
   if (pageIndex == 1) {
+    if (randomize == 1 && bannerRemoval.innerHTML == "") {
+      bannerRemoval.innerHTML = `<video id="banner" width="100%" height="auto" loop muted autoplay>
+    <source src="video.mp4" type="video/mp4">
+    <source src="video.webm" type="video/WEBM">
+    </video>`;
 
+
+      const sectionOneOptions = {
+        rootMargin: "100px 0px 0px 0px"
+      };
+
+      const sectionOneObserver = new IntersectionObserver(function (
+          entries,
+          sectionOneObserver
+        ) {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+              header.classList.remove("nav-scrolled");
+              anchors.forEach(item => item.classList.add("nav-anchors-unscrolled"));
+              searchTerm.classList.add("nav-input-unscrolled");
+              webname.classList.remove("webname");
+              webname.classList.add("webname-unscrolled");
+              searchBorder.classList.add("search-unscrolled");
+              searchIcon.src = "search-unscrolled.png";
+            } else {
+              header.classList.add("nav-scrolled");
+              anchors.forEach(item => item.classList.remove("nav-anchors-unscrolled"));
+              searchTerm.classList.remove("nav-input-unscrolled");
+              webname.classList.add("webname");
+              webname.classList.remove("webname-unscrolled");
+              searchBorder.classList.remove("search-unscrolled");
+              searchIcon.src = "search.png";
+            }
+          });
+        },
+        sectionOneOptions);
+
+      sectionOneObserver.observe(sectionOne);
+    } else if (randomize == 2 && bannerRemoval.innerHTML == "") {
+      header.classList.add("nav-scrolled");
+      header.style.border = "none";
+      header.style.boxShadow = "1px 1px 5px black";
+      bannerRemoval.innerHTML = ` 
+        <div id="slider">
+            
+            
+			<img src="https://www.scoop.com.tn/modules/sphomeslider/images/c3e8e4b0ad02f2470a20317442c308b549d37633_Asus%20(1).jpg" class="animate__animated animate__fadeIn">
+			<a href="#"  class="previous" onClick="nextIsSlider5()">&#8249;</a>
+            <a href="#" class="next" onClick="nextIsSlider2()">&#8250;</a>
+            <div id="skip-slides">
+                <a href="#" class="skippers" onClick="nextIsSlider1()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider2()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider3()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider4()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
+            </div>
+        
+	</div>`;
+
+      document.querySelector("#slider img").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
+      document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+      globalThis.slidingPics = document.querySelector("#slider");
+      slider2();
+    }
+    document.querySelector("#sort-menu-area").style.marginTop = "20px";
     globalThis.end = 7;
     globalThis.start = 0;
 
   } else {
+    if (randomize == 1) {
+      bannerRemoval.innerHTML = "";
+      document.querySelector("#nav").style.top = "0px";
+      document.querySelector("#sort-menu-area").style.marginTop = (document.querySelector("#nav").offsetHeight + 10) + "px";
+    } else {
+      for (let i = 0; i < timeouts.length; i++) {
+        clearTimeout(timeouts[i]);
+      }
+      timeouts.length = 0;
+      for (let i = 0; i < anotherTimeouts.length; i++) {
+        clearTimeout(anotherTimeouts[i]);
+      }
+      bannerRemoval.innerHTML = "";
+      document.querySelector("#nav").style.top = "0px";
+      document.querySelector("#sort-menu-area").style.marginTop = (document.querySelector("#nav").offsetHeight + 10) + "px";
+    }
     globalThis.end = 7 + ((pageIndex - 1) * 10);
     globalThis.start = 7 + ((pageIndex - 1) * 10) - 10;
   }

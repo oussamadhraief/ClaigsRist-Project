@@ -74,16 +74,16 @@ if (mq1.matches == false) {
             </div>
         
 	</div>`;
-    console.log("11");
+
         document.querySelector("#slider img").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
         document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
         globalThis.slidingPics = document.querySelector("#slider");
         slider2();
 
         function slider1() {
-            
-          timeouts.push(  setTimeout(() => {
-            slidingPics.innerHTML = ` 
+
+            timeouts.push(setTimeout(() => {
+                slidingPics.innerHTML = ` 
     
     
     
@@ -103,7 +103,7 @@ if (mq1.matches == false) {
         
 	`;
 
-console.log("11");
+
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
                 slider2();
             }, 3000));
@@ -112,8 +112,8 @@ console.log("11");
 
 
         function slider2() {
-            
-            timeouts.push( setTimeout(() => {
+
+            timeouts.push(setTimeout(() => {
                 slidingPics.innerHTML = ` 
     
     
@@ -132,7 +132,7 @@ console.log("11");
 		
         
 	`;
-    console.log("22");
+
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
                 slider3();
@@ -141,8 +141,8 @@ console.log("11");
         }
 
         function slider3() {
-            
-            timeouts.push( setTimeout(() => {
+
+            timeouts.push(setTimeout(() => {
                 slidingPics.innerHTML = ` 
         
         
@@ -160,7 +160,7 @@ console.log("11");
                 <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
             </div>
         `;
-        console.log("33");
+
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
                 slider4();
@@ -169,8 +169,8 @@ console.log("11");
         }
 
         function slider4() {
-           
-            timeouts.push( setTimeout(() => {
+
+            timeouts.push(setTimeout(() => {
                 slidingPics.innerHTML = ` 
         
         
@@ -188,7 +188,7 @@ console.log("11");
                 <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
             </div>
        `;
-        console.log("44");
+
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
                 slider5();
@@ -197,8 +197,8 @@ console.log("11");
         }
 
         function slider5() {
-            
-            timeouts.push(  setTimeout(() => {
+
+            timeouts.push(setTimeout(() => {
                 slidingPics.innerHTML = ` 
         
         
@@ -216,7 +216,7 @@ console.log("11");
                 <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
             </div>
         `;
-        console.log("55");
+
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
                 slider1();
@@ -236,16 +236,17 @@ console.log("11");
 
 
 
-function nextIsSlider1(){
-    
+
+function nextIsSlider1() {
+
     for (let i = 0; i < timeouts.length; i++) {
         clearTimeout(timeouts[i]);
     }
-    timeouts.length=0;
+    timeouts.length = 0;
     for (let i = 0; i < anotherTimeouts.length; i++) {
         clearTimeout(anotherTimeouts[i]);
     }
-    anotherTimeouts.length=0;
+    anotherTimeouts.length = 0;
     slidingPics.innerHTML = ` 
     
     
@@ -264,23 +265,23 @@ function nextIsSlider1(){
 </div>
 	`;
 
-console.log("1");
-        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
-        anotherTimeouts.push( setTimeout(() => {
+
+    document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+    anotherTimeouts.push(setTimeout(() => {
         slider2();
     }, 3000));
 }
 
-function nextIsSlider2(){
-    
+function nextIsSlider2() {
+
     for (let i = 0; i < timeouts.length; i++) {
         clearTimeout(timeouts[i]);
     }
-    timeouts.length=0;
+    timeouts.length = 0;
     for (let i = 0; i < anotherTimeouts.length; i++) {
         clearTimeout(anotherTimeouts[i]);
     }
-    anotherTimeouts.length=0;
+    anotherTimeouts.length = 0;
     slidingPics.innerHTML = ` 
    
     
@@ -299,23 +300,23 @@ function nextIsSlider2(){
 </div>
 	`;
 
-console.log("2");
-        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
-        anotherTimeouts.push(  setTimeout(() => {
+
+    document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+    anotherTimeouts.push(setTimeout(() => {
         slider3();
     }, 3000));
 }
 
-function nextIsSlider3(){
-    
+function nextIsSlider3() {
+
     for (let i = 0; i < timeouts.length; i++) {
         clearTimeout(timeouts[i]);
     }
-    timeouts.length=0;
+    timeouts.length = 0;
     for (let i = 0; i < anotherTimeouts.length; i++) {
         clearTimeout(anotherTimeouts[i]);
     }
-    anotherTimeouts.length=0;
+    anotherTimeouts.length = 0;
     slidingPics.innerHTML = ` 
     
     
@@ -334,23 +335,23 @@ function nextIsSlider3(){
 </div>
 	`;
 
-console.log("3");
-        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
-        anotherTimeouts.push(  setTimeout(() => {
+
+    document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+    anotherTimeouts.push(setTimeout(() => {
         slider4();
     }, 3000));
 }
 
-function nextIsSlider4(){
-    
+function nextIsSlider4() {
+
     for (let i = 0; i < timeouts.length; i++) {
         clearTimeout(timeouts[i]);
     }
-    timeouts.length=0;
+    timeouts.length = 0;
     for (let i = 0; i < anotherTimeouts.length; i++) {
         clearTimeout(anotherTimeouts[i]);
     }
-    anotherTimeouts.length=0;
+    anotherTimeouts.length = 0;
     slidingPics.innerHTML = ` 
     
     
@@ -369,23 +370,23 @@ function nextIsSlider4(){
 </div>
 	`;
 
-console.log("4");
-        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
-        anotherTimeouts.push(  setTimeout(() => {
+
+    document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+    anotherTimeouts.push(setTimeout(() => {
         slider5();
     }, 3000));
 }
 
-function nextIsSlider5(){
-   
+function nextIsSlider5() {
+
     for (let i = 0; i < timeouts.length; i++) {
         clearTimeout(timeouts[i]);
     }
-    timeouts.length=0;
+    timeouts.length = 0;
     for (let i = 0; i < anotherTimeouts.length; i++) {
         clearTimeout(anotherTimeouts[i]);
     }
-    anotherTimeouts.length=0;
+    anotherTimeouts.length = 0;
     slidingPics.innerHTML = ` 
             
     <img src="https://www.scoop.com.tn/modules/sphomeslider/images/56e32bb5499750aaf76651ffe6c0bb6b571f5571_Nintendo-switch.jpg" class="animate__animated animate__fadeIn">
@@ -400,9 +401,9 @@ function nextIsSlider5(){
     <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
 </div>
 	`;
-console.log("5");
-document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
-        anotherTimeouts.push(  setTimeout(() => {
+
+    document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+    anotherTimeouts.push(setTimeout(() => {
         slider1();
     }, 3000));
 }

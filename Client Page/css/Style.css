@@ -594,7 +594,8 @@ a {
 }
 
 
-.next:hover,.previous:hover {
+.next:hover,
+.previous:hover {
   background-color: #383838ea;
 }
 
