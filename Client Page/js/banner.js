@@ -59,8 +59,7 @@ if (mq1.matches == false) {
         header.style.border = "none";
         header.style.boxShadow = "1px 1px 5px black";
         banner.innerHTML = ` 
-    <div id="slider">
-    
+        <div id="slider">
             
             
 			<img src="https://www.scoop.com.tn/modules/sphomeslider/images/c3e8e4b0ad02f2470a20317442c308b549d37633_Asus%20(1).jpg" class="animate__animated animate__fadeIn">
@@ -70,14 +69,16 @@ if (mq1.matches == false) {
         
 	</div>`;
     console.log("11");
-        document.querySelector("#slider").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
+        document.querySelector("#slider img").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
         document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+        globalThis.slidingPics = document.querySelector("#slider");
         slider2();
 
         function slider1() {
+            
           timeouts.push(  setTimeout(() => {
-                banner.innerHTML = ` 
-    <div id="slider">
+            slidingPics.innerHTML = ` 
+    
     
     
             
@@ -85,8 +86,9 @@ if (mq1.matches == false) {
 			
             <a href="#"  class="previous" onClick="nextIsSlider5()">&#8249;</a>   
             <a href="#" class="next" onClick="nextIsSlider2()">&#8250;</a>
+            <a href="#" class="select-page" 
         
-	</div>`;
+	`;
 
 console.log("11");
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
@@ -97,9 +99,10 @@ console.log("11");
 
 
         function slider2() {
+            
             timeouts.push( setTimeout(() => {
-                banner.innerHTML = ` 
-    <div id="slider">
+                slidingPics.innerHTML = ` 
+    
     
     
             
@@ -108,7 +111,7 @@ console.log("11");
     <a href="#" class="next" onClick="nextIsSlider3()">&#8250;</a>        
 		
         
-	</div>`;
+	`;
     console.log("22");
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
@@ -118,9 +121,10 @@ console.log("11");
         }
 
         function slider3() {
+            
             timeouts.push( setTimeout(() => {
-                banner.innerHTML = ` 
-        <div id="slider">
+                slidingPics.innerHTML = ` 
+        
         
         
                 
@@ -129,7 +133,7 @@ console.log("11");
                 <a href="#" class="next" onClick="nextIsSlider4()">&#8250;</a>        
                 <a href="#" class="previous" onClick="nextIsSlider2()">&#8249;</a>
             
-        </div>`;
+        `;
         console.log("33");
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
@@ -139,9 +143,10 @@ console.log("11");
         }
 
         function slider4() {
+           
             timeouts.push( setTimeout(() => {
-                banner.innerHTML = ` 
-        <div id="slider">
+                slidingPics.innerHTML = ` 
+        
         
         
                 
@@ -150,7 +155,7 @@ console.log("11");
                 <a href="#" class="previous" onClick="nextIsSlider3()">&#8249;</a>
                 <a href="#" class="next" onClick="nextIsSlider5()">&#8250;</a>
             
-        </div>`;
+       `;
         console.log("44");
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
@@ -160,9 +165,10 @@ console.log("11");
         }
 
         function slider5() {
+            
             timeouts.push(  setTimeout(() => {
-                banner.innerHTML = ` 
-        <div id="slider">
+                slidingPics.innerHTML = ` 
+        
         
         
                 
@@ -171,7 +177,7 @@ console.log("11");
                 <a href="#"  class="previous" onClick="nextIsSlider4()">&#8249;</a>
                 <a href="#" class="next" onClick="nextIsSlider1()">&#8250;</a>
             
-        </div>`;
+        `;
         console.log("55");
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
@@ -193,6 +199,7 @@ console.log("11");
 
 
 function nextIsSlider1(){
+    
     for (let i = 0; i < timeouts.length; i++) {
         clearTimeout(timeouts[i]);
     }
@@ -201,8 +208,8 @@ function nextIsSlider1(){
         clearTimeout(anotherTimeouts[i]);
     }
     anotherTimeouts.length=0;
-    banner.innerHTML = ` 
-    <div id="slider">
+    slidingPics.innerHTML = ` 
+    
     
     
             
@@ -211,7 +218,7 @@ function nextIsSlider1(){
             <a href="#"  class="previous" onClick="nextIsSlider5()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider2()">&#8250;</a>
         
-	</div>`;
+	`;
 
 console.log("1");
         document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
@@ -221,6 +228,7 @@ console.log("1");
 }
 
 function nextIsSlider2(){
+    
     for (let i = 0; i < timeouts.length; i++) {
         clearTimeout(timeouts[i]);
     }
@@ -229,8 +237,8 @@ function nextIsSlider2(){
         clearTimeout(anotherTimeouts[i]);
     }
     anotherTimeouts.length=0;
-    banner.innerHTML = ` 
-    <div id="slider">
+    slidingPics.innerHTML = ` 
+   
     
     
             
@@ -239,7 +247,7 @@ function nextIsSlider2(){
             <a href="#"  class="previous" onClick="nextIsSlider1()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider3()">&#8250;</a>
         
-	</div>`;
+	`;
 
 console.log("2");
         document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
@@ -249,6 +257,7 @@ console.log("2");
 }
 
 function nextIsSlider3(){
+    
     for (let i = 0; i < timeouts.length; i++) {
         clearTimeout(timeouts[i]);
     }
@@ -257,8 +266,8 @@ function nextIsSlider3(){
         clearTimeout(anotherTimeouts[i]);
     }
     anotherTimeouts.length=0;
-    banner.innerHTML = ` 
-    <div id="slider">
+    slidingPics.innerHTML = ` 
+    
     
     
             
@@ -267,7 +276,7 @@ function nextIsSlider3(){
             <a href="#"  class="previous" onClick="nextIsSlider2()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider4()">&#8250;</a>
         
-	</div>`;
+	`;
 
 console.log("3");
         document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
@@ -277,6 +286,7 @@ console.log("3");
 }
 
 function nextIsSlider4(){
+    
     for (let i = 0; i < timeouts.length; i++) {
         clearTimeout(timeouts[i]);
     }
@@ -285,8 +295,8 @@ function nextIsSlider4(){
         clearTimeout(anotherTimeouts[i]);
     }
     anotherTimeouts.length=0;
-    banner.innerHTML = ` 
-    <div id="slider">
+    slidingPics.innerHTML = ` 
+    
     
     
             
@@ -295,7 +305,7 @@ function nextIsSlider4(){
             <a href="#"  class="previous" onClick="nextIsSlider3()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider5()">&#8250;</a>
         
-	</div>`;
+	`;
 
 console.log("4");
         document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
@@ -305,6 +315,7 @@ console.log("4");
 }
 
 function nextIsSlider5(){
+   
     for (let i = 0; i < timeouts.length; i++) {
         clearTimeout(timeouts[i]);
     }
@@ -313,20 +324,16 @@ function nextIsSlider5(){
         clearTimeout(anotherTimeouts[i]);
     }
     anotherTimeouts.length=0;
-    banner.innerHTML = ` 
-    <div id="slider">
-    
-    
+    slidingPics.innerHTML = ` 
             
     <img src="https://www.scoop.com.tn/modules/sphomeslider/images/56e32bb5499750aaf76651ffe6c0bb6b571f5571_Nintendo-switch.jpg" class="animate__animated animate__fadeIn">
 			
             <a href="#"  class="previous" onClick="nextIsSlider4()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider1()">&#8250;</a>
         
-	</div>`;
+	`;
 console.log("5");
 
-        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
         anotherTimeouts.push(  setTimeout(() => {
         slider1();
     }, 3000));
