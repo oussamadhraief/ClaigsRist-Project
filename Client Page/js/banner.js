@@ -65,7 +65,13 @@ if (mq1.matches == false) {
 			<img src="https://www.scoop.com.tn/modules/sphomeslider/images/c3e8e4b0ad02f2470a20317442c308b549d37633_Asus%20(1).jpg" class="animate__animated animate__fadeIn">
 			<a href="#"  class="previous" onClick="nextIsSlider5()">&#8249;</a>
             <a href="#" class="next" onClick="nextIsSlider2()">&#8250;</a>
-		
+            <div id="skip-slides">
+                <a href="#" class="skippers" onClick="nextIsSlider1()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider2()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider3()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider4()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
+            </div>
         
 	</div>`;
     console.log("11");
@@ -86,7 +92,14 @@ if (mq1.matches == false) {
 			
             <a href="#"  class="previous" onClick="nextIsSlider5()">&#8249;</a>   
             <a href="#" class="next" onClick="nextIsSlider2()">&#8250;</a>
-            <a href="#" class="select-page" 
+            <div id="skip-slides">
+                <a href="#" class="skippers" onClick="nextIsSlider1()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider2()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider3()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider4()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
+            </div>
+
         
 	`;
 
@@ -109,6 +122,13 @@ console.log("11");
 			<img src="https://www.scoop.com.tn/modules/sphomeslider/images/54868396aa7ca3b6f246c8e234291f6d49878f52_ps5.jpg" class="animate__animated animate__fadeIn">
             <a href="#" class="previous" onClick="nextIsSlider1()">&#8249;</a>	
     <a href="#" class="next" onClick="nextIsSlider3()">&#8250;</a>        
+    <div id="skip-slides">
+                <a href="#" class="skippers" onClick="nextIsSlider1()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider2()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider3()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider4()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
+            </div>
 		
         
 	`;
@@ -132,7 +152,13 @@ console.log("11");
                 
                 <a href="#" class="next" onClick="nextIsSlider4()">&#8250;</a>        
                 <a href="#" class="previous" onClick="nextIsSlider2()">&#8249;</a>
-            
+                <div id="skip-slides">
+                <a href="#" class="skippers" onClick="nextIsSlider1()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider2()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider3()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider4()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
+            </div>
         `;
         console.log("33");
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
@@ -154,7 +180,13 @@ console.log("11");
                 
                 <a href="#" class="previous" onClick="nextIsSlider3()">&#8249;</a>
                 <a href="#" class="next" onClick="nextIsSlider5()">&#8250;</a>
-            
+                <div id="skip-slides">
+                <a href="#" class="skippers" onClick="nextIsSlider1()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider2()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider3()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider4()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
+            </div>
        `;
         console.log("44");
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
@@ -176,7 +208,13 @@ console.log("11");
                 
                 <a href="#"  class="previous" onClick="nextIsSlider4()">&#8249;</a>
                 <a href="#" class="next" onClick="nextIsSlider1()">&#8250;</a>
-            
+                <div id="skip-slides">
+                <a href="#" class="skippers" onClick="nextIsSlider1()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider2()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider3()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider4()">&#160;</a>
+                <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
+            </div>
         `;
         console.log("55");
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
@@ -217,7 +255,13 @@ function nextIsSlider1(){
 			
             <a href="#"  class="previous" onClick="nextIsSlider5()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider2()">&#8250;</a>
-        
+    <div id="skip-slides">
+    <a href="#" class="skippers" onClick="nextIsSlider1()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider2()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider3()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider4()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
+</div>
 	`;
 
 console.log("1");
@@ -246,7 +290,13 @@ function nextIsSlider2(){
 			
             <a href="#"  class="previous" onClick="nextIsSlider1()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider3()">&#8250;</a>
-        
+    <div id="skip-slides">
+    <a href="#" class="skippers" onClick="nextIsSlider1()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider2()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider3()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider4()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
+</div>
 	`;
 
 console.log("2");
@@ -275,7 +325,13 @@ function nextIsSlider3(){
 			
             <a href="#"  class="previous" onClick="nextIsSlider2()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider4()">&#8250;</a>
-        
+    <div id="skip-slides">
+    <a href="#" class="skippers" onClick="nextIsSlider1()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider2()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider3()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider4()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
+</div>
 	`;
 
 console.log("3");
@@ -304,7 +360,13 @@ function nextIsSlider4(){
 			
             <a href="#"  class="previous" onClick="nextIsSlider3()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider5()">&#8250;</a>
-        
+    <div id="skip-slides">
+    <a href="#" class="skippers" onClick="nextIsSlider1()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider2()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider3()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider4()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
+</div>
 	`;
 
 console.log("4");
@@ -330,7 +392,13 @@ function nextIsSlider5(){
 			
             <a href="#"  class="previous" onClick="nextIsSlider4()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider1()">&#8250;</a>
-        
+    <div id="skip-slides">
+    <a href="#" class="skippers" onClick="nextIsSlider1()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider2()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider3()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider4()">&#160;</a>
+    <a href="#" class="skippers" onClick="nextIsSlider5()">&#160;</a>
+</div>
 	`;
 console.log("5");
 
