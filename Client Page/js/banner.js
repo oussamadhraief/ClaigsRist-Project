@@ -179,6 +179,4 @@ if (mq1.matches == false) {
     banner.remove();
     header.style.top = "0px";
     document.querySelector("#sort-menu-area").style.marginTop = (header.offsetHeight + 10).toString() + "px";
-
-
 }
