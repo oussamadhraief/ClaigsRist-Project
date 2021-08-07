@@ -8,6 +8,10 @@ const webname = document.querySelector("#webname");
 const searchBorder = document.querySelector(".search");
 const searchIcon = document.querySelector("#search-icon");
 
+let timeouts = [];
+
+let anotherTimeouts = [];
+
 let randomize = Math.floor((Math.random() * 2) + 1);
 
 if (mq1.matches == false) {
@@ -57,117 +61,122 @@ if (mq1.matches == false) {
         banner.innerHTML = ` 
     <div id="slider">
     
-		
+            
             
 			<img src="https://www.scoop.com.tn/modules/sphomeslider/images/c3e8e4b0ad02f2470a20317442c308b549d37633_Asus%20(1).jpg" class="animate__animated animate__fadeIn">
-			
-            
+			<a href="#"  class="previous" onClick="nextIsSlider5()">&#8249;</a>
+            <a href="#" class="next" onClick="nextIsSlider2()">&#8250;</a>
 		
         
 	</div>`;
+    console.log("11");
         document.querySelector("#slider").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
         document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
         slider2();
 
         function slider1() {
-            globalThis.oneTimeout = setTimeout(() => {
+          timeouts.push(  setTimeout(() => {
                 banner.innerHTML = ` 
     <div id="slider">
     
-		
+    
             
 			<img src="https://www.scoop.com.tn/modules/sphomeslider/images/c3e8e4b0ad02f2470a20317442c308b549d37633_Asus%20(1).jpg" class="animate__animated animate__fadeIn">
 			
-            
-		
+            <a href="#"  class="previous" onClick="nextIsSlider5()">&#8249;</a>   
+            <a href="#" class="next" onClick="nextIsSlider2()">&#8250;</a>
         
 	</div>`;
 
-
+console.log("11");
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
                 slider2();
-            }, 3000);
+            }, 3000));
         }
 
 
 
         function slider2() {
-            globalThis.twoTimeout = setTimeout(() => {
+            timeouts.push( setTimeout(() => {
                 banner.innerHTML = ` 
     <div id="slider">
     
-		
+    
             
 			<img src="https://www.scoop.com.tn/modules/sphomeslider/images/54868396aa7ca3b6f246c8e234291f6d49878f52_ps5.jpg" class="animate__animated animate__fadeIn">
-			
-            
+            <a href="#" class="previous" onClick="nextIsSlider1()">&#8249;</a>	
+    <a href="#" class="next" onClick="nextIsSlider3()">&#8250;</a>        
 		
         
 	</div>`;
+    console.log("22");
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
                 slider3();
 
-            }, 3000);
+            }, 3000));
         }
 
         function slider3() {
-            globalThis.threeTimeout = setTimeout(() => {
+            timeouts.push( setTimeout(() => {
                 banner.innerHTML = ` 
         <div id="slider">
         
-            
+        
                 
                 <img src="https://www.scoop.com.tn/modules/sphomeslider/images/6f86d90fe53f580927195abf48c386264cbe69f2_VivoBook-15-X571.jpg" class="animate__animated animate__fadeIn">
                 
-                
-            
+                <a href="#" class="next" onClick="nextIsSlider4()">&#8250;</a>        
+                <a href="#" class="previous" onClick="nextIsSlider2()">&#8249;</a>
             
         </div>`;
+        console.log("33");
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
                 slider4();
-            }, 3000);
+            }, 3000));
 
         }
 
         function slider4() {
-            globalThis.fourTimeout = setTimeout(() => {
+            timeouts.push( setTimeout(() => {
                 banner.innerHTML = ` 
         <div id="slider">
         
-            
+        
                 
                 <img src="https://www.scoop.com.tn/modules/sphomeslider/images/26ae80b9cdad9996e1c8625abd021c70ef843804_ThinkPad-e15%20(1).jpg" class="animate__animated animate__fadeIn">
                 
-                
-            
+                <a href="#" class="previous" onClick="nextIsSlider3()">&#8249;</a>
+                <a href="#" class="next" onClick="nextIsSlider5()">&#8250;</a>
             
         </div>`;
+        console.log("44");
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
                 slider5();
-            }, 3000);
+            }, 3000));
 
         }
 
         function slider5() {
-            globalThis.fiveTimeout = setTimeout(() => {
+            timeouts.push(  setTimeout(() => {
                 banner.innerHTML = ` 
         <div id="slider">
         
-            
+        
                 
                 <img src="https://www.scoop.com.tn/modules/sphomeslider/images/56e32bb5499750aaf76651ffe6c0bb6b571f5571_Nintendo-switch.jpg" class="animate__animated animate__fadeIn">
                 
-                
-            
+                <a href="#"  class="previous" onClick="nextIsSlider4()">&#8249;</a>
+                <a href="#" class="next" onClick="nextIsSlider1()">&#8250;</a>
             
         </div>`;
+        console.log("55");
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
                 slider1();
-            }, 3000);
+            }, 3000));
 
         }
 
@@ -179,4 +188,146 @@ if (mq1.matches == false) {
     banner.remove();
     header.style.top = "0px";
     document.querySelector("#sort-menu-area").style.marginTop = (header.offsetHeight + 10).toString() + "px";
+}
+
+
+
+function nextIsSlider1(){
+    for (let i = 0; i < timeouts.length; i++) {
+        clearTimeout(timeouts[i]);
+    }
+    timeouts.length=0;
+    for (let i = 0; i < anotherTimeouts.length; i++) {
+        clearTimeout(anotherTimeouts[i]);
+    }
+    anotherTimeouts.length=0;
+    banner.innerHTML = ` 
+    <div id="slider">
+    
+    
+            
+			<img src="https://www.scoop.com.tn/modules/sphomeslider/images/c3e8e4b0ad02f2470a20317442c308b549d37633_Asus%20(1).jpg" class="animate__animated animate__fadeIn">
+			
+            <a href="#"  class="previous" onClick="nextIsSlider5()">&#8249;</a>   
+    <a href="#" class="next" onClick="nextIsSlider2()">&#8250;</a>
+        
+	</div>`;
+
+console.log("1");
+        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+        anotherTimeouts.push( setTimeout(() => {
+        slider2();
+    }, 3000));
+}
+
+function nextIsSlider2(){
+    for (let i = 0; i < timeouts.length; i++) {
+        clearTimeout(timeouts[i]);
+    }
+    timeouts.length=0;
+    for (let i = 0; i < anotherTimeouts.length; i++) {
+        clearTimeout(anotherTimeouts[i]);
+    }
+    anotherTimeouts.length=0;
+    banner.innerHTML = ` 
+    <div id="slider">
+    
+    
+            
+    <img src="https://www.scoop.com.tn/modules/sphomeslider/images/54868396aa7ca3b6f246c8e234291f6d49878f52_ps5.jpg" class="animate__animated animate__fadeIn">
+			
+            <a href="#"  class="previous" onClick="nextIsSlider1()">&#8249;</a>   
+    <a href="#" class="next" onClick="nextIsSlider3()">&#8250;</a>
+        
+	</div>`;
+
+console.log("2");
+        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+        anotherTimeouts.push(  setTimeout(() => {
+        slider3();
+    }, 3000));
+}
+
+function nextIsSlider3(){
+    for (let i = 0; i < timeouts.length; i++) {
+        clearTimeout(timeouts[i]);
+    }
+    timeouts.length=0;
+    for (let i = 0; i < anotherTimeouts.length; i++) {
+        clearTimeout(anotherTimeouts[i]);
+    }
+    anotherTimeouts.length=0;
+    banner.innerHTML = ` 
+    <div id="slider">
+    
+    
+            
+    <img src="https://www.scoop.com.tn/modules/sphomeslider/images/6f86d90fe53f580927195abf48c386264cbe69f2_VivoBook-15-X571.jpg" class="animate__animated animate__fadeIn">
+			
+            <a href="#"  class="previous" onClick="nextIsSlider2()">&#8249;</a>   
+    <a href="#" class="next" onClick="nextIsSlider4()">&#8250;</a>
+        
+	</div>`;
+
+console.log("3");
+        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+        anotherTimeouts.push(  setTimeout(() => {
+        slider4();
+    }, 3000));
+}
+
+function nextIsSlider4(){
+    for (let i = 0; i < timeouts.length; i++) {
+        clearTimeout(timeouts[i]);
+    }
+    timeouts.length=0;
+    for (let i = 0; i < anotherTimeouts.length; i++) {
+        clearTimeout(anotherTimeouts[i]);
+    }
+    anotherTimeouts.length=0;
+    banner.innerHTML = ` 
+    <div id="slider">
+    
+    
+            
+    <img src="https://www.scoop.com.tn/modules/sphomeslider/images/26ae80b9cdad9996e1c8625abd021c70ef843804_ThinkPad-e15%20(1).jpg" class="animate__animated animate__fadeIn">
+			
+            <a href="#"  class="previous" onClick="nextIsSlider3()">&#8249;</a>   
+    <a href="#" class="next" onClick="nextIsSlider5()">&#8250;</a>
+        
+	</div>`;
+
+console.log("4");
+        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+        anotherTimeouts.push(  setTimeout(() => {
+        slider5();
+    }, 3000));
+}
+
+function nextIsSlider5(){
+    for (let i = 0; i < timeouts.length; i++) {
+        clearTimeout(timeouts[i]);
+    }
+    timeouts.length=0;
+    for (let i = 0; i < anotherTimeouts.length; i++) {
+        clearTimeout(anotherTimeouts[i]);
+    }
+    anotherTimeouts.length=0;
+    banner.innerHTML = ` 
+    <div id="slider">
+    
+    
+            
+    <img src="https://www.scoop.com.tn/modules/sphomeslider/images/56e32bb5499750aaf76651ffe6c0bb6b571f5571_Nintendo-switch.jpg" class="animate__animated animate__fadeIn">
+			
+            <a href="#"  class="previous" onClick="nextIsSlider4()">&#8249;</a>   
+    <a href="#" class="next" onClick="nextIsSlider1()">&#8250;</a>
+        
+	</div>`;
+console.log("5");
+
+        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+        anotherTimeouts.push(  setTimeout(() => {
+        slider1();
+    }, 3000));
 }

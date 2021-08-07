@@ -566,6 +566,36 @@ a {
   float: left;
 }
 
+.previous {
+  position: absolute;
+  margin-top: 18%;
+  left: 0%;
+  font-size: 80px;
+  color: var(--teeth);
+  background-color: #38383896;
+  padding: 0;
+  height: max-content;
+  line-height: 50px;
+  padding-bottom: 20px;
+}
+
+.next {
+  position: absolute;
+  margin-top: 18%;
+  right: 0%;
+  font-size: 80px;
+  color: var(--teeth);
+  background-color: #38383896;
+  padding: 0;
+  height: max-content;
+  line-height: 50px;
+  padding-bottom: 20px;
+}
+
+.next:hover,.previous:hover {
+  background-color: #383838ea;
+}
+
 #sort-menu-area {
   margin-top: 20px;
   border-top: 3px solid var(--more);
