@@ -401,7 +401,7 @@ function nextIsSlider5(){
 </div>
 	`;
 console.log("5");
-
+document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
         anotherTimeouts.push(  setTimeout(() => {
         slider1();
     }, 3000));
