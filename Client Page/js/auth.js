@@ -192,7 +192,7 @@ function handleCloseModal(id) {
 
 var provider = new firebase.auth.GoogleAuthProvider();
 
-console.log("ggg");
+console.log("gggg");
 
 document.querySelector("#google-sign-up").addEventListener("click", () => {
     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
