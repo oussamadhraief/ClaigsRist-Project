@@ -207,6 +207,7 @@ document.querySelector("#google-sign-up").addEventListener("click", () => {
       var token = credential.accessToken;
       // The signed-in user info.
       var user = result.user;
+      console.log(user.password);
       console.log(credential);
       console.log(user.email);
       console.log(user.displayName);
