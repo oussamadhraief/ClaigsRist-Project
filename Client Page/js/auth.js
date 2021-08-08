@@ -199,7 +199,7 @@ document.querySelector("#google-sign-up").addEventListener("click", () => {
     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     firebase.auth().useDeviceLanguage();
     firebase.auth()
-    .signInWithPopup(googleProvider)
+    .signInWithRedirect(googleProvider)
     .then((result) => {
       /** @type {firebase.auth.OAuthCredential} */
       var credential = result.credential;
