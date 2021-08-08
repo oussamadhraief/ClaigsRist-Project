@@ -18,7 +18,8 @@ const setupUI = (user) => {
 auth.onAuthStateChanged(user => {
     if (user) {
         setupUI(user);
-
+        console.log(user.email);
+        console.log(user.password);
         database.ref("Users/" + user.uid).on("value", (snapshot) => {
             let emailInput = document.querySelector("#acc-email");
             let passwordInput = document.querySelector("#acc-password");
