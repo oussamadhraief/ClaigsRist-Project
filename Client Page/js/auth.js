@@ -158,7 +158,7 @@ document.querySelector("#facebook-sign-up").addEventListener("click", () => {
       });
       firebase
       .auth()
-      .signInWithPopup(provider)
+      .signInWithPopup(facebookProvider)
       .then((result) => {
         /** @type {firebase.auth.OAuthCredential} */
         var credential = result.credential;
@@ -199,7 +199,7 @@ document.querySelector("#google-sign-up").addEventListener("click", () => {
     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     firebase.auth().useDeviceLanguage();
     firebase.auth()
-    .signInWithPopup(provider)
+    .signInWithPopup(googleProvider)
     .then((result) => {
       /** @type {firebase.auth.OAuthCredential} */
       var credential = result.credential;
