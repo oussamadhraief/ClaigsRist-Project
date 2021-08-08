@@ -195,7 +195,6 @@ var provider = new firebase.auth.GoogleAuthProvider();
 document.querySelector("#google-sign-up").addEventListener("click", () => {
     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     firebase.auth().useDeviceLanguage();
-    console.log(provider);
     firebase.auth()
     .signInWithPopup(provider)
     .then((result) => {
@@ -206,6 +205,9 @@ document.querySelector("#google-sign-up").addEventListener("click", () => {
       var token = credential.accessToken;
       // The signed-in user info.
       var user = result.user;
+      console.log(credential);
+      console.log(user);
+      console.log(token);
       console.log("1");
       // ...
     }).catch((error) => {
