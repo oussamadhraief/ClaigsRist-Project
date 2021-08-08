@@ -25,6 +25,10 @@ let s = 0;
 
 //Functions
 
+document.querySelector("#webname").addEventListener("click",() => {
+  window.location.reload(true);
+});
+
 function productsBox({
   id,
   name,

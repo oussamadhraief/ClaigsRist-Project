@@ -44,7 +44,6 @@ body {
   background-color: var(--another);
   padding: 15px;
   text-align: center;
-  margin-left: 45%;
   border: none;
   border-radius: 5%;
   font-size: large;
@@ -56,6 +55,7 @@ body {
   cursor: pointer;
   background-color: #aa8f43;
 }
+
 
 #profile-pic label:hover {
   cursor: pointer;
@@ -277,13 +277,55 @@ h4 {
   box-sizing: border-box !important;
   font-size: medium;
   font-weight: 700;
+  justify-content: center;
+}
 
+#signup-form {
+  margin-bottom: 30px;
+  width: 100% !important;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#signup-form > * {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #signup:hover {
   background-color: var(--dark);
   color: var(--light);
 }
+
+.sign-up-methods {
+  width: 40%;
+  min-height: 40px;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  font-size: medium;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: var(--teeth);
+  justify-content: flex-start;
+}
+
+.sign-up-icons {
+  width: 20px;
+  height: 20px;
+  margin-right: 20%;
+}
+
+.sign-up-methods:hover {
+  background-color: rgb(191, 190, 190);
+  cursor: pointer;
+}
+
 
 #menu-icon {
   display: none;
@@ -479,6 +521,10 @@ a {
   white-space: nowrap;
 }
 
+#webname:hover {
+  cursor: pointer;
+}
+
 .webname {
   background: linear-gradient(to right, var(--light) 0, var(--dark) 10%, var(--light) 20%);
 }
@@ -572,7 +618,7 @@ a {
   margin-top: 18%;
   left: 0%;
   font-size: 80px;
-  color: var(--teeth);
+  color: rgba(255, 255, 255, 0.782);
   background-color: #38383896;
   padding: 0;
   height: max-content;
@@ -585,7 +631,7 @@ a {
   margin-top: 18%;
   right: 0%;
   font-size: 80px;
-  color: var(--teeth);
+  color: rgba(255, 255, 255, 0.782);
   background-color: #38383896;
   padding: 0;
   height: max-content;
@@ -596,7 +642,8 @@ a {
 
 .next:hover,
 .previous:hover {
-  background-color: #383838ea;
+  background-color: #383838;
+  color: var(--teeth);
 }
 
 #skip-slides {
@@ -971,6 +1018,10 @@ a {
     height: 6rem;
 
   }
+  
+  .sign-up-icons {
+    margin-right: 10%;
+  }
 
   .vari1 {
     font-size: medium;
@@ -1046,6 +1097,9 @@ a {
 
   }
 
+  .sign-up-icons {
+    margin-right: 10%;
+  }
 
   .vari1 {
     font-size: small;
@@ -1091,6 +1145,10 @@ a {
 
     height: 3rem;
 
+  }
+
+  .sign-up-icons {
+    margin-right: 0%;
   }
 
   .const1 {

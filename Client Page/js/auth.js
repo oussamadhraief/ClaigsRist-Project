@@ -146,7 +146,78 @@ loginForm.addEventListener("submit", (e) => {
     });
 })
 
+var provider = new firebase.auth.FacebookAuthProvider();
+
+document.querySelector("#facebook-sign-up").addEventListener("click", () => {
+    
+    provider.addScope('email');
+    firebase.auth().useDeviceLanguage();
+    provider.setCustomParameters({
+        'display': 'popup'
+      });
+      firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        /** @type {firebase.auth.OAuthCredential} */
+        var credential = result.credential;
+    
+        
+        var user = result.user;
+    
+        
+        var accessToken = credential.accessToken;
+    
+        
+      })
+      .catch((error) => {
+        
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        
+        var email = error.email;
+        
+        var credential = error.credential;
+    
+       
+      });
+    
+});
+
+
 function handleCloseModal(id) {
     let modal = document.querySelector("#" + id + "");
     M.Modal.getInstance(modal).close();
 }
+
+var provider = new firebase.auth.GoogleAuthProvider();
+
+document.querySelector("#google-sign-up").addEventListener("click", () => {
+    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    firebase.auth().useDeviceLanguage();
+    console.log(provider);
+    firebase.auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      /** @type {firebase.auth.OAuthCredential} */
+      var credential = result.credential;
+
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      console.log("1");
+      // ...
+    }).catch((error) => {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      console.log(errorCode);
+      console.log(email);
+      // ...
+    });
+});
