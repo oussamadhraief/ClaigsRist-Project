@@ -563,6 +563,10 @@ a {
   color: var(--teeth) !important;
 }
 
+.nav-anchors-unscrolled:hover {
+  color: var(--more) !important;
+}
+
 .nav-input-unscrolled {
   color: var(--teeth) !important;
 }
@@ -571,6 +575,13 @@ a {
   background-color: var(--teeth) !important;  
   border: 1px solid var(--teeth) !important;
 }
+
+.sign-up-button-unscrolled:hover{
+  background-color: rgb(218, 214, 214) !important;
+  color: var(--dark) !important;
+  cursor: pointer;
+}
+
 
 .nav-input-unscrolled::placeholder {
   color: var(--teeth) !important;
