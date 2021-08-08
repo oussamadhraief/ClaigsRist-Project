@@ -567,6 +567,11 @@ a {
   color: var(--teeth) !important;
 }
 
+.sign-up-button-unscrolled{
+  background-color: var(--teeth) !important;  
+  border: 1px solid var(--teeth) !important;
+}
+
 .nav-input-unscrolled::placeholder {
   color: var(--teeth) !important;
 }

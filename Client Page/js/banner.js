@@ -7,6 +7,7 @@ const searchTerm = document.querySelector(".searchTerm");
 const webname = document.querySelector("#webname");
 const searchBorder = document.querySelector(".search");
 const searchIcon = document.querySelector("#search-icon");
+const signupButton = document.querySelector("#signup");
 
 let timeouts = [];
 
@@ -38,6 +39,7 @@ if (mq1.matches == false) {
                         webname.classList.remove("webname");
                         webname.classList.add("webname-unscrolled");
                         searchBorder.classList.add("search-unscrolled");
+                        signupButton.classList.add("sign-up-button-unscrolled");
                         searchIcon.src = "search-unscrolled.png";
                     } else {
                         header.classList.add("nav-scrolled");
@@ -46,6 +48,7 @@ if (mq1.matches == false) {
                         webname.classList.add("webname");
                         webname.classList.remove("webname-unscrolled");
                         searchBorder.classList.remove("search-unscrolled");
+                        signupButton.classList.remove("sign-up-button-unscrolled");
                         searchIcon.src = "search.png";
                     }
                 });
