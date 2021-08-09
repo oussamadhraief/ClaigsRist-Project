@@ -242,4 +242,4 @@ function handleCancelButton(id) {
 
 }
 
-document.querySelector("#profile-pic img").style.height = document.querySelector("#profile-pic img").offsetWidth +"pc";
+document.querySelector("#profile-pic img").style.height = (document.querySelector("#profile-pic img").offsetWidth*1.5) +"pc";
