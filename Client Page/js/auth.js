@@ -71,7 +71,7 @@ auth.onAuthStateChanged(user => {
         
         
                         <div id="account-password" class="input-field">
-                           <input type="password" name="password" id="#acc-password" placeholder="Add a password to your ClaigsRist account" class="edit-email">
+                           <input type="password" name="password" id="acc-password" placeholder="Add a password to your ClaigsRist account" class="edit-email">
                            <button  id="save-password" class="save-info">Save</button>
                         </div>
         
