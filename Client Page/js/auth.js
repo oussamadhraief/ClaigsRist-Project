@@ -71,8 +71,7 @@ auth.onAuthStateChanged(user => {
         
         
                         <div id="account-password" class="input-field">
-                            <label for="acc-password" id="add-password-label">Add a password to your ClaigsRist account</label>
-                           <input type="password" name="password" id="#acc-password" placeholder="Choose password" class="edit-email">
+                           <input type="password" name="password" id="#acc-password" placeholder="Add a password to your ClaigsRist account" class="edit-email">
                            <button  id="save-password" class="save-info">Save</button>
                         </div>
         
@@ -92,7 +91,7 @@ auth.onAuthStateChanged(user => {
                             <a href="#" style="display: none;" class="cancel-button"
                                 onClick="handleCancelButton('account-bio')">cancel</a>
                         </div>
-                        <p> IMPORTANT : logging in with google / facebook only makes signing up and signing in easier and creates a ClaigsRist account that is completely detached 
+                        <p><img src="attention.png" alt="attention-icon" width="30px" height="30px">  IMPORTANT : logging in with google / facebook only makes signing up and signing in easier and creates a ClaigsRist account that is completely detached 
                         from your google/facebook account. 
                         Changing your email or password or any other type of information (photo, bio ... ) below will only affect your ClaigsRist account
                         and will not change your login information or any other type of information in your google/facebook account. </p>
@@ -170,7 +169,7 @@ auth.onAuthStateChanged(user => {
                             <a href="#" style="display: none;" class="cancel-button"
                                 onClick="handleCancelButton('account-bio')">cancel</a>
                         </div>
-                        <p> IMPORTANT : logging in with google / facebook only makes signing up and signing in easier and creates a ClaigsRist account that is completely detached 
+                        <p id="attention"><img src="attention.png" alt="attention-icon" width="30px" height="30px">  IMPORTANT : logging in with google / facebook only makes signing up and signing in easier and creates a ClaigsRist account that is completely detached 
                         from your google/facebook account. 
                         Changing your email or password or any other type of information (photo, bio ... ) below will only affect your ClaigsRist account
                         and will not change your login information or any other type of information in your google/facebook account. </p>   
@@ -356,8 +355,7 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
       /** @type {firebase.auth.OAuthCredential} */
      
       var user = result.user;
-      console.log(user.uid);
-       
+      console.log(user.uid)
       database.ref("Users/" + user.uid).once("value", (snapshot) => {
           console.log("this is inside the ref");
         if(typeof snapshot.authMethods == 'undefined'){
@@ -409,8 +407,7 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
 
 
                 <div id="account-password" class="input-field">
-                    <label for="acc-password" id="add-password-label">Add a password to your ClaigsRist account</label>
-                   <input type="password" name="password" id="#acc-password" placeholder="Choose password" class="edit-email">
+                   <input type="password" name="password" id="acc-password" placeholder="Add a password to your ClaigsRist account" class="edit-email">
                    <button  id="save-password" class="save-info">Save</button>
                 </div>
 
@@ -430,7 +427,7 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
                     <a href="#" style="display: none;" class="cancel-button"
                         onClick="handleCancelButton('account-bio')">cancel</a>
                 </div>
-                <p> IMPORTANT : logging in with google / facebook only makes signing up and signing in easier and creates a ClaigsRist account that is completely detached 
+                <p id="attention"> <img src="attention.png" alt="attention-icon" width="30px" height="30px"> IMPORTANT : logging in with google / facebook only makes signing up and signing in easier and creates a ClaigsRist account that is completely detached 
                 from your google/facebook account. 
                 Changing your email or password or any other type of information (photo, bio ... ) below will only affect your ClaigsRist account
                 and will not change your login information or any other type of information in your google/facebook account. </p>
@@ -508,7 +505,7 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
                     <a href="#" style="display: none;" class="cancel-button"
                         onClick="handleCancelButton('account-bio')">cancel</a>
                 </div>
-                <p> IMPORTANT : logging in with google / facebook only makes signing up and signing in easier and creates a ClaigsRist account that is completely detached 
+                <p id="attention"><img src="attention.png" alt="attention-icon" width="30px" height="30px">  IMPORTANT : logging in with google / facebook only makes signing up and signing in easier and creates a ClaigsRist account that is completely detached 
                 from your google/facebook account. 
                 Changing your email or password or any other type of information (photo, bio ... ) below will only affect your ClaigsRist account
                 and will not change your login information or any other type of information in your google/facebook account. </p>
