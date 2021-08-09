@@ -158,7 +158,7 @@ document.querySelector("#facebook-sign-up").addEventListener("click", () => {
       });
       firebase
       .auth()
-      .signInWithPopup(facebookProvider)
+      .signInWithRedirect(facebookProvider)
       .then((result) => {
         /** @type {firebase.auth.OAuthCredential} */
         var credential = result.credential;
@@ -198,7 +198,7 @@ function handleCloseModal(id) {
 
 let googleProvider = new firebase.auth.GoogleAuthProvider();
 
-console.log("g");
+console.log("gg");
 
 document.querySelector("#google-sign-up").addEventListener("click", () => {
     googleProvider.addScope('https://www.googleapis.com/auth/contacts.readonly');
@@ -209,9 +209,8 @@ document.querySelector("#google-sign-up").addEventListener("click", () => {
       /** @type {firebase.auth.OAuthCredential} */
       var credential = result.credential;
 
-      // This gives you a Google Access Token. You can use it to access the Google API.
       var token = credential.accessToken;
-      // The signed-in user info.
+     
       var user = result.user;
       console.log(user.password);
       console.log(credential);
@@ -219,14 +218,12 @@ document.querySelector("#google-sign-up").addEventListener("click", () => {
       console.log(user.displayName);
       console.log(token);
       console.log("1");
-      // ...
+     
     }).catch((error) => {
-      // Handle Errors here.
+      
       var errorCode = error.code;
       var errorMessage = error.message;
-      // The email of the user's account used.
       var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
       var credential = error.credential;
       console.log(errorCode);
       console.log(email);
