@@ -239,3 +239,5 @@ function handleCancelButton(id) {
     });
 
 }
+
+document.querySelector("#profile-pic img").style.height = document.querySelector("#profile-pic img").offsetWidth +"pc";
