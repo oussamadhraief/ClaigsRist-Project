@@ -1,3 +1,5 @@
+const { rename } = require("fs");
+
 const auth = firebase.auth();
 
 const loggedOutLinks = document.querySelectorAll(".logged-out");
@@ -18,16 +20,7 @@ const setupUI = (user) => {
 auth.onAuthStateChanged(user => {
     if (user) {
         setupUI(user);
-        console.log(user);
-        console.log(user.signInMethod);
-        for (let index = 0; index < user.providerData.length; index++) {
-            
-            console.log(user.providerData[index]);
-        }
         
-        console.log(user.uid);
-        console.log(user.email);
-        console.log(user.password);
         database.ref("Users/" + user.uid).on("value", (snapshot) => {
             let emailInput = document.querySelector("#acc-email");
             let passwordInput = document.querySelector("#acc-password");
@@ -40,6 +33,15 @@ auth.onAuthStateChanged(user => {
             passwordInput.value = user.password;
             bioInput.value = snapshot.bio;
             picInput.src = snapshot.picture;
+
+
+            for (let index = 0; index < user.providerData.length; index++) {
+                if(user.providerData[index].providerId == "google.com"){
+                    if (!snapshot.authMethods.includes("google"))
+                        snapshot.authMethods
+                     }
+                }
+            
 
             let footer = document.querySelector("#footer");
 
@@ -179,10 +181,10 @@ document.querySelector("#facebook-sign-in").addEventListener("click", () => {
         console.log(user.password);
         console.log(user.uid);
         console.log(credential);
-         console.log(user.email);
-          console.log(user.displayName);
-         console.log(token);
-         console.log("1");
+        console.log(user.email);
+        console.log(user.displayName);
+        console.log(token);
+        console.log("1");
         
       })
       .catch((error) => {
@@ -216,18 +218,83 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
     .signInWithPopup(googleProvider)
     .then((result) => {
       /** @type {firebase.auth.OAuthCredential} */
-      var credential = result.credential;
-
-      var token = credential.accessToken;
      
       var user = result.user;
-      console.log(user.uid);
-      console.log(user.password);
-      console.log(credential);
-      console.log(user.email);
-      console.log(user.displayName);
-      console.log(token);
-      console.log("1");
+
+      ref("Products/" + user.uid).once("value", (snapshot) => {
+        if(!snapshot.authMethods.exists()){
+            ref("Products/" + user.uid).update({
+                authMethods: "google",
+            });
+        }
+        if (!snapshot.authMethods.includes("email")){
+            document.querySelector("#modal-account").innerHTML = `
+            <h4>My account</h4><br>
+            <a class="close-modal" onClick="handleCloseModal('modal-account')" href="#">x</a>
+            <div id="account-form">
+                <div id="profile-pic">
+                    <img src="https://i2.wp.com/proseawards.com/wp-content/uploads/2015/08/no-profile-pic.png"
+                        id="user-pic" alt="profile picture">
+                    <div id="picture-edit">
+                        <label for="profilepic">Edit your profile picture</label>
+                        <input type="file" id="profilepic" accept="image/png, image/gif, image/jpeg">
+                        <a href="#" onClick="handleRemoveButton()" id="remove-picture">Remove picture</a>
+                        <a id="save-picture" onClick="handleSavePicture()" disabled>Save</a>
+                    </div>
+                </div>
+
+
+
+                <div id="account-email" class="input-field">
+                    <p class="temp" style="display: grid;">Edit your email.</p>
+
+                    <a href="#" class="editanchor" style="display: grid;"
+                        onClick="handleEditButton('account-email')"><img class="editicon" src="edit-form.png"
+                            alt="edit"></a>
+
+                    <input style="display: none;" id="acc-email" type="text" class="edit-email" name="edit-email"
+                        required>
+
+                    <button onClick="saveButtonAppearance('account-email')" id="save-email" style="display: none;"
+                        class="save-info">Save</button>
+
+                    <a href="#" style="display: none;" class="cancel-button"
+                        onClick="handleCancelButton('account-email')">cancel</a>
+
+                </div>
+
+
+
+                <div id="account-password" class="input-field">
+                    <label for="add-password">Add a password to your ClaigsRist account</label>
+                   <input type="password" name="password" id="add-password" placeholder="Choose password">
+                </div>
+
+
+
+                <div id="account-bio" class="input-field">
+                    <p class="temp" style="display: grid;">Edit your bio.</p>
+
+                    <a href="#" class="editanchor" style="display: grid;" onClick="handleEditButton('account-bio')"><img
+                            class="editicon" src="edit-form.png" alt="edit"></a>
+
+                    <input style="display: none;" id="acc-bio" type="text" class="edit-email" name="edit-bio" required>
+
+                    <button onClick="saveButtonAppearance('account-bio')" id="save-bio" style="display: none;"
+                        class="save-info">Save</button>
+
+                    <a href="#" style="display: none;" class="cancel-button"
+                        onClick="handleCancelButton('account-bio')">cancel</a>
+                </div>
+                <p> IMPORTANT : logging in with google only makes signing up easier and creates a ClaigsRist account that is completely detached 
+                from your google account. 
+                Changing your email or password or any other type of information (photo, bio ... ) below will only affect your ClaigsRist account
+                and will not change your login information or any other type of information in your google account. </p>
+
+            </div>
+            `;
+        }
+      });
      
     }).catch((error) => {
       
