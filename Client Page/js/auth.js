@@ -77,7 +77,7 @@ auth.onAuthStateChanged(user => {
         
         
         
-                        <div id="account-bio" class="input-field">x
+                        <div id="account-bio" class="input-field">
                             <p class="temp" style="display: grid;">Edit your bio.</p>
         
                             <a href="#" class="editanchor" style="display: grid;" onClick="handleEditButton('account-bio')"><img
