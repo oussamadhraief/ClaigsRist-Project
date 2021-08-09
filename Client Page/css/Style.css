@@ -327,7 +327,7 @@ h4 {
   color: var(--light);
 }
 
-.sign-up-methods {
+.sign-in-methods {
   width: 40%;
   min-height: 40px;
   display: flex;
@@ -343,17 +343,17 @@ h4 {
   justify-content: flex-start;
 }
 
-#facebook-sign-up {
+#facebook-sign-in {
   margin-top: 20px;
 }
 
-.sign-up-icons {
+.sign-in-icons {
   width: 20px;
   height: 20px;
   margin-right: 20%;
 }
 
-.sign-up-methods:hover {
+.sign-in-methods:hover {
   background-color: rgb(191, 190, 190);
   cursor: pointer;
 }
@@ -1067,7 +1067,7 @@ a {
 
   }
   
-  .sign-up-icons {
+  .sign-in-icons {
     margin-right: 10%;
   }
 
@@ -1145,7 +1145,7 @@ a {
 
   }
 
-  .sign-up-icons {
+  .sign-in-icons {
     margin-right: 10%;
   }
 
@@ -1195,7 +1195,7 @@ a {
 
   }
 
-  .sign-up-icons {
+  .sign-in-icons {
     margin-right: 0%;
   }
 

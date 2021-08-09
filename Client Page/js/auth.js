@@ -18,6 +18,7 @@ const setupUI = (user) => {
 auth.onAuthStateChanged(user => {
     if (user) {
         setupUI(user);
+        console.log(user);
         console.log(user.email);
         console.log(user.password);
         database.ref("Users/" + user.uid).on("value", (snapshot) => {
@@ -149,7 +150,7 @@ loginForm.addEventListener("submit", (e) => {
 
 let facebookProvider = new firebase.auth.FacebookAuthProvider();
 
-document.querySelector("#facebook-sign-up").addEventListener("click", () => {
+document.querySelector("#facebook-sign-in").addEventListener("click", () => {
     
     facebookProvider.addScope('email');
     firebase.auth().useDeviceLanguage();
@@ -200,7 +201,7 @@ let googleProvider = new firebase.auth.GoogleAuthProvider();
 
 console.log("gg");
 
-document.querySelector("#google-sign-up").addEventListener("click", () => {
+document.querySelector("#google-sign-in").addEventListener("click", () => {
     googleProvider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     firebase.auth().useDeviceLanguage();
     firebase.auth()
