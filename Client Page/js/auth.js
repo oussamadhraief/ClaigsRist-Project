@@ -151,9 +151,9 @@ let facebookProvider = new firebase.auth.FacebookAuthProvider();
 
 document.querySelector("#facebook-sign-up").addEventListener("click", () => {
     
-    provider.addScope('email');
+    facebookProvider.addScope('email');
     firebase.auth().useDeviceLanguage();
-    provider.setCustomParameters({
+    facebookProvider.setCustomParameters({
         'display': 'popup'
       });
       firebase
@@ -193,10 +193,10 @@ function handleCloseModal(id) {
 
 let googleProvider = new firebase.auth.GoogleAuthProvider();
 
-console.log("ggggggggg");
+console.log("g");
 
 document.querySelector("#google-sign-up").addEventListener("click", () => {
-    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    googleProvider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     firebase.auth().useDeviceLanguage();
     firebase.auth()
     .signInWithRedirect(googleProvider)
