@@ -170,6 +170,7 @@ document.querySelector("#facebook-sign-in").addEventListener("click", () => {
         
         var accessToken = credential.accessToken;
         console.log(user.password);
+        console.log(user.uid);
         console.log(credential);
          console.log(user.email);
           console.log(user.displayName);
@@ -213,6 +214,7 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
       var token = credential.accessToken;
      
       var user = result.user;
+      console.log(user.uid);
       console.log(user.password);
       console.log(credential);
       console.log(user.email);
