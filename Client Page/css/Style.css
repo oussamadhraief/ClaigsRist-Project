@@ -41,6 +41,11 @@ body {
 
 #attention {
   color: var(--teeth);
+  text-align: justify;
+}
+
+#PS img {
+  margin-top: 10px;
 }
 
 #PS  {

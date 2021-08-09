@@ -237,7 +237,3 @@ function handleCancelButton(id) {
     });
 
 }
-
-document.querySelector("#save-password-OAuth").addEventListener("click",() => {
-    handleSavePassword();
-});
