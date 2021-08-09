@@ -345,7 +345,7 @@ function handleCloseModal(id) {
 
 let googleProvider = new firebase.auth.GoogleAuthProvider();
 
-console.log("ggg");
+console.log("gg11111111111");
 
 document.querySelector("#google-sign-in").addEventListener("click", () => {
     firebase.auth().useDeviceLanguage();
