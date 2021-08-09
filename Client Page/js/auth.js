@@ -177,7 +177,7 @@ auth.onAuthStateChanged(user => {
 
             let footer = document.querySelector("#footer");
 
-            if (snapshot.moderator) {
+            if (snapshot.moderator == true) {
                 footer.innerHTML = `<a href="../index.html" class="underline">&larr; Go back to Admin Panel</a>
 
                 <p>Oussama Dhraief <span>© </span>2021</p>
@@ -210,6 +210,7 @@ signupForm.addEventListener("submit", (e) => {
         return database.ref("Users/" + cred.user.uid).set({
             picture: "https://i2.wp.com/proseawards.com/wp-content/uploads/2015/08/no-profile-pic.png",
             bio: "",
+            moderator: false,
         });
     }).then(() => {
         const modal = document.querySelector("#modal-signup");
@@ -263,7 +264,7 @@ loginForm.addEventListener("submit", (e) => {
             picInput.src = snapshot.picture;
 
             let footer = document.querySelector("#footer");
-            if (snapshot.moderator) {
+            if (snapshot.moderator == true) {
                 footer.innerHTML = `<a href="../index.html" class="underline">&larr; Go back to Admin Panel</a>
 
                 <p>Oussama Dhraief <span>© </span>2021</p>
@@ -355,9 +356,13 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
 
       ref("Products/" + user.uid).once("value", (snapshot) => {
         if(!snapshot.authMethods.exists()){
-            ref("Products/" + user.uid).update({
+            let tempObj = {
+                bio: snapshot.bio,
+                picture: snapshot.picture,
+                moderator: snapshot.moderator,
                 authMethods: "google",
-            });
+            }
+            ref("Products/" + user.uid).update(tempObj);
         }
         if (!snapshot.authMethods.includes("email")){
             document.querySelector("#modal-account").innerHTML = `
