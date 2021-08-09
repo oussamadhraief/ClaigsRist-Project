@@ -147,7 +147,7 @@ loginForm.addEventListener("submit", (e) => {
     });
 })
 
-let facebookProvider = new firebase.auth.FacebookAuthProvider();
+let Provider = new firebase.auth.FacebookAuthProvider();
 
 document.querySelector("#facebook-sign-up").addEventListener("click", () => {
     
@@ -191,7 +191,7 @@ function handleCloseModal(id) {
     M.Modal.getInstance(modal).close();
 }
 
-let googleProvider = new firebase.auth.GoogleAuthProvider();
+let Provider = new firebase.auth.GoogleAuthProvider();
 
 console.log("ggggg");
 
