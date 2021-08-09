@@ -704,7 +704,8 @@ a {
 }
 
 .skippers {
-  border: none;
+  border-radius: 50%;
+  border: 1px solid black;
   background-color: var(--teeth);
   margin: 0px 5px 0px 5px;
   font-size: 20px;

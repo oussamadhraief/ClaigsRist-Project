@@ -19,7 +19,12 @@ auth.onAuthStateChanged(user => {
     if (user) {
         setupUI(user);
         console.log(user);
-        console.log(user.providerId);
+        console.log(user.signInMethod);
+        for (let index = 0; index < user.providerData.length; index++) {
+            
+            console.log(user.providerData[index]);
+        }
+        
         console.log(user.uid);
         console.log(user.email);
         console.log(user.password);
