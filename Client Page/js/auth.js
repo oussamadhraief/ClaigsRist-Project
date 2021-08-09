@@ -368,6 +368,7 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
             console.log("this is when the user is new");
             database.ref("Users/" + user.uid).set(tempObj);
         }
+        console.log(snapshot.authMethods);
         if (!snapshot.authMethods.includes("email")){
             document.querySelector("#modal-account").innerHTML = `
             <h4>My account</h4><br>
