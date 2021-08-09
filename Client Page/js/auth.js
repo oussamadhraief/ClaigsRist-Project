@@ -173,7 +173,7 @@ auth.onAuthStateChanged(user => {
                         <p> IMPORTANT : logging in with google / facebook only makes signing up and signing in easier and creates a ClaigsRist account that is completely detached 
                         from your google/facebook account. 
                         Changing your email or password or any other type of information (photo, bio ... ) below will only affect your ClaigsRist account
-                        and will not change your login information or any other type of information in your google/facebook account. </p>
+                        and will not change your login information or any other type of information in your google/facebook account. </p>   
                     </div>
                     `;
                 }
@@ -357,16 +357,16 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
       /** @type {firebase.auth.OAuthCredential} */
      
       var user = result.user;
-
+        let userRef = ref("Users/" + user.uid);
       ref("Users/" + user.uid).once("value", (snapshot) => {
         if(!snapshot.authMethods.exists()){
             let tempObj = {
-                bio: snapshot.bio,
-                picture: snapshot.picture,
-                moderator: snapshot.moderator,
+                picture: "https://i2.wp.com/proseawards.com/wp-content/uploads/2015/08/no-profile-pic.png",
+                bio: "",
+                moderator: false,
                 authMethods: "google",
             }
-            ref("Users/" + user.uid).update(tempObj);
+            ref("Users/" + user.uid).set(tempObj);
         }
         if (!snapshot.authMethods.includes("email")){
             document.querySelector("#modal-account").innerHTML = `
