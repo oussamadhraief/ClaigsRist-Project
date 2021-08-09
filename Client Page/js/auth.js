@@ -1,5 +1,3 @@
-const { rename } = require("fs");
-
 const auth = firebase.auth();
 
 const loggedOutLinks = document.querySelectorAll(".logged-out");
