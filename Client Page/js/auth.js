@@ -405,6 +405,7 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
                 <div id="account-password" class="input-field">
                     <label for="acc-password" id="add-password-label">Add a password to your ClaigsRist account</label>
                    <input type="password" name="password" id="#acc-password" placeholder="Choose password" class="edit-email">
+                   <button  id="save-password" class="save-info">Save</button>
                 </div>
 
 
