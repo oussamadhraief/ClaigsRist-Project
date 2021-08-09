@@ -19,7 +19,7 @@ auth.onAuthStateChanged(user => {
     if (user) {
         setupUI(user);
         
-        database.ref("Users/" + user.uid).on("value", (snapshot) => {
+        database.ref("Users/" + user.uid).once("value", (snapshot) => {
             let emailInput = document.querySelector("#acc-email");
             let passwordInput = document.querySelector("#acc-password");
             let bioInput = document.querySelector("#acc-bio");
@@ -345,7 +345,7 @@ function handleCloseModal(id) {
 
 let googleProvider = new firebase.auth.GoogleAuthProvider();
 
-console.log("gg1");
+console.log("gg");
 
 document.querySelector("#google-sign-in").addEventListener("click", () => {
     firebase.auth().useDeviceLanguage();
