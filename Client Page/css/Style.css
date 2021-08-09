@@ -672,7 +672,7 @@ a {
 }
 
 .skippers {
-  border: 1px solid var(--dark);
+  border: none;
   background-color: var(--teeth);
   margin: 0px 5px 0px 5px;
   font-size: 20px;
