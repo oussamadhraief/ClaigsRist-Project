@@ -604,7 +604,7 @@ a {
   margin-right: 15px;
   color: var(--light);
   padding: 0% !important;
-  margin-bottom: 0% !important;
+  margin-bottom: 5px !important;
 }
 
 #banner {
