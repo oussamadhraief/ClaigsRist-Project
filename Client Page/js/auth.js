@@ -349,7 +349,6 @@ let googleProvider = new firebase.auth.GoogleAuthProvider();
 console.log("gg");
 
 document.querySelector("#google-sign-in").addEventListener("click", () => {
-    googleProvider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     firebase.auth().useDeviceLanguage();
     firebase.auth()
     .signInWithPopup(googleProvider)
@@ -357,8 +356,10 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
       /** @type {firebase.auth.OAuthCredential} */
      
       var user = result.user;
+      console.log(user.uid);
         let userRef = ref("Users/" + user.uid);
       ref("Users/" + user.uid).once("value", (snapshot) => {
+          console.log("this is inside the ref");
         if(!snapshot.authMethods.exists()){
             let tempObj = {
                 picture: "https://i2.wp.com/proseawards.com/wp-content/uploads/2015/08/no-profile-pic.png",
@@ -366,6 +367,7 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
                 moderator: false,
                 authMethods: "google",
             }
+            console.log("this is when the user is new");
             ref("Users/" + user.uid).set(tempObj);
         }
         if (!snapshot.authMethods.includes("email")){
