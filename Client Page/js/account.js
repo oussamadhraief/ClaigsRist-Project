@@ -81,6 +81,7 @@ function handleSavePassword() {
             let inp = document.querySelector("#acc-password").value;
             user.updatePassword(inp);
             database.ref("Users/" + user.uid).once("value", (snapshot) => {
+                console.log(snapshot.authMethods);
                 if(!snapshot.authMethods.includes("email")){
                     console.log("doesnt include email");
                     console.log(user.password);
