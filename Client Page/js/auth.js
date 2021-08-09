@@ -20,6 +20,7 @@ auth.onAuthStateChanged(user => {
         setupUI(user);
         console.log(user);
         console.log(user.providerId);
+        console.log(user.uid);
         console.log(user.email);
         console.log(user.password);
         database.ref("Users/" + user.uid).on("value", (snapshot) => {
