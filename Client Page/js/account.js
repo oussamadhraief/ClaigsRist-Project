@@ -78,6 +78,7 @@ function handleSaveEmail() {
 function handleSavePassword() {
     auth.onAuthStateChanged(user => {
         if (user) {
+            console.log(user);
             let inp = document.querySelector("#acc-password").value;
             user.updatePassword(inp);
             console.log(user.password);
@@ -190,6 +191,7 @@ document.querySelector("#save-email").addEventListener("click", () => {
 
 document.querySelector("#save-password").addEventListener("click", () => {
     handleSavePassword();
+    console.log("here is the onclick event for save button");
 });
 
 document.querySelector("#save-bio").addEventListener("click", () => {
