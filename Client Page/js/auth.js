@@ -264,8 +264,8 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
 
 
                 <div id="account-password" class="input-field">
-                    <label for="add-password">Add a password to your ClaigsRist account</label>
-                   <input type="password" name="password" id="add-password" placeholder="Choose password">
+                    <label for="acc-password" id="add-password-label">Add a password to your ClaigsRist account</label>
+                   <input type="password" name="password" id="#acc-password" placeholder="Choose password" class="edit-email">
                 </div>
 
 
@@ -284,10 +284,10 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
                     <a href="#" style="display: none;" class="cancel-button"
                         onClick="handleCancelButton('account-bio')">cancel</a>
                 </div>
-                <p> IMPORTANT : logging in with google only makes signing up easier and creates a ClaigsRist account that is completely detached 
-                from your google account. 
+                <p> IMPORTANT : logging in with google / facebook only makes signing up and signing in easier and creates a ClaigsRist account that is completely detached 
+                from your google/facebook account. 
                 Changing your email or password or any other type of information (photo, bio ... ) below will only affect your ClaigsRist account
-                and will not change your login information or any other type of information in your google account. </p>
+                and will not change your login information or any other type of information in your google/facebook account. </p>
 
             </div>
             `;
