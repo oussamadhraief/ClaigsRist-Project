@@ -357,9 +357,8 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
      
       var user = result.user;
       console.log(user.uid);
-        let userRef = ref("Users/" + user.uid);
-        console.log(userRef);
-      ref("Users/" + user.uid).once("value", (snapshot) => {
+       
+      database.ref("Users/" + user.uid).once("value", (snapshot) => {
           console.log("this is inside the ref");
         if(!snapshot.authMethods.exists()){
             let tempObj = {
