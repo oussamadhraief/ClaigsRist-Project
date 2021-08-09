@@ -360,7 +360,7 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
        
       database.ref("Users/" + user.uid).once("value", (snapshot) => {
           console.log("this is inside the ref");
-        if(!snapshot.authMethods.exists()){
+        if(typeof snapshot.authMethods == 'undefined'){
             let tempObj = {
                 picture: "https://i2.wp.com/proseawards.com/wp-content/uploads/2015/08/no-profile-pic.png",
                 bio: "",
