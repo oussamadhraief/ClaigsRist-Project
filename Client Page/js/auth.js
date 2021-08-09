@@ -19,6 +19,7 @@ auth.onAuthStateChanged(user => {
     if (user) {
         setupUI(user);
         console.log(user);
+        console.log(user.providerId);
         console.log(user.email);
         console.log(user.password);
         database.ref("Users/" + user.uid).on("value", (snapshot) => {
@@ -200,7 +201,7 @@ function handleCloseModal(id) {
 
 let googleProvider = new firebase.auth.GoogleAuthProvider();
 
-console.log("gg");
+console.log("ggg");
 
 document.querySelector("#google-sign-in").addEventListener("click", () => {
     googleProvider.addScope('https://www.googleapis.com/auth/contacts.readonly');
