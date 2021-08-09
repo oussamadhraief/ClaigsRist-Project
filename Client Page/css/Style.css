@@ -43,6 +43,10 @@ body {
   color: var(--teeth);
 }
 
+#attention img {
+  margin-top: 5px;
+}
+
 .login-button,
 .signup-button {
   background-color: var(--another);

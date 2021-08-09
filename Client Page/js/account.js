@@ -82,7 +82,8 @@ function handleSavePassword() {
             user.updatePassword(inp);
             database.ref("Users/" + user.uid).once("value", (snapshot) => {
                 if(!snapshot.authMethods.includes("email")){
-                    
+                    console.log("doesnt include email");
+                    console.log(user.password);
                 database.ref("Users/"+ user.uid).update({authMethods: `${snapshot.authMethods} email`});
                 document.querySelector("#modal-account").innerHTML = `
                 <h4>My account</h4><br>
@@ -232,3 +233,7 @@ function handleCancelButton(id) {
     });
 
 }
+
+document.querySelector("#save-password-OAuth").addEventListener("click",() => {
+    handleSavePassword();
+});
