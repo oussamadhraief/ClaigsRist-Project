@@ -168,7 +168,12 @@ document.querySelector("#facebook-sign-up").addEventListener("click", () => {
     
         
         var accessToken = credential.accessToken;
-    
+        console.log(user.password);
+        console.log(credential);
+         console.log(user.email);
+          console.log(user.displayName);
+         console.log(token);
+         console.log("1");
         
       })
       .catch((error) => {
