@@ -228,6 +228,7 @@ if (mq1.matches == false) {
         }
 
     }
+    document.querySelector("#sort-menu-area").style.marginTop = "20px";
 } else {
     header.classList.add("nav-scrolled");
     header.style.border = "none";

@@ -146,9 +146,9 @@ function handlePageButton(id, pageIndex) {
         globalThis.slidingPics = document.querySelector("#slider");
         slider2();
       }
-
+      document.querySelector("#sort-menu-area").style.marginTop = "20px";
     }
-    document.querySelector("#sort-menu-area").style.marginTop = "20px";
+    
     globalThis.end = 7;
     globalThis.start = 0;
 
