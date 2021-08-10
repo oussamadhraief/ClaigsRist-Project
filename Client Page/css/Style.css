@@ -732,7 +732,6 @@ a {
 }
 
 #sort-menu-area {
-  margin-top: 20px;
   border-top: 3px solid var(--more);
   border-bottom: 3px solid var(--more);
   background-color: var(--dark);
