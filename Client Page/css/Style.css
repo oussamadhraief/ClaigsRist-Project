@@ -1101,24 +1101,6 @@ a {
 }
 
 @media screen and (max-width: 992px) {
-  /* .navright {
-    margin-top: 5%;
-    display: none;
-    text-align: center;
-    background-color: var(--dark);
-    border: 3px solid var(--more);
-  }
-
-  .navright div img {
-    margin: 0;
-  }
-
-  #menu-icon {
-    margin-top: 15px;
-    margin-right: 5%;
-    display: grid;
-    float: right;
-  } */
 
   .navright {
     position: fixed;
