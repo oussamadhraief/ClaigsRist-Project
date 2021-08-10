@@ -80,6 +80,8 @@ function handlePageButton(id, pageIndex) {
   let bannerRemoval = document.querySelector(".banner");
 
   if (pageIndex == 1) {
+    if(bannerRemoval !== null){
+
     if (randomize == 1 && bannerRemoval.innerHTML == "") {
       bannerRemoval.innerHTML = `<video id="banner" width="100%" height="auto" loop muted autoplay>
     <source src="video.mp4" type="video/mp4">
@@ -144,11 +146,16 @@ function handlePageButton(id, pageIndex) {
       globalThis.slidingPics = document.querySelector("#slider");
       slider2();
     }
+          
+  }
     document.querySelector("#sort-menu-area").style.marginTop = "20px";
     globalThis.end = 7;
     globalThis.start = 0;
 
   } else {
+    if(bannerRemoval !== null){
+
+    
     if (randomize == 1) {
       bannerRemoval.innerHTML = "";
       document.querySelector("#nav").style.top = "0px";
@@ -165,9 +172,11 @@ function handlePageButton(id, pageIndex) {
       document.querySelector("#nav").style.top = "0px";
       document.querySelector("#sort-menu-area").style.marginTop = (document.querySelector("#nav").offsetHeight + 10) + "px";
     }
+  }
     globalThis.end = 7 + ((pageIndex - 1) * 10);
     globalThis.start = 7 + ((pageIndex - 1) * 10) - 10;
   }
+  
   displayProduct();
 }
 

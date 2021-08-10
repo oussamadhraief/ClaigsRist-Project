@@ -109,7 +109,7 @@ if (mq1.matches == false) {
 
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
                 slider2();
-            }, 3000));
+            }, 6000));
         }
 
 
@@ -140,7 +140,7 @@ if (mq1.matches == false) {
 
                 slider3();
 
-            }, 3000));
+            }, 6000));
         }
 
         function slider3() {
@@ -167,7 +167,7 @@ if (mq1.matches == false) {
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
                 slider4();
-            }, 3000));
+            }, 6000));
 
         }
 
@@ -195,7 +195,7 @@ if (mq1.matches == false) {
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
                 slider5();
-            }, 3000));
+            }, 6000));
 
         }
 
@@ -223,7 +223,7 @@ if (mq1.matches == false) {
                 document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
 
                 slider1();
-            }, 3000));
+            }, 6000));
 
         }
 
@@ -272,7 +272,7 @@ function nextIsSlider1() {
     document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
     anotherTimeouts.push(setTimeout(() => {
         slider2();
-    }, 3000));
+    }, 6000));
 }
 
 function nextIsSlider2() {
@@ -307,7 +307,7 @@ function nextIsSlider2() {
     document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
     anotherTimeouts.push(setTimeout(() => {
         slider3();
-    }, 3000));
+    }, 6000));
 }
 
 function nextIsSlider3() {
@@ -342,7 +342,7 @@ function nextIsSlider3() {
     document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
     anotherTimeouts.push(setTimeout(() => {
         slider4();
-    }, 3000));
+    }, 6000));
 }
 
 function nextIsSlider4() {
@@ -377,7 +377,7 @@ function nextIsSlider4() {
     document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
     anotherTimeouts.push(setTimeout(() => {
         slider5();
-    }, 3000));
+    }, 6000));
 }
 
 function nextIsSlider5() {
@@ -408,5 +408,5 @@ function nextIsSlider5() {
     document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
     anotherTimeouts.push(setTimeout(() => {
         slider1();
-    }, 3000));
+    }, 6000));
 }
