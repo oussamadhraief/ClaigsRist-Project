@@ -48,7 +48,7 @@ body {
   margin-top: 10px;
 }
 
-#PS  {
+#PS {
   margin-top: 10px;
   display: flex;
   flex-wrap: nowrap;
@@ -66,7 +66,7 @@ body {
 }
 
 
-#login-form > * {
+#login-form>* {
   margin-left: auto;
   margin-right: auto;
 }
@@ -97,7 +97,7 @@ legend {
   margin-right: auto;
 }
 
-#modal-login{
+#modal-login {
   justify-content: center;
 }
 
@@ -334,7 +334,7 @@ h4 {
   margin-right: auto;
 }
 
-#signup-form > * {
+#signup-form>* {
   margin-left: auto;
   margin-right: auto;
 }
@@ -621,12 +621,12 @@ a {
   color: var(--teeth) !important;
 }
 
-.sign-up-button-unscrolled{
-  background-color: var(--teeth) !important;  
+.sign-up-button-unscrolled {
+  background-color: var(--teeth) !important;
   border: 1px solid var(--teeth) !important;
 }
 
-.sign-up-button-unscrolled:hover{
+.sign-up-button-unscrolled:hover {
   background-color: rgb(218, 214, 214) !important;
   color: var(--dark) !important;
   cursor: pointer;
@@ -1078,7 +1078,7 @@ a {
     background-color: var(--dark);
     border-bottom: 3px solid var(--more);
   }
-  
+
   .sign-in-icons {
     margin-right: 10%;
   }
@@ -1181,9 +1181,8 @@ a {
     margin-left: 70%;
     padding: 15px;
   }
-  .addtochart
 
-  .hr {
+  .addtochart .hr {
     height: 0px;
   }
 }
@@ -1198,7 +1197,7 @@ a {
     max-height: 220px;
   }
 
- 
+
   .sign-in-icons {
     margin-right: 0%;
   }

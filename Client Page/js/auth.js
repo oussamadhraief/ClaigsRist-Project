@@ -18,13 +18,13 @@ const setupUI = (user) => {
 auth.onAuthStateChanged(user => {
     if (user) {
         setupUI(user);
-        
+
         database.ref("Users/" + user.uid).on("value", (snapshot) => {
             snapshot = snapshot.val();
-            if(snapshot !== null){
+            if (snapshot !== null) {
 
-           
-                if (!snapshot.authMethods.includes("email")){
+
+                if (!snapshot.authMethods.includes("email")) {
                     document.querySelector("#account-password").innerHTML = `
                   
                            <input type="password" name="password" id="acc-password" placeholder="Add a password to your ClaigsRist account" class="edit-email">
@@ -33,11 +33,11 @@ auth.onAuthStateChanged(user => {
                     `;
                     document.querySelector("#save-password").addEventListener("click", () => {
                         handleSavePassword();
-                       console.log("here is the onclick event for save button");
+
                     });
-                        
-                    
-                }else {
+
+
+                } else {
                     document.querySelector("#account-password").innerHTML = `
         
         
@@ -65,21 +65,21 @@ auth.onAuthStateChanged(user => {
                     passwordInput.value = user.password;
                 }
                 let emailInput = document.querySelector("#acc-email");
-            
-            let bioInput = document.querySelector("#acc-bio");
-            let picInput = document.querySelector("#user-pic");
 
-            
+                let bioInput = document.querySelector("#acc-bio");
+                let picInput = document.querySelector("#user-pic");
 
-            emailInput.value = user.email;
-            
-            bioInput.value = snapshot.bio;
-            picInput.src = snapshot.picture;    
 
-            let footer = document.querySelector("#footer");
 
-            if (snapshot.moderator == true) {
-                footer.innerHTML = `<a href="../index.html" class="underline">&larr; Go back to Admin Panel</a>
+                emailInput.value = user.email;
+
+                bioInput.value = snapshot.bio;
+                picInput.src = snapshot.picture;
+
+                let footer = document.querySelector("#footer");
+
+                if (snapshot.moderator == true) {
+                    footer.innerHTML = `<a href="../index.html" class="underline">&larr; Go back to Admin Panel</a>
 
                 <p>Oussama Dhraief <span>© </span>2021</p>
             <div>
@@ -92,11 +92,11 @@ auth.onAuthStateChanged(user => {
                     alt="instagram"></a>
         </div>`;
 
+                }
             }
-        }
         });
     } else {
-        setupUI();      
+        setupUI();
     }
 });
 
@@ -199,37 +199,37 @@ loginForm.addEventListener("submit", (e) => {
 const handleGoogleAuth = () => {
     firebase.auth().useDeviceLanguage();
     firebase.auth()
-    .signInWithPopup(googleProvider)
-    .then((result) => {
-      /** @type {firebase.auth.OAuthCredential} */
-     
-      var user = result.user;
-      console.log(user.uid)
-      
-      database.ref("Users/" + user.uid).on("value", (snapshot) => {
-          snapshot = snapshot.val();
-        if(snapshot == null){
-            let tempObj = {
-                picture: user.photoURL,
-                bio: "",
-                moderator: false,
-                authMethods: "google",
-            }
-            console.log("this is when the user is new");
-            database.ref("Users/" + user.uid).set(tempObj);
-           
-        }
-        
-        if (!snapshot.authMethods.includes("email")){
-            
-            document.querySelector("#account-password").innerHTML = `
+        .signInWithPopup(googleProvider)
+        .then((result) => {
+            /** @type {firebase.auth.OAuthCredential} */
+
+            var user = result.user;
+
+
+            database.ref("Users/" + user.uid).on("value", (snapshot) => {
+                snapshot = snapshot.val();
+                if (snapshot == null) {
+                    let tempObj = {
+                        picture: user.photoURL,
+                        bio: "",
+                        moderator: false,
+                        authMethods: "google",
+                    }
+
+                    database.ref("Users/" + user.uid).set(tempObj);
+
+                }
+
+                if (!snapshot.authMethods.includes("email")) {
+
+                    document.querySelector("#account-password").innerHTML = `
             
                    <input type="password" name="password" id="acc-password" placeholder="Add a password to your ClaigsRist account" class="edit-email">
                    <button  id="save-password" class="save-info">Save</button>
                
             `;
-        }else {
-            document.querySelector("#account-password").innerHTML = `
+                } else {
+                    document.querySelector("#account-password").innerHTML = `
            
                     <p class="temp" style="display: grid;">Edit your password.</p>
 
@@ -247,19 +247,18 @@ const handleGoogleAuth = () => {
                         onClick="handleCancelButton('account-password')">cancel</a>
 
             `;
-        }
-      });
-     handleCloseModal("modal-login");
-    }).catch((error) => {
-      
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      var email = error.email;
-      var credential = error.credential;
-      console.log(errorCode);
-      console.log(email);
-      // ...
-    });
+                }
+            });
+            handleCloseModal("modal-login");
+        }).catch((error) => {
+
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            var email = error.email;
+            var credential = error.credential;
+
+            // ...
+        });
 }
 
 
@@ -287,26 +286,26 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
 // let facebookProvider = new firebase.auth.FacebookAuthProvider();
 
 // document.querySelector("#facebook-sign-in").addEventListener("click", () => {
-    
+
 //     handleFacebookAuth();
-    
+
 // });
 
 
 // const handleFacebookAuth = () => {
 //     facebookProvider.addScope('email');
 //     firebase.auth().useDeviceLanguage();
-//     console.log(facebookProvider);
+
 //       firebase
 //       .auth()
 //       .signInWithPopup(facebookProvider)
 //       .then((result) => {
 //         let credential = result.credential;
-    
-        
+
+
 //         let user = result.user;
-    
-        
+
+
 //         database.ref("Users/" + user.uid).on("value", (snapshot) => {
 //             snapshot = snapshot.val();
 //           if(snapshot == null){
@@ -316,11 +315,11 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
 //                   moderator: false,
 //                   authMethods: "facebook",
 //               }
-//               console.log("this is when the user is new");
+//               
 //               database.ref("Users/" + user.uid).set(tempObj);
-//               console.log(snapshot.authMethods);
+//               
 //           }
-//           console.log(snapshot.authMethods);
+//           
 //           if (!snapshot.authMethods.includes("email")){
 //               document.querySelector("#modal-account").innerHTML = `
 //               <h4>My account</h4><br>
@@ -336,47 +335,47 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
 //                           <a id="save-picture" onClick="handleSavePicture()" disabled>Save</a>
 //                       </div>
 //                   </div>
-  
-  
-  
+
+
+
 //                   <div id="account-email" class="input-field">
 //                       <p class="temp" style="display: grid;">Edit your email.</p>
-  
+
 //                       <a href="#" class="editanchor" style="display: grid;"
 //                           onClick="handleEditButton('account-email')"><img class="editicon" src="edit-form.png"
 //                               alt="edit"></a>
-  
+
 //                       <input style="display: none;" id="acc-email" type="text" class="edit-email" name="edit-email"
 //                           required>
-  
+
 //                       <button onClick="saveButtonAppearance('account-email')" id="save-email" style="display: none;"
 //                           class="save-info">Save</button>
-  
+
 //                       <a href="#" style="display: none;" class="cancel-button"
 //                           onClick="handleCancelButton('account-email')">cancel</a>
-  
+
 //                   </div>
-  
-  
-  
+
+
+
 //                   <div id="account-password" class="input-field">
 //                      <input type="password" name="password" id="acc-password" placeholder="Add a password to your ClaigsRist account" class="edit-email">
 //                      <button  id="save-password" class="save-info">Save</button>
 //                   </div>
-  
-  
-  
+
+
+
 //                   <div id="account-bio" class="input-field">
 //                       <p class="temp" style="display: grid;">Edit your bio.</p>
-  
+
 //                       <a href="#" class="editanchor" style="display: grid;" onClick="handleEditButton('account-bio')"><img
 //                               class="editicon" src="edit-form.png" alt="edit"></a>
-  
+
 //                       <input style="display: none;" id="acc-bio" type="text" class="edit-email" name="edit-bio" required>
-  
+
 //                       <button onClick="saveButtonAppearance('account-bio')" id="save-bio" style="display: none;"
 //                           class="save-info">Save</button>
-  
+
 //                       <a href="#" style="display: none;" class="cancel-button"
 //                           onClick="handleCancelButton('account-bio')">cancel</a>
 //                   </div>
@@ -404,59 +403,59 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
 //                           <a id="save-picture" onClick="handleSavePicture()" disabled>Save</a>
 //                       </div>
 //                   </div>
-  
-  
-  
+
+
+
 //                   <div id="account-email" class="input-field">
 //                       <p class="temp" style="display: grid;">Edit your email.</p>
-  
+
 //                       <a href="#" class="editanchor" style="display: grid;"
 //                           onClick="handleEditButton('account-email')"><img class="editicon" src="edit-form.png"
 //                               alt="edit"></a>
-  
+
 //                       <input style="display: none;" id="acc-email" type="text" class="edit-email" name="edit-email"
 //                           required>
-  
+
 //                       <button onClick="saveButtonAppearance('account-email')" id="save-email" style="display: none;"
 //                           class="save-info">Save</button>
-  
+
 //                       <a href="#" style="display: none;" class="cancel-button"
 //                           onClick="handleCancelButton('account-email')">cancel</a>
-  
+
 //                   </div>
-  
-  
-  
+
+
+
 //                   <div id="account-password" class="input-field">
 //                       <p class="temp" style="display: grid;">Edit your password.</p>
-  
+
 //                       <a href="#" class="editanchor" style="display: grid;"
 //                           onClick="handleEditButton('account-password')"><img class="editicon" src="edit-form.png"
 //                               alt="edit"></a>
-  
+
 //                       <input style="display: none;" id="acc-password" type="password" class="edit-email"
 //                           name="edit-password" required>
-  
+
 //                       <button onClick="saveButtonAppearance('account-password')" id="save-password" style="display: none;"
 //                           class="save-info">Save</button>
-  
+
 //                       <a href="#" style="display: none;" class="cancel-button"
 //                           onClick="handleCancelButton('account-password')">cancel</a>
 //                   </div>
-  
-  
-  
+
+
+
 //                   <div id="account-bio" class="input-field">
 //                       <p class="temp" style="display: grid;">Edit your bio.</p>
-  
+
 //                       <a href="#" class="editanchor" style="display: grid;" onClick="handleEditButton('account-bio')"><img
 //                               class="editicon" src="edit-form.png" alt="edit"></a>
-  
+
 //                       <input style="display: none;" id="acc-bio" type="text" class="edit-email" name="edit-bio" required>
-  
+
 //                       <button onClick="saveButtonAppearance('account-bio')" id="save-bio" style="display: none;"
 //                           class="save-info">Save</button>
-  
+
 //                       <a href="#" style="display: none;" class="cancel-button"
 //                           onClick="handleCancelButton('account-bio')">cancel</a>
 //                   </div>
@@ -467,23 +466,23 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
 //                   Changing your email or password or any other type of information (photo, bio ... ) below will only affect your ClaigsRist account
 //                   and will not change your login information or any other type of information in your google/facebook account. </p>
 //                   </div>
-  
+
 //               </div>
 //               `;
 //           }
 //         });
 //        handleCloseModal("modal-login");
-        
+
 //       })
 //       .catch((error) => {
-        
+
 //         var errorCode = error.code;
 //         var errorMessage = error.message;
-        
+
 //         var email = error.email;
-//         console.log(error.email);
+//         
 //         var credential = error.credential;
-    
-       
+
+
 //       });
 // }

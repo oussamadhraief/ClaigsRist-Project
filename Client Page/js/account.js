@@ -2,7 +2,7 @@ const imgInput = document.querySelector("#profilepic");
 
 
 imgInput.addEventListener("change", function (e) {
-    console.log("1");
+
     const reader = new FileReader();
     let img = document.querySelector("#user-pic");
     let butt = document.querySelector("#save-picture");
@@ -80,20 +80,21 @@ function handleSaveEmail() {
 function handleSavePassword() {
     auth.onAuthStateChanged(user => {
         if (user) {
-            console.log(user);
+
             let inp = document.querySelector("#acc-password").value;
             user.updatePassword(inp);
-            console.log(user.password);
-            console.log(user.uid);
+
+
             database.ref("Users/" + user.uid).on("value", (snapshot) => {
-                
-                snapshot= snapshot.val();
-                console.log(snapshot.authMethods);
-                if(!snapshot.authMethods.includes("email")){
-                    console.log("doesnt include email");
-                    console.log(user.password);
-                database.ref("Users/"+ user.uid).update({authMethods: `${snapshot.authMethods} email`});
-                document.querySelector("#account-password").innerHTML = `
+
+                snapshot = snapshot.val();
+
+                if (!snapshot.authMethods.includes("email")) {
+
+                    database.ref("Users/" + user.uid).update({
+                        authMethods: `${snapshot.authMethods} email`
+                    });
+                    document.querySelector("#account-password").innerHTML = `
                
                 <p class="temp" style="display: grid;">Edit your password.</p>
 

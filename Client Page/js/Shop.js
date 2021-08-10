@@ -25,7 +25,7 @@ let s = 0;
 
 //Functions
 
-document.querySelector("#webname").addEventListener("click",() => {
+document.querySelector("#webname").addEventListener("click", () => {
   window.location.reload(true);
 });
 
@@ -80,51 +80,51 @@ function handlePageButton(id, pageIndex) {
   let bannerRemoval = document.querySelector(".banner");
 
   if (pageIndex == 1) {
-    if(bannerRemoval !== null){
+    if (bannerRemoval !== null) {
 
-    if (randomize == 1 && bannerRemoval.innerHTML == "") {
-      bannerRemoval.innerHTML = `<video id="banner" width="100%" height="auto" loop muted autoplay>
+      if (randomize == 1 && bannerRemoval.innerHTML == "") {
+        bannerRemoval.innerHTML = `<video id="banner" width="100%" height="auto" loop muted autoplay>
     <source src="video.mp4" type="video/mp4">
     <source src="video.webm" type="video/WEBM">
     </video>`;
 
 
-      const sectionOneOptions = {
-        rootMargin: "100px 0px 0px 0px"
-      };
+        const sectionOneOptions = {
+          rootMargin: "100px 0px 0px 0px"
+        };
 
-      const sectionOneObserver = new IntersectionObserver(function (
-          entries,
-          sectionOneObserver
-        ) {
-          entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-              header.classList.remove("nav-scrolled");
-              anchors.forEach(item => item.classList.add("nav-anchors-unscrolled"));
-              searchTerm.classList.add("nav-input-unscrolled");
-              webname.classList.remove("webname");
-              webname.classList.add("webname-unscrolled");
-              searchBorder.classList.add("search-unscrolled");
-              searchIcon.src = "search-unscrolled.png";
-            } else {
-              header.classList.add("nav-scrolled");
-              anchors.forEach(item => item.classList.remove("nav-anchors-unscrolled"));
-              searchTerm.classList.remove("nav-input-unscrolled");
-              webname.classList.add("webname");
-              webname.classList.remove("webname-unscrolled");
-              searchBorder.classList.remove("search-unscrolled");
-              searchIcon.src = "search.png";
-            }
-          });
-        },
-        sectionOneOptions);
+        const sectionOneObserver = new IntersectionObserver(function (
+            entries,
+            sectionOneObserver
+          ) {
+            entries.forEach(entry => {
+              if (!entry.isIntersecting) {
+                header.classList.remove("nav-scrolled");
+                anchors.forEach(item => item.classList.add("nav-anchors-unscrolled"));
+                searchTerm.classList.add("nav-input-unscrolled");
+                webname.classList.remove("webname");
+                webname.classList.add("webname-unscrolled");
+                searchBorder.classList.add("search-unscrolled");
+                searchIcon.src = "search-unscrolled.png";
+              } else {
+                header.classList.add("nav-scrolled");
+                anchors.forEach(item => item.classList.remove("nav-anchors-unscrolled"));
+                searchTerm.classList.remove("nav-input-unscrolled");
+                webname.classList.add("webname");
+                webname.classList.remove("webname-unscrolled");
+                searchBorder.classList.remove("search-unscrolled");
+                searchIcon.src = "search.png";
+              }
+            });
+          },
+          sectionOneOptions);
 
-      sectionOneObserver.observe(sectionOne);
-    } else if (randomize == 2 && bannerRemoval.innerHTML == "") {
-      header.classList.add("nav-scrolled");
-      header.style.border = "none";
-      header.style.boxShadow = "1px 1px 5px black";
-      bannerRemoval.innerHTML = ` 
+        sectionOneObserver.observe(sectionOne);
+      } else if (randomize == 2 && bannerRemoval.innerHTML == "") {
+        header.classList.add("nav-scrolled");
+        header.style.border = "none";
+        header.style.boxShadow = "1px 1px 5px black";
+        bannerRemoval.innerHTML = ` 
         <div id="slider">
             
             
@@ -141,42 +141,42 @@ function handlePageButton(id, pageIndex) {
         
 	</div>`;
 
-      document.querySelector("#slider img").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
-      document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
-      globalThis.slidingPics = document.querySelector("#slider");
-      slider2();
+        document.querySelector("#slider img").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
+        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+        globalThis.slidingPics = document.querySelector("#slider");
+        slider2();
+      }
+
     }
-          
-  }
     document.querySelector("#sort-menu-area").style.marginTop = "20px";
     globalThis.end = 7;
     globalThis.start = 0;
 
   } else {
-    if(bannerRemoval !== null){
+    if (bannerRemoval !== null) {
 
-    
-    if (randomize == 1) {
-      bannerRemoval.innerHTML = "";
-      document.querySelector("#nav").style.top = "0px";
-      document.querySelector("#sort-menu-area").style.marginTop = (document.querySelector("#nav").offsetHeight + 10) + "px";
-    } else {
-      for (let i = 0; i < timeouts.length; i++) {
-        clearTimeout(timeouts[i]);
+
+      if (randomize == 1) {
+        bannerRemoval.innerHTML = "";
+        document.querySelector("#nav").style.top = "0px";
+        document.querySelector("#sort-menu-area").style.marginTop = (document.querySelector("#nav").offsetHeight + 10) + "px";
+      } else {
+        for (let i = 0; i < timeouts.length; i++) {
+          clearTimeout(timeouts[i]);
+        }
+        timeouts.length = 0;
+        for (let i = 0; i < anotherTimeouts.length; i++) {
+          clearTimeout(anotherTimeouts[i]);
+        }
+        bannerRemoval.innerHTML = "";
+        document.querySelector("#nav").style.top = "0px";
+        document.querySelector("#sort-menu-area").style.marginTop = (document.querySelector("#nav").offsetHeight + 10) + "px";
       }
-      timeouts.length = 0;
-      for (let i = 0; i < anotherTimeouts.length; i++) {
-        clearTimeout(anotherTimeouts[i]);
-      }
-      bannerRemoval.innerHTML = "";
-      document.querySelector("#nav").style.top = "0px";
-      document.querySelector("#sort-menu-area").style.marginTop = (document.querySelector("#nav").offsetHeight + 10) + "px";
     }
-  }
     globalThis.end = 7 + ((pageIndex - 1) * 10);
     globalThis.start = 7 + ((pageIndex - 1) * 10) - 10;
   }
-  
+
   displayProduct();
 }
 
