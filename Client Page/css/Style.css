@@ -1107,11 +1107,11 @@ a {
     border-right: none !important;
     border-top: none !important;
     border-bottom: none !important;
-    right: -2%;
-    padding-bottom: 100%;
+    right: -3%;
+    padding-bottom: 1000%;
     display: none;
     text-align: center;
-    background-color: var(--dark);
+    background-color: #51484ff5;
     border: 3px solid var(--more);
     z-index: -1;
   }
