@@ -25,7 +25,7 @@
                 <img id="menu-icon" src="menu-icon.png" alt="menu" height="30px" width="30px">
                 <div class="navright">
                     <a class="space underline" id="top-anchor-navright" href="#">Explore</a>
-                    <a class="space underline logged-in" href="MyChart.html" style="display: none;">My
+                    <a class="space underline logged-in" id="my-chart" href="#" style="display: none;">My
                         Chart</a>
                     <a class="space underline logged-in modal-trigger" href="#" style="display: none;"
                         data-target="modal-account">Account</a>
@@ -47,6 +47,11 @@
                 </div>
             </nav>
         </header>
+
+
+        
+
+
 
         <div id="modal-signup" class="modal">
             <h4>Sign up</h4><br>
@@ -151,11 +156,11 @@
                             src="https://www.pngkit.com/png/full/178-1783296_g-transparent-circle-google-logo.png" alt="google-icon">
                             <div>
                                 <p class="org-name"> Google</p>
-                                <p class="connection-state">Your account is not connected to Google.</p>
+                                <p class="connection-state" id="google-connection-state">Your account is not connected to Google.</p>
                             </div>
                             
                         </div>
-                        
+
                     <button class="connection-methods" id="google-connect">Connect</button>
                     </div>
                     <br>
@@ -211,6 +216,27 @@
         <div id="pages">
             <a href="#" id="page-1" onClick="handlePageButton('page-1',1)" class="page">1</a>
         </div>
+
+
+        <div id="id_confrmdiv">
+            <p>Would you like to import your photo and display name from your Google account to your ClaigsRist account ?
+            </p>
+            <p>
+                (if you press no, your ClaigsRist photo and display name will not change)
+            </p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div>
+            <button id="id_truebtn">Yes</button>
+            <button id="id_falsebtn">No</button>
+            </div>
+            
+        </div>
+
+
+        
         <footer id="footer">
             <p>Oussama Dhraief <span>© </span>2021</p>
             <div>

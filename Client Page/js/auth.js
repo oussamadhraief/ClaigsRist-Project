@@ -262,17 +262,53 @@ const handleGoogleAuth = () => {
 }
 
 
+let googleProvider = new firebase.auth.GoogleAuthProvider();
+
+document.querySelector("#google-sign-in").addEventListener("click", () => {
+    handleGoogleAuth();
+});
+
+document.querySelector("#google-connect").addEventListener("click", () => {
+    auth.currentUser.linkWithPopup(googleProvider).then((result) => {
+        
+        
+        document.getElementById('id_confrmdiv').style.display="block";
+        
+        document.getElementById('id_truebtn').onclick = function(){
+            
+           database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
+               snapshot = snapshot.val();
+               
+                let tempObj1 =  {
+                    picture: result.user.providerData[0].photoURL,
+                    bio: snapshot.bio,
+                    moderator: snapshot.moderator,
+                    authMethods: `${snapshot.authMethods} google`,
+                }
+                database.ref("Users/" + result.user.uid).set(tempObj1);
+           });
+           document.getElementById('id_confrmdiv').style.display="none";
+        };
+        
+        document.getElementById('id_falsebtn').onclick = function(){
+             
+            document.getElementById('id_confrmdiv').style.display="none";
+        };
+        
+            document.querySelector("#google-connect").innerText = "Disconnect";
+            document.querySelector("#google-connection-state").innerText = "Your account is linked with Facebook";
+    
+  }).catch((error) => {
+    console.log(error);
+  });
+});
 
 function handleCloseModal(id) {
     let modal = document.querySelector("#" + id + "");
     M.Modal.getInstance(modal).close();
 }
 
-let googleProvider = new firebase.auth.GoogleAuthProvider();
 
-document.querySelector("#google-sign-in").addEventListener("click", () => {
-    handleGoogleAuth();
-});
 
 
 

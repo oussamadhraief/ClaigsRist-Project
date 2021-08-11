@@ -21,6 +21,69 @@ body {
   background-color: var(--light);
 }
 
+#id_confrmdiv{
+    display: none;
+    background-color: var(--dark);
+    border-radius: 5px;
+    border: 5px solid var(--more);
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    width: 50%;
+    height: fit-content;
+    padding: 6px 8px 8px;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 9909;
+}
+
+#id_confrmdiv p {
+  color: var(--teeth);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#id_confrmdiv p:first-child {
+  font-weight: 700;
+}
+
+#id_confrmdiv p:last-child {
+  font-weight: 300;
+}
+
+#id_confrmdiv button {
+    background-color: var(--teeth);
+    border-radius: 3px;
+    border: 1px solid var(--more);
+    padding: 10px 20px 10px 20px;
+    font-weight: 500;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+    z-index: 999;
+}
+
+#id_confrmdiv div {
+  display: flex;
+  position: relative;
+  flex-wrap: nowrap;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+}
+
+#id_confrmdiv button:hover{
+    background-color: var(--more);
+}
+
+#confirmBox .message{
+    text-align: left;
+    margin-bottom: 8px;
+    z-index: 999;
+}
+
 .modal {
   background-color: var(--dark);
   padding: 20px;
@@ -1305,6 +1368,11 @@ a {
 }
 
 @media screen and (max-width: 570px) {
+  #id_confrmdiv{
+    width: 80%;
+    left: 10%;
+  }
+
   #banner {
     margin-top: 10px;
   }
