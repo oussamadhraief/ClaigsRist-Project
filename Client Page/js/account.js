@@ -94,6 +94,7 @@ function handleSavePassword() {
                     database.ref("Users/" + user.uid).update({
                         authMethods: `${snapshot.authMethods} email`
                     });
+                    document.querySelector("#google-connect").disabled = false;
                     document.querySelector("#account-password").innerHTML = `
                
                 <p class="temp" style="display: grid;">Edit your password.</p>

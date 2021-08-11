@@ -3,6 +3,9 @@ const auth = firebase.auth();
 const loggedOutLinks = document.querySelectorAll(".logged-out");
 const loggedInLinks = document.querySelectorAll(".logged-in");
 
+const googleConnect = document.querySelector("#google-connect");
+const googleConnectState = document.querySelector("#google-connection-state");
+
 const setupUI = (user) => {
     if (user) {
         loggedInLinks.forEach(item => item.style.display = "block");
@@ -23,6 +26,13 @@ auth.onAuthStateChanged(user => {
             snapshot = snapshot.val();
             if (snapshot !== null) {
 
+                if (snapshot.authMethods.includes("google")){
+                    googleConnect.innerText = "Disconnect";
+                    googleConnectState.innerHTML = `&#10004; Your account is connected to Google.`;
+                }else{
+                    googleConnect.innerText = "Connect";
+                    googleConnectState.innerText = "Your account is not connected to Google." ;
+                }
 
                 if (!snapshot.authMethods.includes("email")) {
                     document.querySelector("#account-password").innerHTML = `
@@ -36,8 +46,10 @@ auth.onAuthStateChanged(user => {
 
                     });
 
+                    document.querySelector("#google-connect").disabled = true;
 
                 } else {
+                    document.querySelector("#google-connect").disabled = false;
                     document.querySelector("#account-password").innerHTML = `
         
         
@@ -228,7 +240,9 @@ const handleGoogleAuth = () => {
                    <button  id="save-password" class="save-info">Save</button>
                
             `;
+            document.querySelector("#google-connect").disabled = true;
                 } else {
+                    document.querySelector("#google-connect").disabled = false;
                     document.querySelector("#account-password").innerHTML = `
            
                     <p class="temp" style="display: grid;">Edit your password.</p>
@@ -257,7 +271,7 @@ const handleGoogleAuth = () => {
             var email = error.email;
             var credential = error.credential;
 
-            // ...
+           
         });
 }
 
@@ -269,6 +283,8 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
 });
 
 document.querySelector("#google-connect").addEventListener("click", () => {
+    if(googleConnect.innerText == "Connect"){
+
     auth.currentUser.linkWithPopup(googleProvider).then((result) => {
         
         
@@ -291,16 +307,49 @@ document.querySelector("#google-connect").addEventListener("click", () => {
         };
         
         document.getElementById('id_falsebtn').onclick = function(){
-             
+            database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
+                snapshot = snapshot.val();
+                
+                 let tempObj1 =  {
+                     picture: snapshot.picture,
+                     bio: snapshot.bio,
+                     moderator: snapshot.moderator,
+                     authMethods: `${snapshot.authMethods} google`,
+                 }
+                 database.ref("Users/" + result.user.uid).set(tempObj1);
+            });
+
             document.getElementById('id_confrmdiv').style.display="none";
         };
         
-            document.querySelector("#google-connect").innerText = "Disconnect";
-            document.querySelector("#google-connection-state").innerText = "Your account is linked with Facebook";
+            googleConnect.innerText = "Disconnect";
+            googleConnectState.innerHTML = "&#10004; Your account is connected to Google.";
     
   }).catch((error) => {
     console.log(error);
   });
+}else{
+    auth.onAuthStateChanged(user => {
+        
+        user.unlink(user.providerData[0].providerId).then(() => {
+            database.ref("Users/" + user.uid).once("value", (snapshot) => {
+                snapshot = snapshot.val();
+                 let tempObj1 =  {
+                     picture: snapshot.picture,
+                     bio: snapshot.bio,
+                     moderator: snapshot.moderator,
+                     authMethods: snapshot.authMethods.replace("google",""),
+                 }
+                 database.ref("Users/" + user.uid).set(tempObj1);
+            });
+            googleConnect.innerText = "Connect";
+            googleConnectState.innerHTML = `Your account is not connected to Google.`;
+          }).catch((error) => {
+            
+          });
+    });
+    
+}
 });
 
 function handleCloseModal(id) {
