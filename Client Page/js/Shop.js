@@ -148,6 +148,17 @@ function handlePageButton(id, pageIndex) {
     document.querySelector("#slider img").style.marginTop = "3px";
     header.style.top = "0px";
 });
+
+window.addEventListener("resize",() => {
+        
+  document.querySelector("#slider").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
+  document.querySelector("#slider").style.marginTop = header.offsetHeight.toString() + "px";
+  document.querySelector("#slider").style.padding = "0px";
+  document.querySelector("#slider img").style.marginTop = "3px";
+  header.style.top = "0px";
+
+});
+
         globalThis.slidingPics = document.querySelector("#slider");
         slider2();
       }

@@ -1101,6 +1101,9 @@ a {
 }
 
 @media screen and (max-width: 992px) {
+  .hr {
+  display: none !important;
+  }
 
   .navright {
     position: fixed;
@@ -1219,9 +1222,6 @@ a {
     padding: 15px;
   }
 
-  .addtochart .hr {
-    height: 0px;
-  }
 }
 
 @media screen and (max-width: 570px) {

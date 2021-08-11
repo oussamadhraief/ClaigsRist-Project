@@ -87,7 +87,6 @@ if (mq1.matches == false) {
     });
 
     window.addEventListener("resize",() => {
-        console.log("1");
         
             document.querySelector("#slider").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
             document.querySelector("#slider").style.marginTop = header.offsetHeight.toString() + "px";
