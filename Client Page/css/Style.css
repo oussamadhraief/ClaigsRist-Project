@@ -575,6 +575,10 @@ footer div {
   flex-wrap: wrap;
 }
 
+footer a {
+  color: var(--teeth) !important;
+}
+
 footer div a {
   margin-right: 10px;
 }

@@ -97,10 +97,10 @@ auth.onAuthStateChanged(user => {
             <div>
             <a href="About.html" target="_blank" class="underline">About Us</a>
             <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://iconsplace.com/wp-content/uploads/_icons/9770d7/256/png/facebook-2-icon-256.png"
+                    src="https://cdn.icon-icons.com/icons2/901/PNG/512/facebook_icon-icons.com_69263.png"
                     alt="facebook"></a>
             <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://iconsplace.com/wp-content/uploads/_icons/9770d7/256/png/instagram-2-icon-256.png"
+                    src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721672-instagram_108066.png"
                     alt="instagram"></a>
         </div>`;
 
@@ -148,10 +148,10 @@ logout.addEventListener("click", (e) => {
             <div>
             <a href="About.html" target="_blank" class="underline">About Us</a>
             <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://iconsplace.com/wp-content/uploads/_icons/9770d7/256/png/facebook-2-icon-256.png"
+                    src="https://cdn.icon-icons.com/icons2/901/PNG/512/facebook_icon-icons.com_69263.png"
                     alt="facebook"></a>
             <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://iconsplace.com/wp-content/uploads/_icons/9770d7/256/png/instagram-2-icon-256.png"
+                    src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721672-instagram_108066.png"
                     alt="instagram"></a>
         </div>`;
 });
@@ -186,10 +186,10 @@ loginForm.addEventListener("submit", (e) => {
         <div>
             <a href="About.html" target="_blank" class="underline">About Us</a>
             <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://iconsplace.com/wp-content/uploads/_icons/9770d7/256/png/facebook-2-icon-256.png"
+                    src="https://cdn.icon-icons.com/icons2/901/PNG/512/facebook_icon-icons.com_69263.png"
                     alt="facebook"></a>
             <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://iconsplace.com/wp-content/uploads/_icons/9770d7/256/png/instagram-2-icon-256.png"
+                    src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721672-instagram_108066.png"
                     alt="instagram"></a>
         </div>`;
 
