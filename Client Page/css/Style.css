@@ -681,7 +681,7 @@ a {
 
 .previous {
   position: absolute;
-  margin-top: 18%;
+  margin-top: 12%;
   left: 0%;
   font-size: 80px;
   color: rgba(255, 255, 255, 0.782);
@@ -694,7 +694,7 @@ a {
 
 .next {
   position: absolute;
-  margin-top: 18%;
+  margin-top: 12%;
   right: 0%;
   font-size: 80px;
   color: rgba(255, 255, 255, 0.782);
@@ -1112,7 +1112,7 @@ a {
     display: none;
     text-align: center;
     background-color: #51484ff5;
-    border: 3px solid var(--more);
+    border-left: 1px solid var(--more);
     z-index: -1;
   }
 
@@ -1152,6 +1152,30 @@ a {
 }
 
 @media screen and (max-width: 768px) and (min-width: 571px) {
+  .previous {
+    
+    font-size: 60px;
+    
+    line-height: 30px;
+    padding-bottom: 10px;
+  }
+
+  #skip-slides {
+  margin-left: 40%;
+  }
+
+  .skippers {
+    width: 8px;
+  height: 8px;
+  }
+  
+  .next {
+    
+    font-size: 60px;
+    
+    line-height: 30px;
+    padding-bottom: 10px;
+  }
   .const1 {
     color: var(--light);
     font-size: x-small;

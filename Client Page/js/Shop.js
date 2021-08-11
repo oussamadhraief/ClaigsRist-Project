@@ -141,8 +141,13 @@ function handlePageButton(id, pageIndex) {
         
 	</div>`;
 
-        document.querySelector("#slider img").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
-        document.querySelector("#slider img").style.marginTop = header.offsetHeight.toString() + "px";
+  document.querySelector("#slider img").addEventListener("load", () => {
+    document.querySelector("#slider").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
+    document.querySelector("#slider").style.marginTop = header.offsetHeight.toString() + "px";
+    document.querySelector("#slider").style.padding = "0px";
+    document.querySelector("#slider img").style.marginTop = "3px";
+    header.style.top = "0px";
+});
         globalThis.slidingPics = document.querySelector("#slider");
         slider2();
       }
