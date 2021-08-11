@@ -78,8 +78,8 @@
                 </div>
                 <button class="login-button z-depth-0">Sign in</button>
             </form>
-            <fieldset>
-                <legend>Or sign in with</legend>
+            <fieldset class="fieldset">
+                <legend id="login-legend">Or sign in with</legend>
                 <button class="sign-in-methods" id="google-sign-in"><img class="sign-in-icons"
                         src="https://img.icons8.com/color/452/google-logo.png" alt="google-icon"> Sign in with
                     Google</button>
@@ -143,16 +143,48 @@
                     <a href="#" style="display: none;" class="cancel-button"
                         onClick="handleCancelButton('account-bio')">cancel</a>
                 </div>
+                <fieldset class="fieldset">
+                    <legend id="account-legend">Connections</legend>
+                    <div class="connect">
+                        <div>
+                            <img class="connection-icons"
+                            src="https://www.pngkit.com/png/full/178-1783296_g-transparent-circle-google-logo.png" alt="google-icon">
+                            <div>
+                                <p class="org-name"> Google</p>
+                                <p class="connection-state">Your account is not connected to Google.</p>
+                            </div>
+                            
+                        </div>
+                        
+                    <button class="connection-methods" id="google-connect">Connect</button>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                    <div class="connect">
+                        <div>
+                            <img class="connection-icons"
+                            src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"
+                            alt="facebook-icon">
+                            <div>
+                                <p class="org-name"> Facebook</p>
+                                <p class="connection-state">Your account is not connected to Facebook.</p>
+                            </div>
+                        </div>
+                        
+                    <button class="connection-methods" id="facebook-connection" disabled> Connect</button>
+                        </div>
+                </fieldset>
+
                 <div id="PS">
-                    <img src="attention.png" alt="attention-icon" width="30px" height="30px">
-                    <p id="attention"> IMPORTANT : logging in with google / facebook only makes signing up and signing
+                    
+                    <img src="attention.png" alt="attention-icon" width="30px" height="30px"> <p id="attention"> Logging in with your Google/Facebook account only makes signing up and signing
                         in easier and creates a ClaigsRist account that is completely detached
-                        from your google/facebook account.
-                        Changing your email or password or any other type of information (photo, bio ... ) below will
+                        from your Google/Facebook account meaning that changing your email, password or any other type of information (photo, bio ... ) in the settings above will
                         only affect your ClaigsRist account
                         and will not change your login information or any other type of information in your
-                        google/facebook account. </p>
-                </div>
+                        Google/Facebook account. </p>
+                    </div>
             </div>
         </div>
         <div id="modal-search" class="modal">

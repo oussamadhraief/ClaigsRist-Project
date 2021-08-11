@@ -45,13 +45,105 @@ body {
 }
 
 #PS img {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 #PS {
+  border: 1px solid var(--another);
+  padding: 5px 8px 5px 5px;
   margin-top: 10px;
   display: flex;
   flex-wrap: nowrap;
+}
+
+.connect {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0px;
+}
+
+.connect div {
+  width: 70%;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.org-name {
+  color: var(--teeth);
+  font-weight: 500;
+  margin-left: 10px;
+  font-size: large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.connection-state {
+  color: var(--teeth);
+  font-weight: 400;
+  margin-left: 10px;
+  font-size: small;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.connect div div {
+  display: grid;
+  top: 0%;
+}
+
+.connect div div p {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.connection-icons {
+  width: 66px;
+  height: 66px;
+  
+}
+
+.connect button {
+  width: 20%;
+  width: fit-content;
+  max-height: 40px;
+  font-size: medium;
+  font-weight: 500;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 5px 7px 5px;
+}
+
+#facebook-connect {
+  background-color: var(--more);
+}
+
+#google-connect:hover {
+  cursor: pointer;
+  background-color: #aeabab;
+}
+
+.fieldset {
+  margin-top: 10px;
+  padding: 20px;
+}
+
+#login-legend {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  color: var(--teeth);
+  font-weight: 500;
+  font-size: large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#account-legend {
+  margin-left: 5px;
+  padding: 5px;
+  color: var(--teeth);
+  font-weight: 500;
+  font-size: medium;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .login-button,
@@ -71,19 +163,7 @@ body {
   margin-right: auto;
 }
 
-fieldset {
-  padding: 20px;
-}
 
-legend {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px;
-  color: var(--teeth);
-  font-weight: 500;
-  font-size: large;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
 .login-button:hover,
 .signup-button:hover {
@@ -1227,6 +1307,10 @@ a {
 @media screen and (max-width: 570px) {
   #banner {
     margin-top: 10px;
+  }
+
+  .editanchor {
+    margin-left: 80% !important;
   }
 
   .prod2 img {
