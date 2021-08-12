@@ -557,6 +557,75 @@ h4 {
   cursor: pointer;
 }
 
+#chart {
+  height: 100%;
+  margin-bottom: 100px;
+}
+
+table {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
+  font-weight: 500;
+}
+
+thead{
+  background-color: var(--teeth);
+}
+
+tbody {
+  background-color: white;
+}
+
+th {
+  border: 1px solid black;
+  text-align: center;
+}
+
+td {
+  border: 1px solid black;
+  text-align: center;
+  height: 160px;
+}
+
+.product-image {
+  height: 100px;
+  width: 100px;
+}
+
+.description-field {
+  width: 50% !important;
+  text-align: start;
+}
+
+.quantity {
+  text-align: center !important;
+  width: 40% !important;
+  border: 1px solid black !important;
+}
+
+.increment-button, .decrement-button {
+  height: 30px;
+  border: 1px solid var(--more);
+  border-radius: 5px;
+  width: 30px;
+  font-weight: 700;
+}
+
+.increment-button:hover, .decrement-button:hover {
+  background-color: var(--more);
+  cursor: pointer;
+}
+
+.remove-product {
+  height: 25px;
+  width: 25px;
+  margin: 0;
+  padding: 0;
+}
+
 footer {
   width: 100%;
   background-color: var(--dark);
@@ -610,8 +679,8 @@ footer p {
 }
 
 nav {
-  --fornav: transparent;
-
+  --fornav: var(--dark);
+  top: 0%;
   position: fixed;
   width: 100%;
   padding: 5px;
@@ -820,135 +889,6 @@ a {
   margin-bottom: 5px !important;
 }
 
-#banner {
-  border-bottom: 3px solid var(--more);
-
-}
-
-.banner {
-  width: 100%;
-}
-
-#slider {
-  position: relative;
-  box-shadow: 1px 1px 3px black;
-  overflow: hidden;
-  width: 100%;
-  background-color: var(--teeth);
-}
-
-#slider img {
-  width: 100%;
-  float: left;
-}
-
-.previous {
-  position: absolute;
-  margin-top: 12%;
-  left: 0%;
-  font-size: 80px;
-  color: rgba(255, 255, 255, 0.782);
-  background-color: #38383896;
-  padding: 0;
-  height: max-content;
-  line-height: 50px;
-  padding-bottom: 20px;
-}
-
-.next {
-  position: absolute;
-  margin-top: 12%;
-  right: 0%;
-  font-size: 80px;
-  color: rgba(255, 255, 255, 0.782);
-  background-color: #38383896;
-  padding: 0;
-  height: max-content;
-  line-height: 50px;
-  padding-bottom: 20px;
-}
-
-
-.next:hover,
-.previous:hover {
-  background-color: #383838;
-  color: var(--teeth);
-}
-
-#skip-slides {
-  position: absolute;
-  bottom: 5%;
-  margin-left: 45%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.skippers {
-  border-radius: 50%;
-  border: 1px solid black;
-  background-color: var(--teeth);
-  margin: 0px 5px 0px 5px;
-  font-size: 20px;
-  height: 10px;
-  width: 10px;
-}
-
-#sort-menu-area {
-  border-top: 3px solid var(--more);
-  border-bottom: 3px solid var(--more);
-  background-color: var(--dark);
-  width: 100%;
-  height: 40px;
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-#sort-menu-area p {
-  color: var(--teeth);
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 3%;
-  margin-right: 5px;
-}
-
-#sort-menu-area select {
-  width: max-content;
-  height: 25px;
-  margin: 5px;
-  padding: 0;
-  background-color: var(--more);
-  border: none;
-  border-radius: 5px;
-}
-
-#sort-menu-area select:hover {
-  cursor: pointer;
-}
-
-.prod1 {
-  position: relative;
-  width: 95%;
-  min-height: 400px;
-  background-color: var(--dark);
-  border: 3px solid rgb(143, 143, 143);
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0px;
-}
-
-.prod1 img {
-  float: left;
-  height: auto;
-  margin-top: 20px;
-  margin-left: 30px;
-  padding: 0;
-  width: 20%;
-  border: 5px solid rgb(143, 143, 143);
-  border-radius: 3%;
-}
-
 .prod2 {
   position: relative;
   width: 95%;
@@ -977,12 +917,6 @@ a {
 }
 
 .prod2 p {
-  padding: 5px;
-}
-
-.prod1 p {
-  float: center;
-  margin: 10px 10px 10px 28%;
   padding: 5px;
 }
 
@@ -1021,35 +955,20 @@ a {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.addtochart {
-  position: absolute;
-  width: fit-content;
-  margin: 0px 0px 0px 60%;
-  bottom: 30px;
-  background-color: var(--another);
-  border: none;
-  border-radius: 5%;
-  padding: 20px;
-  font-size: large;
-  font-weight: 700;
-  color: var(--teeth);
-}
-
-.addtochart:hover {
-  cursor: pointer;
-  background-color: var(--more);
-}
-
 .formargin {
   margin-top: 20px !important;
 }
 
-.hr {
-  position: absolute;
-  margin: 10px 0px 0px 25%;
-  border-left: 3px solid rgb(143, 143, 143);
-  height: 85%;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -1079,11 +998,6 @@ a {
 
   #picture-edit {
     max-width: 300px;
-  }
-
-  .nav-scrolled {
-    background-color: var(--dark);
-    border-bottom: 3px solid var(--more);
   }
 
   body {
@@ -1174,38 +1088,6 @@ a {
     margin-right: 10px;
   }
 
-
-  .prod1 {
-    position: relative;
-    width: 65%;
-    display: flex;
-    min-height: 400px;
-    background-color: var(--dark);
-    border: 3px solid rgb(143, 143, 143);
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0px;
-
-  }
-
-  .prod1 img {
-    height: 340px;
-    margin-top: 20px;
-    margin-left: 30px;
-    padding: 0;
-    width: 400px;
-    border: 5px solid rgb(143, 143, 143);
-    border-radius: 3%;
-  }
-
-  .prod1 p {
-    margin: 10px 10px 10px 50px;
-    padding: 5px;
-    height: 100%;
-    font-size: x-large;
-  }
-
   .const1 {
     color: var(--light);
     font-size: medium;
@@ -1220,34 +1102,10 @@ a {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
-  .addtochart {
-    width: fit-content;
-    position: absolute;
-    right: 5%;
-    bottom: 30px;
-    background-color: var(--another);
-    border: none;
-    border-radius: 5%;
-    padding: 20px;
-    font-size: large;
-    font-weight: 700;
-    color: var(--teeth);
-  }
-
-  .addtochart:hover {
-    cursor: pointer;
-    background-color: var(--more);
-  }
+ 
 
   .formargin {
     margin-top: 20px !important;
-  }
-
-  .hr {
-    position: absolute;
-    margin: 10px 0px 0px 30px;
-    border-left: 3px solid rgb(143, 143, 143);
-    height: 95%;
   }
 }
 
@@ -1258,11 +1116,6 @@ a {
     font-size: small;
     font-weight: 500;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  .nav-scrolled {
-    background-color: var(--dark);
-    border-bottom: 3px solid var(--more);
   }
 
   .sign-in-icons {
@@ -1276,26 +1129,10 @@ a {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
-  .hr {
-    height: 0px;
-  }
 
-  .prod1 img {
-    height: 250px;
-    width: 30%;
-    margin-right: 55%;
-    margin-left: 10%;
-  }
-  .prod1 p {
-    margin-left: 10%;
-  }
 
   .formargin {
     margin-top: 290px !important;
-  }
-
-  .addtochart {
-    padding: 15px;
   }
 
   #webname {
@@ -1306,9 +1143,6 @@ a {
 }
 
 @media screen and (max-width: 992px) {
-  .hr {
-  display: none !important;
-  }
 
   .navright {
     position: fixed;
@@ -1360,42 +1194,12 @@ a {
 }
 
 @media screen and (max-width: 768px) and (min-width: 571px) {
-  .previous {
-    
-    font-size: 60px;
-    
-    line-height: 30px;
-    padding-bottom: 10px;
-  }
-
-  #skip-slides {
-  margin-left: 40%;
-  }
-
-  .skippers {
-    width: 8px;
-  height: 8px;
-  }
-  
-  .next {
-    
-    font-size: 60px;
-    
-    line-height: 30px;
-    padding-bottom: 10px;
-  }
   .const1 {
     color: var(--light);
     font-size: x-small;
     font-weight: 500;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-
-  .nav-scrolled {
-    --fornav: #51484f;
-    border-bottom: 3px solid var(--more);
-  }
-
 
   .sign-in-icons {
     margin-right: 5px;
@@ -1406,26 +1210,6 @@ a {
     color: var(--teeth);
     font-weight: 700;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  .prod1 {
-    display: grid;
-  }
-
-  .prod1 img {
-    height: auto;
-    margin-right: 30%;
-    margin-left: 30%;
-    padding: 0;
-    width: 40%;
-    border: 5px solid var(--more);
-    border-radius: 3%;
-  }
-
-  .addtochart {
-    margin-left: 70%;
-    width: fit-content;
-    padding: 15px;
   }
 
 }
@@ -1450,9 +1234,6 @@ a {
   width: 55%;
 }
 
-  #banner {
-    margin-top: 10px;
-  }
 
   .editanchor {
     margin-left: 80% !important;
@@ -1488,13 +1269,6 @@ a {
     margin-left: 10%;
   }
 
-  .hr {
-    height: 0px;
-  }
-
-  .prod1 {
-    display: grid;
-  }
 
   .searchbar {
     display: flex;
@@ -1505,30 +1279,7 @@ a {
   font-size: small;
   }
 
-  .prod1 img {
-    height: auto;
-    margin-right: 30%;
-    margin-left: 30%;
-    padding: 0;
-    width: 40%;
-    border: 5px solid var(--more);
-    border-radius: 3%;
-  }
-
-
-  .prod1 p {
-    margin-left: 10%;
-  }
-
-  .addtochart {
-    margin-left: 60%;
-    padding: 10px;
-    width: fit-content;
-  }
-
-  .hr {
-    height: 0px;
-  }
+ 
 }
 
 @media screen and (max-width: 433px) {
@@ -1541,15 +1292,6 @@ a {
     font-size: 18px;
     margin-top: 0%;
     margin-left: 10%;
-  }
-
-  .addtochart {
-    margin-left: 50% !important;
-    padding: 10px;
-    width: fit-content;
-    bottom: 15px;
-    font-weight: 500;
-    width: 40%;
   }
 }
 

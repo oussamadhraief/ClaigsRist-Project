@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
+    <link href="./css/Style.css" rel="stylesheet">
+    <link href="Logo.png" rel="icon">
+    <title>Chart</title>
+</head>
+<body>
+    <header>
+        <nav id="nav">
+            <div class="navleft">
+                <p id="webname" class="webname"></p>
+            </div>
+            <img id="menu-icon" src="menu-icon.png" alt="menu" height="30px" width="30px">
+            <div class="navright">
+                <a class="space underline" id="top-anchor-navright" href="./../Client.html">Explore</a>
+                <a class="space underline logged-in" id="my-chart" href="#" style="display: none;">My
+                    Chart</a>
+                <a class="space underline logged-in modal-trigger" href="#" style="display: none;"
+                    data-target="modal-account">Account</a>
+                <a class="space underline logged-in" id="logout" href="./../Client.html" style="display: none;">Logout</a>
+                <a class="space underline logged-out modal-trigger" href="#" data-target="modal-login"
+                    style="display: none;">Login</a>
+                <button class="space logged-out modal-trigger" id="signup" href="#" data-target="modal-signup"
+                    style="display: none;">Get
+                    started</button>
+                <div class="sb-example-1">
+                    <form class="search">
+                        <input type="search" class="searchTerm">
+                        <button>
+                            <img src="search.png" alt="icon" id="search-icon" class="modal-trigger"
+                                data-target="modal-search">
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    
+
+
+
+    <div id="modal-signup" class="modal">
+        <h4>Sign up</h4><br>
+        <a class="close-modal" onClick="handleCloseModal('modal-signup')" href="#">x</a>
+        <form id="signup-form">
+            <div class="input-field">
+                <input type="email" id="signup-email" required>
+                <label for="signup-email">Email Adress</label>
+            </div>
+            <div class="input-field">
+                <input type="password" id="signup-password" required>
+                <label for="signup-password">Choose password</label>
+            </div>
+            <button class="signup-button z-depth-0">Sign up</button>
+        </form>
+    </div>
+
+    <div id="modal-login" class="modal">
+        <h4>Sign in</h4><br>
+        <a class="close-modal" onClick="handleCloseModal('modal-login')" href="#">x</a>
+        <form id="login-form">
+            <div class="input-field">
+                <input type="email" id="login-email" required>
+                <label for="login-email">Email Adress</label>
+            </div>
+            <div class="input-field">
+                <input type="password" id="login-password" required>
+                <label for="login-password">Password</label>
+            </div>
+            <button class="login-button z-depth-0">Sign in</button>
+        </form>
+        <fieldset class="fieldset">
+            <legend id="login-legend">Or sign in with</legend>
+            <button class="sign-in-methods" id="google-sign-in"><img class="sign-in-icons"
+                    src="https://img.icons8.com/color/452/google-logo.png" alt="google-icon"> Sign in with
+                Google</button>
+            <button class="sign-in-methods" id="facebook-sign-in" disabled><img class="sign-in-icons"
+                    src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"
+                    alt="facebook-icon"> Sign in with Facebook</button>
+        </fieldset>
+    </div>
+
+    <div id="modal-account" class="modal">
+        <h4>My account</h4><br>
+        <a class="close-modal" onClick="handleCloseModal('modal-account')" href="#">x</a>
+        <div id="account-form">
+            <div id="profile-pic">
+                <img src="https://i2.wp.com/proseawards.com/wp-content/uploads/2015/08/no-profile-pic.png"
+                    id="user-pic" alt="profile picture">
+                <div id="picture-edit">
+                    <label for="profilepic">Edit your profile picture</label>
+                    <input type="file" id="profilepic" accept="image/png, image/gif, image/jpeg">
+                    <a href="#" onClick="handleRemoveButton()" id="remove-picture">Remove picture</a>
+                    <a id="save-picture" onClick="handleSavePicture()" disabled>Save</a>
+                </div>
+            </div>
+
+
+
+            <div id="account-email" class="input-field">
+                <p class="temp" style="display: grid;">Edit your email.</p>
+
+                <a href="#" class="editanchor" style="display: grid;"
+                    onClick="handleEditButton('account-email')"><img class="editicon" src="edit-form.png"
+                        alt="edit"></a>
+
+                <input style="display: none;" id="acc-email" type="text" class="edit-email" name="edit-email"
+                    required>
+
+                <button onClick="saveButtonAppearance('account-email')" id="save-email" style="display: none;"
+                    class="save-info">Save</button>
+
+                <a href="#" style="display: none;" class="cancel-button"
+                    onClick="handleCancelButton('account-email')">cancel</a>
+
+            </div>
+
+
+            <div id="account-password" class="input-field">
+
+            </div>
+
+            <div id="account-bio" class="input-field">
+                <p class="temp" style="display: grid;">Edit your bio.</p>
+
+                <a href="#" class="editanchor" style="display: grid;" onClick="handleEditButton('account-bio')"><img
+                        class="editicon" src="edit-form.png" alt="edit"></a>
+
+                <input style="display: none;" id="acc-bio" type="text" class="edit-email" name="edit-bio" required>
+
+                <button onClick="saveButtonAppearance('account-bio')" id="save-bio" style="display: none;"
+                    class="save-info">Save</button>
+
+                <a href="#" style="display: none;" class="cancel-button"
+                    onClick="handleCancelButton('account-bio')">cancel</a>
+            </div>
+            <fieldset class="fieldset">
+                <legend id="account-legend">Connections</legend>
+                <div class="connect">
+                    <div>
+                        <img class="connection-icons"
+                        src="https://www.pngkit.com/png/full/178-1783296_g-transparent-circle-google-logo.png" alt="google-icon">
+                        <div>
+                            <p class="org-name">Google</p>
+                            <p class="connection-state" id="google-connection-state"></p>
+                        </div>
+                        
+                    </div>
+
+                <button class="connection-methods" id="google-connect">Connect</button>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div class="connect">
+                    <div>
+                        <img class="connection-icons"
+                        src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"
+                        alt="facebook-icon">
+                        <div>
+                            <p class="org-name"> Facebook</p>
+                            <p class="connection-state">Your account is not connected to Facebook.</p>
+                        </div>
+                    </div>
+                    
+                <button class="connection-methods" id="facebook-connection" disabled> Connect</button>
+                    </div>
+            </fieldset>
+
+            <div id="PS">
+                
+                <img src="attention.png" alt="attention-icon" width="30px" height="30px"> <p id="attention"> Logging in with your Google/Facebook account only makes signing up and signing
+                    in easier and creates a ClaigsRist account that is completely detached
+                    from your Google/Facebook account meaning that changing your email, password or any other type of information (photo, bio ... ) in the settings above will
+                    only affect your ClaigsRist account
+                    and will not change your login information or any other type of information in your
+                    Google/Facebook account. </p>
+                </div>
+        </div>
+    </div>
+    <div id="modal-search" class="modal">
+
+    </div>
+
+    <form id="chart">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th class="desciption-field">Description</th>
+                    <th>Available quantity</th>
+                    <th>Unit price</th>
+                    <th>Quantity</th>
+                    <th></th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="attention.png" alt="" class="product-image"></td>
+                    <td class="description-field">Pc portable gamer Asus ROG STRIX G713QE-HX023T R5-5600H, 16Go, RTX3050TI, écran 17,3" 144Hz
+                        RÉFÉRENCE:90NR05F2-M00520</td>
+                    <td>25</td>
+                    <td> 1500&#160;TND</td>
+                    <td><input type="number" value="1" min="0" class="quantity" required><div>
+                        <button type="button" class="decrement-button">-</button>
+                        <button type="button" class="increment-button">+</button>
+                    </div></td>
+                    <td><img src="https://iconsplace.com/wp-content/uploads/_icons/000000/256/png/delete-icon-256.png" alt="remove-product" class="remove-product"></td>
+                    <td>4&#160;Pieces<br>
+                        4500&#160;TND</td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+
+    <div id="id_confrmdiv">
+        <p>Would you like to import your photo and display name from your Google account to your ClaigsRist account ?
+        </p>
+        <p>
+            (if you press no, your ClaigsRist photo and display name will not change)
+        </p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div>
+        <button id="id_truebtn">Yes</button>
+        <button id="id_falsebtn">No</button>
+        </div>
+        
+    </div>
+
+
+    
+    <footer id="footer">
+        <p>Oussama Dhraief <span>© </span>2021</p>
+        <div>
+            <a href="About.html" target="_blank" class="underline">About Us</a>
+            <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg center"><img
+                    class="icon"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/9770d7/256/png/facebook-2-icon-256.png"
+                    alt="facebook"></a>
+            <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg center"><img
+                    class="icon"
+                    src="https://iconsplace.com/wp-content/uploads/_icons/9770d7/256/png/instagram-2-icon-256.png"
+                    alt="instagram"></a>
+        </div>
+    </footer>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./js/chart.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/menu.js"></script>
+<script src="./js/auth.js"></script>
+<script src="./js/account.js"></script>
+</html>

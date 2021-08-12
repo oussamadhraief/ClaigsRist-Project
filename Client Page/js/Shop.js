@@ -47,7 +47,7 @@ function productsBox({
     <p class="const1">Quantity Available: </p>
     <p class="vari1">${quantity} pieces.</p>
     </div>
-    <button class="addtochart">Add To Chart</button></div>
+    <button class="addtochart" onClick="handleOrderButton(${id})">Add To Chart</button></div>
 </div>`;
 }
 
@@ -140,7 +140,7 @@ function handlePageButton(id, pageIndex) {
             </div>
         
 	</div>`;
-
+  
   document.querySelector("#slider img").addEventListener("load", () => {
     document.querySelector("#slider").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
     document.querySelector("#slider").style.marginTop = header.offsetHeight.toString() + "px";
@@ -185,6 +185,7 @@ window.addEventListener("resize",() => {
           clearTimeout(anotherTimeouts[i]);
         }
         bannerRemoval.innerHTML = "";
+        
         document.querySelector("#nav").style.top = "0px";
         document.querySelector("#sort-menu-area").style.marginTop = (document.querySelector("#nav").offsetHeight + 10) + "px";
       }
