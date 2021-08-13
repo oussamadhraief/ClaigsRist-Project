@@ -164,9 +164,15 @@ const handleRemoveProduct = (id) => {
 
 displayProducts();
 
+// main
+
 window.addEventListener("resize", () => {
     if(topmargin){
         document.querySelector("#footer").style.marginTop = (window.innerHeight - document.querySelector("thead").offsetHeight - document.querySelector("tbody").offsetHeight - document.querySelector("#nav").offsetHeight - 10 - document.querySelector("#footer").offsetHeight ) +"px";
     }
     
 });
+
+document.querySelector("#webname").addEventListener("click", () => {
+    window.location.href = "../Client.html";
+  });
