@@ -571,7 +571,6 @@ footer {
 
 footer div {
   margin-right: 0px;
-  min-width: 20%;
   max-width: 30%;
   display: flex;
   flex-wrap: wrap;
@@ -595,7 +594,7 @@ footer div .center {
 
 footer a {
   text-decoration: none;
-  color: var(--light);
+  color: var(--teeth) !important;
   font-size: medium;
   font-weight: 500;
   margin-top: 10px;
@@ -1068,7 +1067,7 @@ a {
   background: #555;
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1921px) {
   * {
     box-sizing: border-box;
   }

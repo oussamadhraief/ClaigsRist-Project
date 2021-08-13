@@ -558,8 +558,7 @@ h4 {
 }
 
 #chart {
-  height: 100%;
-  margin-bottom: 100px;
+  height: fit-content;
 }
 
 table {
@@ -569,6 +568,7 @@ table {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: medium;
   font-weight: 500;
+  height: fit-content;
   
 }
 
@@ -590,7 +590,7 @@ th {
 td {
   border: 1px solid black;
   text-align: center;
-  height: 160px;
+  height: 10vh !important;
 }
 
 .product-image {
@@ -647,31 +647,18 @@ td {
 }
 
 footer {
+  position: relative !important;
   width: 100%;
   background-color: var(--dark);
   min-height: 40px;
   border-top: 3px solid var(--more);
-  bottom: 0px;
-  position: sticky;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-#footer {
-
-  left:0px;
-  bottom:0px;
-}
-
-* html #footer {
-  position:absolute;
-  
-}
-
 footer div {
   margin-right: 0px;
-  min-width: 20%;
   max-width: 30%;
   display: flex;
   flex-wrap: wrap;
@@ -1018,7 +1005,7 @@ input[type=number] {
   background: #555;
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1921px) {
   * {
     box-sizing: border-box;
   }

@@ -39,9 +39,7 @@ const chartProductBox = ({
          ${price}&#160;TND</td>
  </tr>`;
 }
-document.querySelector("#body").style.height = (screen.height-document.querySelector("#nav").offsetHeight) +"px";
-console.log(screen.height);
-console.log(document.querySelector("#body").offsetHeight);
+
 
 const displayProducts = () => {
     const chartProductsElement = document.querySelector("tbody");
@@ -61,25 +59,26 @@ const displayProducts = () => {
                             chartProductsElement.innerHTML += chartProductBox(snapshot[keys[i]]);
                         }
                     }
-                    // console.log("1");
-                    // console.log(screen.height);
-                    // if (s == 0) {
-                    //     document.querySelector("#footer").style.marginTop = (screen.height - document.querySelector("#footer").offsetHeight).toString() + "px";
-                    // } else if (s == 1) {
-                    //     document.querySelector("#footer").style.marginTop = (screen.height - document.querySelector("#footer").offsetHeight - 160).toString() +"px";
-                    // } else if (s == 2) {
-                    //     document.querySelector("#footer").style.marginTop = (screen.height - document.querySelector("#footer").offsetHeight - 320).toString() +"px";
-                    // } else {
-                    //     document.querySelector("#footer").style.marginTop = "10px";
-                    // }
+                    
+                    if((window.innerHeight  - (document.querySelector("thead").offsetHeight + document.querySelector("tbody").offsetHeight + document.querySelector("#nav").offsetHeight + 10 + document.querySelector("#footer").offsetHeight)) >= 10){
+                        globalThis.topmargin = true;
+                        console.log("1");
+                        document.querySelector("#footer").style.marginTop = (window.innerHeight - document.querySelector("thead").offsetHeight - document.querySelector("tbody").offsetHeight - document.querySelector("#nav").offsetHeight - 10 - document.querySelector("#footer").offsetHeight ) +"px";
+                    }else{
+                        console.log("2");
+                        globalThis.topmargin = false;
+                        document.querySelector("#footer").style.marginTop = "10px";
+                    }
+                   
+        
                 } else {
-                    // console.log("1");
-                    // console.log(screen.height);
-                    // document.querySelector("#footer").style.marginTop = (screen.height - document.querySelector("#footer").offsetHeight).toString() + "px";
+                    
+                    
                     chartProductsElement.innerHTML += `<tr>
                     <td colspan="7" id="no-products-chart">Your chart is empty ! Explore our products and add them to your shopping chart to view them here.</td>
                     </tr>`;
-                    // document.querySelector("#footer").style.marginTop = "400px";
+                    globalThis.topmargin = true;
+                    document.querySelector("#footer").style.marginTop = (window.innerHeight - document.querySelector("thead").offsetHeight - document.querySelector("tbody").offsetHeight - document.querySelector("#nav").offsetHeight - 10 - document.querySelector("#footer").offsetHeight ) +"px";
                 }
 
             });
@@ -164,3 +163,10 @@ const handleRemoveProduct = (id) => {
 }
 
 displayProducts();
+
+window.addEventListener("resize", () => {
+    if(topmargin){
+        document.querySelector("#footer").style.marginTop = (window.innerHeight - document.querySelector("thead").offsetHeight - document.querySelector("tbody").offsetHeight - document.querySelector("#nav").offsetHeight - 10 - document.querySelector("#footer").offsetHeight ) +"px";
+    }
+    
+});
