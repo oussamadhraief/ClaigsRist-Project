@@ -39,6 +39,9 @@ const chartProductBox = ({
          ${price}&#160;TND</td>
  </tr>`;
 }
+document.querySelector("#body").style.height = (screen.height-document.querySelector("#nav").offsetHeight) +"px";
+console.log(screen.height);
+console.log(document.querySelector("#body").offsetHeight);
 
 const displayProducts = () => {
     const chartProductsElement = document.querySelector("tbody");
@@ -51,40 +54,45 @@ const displayProducts = () => {
                 snapshot = snapshot.val();
                 let keys = Object.keys(snapshot);
                 let length = keys.length;
-                if(!data.chartProducts == ""){
+                if (!data.chartProducts == "") {
                     for (let i = 0; i < length; i++) {
-                        if ( data.chartProducts.includes(keys[i])) {
+                        if (data.chartProducts.includes(keys[i])) {
                             s++;
                             chartProductsElement.innerHTML += chartProductBox(snapshot[keys[i]]);
                         }
                     }
-                    if(s ==0){
-                        document.querySelector("#footer").style.marginTop = "480px";
-                    }else if (s== 1){
-                        document.querySelector("#footer").style.marginTop = "320px";
-                    }else if (s== 2){
-                        document.querySelector("#footer").style.marginTop = "160px";
-                    }else{
-                        document.querySelector("#footer").style.marginTop =  "10px";
-                    }
-                }else {
+                    // console.log("1");
+                    // console.log(screen.height);
+                    // if (s == 0) {
+                    //     document.querySelector("#footer").style.marginTop = (screen.height - document.querySelector("#footer").offsetHeight).toString() + "px";
+                    // } else if (s == 1) {
+                    //     document.querySelector("#footer").style.marginTop = (screen.height - document.querySelector("#footer").offsetHeight - 160).toString() +"px";
+                    // } else if (s == 2) {
+                    //     document.querySelector("#footer").style.marginTop = (screen.height - document.querySelector("#footer").offsetHeight - 320).toString() +"px";
+                    // } else {
+                    //     document.querySelector("#footer").style.marginTop = "10px";
+                    // }
+                } else {
+                    // console.log("1");
+                    // console.log(screen.height);
+                    // document.querySelector("#footer").style.marginTop = (screen.height - document.querySelector("#footer").offsetHeight).toString() + "px";
                     chartProductsElement.innerHTML += `<tr>
                     <td colspan="7" id="no-products-chart">Your chart is empty ! Explore our products and add them to your shopping chart to view them here.</td>
                     </tr>`;
-                    document.querySelector("#footer").style.marginTop = "400px";
+                    // document.querySelector("#footer").style.marginTop = "400px";
                 }
-                
+
             });
         });
-        
+
     });
 
 }
 
-const handleIncrementButton = (id,maxQuantity) => {
-    if(document.querySelector(`#input${id}`).value < maxQuantity){
+const handleIncrementButton = (id, maxQuantity) => {
+    if (document.querySelector(`#input${id}`).value < maxQuantity) {
         document.querySelector(`#input${id}`).value++;
-    handleTotal(id);
+        handleTotal(id);
     }
 }
 
@@ -100,7 +108,7 @@ const handleTotal = (id) => {
     if (document.querySelector(`#input${id}`).value < 1) {
         document.querySelector(`#input${id}`).value = 1;
     }
-    
+
     database.ref("Products").get().then((snapshot) => {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
@@ -121,36 +129,38 @@ const handleTotal = (id) => {
 }
 
 const handleRemoveProduct = (id) => {
-    
+
     Auth.onAuthStateChanged(user => {
         const chartProductsElement = document.querySelector("tbody");
-    database.ref("Products").get().then((snapshot) => {
-        snapshot = snapshot.val();
-        let keys = Object.keys(snapshot);
-        for (let i = 0; i < keys.length; i++) {
-            if (snapshot[keys[i]].id == id) {
-                document.querySelector(`.tr${id}`).classList.add("animationFadeOut");
-                setTimeout(() => {
-                    chartProductsElement.innerHTML -= chartProductBox(snapshot[keys[i]]);
-                    database.ref("Users/" + user.uid).get().then((snapshot) => {
-                        snapshot = snapshot.val();
-                        
-                        newChartProducts = snapshot.chartProducts.replace(keys[i],"");
-                        
-                        database.ref("Users/" + user.uid).update({chartProducts: newChartProducts});
-                        displayProducts();
-                    });
-                }, 500);
-                
-                
-                
+        database.ref("Products").get().then((snapshot) => {
+            snapshot = snapshot.val();
+            let keys = Object.keys(snapshot);
+            for (let i = 0; i < keys.length; i++) {
+                if (snapshot[keys[i]].id == id) {
+                    document.querySelector(`.tr${id}`).classList.add("animationFadeOut");
+                    setTimeout(() => {
+                        chartProductsElement.innerHTML -= chartProductBox(snapshot[keys[i]]);
+                        database.ref("Users/" + user.uid).get().then((snapshot) => {
+                            snapshot = snapshot.val();
+
+                            newChartProducts = snapshot.chartProducts.replace(keys[i], "");
+
+                            database.ref("Users/" + user.uid).update({
+                                chartProducts: newChartProducts
+                            });
+                            displayProducts();
+                        });
+                    }, 500);
+
+
+
+                }
             }
-        }
+        });
+
+
     });
-        
-        
-    });
-    
+
 }
 
 displayProducts();
