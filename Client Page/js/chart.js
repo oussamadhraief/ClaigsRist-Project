@@ -1,28 +1,33 @@
 const orderButton = document.querySelectorAll(".addtochart");
 const searchOrderButton = document.querySelectorAll(".addtochart1");
 
-const handleOrderButton = (id) =>  {
+const handleOrderButton = (id) => {
     auth.onAuthStateChanged(user => {
-        database.ref("Users/"+ user.uid).on("value", (snapshot) => {
-            snapshot = snapshot.val();
-            database.ref("Products").on("value", (data) => {
-                data = data.val();
-                let keys= Object.keys(data);
-                for(let i = 0; i < keys.length; i++){
-                    if(data[keys[i]].id == id){
-                        globalThis.orderedProduct = keys[i];
+        if (user) {
+            database.ref("Products").get().then((snapshot) => {
+                snapshot = snapshot.val();
+                let keys = Object.keys(snapshot);
+                let length = keys.length;
+                for (let i = 0; i < length; i++) {
+                    if (snapshot[keys[i]].id == id) {
+                        database.ref("Users/" + user.uid).get().then((data) => {
+                            data = data.val();
+                            if (!data.chartProducts.includes(keys[i])) {
+                                
+                                database.ref("Users/" + user.uid).update({chartProducts: `${data.chartProducts}${keys[i]}`,});
+                            } else {
+                               
+                                database.ref("Users/" + user.uid).update({chartProducts: `${data.chartProducts}`,});
+                            }
+                        });
+
                     }
                 }
             });
-            if(snapshot.chartProducts.exists()){
-                let tempChartObj = {
-                    picture: snapshot.picture,
-                    bio: snapshot.bio,
-                    moderator: snapshot.moderator,
-                    authMethods: snapshot.authMethods,
-                    chartProducts: `${snapshot.chartProducts}${orderedProduct}`,
-                }
-            }
-        });
+
+        } else {
+            document.querySelector("#login-anchor").click();
+        }
+
     });
 }

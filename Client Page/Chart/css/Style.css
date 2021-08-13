@@ -569,14 +569,17 @@ table {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: medium;
   font-weight: 500;
+  
 }
 
 thead{
-  background-color: var(--teeth);
+  background-color: var(--dark);
+  color: var(--teeth);
 }
 
 tbody {
-  background-color: white;
+  background-color: var(--teeth);
+  color: black;
 }
 
 th {
@@ -593,6 +596,8 @@ td {
 .product-image {
   height: 100px;
   width: 100px;
+  border: 2px solid var(--dark);
+  border-radius: 5px;
 }
 
 .description-field {
@@ -604,18 +609,22 @@ td {
   text-align: center !important;
   width: 40% !important;
   border: 1px solid black !important;
+  font-weight: 500;
 }
 
 .increment-button, .decrement-button {
   height: 30px;
   border: 1px solid var(--more);
   border-radius: 5px;
+  color: var(--teeth);
+  background-color: var(--dark);
   width: 30px;
   font-weight: 700;
 }
 
 .increment-button:hover, .decrement-button:hover {
-  background-color: var(--more);
+  background-color: var(--teeth);
+  color: var(--dark);
   cursor: pointer;
 }
 
@@ -624,6 +633,17 @@ td {
   width: 25px;
   margin: 0;
   padding: 0;
+}
+
+.remove-product:hover {
+  cursor: pointer;
+}
+
+#no-products-chart {
+  text-align: start;
+  font-size: medium;
+  font-weight: 500;
+  height: 90px !important;
 }
 
 footer {
@@ -635,6 +655,17 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+#footer {
+
+  left:0px;
+  bottom:0px;
+}
+
+* html #footer {
+  position:absolute;
+  
 }
 
 footer div {
