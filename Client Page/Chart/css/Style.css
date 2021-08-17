@@ -708,6 +708,7 @@ td {
 
 .vari2 {
   font-size: large;
+  display: inline;
   overflow: hidden;
   font-weight: 500;
   text-align: center;
