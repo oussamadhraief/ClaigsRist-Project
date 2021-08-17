@@ -1,6 +1,3 @@
-const orderButton = document.querySelectorAll(".addtochart");
-const searchOrderButton = document.querySelectorAll(".addtochart1");
-
 const handleOrderButton = (id) => {
     auth.onAuthStateChanged(user => {
         if (user) {

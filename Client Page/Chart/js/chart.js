@@ -41,6 +41,22 @@ const chartProductBox = ({
 }
 
 
+const featuredProductsBox = ({
+    id,
+    name,
+    price,
+    picture
+}) => {
+    return `<li><div class="prod3" id="prod${id}">
+    <div><img src="${picture}" class="prodimg2"
+            alt="product image" width="150px" height="150px"></div>
+    <p class="vari2">${name}</p>
+    <p class="vari2">${price} TND</p>
+    <button class="addtochart2" onClick="handleOrderButton(0)">Add To Chart</button>
+</div></li>`;
+}
+
+
 const displayProducts = () => {
     const chartProductsElement = document.querySelector("tbody");
     chartProductsElement.innerHTML = "";
@@ -148,6 +164,28 @@ const handleRemoveProduct = (id) => {
 
 }
 
+const displayFeaturedProducts = () => {
+    const featuredProductsElement = document.querySelector("#featured-products ul");
+    featuredProductsElement.innerHTML = "";
+    const randomVal = Math.floor((Math.random() * 2) + 1);
+    database.ref("Products").on("value", (snapshot) => {
+        snapshot = snapshot.val();
+        let keys = Object.keys(snapshot);
+        if(randomVal == 1){
+            for(let i = 0; i<keys.length; i++){
+                featuredProductsElement.innerHTML += featuredProductsBox(snapshot[keys[i]]);
+               i++;
+            }
+        }else {
+            for(let i = 1; i<keys.length; i++){
+                featuredProductsElement.innerHTML += featuredProductsBox(snapshot[keys[i]]);
+               i++;
+            }
+        }
+    });
+}
+
+displayFeaturedProducts();
 displayProducts();
 
 // main
