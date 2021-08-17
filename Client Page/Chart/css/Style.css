@@ -1364,6 +1364,12 @@ input[type=number] {
     margin-right: 40px;
     width: 170px;
   }
+
+  .scroll-btn {
+    z-index: -555;
+    visibility: hidden;
+    display: none;
+  }
   
   .prodimg2 {
     width: 130px;
