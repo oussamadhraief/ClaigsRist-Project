@@ -50,8 +50,8 @@ const featuredProductsBox = ({
     return `<li><div class="prod3" id="prod${id}">
     <div><img src="${picture}" class="prodimg2"
             alt="product image" width="150px" height="150px"></div>
-    <p class="vari2">${name}</p>
-    <p class="vari2">${price} TND</p>
+    <span class="vari2">${name}</span>
+    <span class="vari2">${price} TND</span>
     <button class="addtochart2" onClick="handleOrderButton(${id})">Add To Chart</button>
 </div></li>`;
 }
