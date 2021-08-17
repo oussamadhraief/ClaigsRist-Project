@@ -21,7 +21,7 @@ function slide(direction){
             }
         }
         scrollCompleted += 10;
-        console.log(container.scrollLeft);
+        
         if(scrollCompleted >= 100){
             window.clearInterval(slideVar);
         }

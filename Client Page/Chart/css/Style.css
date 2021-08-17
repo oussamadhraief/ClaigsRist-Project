@@ -652,11 +652,20 @@ td {
 
 #featured-products  {
   width: 100%;
+  border-top: 3px solid var(--more);
+  border-bottom: 3px solid var(--more);
   position: relative;
   margin-top: 30px;
-  background-color: rgb(197, 197, 197);
+  background-color: #484447bf;
   box-shadow: 3px  3px 7px 7px rgba(0, 0, 0, 0.439);
   height: max-content;
+  padding-top: 10px;
+  margin-bottom: 30px;
+}
+
+#featured-products h4 {
+  font-weight: 700;
+  
 }
 
 #featured-products ul  {
@@ -681,11 +690,12 @@ td {
   width: fit-content;
   height: fit-content;
   padding: 20px 15% 20px 15%;
-  background-color: #38383851;
+  background-color: rgba(255, 255, 255, .15);   
   border-radius: 15px;
   display: grid;
   margin-left: 100px;
   margin-right: 100px;
+  box-shadow: 3px 3px 7px black;
 }
 
 .prodimg2 {
@@ -716,6 +726,12 @@ td {
   margin-left: auto;
   margin-right: auto;
 }
+
+.addtochart2:hover {
+  cursor: pointer;
+  background-color: var(--another);
+}
+
 
 .scroll-btn {
   background: #38383896;
@@ -1320,6 +1336,44 @@ input[type=number] {
 }
 
 @media screen and (max-width: 570px) {
+  
+#featured-products h4 {
+  font-size: 24px;
+}
+
+  #featured-products ul  {
+    position: relative;
+    overflow-x: scroll;
+    display: flex;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    height: fit-content;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    left: 0%;
+    margin-bottom: 30px;
+  }
+  
+  .prod3 {
+    padding: 20px 7% 20px 7%;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  
+  .prodimg2 {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .vari2 {
+    font-size: medium;
+  }
+  
+  .addtochart2 {
+    padding: 5px;
+  }
+
   #id_confrmdiv{
     width: 80%;
     left: 10%;
