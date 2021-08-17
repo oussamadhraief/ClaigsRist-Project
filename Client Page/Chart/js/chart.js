@@ -44,7 +44,6 @@ const chartProductBox = ({
 const displayProducts = () => {
     const chartProductsElement = document.querySelector("tbody");
     chartProductsElement.innerHTML = "";
-    let s = 0;
     Auth.onAuthStateChanged(user => {
         database.ref("Users/" + user.uid).get().then((data) => {
             data = data.val();
@@ -55,30 +54,17 @@ const displayProducts = () => {
                 if (!data.chartProducts == "") {
                     for (let i = 0; i < length; i++) {
                         if (data.chartProducts.includes(keys[i])) {
-                            s++;
+                            
                             chartProductsElement.innerHTML += chartProductBox(snapshot[keys[i]]);
                         }
                     }
-                    
-                    if((window.innerHeight  - (document.querySelector("thead").offsetHeight + document.querySelector("tbody").offsetHeight + document.querySelector("#nav").offsetHeight + 10 + document.querySelector("#footer").offsetHeight)) >= 10){
-                        globalThis.topmargin = true;
-                        console.log("1");
-                        document.querySelector("#footer").style.marginTop = (window.innerHeight - document.querySelector("thead").offsetHeight - document.querySelector("tbody").offsetHeight - document.querySelector("#nav").offsetHeight - 10 - document.querySelector("#footer").offsetHeight ) +"px";
-                    }else{
-                        console.log("2");
-                        globalThis.topmargin = false;
-                        document.querySelector("#footer").style.marginTop = "10px";
-                    }
-                   
-        
                 } else {
                     
                     
                     chartProductsElement.innerHTML += `<tr>
                     <td colspan="7" id="no-products-chart">Your chart is empty ! Explore our products and add them to your shopping chart to view them here.</td>
                     </tr>`;
-                    globalThis.topmargin = true;
-                    document.querySelector("#footer").style.marginTop = (window.innerHeight - document.querySelector("thead").offsetHeight - document.querySelector("tbody").offsetHeight - document.querySelector("#nav").offsetHeight - 10 - document.querySelector("#footer").offsetHeight ) +"px";
+                   
                 }
 
             });
@@ -165,13 +151,6 @@ const handleRemoveProduct = (id) => {
 displayProducts();
 
 // main
-
-window.addEventListener("resize", () => {
-    if(topmargin){
-        document.querySelector("#footer").style.marginTop = (window.innerHeight - document.querySelector("thead").offsetHeight - document.querySelector("tbody").offsetHeight - document.querySelector("#nav").offsetHeight - 10 - document.querySelector("#footer").offsetHeight ) +"px";
-    }
-    
-});
 
 document.querySelector("#webname").addEventListener("click", () => {
     window.location.href = "../Client.html";

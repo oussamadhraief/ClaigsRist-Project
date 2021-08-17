@@ -559,6 +559,10 @@ h4 {
 
 #chart {
   height: fit-content;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: auto;
 }
 
 table {
@@ -646,6 +650,93 @@ td {
   height: 90px !important;
 }
 
+#featured-products  {
+  width: 100%;
+  margin-top: 20px;
+}
+
+#featured-products ul  {
+  position: relative;
+  overflow-x: scroll;
+  display: flex;
+  width: 120%;
+  height: fit-content;
+  background-color: rgb(204, 203, 203);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  left: 0%;
+  box-shadow: 3px  3px 7px rgba(0, 0, 0, 0.439);
+  margin-bottom: 30px;
+}
+
+.prod3 {
+  width: fit-content;
+  height: fit-content;
+  padding: 20px 7% 20px 7%;
+  background-color: #38383851;
+  border-radius: 15px;
+  display: grid;
+  margin-left: 50px;
+}
+
+.prodimg2 {
+  width: 170px;
+  height: 170px;
+  border-radius: 15px;
+  border: 2px solid var(--dark);
+}
+
+.vari2 {
+  font-size: large;
+  font-weight: 500;
+  text-align: center;
+  color: var(--teeth);
+  margin-top: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.addtochart2 {
+  background-color: var(--light);
+  border-radius: 5px;
+  border: none;
+  font-size: medium;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: fit-content;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scroll-btn {
+  background: #38383896;
+  color: rgba(255, 255, 255, 0.782);
+  border: none;
+  height: 70px;
+  padding: 0px 3px 5px 3px;
+  font-size: 50px;
+  position: sticky;
+  top: 50%;
+  z-index: 999;
+}
+
+#next-prod {
+  right: 0%;
+}
+
+#previous-prod {
+  left: -100%;
+}
+
+.scroll-btn:hover {
+  background: #383838;
+  color: var(--teeth);
+  cursor: pointer;
+}
+
+.scroll-btn.scroll-to-left { left: 0; }
+.scroll-btn.scroll-to-right { right: 0; }
+
 footer {
   position: relative !important;
   width: 100%;
@@ -655,6 +746,7 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 footer div {
@@ -989,21 +1081,6 @@ input[type=number] {
 }
 
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
 
 @media screen and (min-width: 1921px) {
   * {

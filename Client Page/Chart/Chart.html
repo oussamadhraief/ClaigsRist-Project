@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,8 +14,9 @@
     <link href="Logo.png" rel="icon">
     <title>Chart</title>
 </head>
+
 <body>
-    
+
     <header>
         <nav id="nav">
             <div class="navleft">
@@ -27,7 +29,8 @@
                     Chart</a>
                 <a class="space underline logged-in modal-trigger" href="#" style="display: none;"
                     data-target="modal-account">Account</a>
-                <a class="space underline logged-in" id="logout" href="./../Client.html" style="display: none;">Logout</a>
+                <a class="space underline logged-in" id="logout" href="./../Client.html"
+                    style="display: none;">Logout</a>
                 <a class="space underline logged-out modal-trigger" href="#" data-target="modal-login"
                     style="display: none;">Login</a>
                 <button class="space logged-out modal-trigger" id="signup" href="#" data-target="modal-signup"
@@ -47,7 +50,7 @@
     </header>
 
 
-    
+
 
 
 
@@ -97,8 +100,8 @@
         <a class="close-modal" onClick="handleCloseModal('modal-account')" href="#">x</a>
         <div id="account-form">
             <div id="profile-pic">
-                <img src="https://i2.wp.com/proseawards.com/wp-content/uploads/2015/08/no-profile-pic.png"
-                    id="user-pic" alt="profile picture">
+                <img src="https://i2.wp.com/proseawards.com/wp-content/uploads/2015/08/no-profile-pic.png" id="user-pic"
+                    alt="profile picture">
                 <div id="picture-edit">
                     <label for="profilepic">Edit your profile picture</label>
                     <input type="file" id="profilepic" accept="image/png, image/gif, image/jpeg">
@@ -112,12 +115,10 @@
             <div id="account-email" class="input-field">
                 <p class="temp" style="display: grid;">Edit your email.</p>
 
-                <a href="#" class="editanchor" style="display: grid;"
-                    onClick="handleEditButton('account-email')"><img class="editicon" src="edit-form.png"
-                        alt="edit"></a>
+                <a href="#" class="editanchor" style="display: grid;" onClick="handleEditButton('account-email')"><img
+                        class="editicon" src="edit-form.png" alt="edit"></a>
 
-                <input style="display: none;" id="acc-email" type="text" class="edit-email" name="edit-email"
-                    required>
+                <input style="display: none;" id="acc-email" type="text" class="edit-email" name="edit-email" required>
 
                 <button onClick="saveButtonAppearance('account-email')" id="save-email" style="display: none;"
                     class="save-info">Save</button>
@@ -151,15 +152,16 @@
                 <div class="connect">
                     <div>
                         <img class="connection-icons"
-                        src="https://www.pngkit.com/png/full/178-1783296_g-transparent-circle-google-logo.png" alt="google-icon">
+                            src="https://www.pngkit.com/png/full/178-1783296_g-transparent-circle-google-logo.png"
+                            alt="google-icon">
                         <div>
                             <p class="org-name">Google</p>
                             <p class="connection-state" id="google-connection-state"></p>
                         </div>
-                        
+
                     </div>
 
-                <button class="connection-methods" id="google-connect">Connect</button>
+                    <button class="connection-methods" id="google-connect">Connect</button>
                 </div>
                 <br>
                 <hr>
@@ -167,27 +169,29 @@
                 <div class="connect">
                     <div>
                         <img class="connection-icons"
-                        src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"
-                        alt="facebook-icon">
+                            src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"
+                            alt="facebook-icon">
                         <div>
                             <p class="org-name"> Facebook</p>
                             <p class="connection-state">Your account is not connected to Facebook.</p>
                         </div>
                     </div>
-                    
-                <button class="connection-methods" id="facebook-connection" disabled> Connect</button>
-                    </div>
+
+                    <button class="connection-methods" id="facebook-connection" disabled> Connect</button>
+                </div>
             </fieldset>
 
             <div id="PS">
-                
-                <img src="attention.png" alt="attention-icon" width="30px" height="30px"> <p id="attention"> Logging in with your Google/Facebook account only makes signing up and signing
+
+                <img src="attention.png" alt="attention-icon" width="30px" height="30px">
+                <p id="attention"> Logging in with your Google/Facebook account only makes signing up and signing
                     in easier and creates a ClaigsRist account that is completely detached
-                    from your Google/Facebook account meaning that changing your email, password or any other type of information (photo, bio ... ) in the settings above will
+                    from your Google/Facebook account meaning that changing your email, password or any other type of
+                    information (photo, bio ... ) in the settings above will
                     only affect your ClaigsRist account
                     and will not change your login information or any other type of information in your
                     Google/Facebook account. </p>
-                </div>
+            </div>
         </div>
     </div>
     <div id="modal-search" class="modal">
@@ -209,12 +213,80 @@
             </thead>
             <tbody>
                 <tr>
-                    <td colspan="7" id="no-products-chart">Your chart is empty ! Explore our products and add them to your shopping chart to view them here.</td>
+                    <td colspan="7" id="no-products-chart">Your chart is empty ! Explore our products and add them to
+                        your shopping chart to view them here.</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
+
+    <!-- <div id="featured-products">
+        
+        <button class="scroll-btn scroll-to-left" id="previous-prod" type="button">&#8249;</button>
+        <ul>
+            
+        
+        <li><div class="prod3" id="prod1">
+            <div><img src="https://5.imimg.com/data5/EE/PU/MY-1493139/asus-laptop-500x500.jpg" class="prodimg2"
+                    alt="product image" width="150px" height="150px"></div>
+            <p class="vari2">Asus X550V</p>
+            <p class="vari2">1800 TND</p>
+            <button class="addtochart2" onClick="handleOrderButton(0)">Add To Chart</button>
+        </div></li>
+        <li><div class="prod3" id="prod2">
+            <div><img src="https://5.imimg.com/data5/EE/PU/MY-1493139/asus-laptop-500x500.jpg" class="prodimg2"
+                    alt="product image" width="150px" height="150px"></div>
+            <p class="vari2">Asus X550V</p>
+            <p class="vari2">1800 TND</p>
+            <button class="addtochart2" onClick="handleOrderButton(0)">Add To Chart</button>
+        </div></li>
+        <li><div class="prod3" id="prod3">
+            <div><img src="https://5.imimg.com/data5/EE/PU/MY-1493139/asus-laptop-500x500.jpg" class="prodimg2"
+                    alt="product image"></div>
+            <p class="vari2">Asus X550V</p>
+            <p class="vari2">1800 TND</p>
+            <button class="addtochart2" onClick="handleOrderButton(0)">Add To Chart</button>
+        </div></li>
+        <li> <div class="prod3" id="prod4">
+            <div><img src="https://5.imimg.com/data5/EE/PU/MY-1493139/asus-laptop-500x500.jpg" class="prodimg2"
+                    alt="product image"></div>
+            <p class="vari2">Asus X550V</p>
+            <p class="vari2">1800 TND</p>
+            <button class="addtochart2" onClick="handleOrderButton(0)">Add To Chart</button>
+        </div></li>
+        <li> <div class="prod3" id="prod5">
+            <div><img src="https://5.imimg.com/data5/EE/PU/MY-1493139/asus-laptop-500x500.jpg" class="prodimg2"
+                    alt="product image"></div>
+            <p class="vari2">Asus X550V</p>
+            <p class="vari2">1800 TND</p>
+            <button class="addtochart2" onClick="handleOrderButton(0)">Add To Chart</button>
+        </div></li>
+        <li> <div class="prod3" id="prod6">
+            <div><img src="https://5.imimg.com/data5/EE/PU/MY-1493139/asus-laptop-500x500.jpg" class="prodimg2"
+                    alt="product image"></div>
+            <p class="vari2">Asus X550V</p>
+            <p class="vari2">1800 TND</p>
+            <button class="addtochart2" onClick="handleOrderButton(0)">Add To Chart</button>
+        </div></li>
+        <li> <div class="prod3" id="prod7">
+            <div><img src="https://5.imimg.com/data5/EE/PU/MY-1493139/asus-laptop-500x500.jpg" class="prodimg2"
+                    alt="product image"></div>
+            <p class="vari2">Asus X550V</p>
+            <p class="vari2">1800 TND</p>
+            <button class="addtochart2" onClick="handleOrderButton(0)">Add To Chart</button>
+        </div></li>
+        <li> <div class="prod3" id="prod8">
+            <div><img src="https://5.imimg.com/data5/EE/PU/MY-1493139/asus-laptop-500x500.jpg" class="prodimg2"
+                    alt="product image"></div>
+            <p class="vari2">Asus X550V</p>
+            <p class="vari2">1800 TND</p>
+            <button class="addtochart2" onClick="handleOrderButton(0)">Add To Chart</button>
+        </div></li>
+        
+    </ul>
+    <button class="scroll-btn scroll-to-right" id="next-prod" type="button">&#8250;</button>
+    </div> -->
 
     <div id="id_confrmdiv">
         <p>Would you like to import your photo and display name from your Google account to your ClaigsRist account ?
@@ -227,24 +299,22 @@
         <br>
         <br>
         <div>
-        <button id="id_truebtn">Yes</button>
-        <button id="id_falsebtn">No</button>
+            <button id="id_truebtn">Yes</button>
+            <button id="id_falsebtn">No</button>
         </div>
-        
+
     </div>
 
 
-    
+
     <footer id="footer">
         <p>Oussama Dhraief <span>© </span>2021</p>
         <div>
             <a href="About.html" target="_blank" class="underline">About Us</a>
-            <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg center"><img
-                    class="icon"
+            <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg center"><img class="icon"
                     src="https://cdn.icon-icons.com/icons2/901/PNG/512/facebook_icon-icons.com_69263.png"
                     alt="facebook"></a>
-            <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg center"><img
-                    class="icon"
+            <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg center"><img class="icon"
                     src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721672-instagram_108066.png"
                     alt="instagram"></a>
         </div>
@@ -256,12 +326,14 @@
 <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="jquery-3.5.1.min.js"></script>
 <script src="./js/chart.js"></script>
 <script src="./js/index.js"></script>
 <script src="./js/search.js"></script>
 <script src="./js/menu.js"></script>
 <script src="./js/auth.js"></script>
 <script src="./js/account.js"></script>
+<script src="./js/products.js"></script>
 </html>
 
 <!-- <tr>
