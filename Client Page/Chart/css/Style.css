@@ -710,6 +710,7 @@ td {
   font-size: large;
   display: inline;
   white-space: nowrap;
+  
   overflow: hidden;
   font-weight: 500;
   text-align: center;
