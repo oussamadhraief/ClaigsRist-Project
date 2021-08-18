@@ -14,6 +14,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0%;
   padding: 0%;
@@ -765,6 +769,59 @@ td {
 
 .scroll-btn.scroll-to-left { left: 0; }
 .scroll-btn.scroll-to-right { right: 0; }
+
+#order-form {
+  display: grid;
+  align-items: flex-start;
+  width: 85%;
+  background-color: var(--dark);
+  margin-top: 30px;
+  border: 3px solid var(--more);
+  border-radius: 15px;
+  margin-left: 5%;
+  box-shadow: 3px 3px 7px black;
+}
+
+#order-form input {
+  width: 40%;
+  height: 30px;
+  border: 1px solid var(--teeth);
+}
+
+#order-form textarea {
+  width: 40%;
+  border: 1px solid var(--teeth);
+}
+
+#order-form p {
+  color: var(--teeth);
+  font-size: large;
+  margin-left: 5%;
+  font-weight: 700;
+}
+
+#order-form input,#order-form label, #order-form textarea {
+  margin-left: 5%;
+  color: var(--teeth);
+}
+
+#submit-order-form {
+  width: fit-content;
+  margin-left: 7%;
+  margin-top: 40px;
+  padding: 10px 20px 10px 20px;
+  background-color: var(--another);
+  font-size: large;
+  font-weight: 700;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+#submit-order-form:hover {
+  background-color: var(--more);
+  cursor: pointer;
+}
 
 footer {
   position: relative !important;
