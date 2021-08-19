@@ -491,6 +491,13 @@ h4 {
   color: var(--light);
 }
 
+.privacy {
+  left: 0%;
+  margin-bottom: 30px;
+  margin-top: 0% !important;
+  color: var(--teeth);
+}
+
 .sign-in-methods {
   width: 40%;
   width: fit-content;
