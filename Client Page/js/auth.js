@@ -6,6 +6,9 @@ const loggedInLinks = document.querySelectorAll(".logged-in");
 const googleConnect = document.querySelector("#google-connect");
 const googleConnectState = document.querySelector("#google-connection-state");
 
+const facebookConnect = document.querySelector("#facebook-connect");
+const facebookConnectState = document.querySelector("#facebook-connection-state");
+
 const setupUI = (user) => {
     if (user) {
         loggedInLinks.forEach(item => item.style.display = "block");
@@ -34,6 +37,14 @@ auth.onAuthStateChanged(user => {
                     googleConnectState.innerText = "Your account is not connected to Google." ;
                 }
 
+                if (snapshot.authMethods.includes("facebook")){
+                    facebookConnect.innerText = "Disconnect";
+                    facebookConnectState.innerHTML = `&#10004; Your account is connected to Facebook.`;
+                }else{
+                    facebookConnect.innerText = "Connect";
+                    facebookConnectState.innerText = "Your account is not connected to Facebook." ;
+                }
+
                 if (!snapshot.authMethods.includes("email")) {
                     document.querySelector("#account-password").innerHTML = `
                   
@@ -47,9 +58,11 @@ auth.onAuthStateChanged(user => {
                     });
 
                     document.querySelector("#google-connect").disabled = true;
+                    document.querySelector("#facebook-connect").disabled = true;
 
                 } else {
                     document.querySelector("#google-connect").disabled = false;
+                    document.querySelector("#facebook-connect").disabled = false;
                     document.querySelector("#account-password").innerHTML = `
         
         
@@ -356,6 +369,155 @@ document.querySelector("#google-connect").addEventListener("click", () => {
     
 }
 });
+
+
+///////////////////////////////////////////////////////
+
+const handleFacebookAuth = () => {
+    facebookProvider.addScope('email');
+    firebase.auth().useDeviceLanguage();
+    firebase.auth()
+        .signInWithPopup(facebookProvider)
+        .then((result) => {
+            /** @type {firebase.auth.OAuthCredential} */
+
+            var user = result.user;
+
+
+            database.ref("Users/" + user.uid).on("value", (snapshot) => {
+                snapshot = snapshot.val();
+                if (snapshot == null) {
+                    let tempObj = {
+                        picture: user.photoURL,
+                        bio: "",
+                        moderator: false,
+                        authMethods: "facebook",
+                        chartProducts: "",
+                    }
+
+                    database.ref("Users/" + user.uid).set(tempObj);
+
+                }
+
+                if (!snapshot.authMethods.includes("email")) {
+
+                    document.querySelector("#account-password").innerHTML = `
+            
+                   <input type="password" name="password" id="acc-password" placeholder="Add a password to your ClaigsRist account" class="edit-email">
+                   <button  id="save-password" class="save-info">Save</button>
+               
+            `;
+            document.querySelector("#facebook-connect").disabled = true;
+                } else {
+                    document.querySelector("#facebook-connect").disabled = false;
+                    document.querySelector("#account-password").innerHTML = `
+           
+                    <p class="temp" style="display: grid;">Edit your password.</p>
+
+                    <a href="#" class="editanchor" style="display: grid;"
+                        onClick="handleEditButton('account-password')"><img class="editicon" src="edit-form.png"
+                            alt="edit"></a>
+
+                    <input style="display: none;" id="acc-password" type="password" class="edit-email"
+                        name="edit-password" required>
+
+                    <button onClick="saveButtonAppearance('account-password')" id="save-password" style="display: none;"
+                        class="save-info">Save</button>
+
+                    <a href="#" style="display: none;" class="cancel-button"
+                        onClick="handleCancelButton('account-password')">cancel</a>
+
+            `;
+                }
+            });
+            handleCloseModal("modal-login");
+        }).catch((error) => {
+
+            var errorCode = error.code;
+           
+        });
+}
+
+
+let facebookProvider = new firebase.auth.FacebookAuthProvider();
+
+document.querySelector("#facebook-sign-in").addEventListener("click", () => {
+    handleFacebookAuth();
+});
+
+document.querySelector("#facebook-connect").addEventListener("click", () => {
+    if(facebookConnect.innerText == "Connect"){
+
+    auth.currentUser.linkWithPopup(facebookProvider).then((result) => {
+        
+        document.getElementById('id_confrmdiv').style.display="block";
+        
+        document.getElementById('id_truebtn').onclick = function(){
+            
+           database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
+               snapshot = snapshot.val();
+               
+                let tempObj1 =  {
+                    picture: result.user.providerData[0].photoURL,
+                    bio: snapshot.bio,
+                    moderator: snapshot.moderator,
+                    authMethods: `${snapshot.authMethods} facebook`,
+                    chartProducts: snapshot.chartProducts,
+                }
+                database.ref("Users/" + result.user.uid).set(tempObj1);
+           });
+           document.getElementById('id_confrmdiv').style.display="none";
+        };
+        
+        document.getElementById('id_falsebtn').onclick = function(){
+            database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
+                snapshot = snapshot.val();
+                
+                 let tempObj1 =  {
+                     picture: snapshot.picture,
+                     bio: snapshot.bio,
+                     moderator: snapshot.moderator,
+                     authMethods: `${snapshot.authMethods} facebook`,
+                     chartProducts: snapshot.chartProducts,
+                 }
+                 database.ref("Users/" + result.user.uid).set(tempObj1);
+            });
+
+            document.getElementById('id_confrmdiv').style.display="none";
+        };
+        
+            facebookConnect.innerText = "Disconnect";
+            facebookConnectState.innerHTML = "&#10004; Your account is connected to Facebook.";
+    
+  }).catch((error) => {
+    console.log(error);
+  });
+}else{
+    auth.onAuthStateChanged(user => {
+        
+        user.unlink(user.providerData[0].providerId).then(() => {
+            database.ref("Users/" + user.uid).once("value", (snapshot) => {
+                snapshot = snapshot.val();
+                 let tempObj1 =  {
+                     picture: snapshot.picture,
+                     bio: snapshot.bio,
+                     moderator: snapshot.moderator,
+                     authMethods: snapshot.authMethods.replace("google",""),
+                     chartProducts: snapshot.chartProducts,
+                 }
+                 database.ref("Users/" + user.uid).set(tempObj1);
+            });
+            facebookConnect.innerText = "Connect";
+            facebookConnectState.innerHTML = `Your account is not connected to Facebook.`;
+          }).catch((error) => {
+            
+          });
+    });
+    
+}
+});
+
+///////////////////////////////////////////////////////
 
 function handleCloseModal(id) {
     let modal = document.querySelector("#" + id + "");
