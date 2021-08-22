@@ -183,7 +183,7 @@ body {
 }
 
 
-#google-connect:hover {
+.connection-methods:hover {
   cursor: pointer;
   background-color: #aeabab;
 }
