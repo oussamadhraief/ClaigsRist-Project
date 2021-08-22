@@ -224,9 +224,7 @@ loginForm.addEventListener("submit", (e) => {
 
 const handleGoogleAuth = () => {
     firebase.auth().useDeviceLanguage();
-    firebase.auth().signInWithRedirect(googleProvider);
-    firebase.auth()
-        .getRedirectResult()
+    firebase.auth().signInWithPopup(googleProvider)
         .then((result) => {
             /** @type {firebase.auth.OAuthCredential} */
             console.log("1");
