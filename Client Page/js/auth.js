@@ -225,7 +225,7 @@ loginForm.addEventListener("submit", (e) => {
 const handleGoogleAuth = () => {
     firebase.auth().useDeviceLanguage();
     firebase.auth()
-        .signInWithPopup(googleProvider)
+        .signInWithRedirect(googleProvider)
         .then((result) => {
             /** @type {firebase.auth.OAuthCredential} */
 
@@ -377,7 +377,7 @@ const handleFacebookAuth = () => {
     facebookProvider.addScope('email');
     firebase.auth().useDeviceLanguage();
     firebase.auth()
-        .signInWithRedirect(facebookProvider)
+        .signInWithPopup(facebookProvider)
         .then((result) => {
             /** @type {firebase.auth.OAuthCredential} */
 
