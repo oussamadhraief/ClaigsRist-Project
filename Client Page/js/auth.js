@@ -431,10 +431,53 @@ const handleFacebookAuth = () => {
                 }
             });
             handleCloseModal("modal-login");
-        }).catch((error) => {
+        }).catch((err) => {
 
-            var errorCode = error.code;
-            console.log(error.email);
+            if (err.code === 'auth/account-exists-with-different-credential') {
+                // The pending Facebook credential.
+                var pendingCred = err.credential;
+                // The provider account's email address.
+                var email = err.email;
+                // Get the sign-in methods for this email.
+                auth.fetchSignInMethodsForEmail(email).then(methods => {
+                    // If the user has several sign-in methods, the first method
+                    // in the list will be the "recommended" method to use.
+                    if (methods[0] === 'password') {
+                        // TODO: Ask the user for their password.
+                        // In real scenario, you should handle this asynchronously.
+                        var password = promptUserForPassword();
+                        auth.signInWithEmailAndPassword(email, password).then(result => {
+                            return result.user.linkWithCredential(pendingCred);
+                        }).then(() => {
+                            // Facebook account successfully linked to the existing user.
+                            goToApp();
+                        });
+                        return;
+                    }
+                    // All other cases are external providers.
+                    // Construct provider object for that provider.
+                    // TODO: Implement getProviderForProviderId.
+                    var provider = getProviderForProviderId(methods[0]);
+                    // At this point, you should let the user know that they already have an
+                    // account with a different provider, and validate they want to sign in
+                    // with the new provider.
+                    // Note: Browsers usually block popups triggered asynchronously, so in
+                    // real app, you should ask the user to click on a "Continue" button
+                    // that will trigger signInWithPopup().
+                    auth.signInWithPopup(provider).then(result => {
+                        // Note: Identity Platform doesn't control the provider's sign-in
+                        // flow, so it's possible for the user to sign in with an account
+                        // with a different email from the first one.
+
+                        // Link the Facebook credential. We have access to the pending
+                        // credential, so we can directly call the link method.
+                        result.user.linkWithCredential(pendingCred).then(usercred => {
+                            // Success.
+                            goToApp();
+                        });
+                    });
+                });
+            }
         });
 }
 
