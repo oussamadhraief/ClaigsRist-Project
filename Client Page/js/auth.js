@@ -388,7 +388,7 @@ const handleFacebookAuth = () => {
                 snapshot = snapshot.val();
                 if (snapshot == null) {
                     let tempObj = {
-                        picture: user.photoURL,
+                        picture: user.photoURL + "/picture?height=500",
                         bio: "",
                         moderator: false,
                         authMethods: "facebook",
@@ -458,7 +458,7 @@ document.querySelector("#facebook-connect").addEventListener("click", () => {
                     snapshot = snapshot.val();
 
                     let tempObj1 = {
-                        picture: result.user.providerData[0].photoURL,
+                        picture: result.user.providerData[0].photoURL + "/picture?height=500",
                         bio: snapshot.bio,
                         moderator: snapshot.moderator,
                         authMethods: `${snapshot.authMethods} facebook`,
