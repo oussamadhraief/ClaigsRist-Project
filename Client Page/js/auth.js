@@ -24,7 +24,7 @@ const setupUI = (user) => {
 auth.onAuthStateChanged(user => {
     if (user) {
         setupUI(user);
-
+        console.log(user);
         database.ref("Users/" + user.uid).on("value", (snapshot) => {
             snapshot = snapshot.val();
             if (snapshot !== null) {
