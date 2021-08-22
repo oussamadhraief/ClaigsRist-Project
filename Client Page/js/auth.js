@@ -227,7 +227,7 @@ const handleGoogleAuth = () => {
     firebase.auth().signInWithPopup(googleProvider)
         .then((result) => {
             /** @type {firebase.auth.OAuthCredential} */
-            console.log("1");
+
             var user = result.user;
 
 
@@ -441,39 +441,36 @@ const handleFacebookAuth = () => {
                     // If the user has several sign-in methods, the first method
                     // in the list will be the "recommended" method to use.
                     if (methods[0] === 'password') {
-                        // TODO: Ask the user for their password.
-                        // In real scenario, you should handle this asynchronously.
-                        var password = promptUserForPassword();
-                        auth.signInWithEmailAndPassword(email, password).then(result => {
-                            return result.user.linkWithCredential(pendingCred);
-                        }).then(() => {
-                            // Facebook account successfully linked to the existing user.
-                            goToApp();
-                        });
-                        return;
-                    }
-                    // All other cases are external providers.
-                    // Construct provider object for that provider.
-                    // TODO: Implement getProviderForProviderId.
-                    var provider = getProviderForProviderId(methods[0]);
-                    // At this point, you should let the user know that they already have an
-                    // account with a different provider, and validate they want to sign in
-                    // with the new provider.
-                    // Note: Browsers usually block popups triggered asynchronously, so in
-                    // real app, you should ask the user to click on a "Continue" button
-                    // that will trigger signInWithPopup().
-                    auth.signInWithPopup(provider).then(result => {
-                        // Note: Identity Platform doesn't control the provider's sign-in
-                        // flow, so it's possible for the user to sign in with an account
-                        // with a different email from the first one.
 
-                        // Link the Facebook credential. We have access to the pending
-                        // credential, so we can directly call the link method.
-                        result.user.linkWithCredential(pendingCred).then(usercred => {
-                            // Success.
-                            goToApp();
+                        let element = document.createElement("a");
+                        element.style.display = "none";
+                        element.setAttribute("class", "modal-trigger");
+                        element.setAttribute("data-target", "modal-password");
+                        document.body.appendChild(element);
+                        element.click();
+                        document.querySelector("#link-accounts").onclick(() => {
+                            let password = document.querySelector("#provided-password").value;
+                            document.body.removeChild(element);
+                            let passwordModal = document.querySelector("#modal-password");
+                            M.Modal.getInstance(passwordModal).close();
+                            auth.signInWithEmailAndPassword(email, password).then(result => {
+                                return result.user.linkWithCredential(pendingCred);
+                            }).then(() => {
+                                window.location.reload(true);
+                            });
                         });
-                    });
+
+                    } else {
+                        let tempProvider = getProviderForProviderId(methods[0]);
+
+                        auth.signInWithPopup(tempProvider).then(result => {
+
+                            result.user.linkWithCredential(pendingCred).then(usercred => {
+
+                                window.location.reload(true);
+                            });
+                        });
+                    }
                 });
             }
         });
