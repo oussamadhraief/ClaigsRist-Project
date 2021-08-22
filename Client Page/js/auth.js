@@ -29,20 +29,20 @@ auth.onAuthStateChanged(user => {
             snapshot = snapshot.val();
             if (snapshot !== null) {
 
-                if (snapshot.authMethods.includes("google")){
+                if (snapshot.authMethods.includes("google")) {
                     googleConnect.innerText = "Disconnect";
                     googleConnectState.innerHTML = `&#10004; Your account is connected to Google.`;
-                }else{
+                } else {
                     googleConnect.innerText = "Connect";
-                    googleConnectState.innerText = "Your account is not connected to Google." ;
+                    googleConnectState.innerText = "Your account is not connected to Google.";
                 }
 
-                if (snapshot.authMethods.includes("facebook")){
+                if (snapshot.authMethods.includes("facebook")) {
                     facebookConnect.innerText = "Disconnect";
                     facebookConnectState.innerHTML = `&#10004; Your account is connected to Facebook.`;
-                }else{
+                } else {
                     facebookConnect.innerText = "Connect";
-                    facebookConnectState.innerText = "Your account is not connected to Facebook." ;
+                    facebookConnectState.innerText = "Your account is not connected to Facebook.";
                 }
 
                 if (!snapshot.authMethods.includes("email")) {
@@ -255,7 +255,7 @@ const handleGoogleAuth = () => {
                    <button  id="save-password" class="save-info">Save</button>
                
             `;
-            document.querySelector("#google-connect").disabled = true;
+                    document.querySelector("#google-connect").disabled = true;
                 } else {
                     document.querySelector("#google-connect").disabled = false;
                     document.querySelector("#account-password").innerHTML = `
@@ -286,7 +286,7 @@ const handleGoogleAuth = () => {
             var email = error.email;
             var credential = error.credential;
 
-           
+
         });
 }
 
@@ -298,76 +298,76 @@ document.querySelector("#google-sign-in").addEventListener("click", () => {
 });
 
 document.querySelector("#google-connect").addEventListener("click", () => {
-    if(googleConnect.innerText == "Connect"){
+    if (googleConnect.innerText == "Connect") {
 
-    auth.currentUser.linkWithPopup(googleProvider).then((result) => {
-        
-        
-        document.getElementById('id_confrmdiv').style.display="block";
-        
-        document.getElementById('id_truebtn').onclick = function(){
-            
-           database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
-               snapshot = snapshot.val();
-               
-                let tempObj1 =  {
-                    picture: result.user.providerData[0].photoURL,
-                    bio: snapshot.bio,
-                    moderator: snapshot.moderator,
-                    authMethods: `${snapshot.authMethods} google`,
-                    chartProducts: snapshot.chartProducts,
-                }
-                database.ref("Users/" + result.user.uid).set(tempObj1);
-           });
-           document.getElementById('id_confrmdiv').style.display="none";
-        };
-        
-        document.getElementById('id_falsebtn').onclick = function(){
-            database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
-                snapshot = snapshot.val();
-                
-                 let tempObj1 =  {
-                     picture: snapshot.picture,
-                     bio: snapshot.bio,
-                     moderator: snapshot.moderator,
-                     authMethods: `${snapshot.authMethods} google`,
-                     chartProducts: snapshot.chartProducts,
-                 }
-                 database.ref("Users/" + result.user.uid).set(tempObj1);
-            });
+        auth.currentUser.linkWithPopup(googleProvider).then((result) => {
 
-            document.getElementById('id_confrmdiv').style.display="none";
-        };
-        
+
+            document.getElementById('id_confrmdiv').style.display = "block";
+
+            document.getElementById('id_truebtn').onclick = function () {
+
+                database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
+                    snapshot = snapshot.val();
+
+                    let tempObj1 = {
+                        picture: result.user.providerData[0].photoURL,
+                        bio: snapshot.bio,
+                        moderator: snapshot.moderator,
+                        authMethods: `${snapshot.authMethods} google`,
+                        chartProducts: snapshot.chartProducts,
+                    }
+                    database.ref("Users/" + result.user.uid).set(tempObj1);
+                });
+                document.getElementById('id_confrmdiv').style.display = "none";
+            };
+
+            document.getElementById('id_falsebtn').onclick = function () {
+                database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
+                    snapshot = snapshot.val();
+
+                    let tempObj1 = {
+                        picture: snapshot.picture,
+                        bio: snapshot.bio,
+                        moderator: snapshot.moderator,
+                        authMethods: `${snapshot.authMethods} google`,
+                        chartProducts: snapshot.chartProducts,
+                    }
+                    database.ref("Users/" + result.user.uid).set(tempObj1);
+                });
+
+                document.getElementById('id_confrmdiv').style.display = "none";
+            };
+
             googleConnect.innerText = "Disconnect";
             googleConnectState.innerHTML = "&#10004; Your account is connected to Google.";
-    
-  }).catch((error) => {
-    console.log(error);
-  });
-}else{
-    auth.onAuthStateChanged(user => {
-        
-        user.unlink(user.providerData[0].providerId).then(() => {
-            database.ref("Users/" + user.uid).once("value", (snapshot) => {
-                snapshot = snapshot.val();
-                 let tempObj1 =  {
-                     picture: snapshot.picture,
-                     bio: snapshot.bio,
-                     moderator: snapshot.moderator,
-                     authMethods: snapshot.authMethods.replace("google",""),
-                     chartProducts: snapshot.chartProducts,
-                 }
-                 database.ref("Users/" + user.uid).set(tempObj1);
+
+        }).catch((error) => {
+            console.log(error);
+        });
+    } else {
+        auth.onAuthStateChanged(user => {
+
+            user.unlink(user.providerData[0].providerId).then(() => {
+                database.ref("Users/" + user.uid).once("value", (snapshot) => {
+                    snapshot = snapshot.val();
+                    let tempObj1 = {
+                        picture: snapshot.picture,
+                        bio: snapshot.bio,
+                        moderator: snapshot.moderator,
+                        authMethods: snapshot.authMethods.replace("google", ""),
+                        chartProducts: snapshot.chartProducts,
+                    }
+                    database.ref("Users/" + user.uid).set(tempObj1);
+                });
+                googleConnect.innerText = "Connect";
+                googleConnectState.innerHTML = `Your account is not connected to Google.`;
+            }).catch((error) => {
+
             });
-            googleConnect.innerText = "Connect";
-            googleConnectState.innerHTML = `Your account is not connected to Google.`;
-          }).catch((error) => {
-            
-          });
-    });
-    
-}
+        });
+
+    }
 });
 
 
@@ -383,7 +383,7 @@ const handleFacebookAuth = () => {
 
             var user = result.user;
 
-
+            console.log(user);
             database.ref("Users/" + user.uid).on("value", (snapshot) => {
                 snapshot = snapshot.val();
                 if (snapshot == null) {
@@ -407,7 +407,7 @@ const handleFacebookAuth = () => {
                    <button  id="save-password" class="save-info">Save</button>
                
             `;
-            document.querySelector("#facebook-connect").disabled = true;
+                    document.querySelector("#facebook-connect").disabled = true;
                 } else {
                     document.querySelector("#facebook-connect").disabled = false;
                     document.querySelector("#account-password").innerHTML = `
@@ -434,7 +434,7 @@ const handleFacebookAuth = () => {
         }).catch((error) => {
 
             var errorCode = error.code;
-           
+
         });
 }
 
@@ -446,75 +446,75 @@ document.querySelector("#facebook-sign-in").addEventListener("click", () => {
 });
 
 document.querySelector("#facebook-connect").addEventListener("click", () => {
-    if(facebookConnect.innerText == "Connect"){
+    if (facebookConnect.innerText == "Connect") {
 
-    auth.currentUser.linkWithPopup(facebookProvider).then((result) => {
-        
-        document.getElementById('id_confrmdiv').style.display="block";
-        
-        document.getElementById('id_truebtn').onclick = function(){
-            
-           database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
-               snapshot = snapshot.val();
-               
-                let tempObj1 =  {
-                    picture: result.user.providerData[0].photoURL,
-                    bio: snapshot.bio,
-                    moderator: snapshot.moderator,
-                    authMethods: `${snapshot.authMethods} facebook`,
-                    chartProducts: snapshot.chartProducts,
-                }
-                database.ref("Users/" + result.user.uid).set(tempObj1);
-           });
-           document.getElementById('id_confrmdiv').style.display="none";
-        };
-        
-        document.getElementById('id_falsebtn').onclick = function(){
-            database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
-                snapshot = snapshot.val();
-                
-                 let tempObj1 =  {
-                     picture: snapshot.picture,
-                     bio: snapshot.bio,
-                     moderator: snapshot.moderator,
-                     authMethods: `${snapshot.authMethods} facebook`,
-                     chartProducts: snapshot.chartProducts,
-                 }
-                 database.ref("Users/" + result.user.uid).set(tempObj1);
-            });
+        auth.currentUser.linkWithPopup(facebookProvider).then((result) => {
 
-            document.getElementById('id_confrmdiv').style.display="none";
-        };
-        
+            document.getElementById('id_confrmdiv').style.display = "block";
+
+            document.getElementById('id_truebtn').onclick = function () {
+
+                database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
+                    snapshot = snapshot.val();
+
+                    let tempObj1 = {
+                        picture: result.user.providerData[0].photoURL,
+                        bio: snapshot.bio,
+                        moderator: snapshot.moderator,
+                        authMethods: `${snapshot.authMethods} facebook`,
+                        chartProducts: snapshot.chartProducts,
+                    }
+                    database.ref("Users/" + result.user.uid).set(tempObj1);
+                });
+                document.getElementById('id_confrmdiv').style.display = "none";
+            };
+
+            document.getElementById('id_falsebtn').onclick = function () {
+                database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
+                    snapshot = snapshot.val();
+
+                    let tempObj1 = {
+                        picture: snapshot.picture,
+                        bio: snapshot.bio,
+                        moderator: snapshot.moderator,
+                        authMethods: `${snapshot.authMethods} facebook`,
+                        chartProducts: snapshot.chartProducts,
+                    }
+                    database.ref("Users/" + result.user.uid).set(tempObj1);
+                });
+
+                document.getElementById('id_confrmdiv').style.display = "none";
+            };
+
             facebookConnect.innerText = "Disconnect";
             facebookConnectState.innerHTML = "&#10004; Your account is connected to Facebook.";
-    
-  }).catch((error) => {
-    console.log(error);
-  });
-}else{
-    auth.onAuthStateChanged(user => {
-        
-        user.unlink(user.providerData[0].providerId).then(() => {
-            database.ref("Users/" + user.uid).once("value", (snapshot) => {
-                snapshot = snapshot.val();
-                 let tempObj1 =  {
-                     picture: snapshot.picture,
-                     bio: snapshot.bio,
-                     moderator: snapshot.moderator,
-                     authMethods: snapshot.authMethods.replace("google",""),
-                     chartProducts: snapshot.chartProducts,
-                 }
-                 database.ref("Users/" + user.uid).set(tempObj1);
+
+        }).catch((error) => {
+            console.log(error);
+        });
+    } else {
+        auth.onAuthStateChanged(user => {
+
+            user.unlink(user.providerData[0].providerId).then(() => {
+                database.ref("Users/" + user.uid).once("value", (snapshot) => {
+                    snapshot = snapshot.val();
+                    let tempObj1 = {
+                        picture: snapshot.picture,
+                        bio: snapshot.bio,
+                        moderator: snapshot.moderator,
+                        authMethods: snapshot.authMethods.replace("google", ""),
+                        chartProducts: snapshot.chartProducts,
+                    }
+                    database.ref("Users/" + user.uid).set(tempObj1);
+                });
+                facebookConnect.innerText = "Connect";
+                facebookConnectState.innerHTML = `Your account is not connected to Facebook.`;
+            }).catch((error) => {
+
             });
-            facebookConnect.innerText = "Connect";
-            facebookConnectState.innerHTML = `Your account is not connected to Facebook.`;
-          }).catch((error) => {
-            
-          });
-    });
-    
-}
+        });
+
+    }
 });
 
 ///////////////////////////////////////////////////////
