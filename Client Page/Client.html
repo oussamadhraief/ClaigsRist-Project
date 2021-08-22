@@ -25,7 +25,8 @@
                 <img id="menu-icon" src="menu-icon.png" alt="menu" height="30px" width="30px">
                 <div class="navright">
                     <a class="space underline" id="top-anchor-navright" href="#">Explore</a>
-                    <a class="space underline logged-in" id="my-chart" href="./Chart/Chart.html" style="display: none;">My
+                    <a class="space underline logged-in" id="my-chart" href="./Chart/Chart.html"
+                        style="display: none;">My
                         Chart</a>
                     <a class="space underline logged-in modal-trigger" href="#" style="display: none;"
                         data-target="modal-account">Account</a>
@@ -49,7 +50,7 @@
         </header>
 
 
-        
+
 
 
 
@@ -65,7 +66,28 @@
                     <input type="password" id="signup-password" required>
                     <label for="signup-password">Choose password</label>
                 </div>
-                <p class="privacy">By signing up, you agree to our <a href="https://www.iubenda.com/privacy-policy/17095733" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script></p>
+                <p class="privacy">By signing up, you agree to our <a
+                        href="https://www.iubenda.com/privacy-policy/17095733"
+                        class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe "
+                        title="Privacy Policy ">Privacy Policy</a>
+                    <script type="text/javascript">
+                        (function (w, d) {
+                            var loader = function () {
+                                var s = d.createElement("script"),
+                                    tag = d.getElementsByTagName("script")[0];
+                                s.src = "https://cdn.iubenda.com/iubenda.js";
+                                tag.parentNode.insertBefore(s, tag);
+                            };
+                            if (w.addEventListener) {
+                                w.addEventListener("load", loader, false);
+                            } else if (w.attachEvent) {
+                                w.attachEvent("onload", loader);
+                            } else {
+                                w.onload = loader;
+                            }
+                        })(window, document);
+                    </script>
+                </p>
 
                 <button class="signup-button z-depth-0">Sign up</button>
             </form>
@@ -83,7 +105,28 @@
                     <input type="password" id="login-password" required>
                     <label for="login-password">Password</label>
                 </div>
-                <p class="privacy">By signing in, you agree to our <a href="https://www.iubenda.com/privacy-policy/17095733" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script></p>
+                <p class="privacy">By signing in, you agree to our <a
+                        href="https://www.iubenda.com/privacy-policy/17095733"
+                        class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe "
+                        title="Privacy Policy ">Privacy Policy</a>
+                    <script type="text/javascript">
+                        (function (w, d) {
+                            var loader = function () {
+                                var s = d.createElement("script"),
+                                    tag = d.getElementsByTagName("script")[0];
+                                s.src = "https://cdn.iubenda.com/iubenda.js";
+                                tag.parentNode.insertBefore(s, tag);
+                            };
+                            if (w.addEventListener) {
+                                w.addEventListener("load", loader, false);
+                            } else if (w.attachEvent) {
+                                w.attachEvent("onload", loader);
+                            } else {
+                                w.onload = loader;
+                            }
+                        })(window, document);
+                    </script>
+                </p>
 
                 <button class="login-button z-depth-0">Sign in</button>
             </form>
@@ -157,15 +200,16 @@
                     <div class="connect">
                         <div>
                             <img class="connection-icons"
-                            src="https://www.pngkit.com/png/full/178-1783296_g-transparent-circle-google-logo.png" alt="google-icon">
+                                src="https://www.pngkit.com/png/full/178-1783296_g-transparent-circle-google-logo.png"
+                                alt="google-icon">
                             <div>
                                 <p class="org-name">Google</p>
                                 <p class="connection-state" id="google-connection-state"></p>
                             </div>
-                            
+
                         </div>
 
-                    <button class="connection-methods" id="google-connect">Connect</button>
+                        <button class="connection-methods" id="google-connect">Connect</button>
                     </div>
                     <br>
                     <hr>
@@ -173,27 +217,30 @@
                     <div class="connect">
                         <div>
                             <img class="connection-icons"
-                            src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"
-                            alt="facebook-icon">
+                                src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"
+                                alt="facebook-icon">
                             <div>
                                 <p class="org-name"> Facebook</p>
-                                <p class="connection-state" id="google-connection-state">Your account is not connected to Facebook.</p>
+                                <p class="connection-state" id="facebook-connection-state">Your account is not connected
+                                    to Facebook.</p>
                             </div>
                         </div>
-                        
-                    <button class="connection-methods" id="facebook-connect"> Connect</button>
-                        </div>
+
+                        <button class="connection-methods" id="facebook-connect"> Connect</button>
+                    </div>
                 </fieldset>
 
                 <div id="PS">
-                    
-                    <img src="attention.png" alt="attention-icon" width="30px" height="30px"> <p id="attention"> Logging in with your Google/Facebook account only makes signing up and signing
+
+                    <img src="attention.png" alt="attention-icon" width="30px" height="30px">
+                    <p id="attention"> Logging in with your Google/Facebook account only makes signing up and signing
                         in easier and creates a ClaigsRist account that is completely detached
-                        from your Google/Facebook account meaning that changing your email, password or any other type of information (photo, bio ... ) in the settings above will
+                        from your Google/Facebook account meaning that changing your email, password or any other type
+                        of information (photo, bio ... ) in the settings above will
                         only affect your ClaigsRist account
                         and will not change your login information or any other type of information in your
                         Google/Facebook account. </p>
-                    </div>
+                </div>
             </div>
         </div>
         <div id="modal-search" class="modal">
@@ -223,7 +270,8 @@
 
 
         <div id="id_confrmdiv">
-            <p>Would you like to import your photo and display name from your Google account to your ClaigsRist account ?
+            <p>Would you like to import your photo and display name from your Google account to your ClaigsRist account
+                ?
             </p>
             <p>
                 (if you press no, your ClaigsRist photo and display name will not change)
@@ -233,14 +281,14 @@
             <br>
             <br>
             <div>
-            <button id="id_truebtn">Yes</button>
-            <button id="id_falsebtn">No</button>
+                <button id="id_truebtn">Yes</button>
+                <button id="id_falsebtn">No</button>
             </div>
-            
+
         </div>
 
 
-        
+
         <footer id="footer">
             <p>Oussama Dhraief <span>© </span>2021</p>
             <div>
@@ -250,8 +298,7 @@
                         src="https://cdn.icon-icons.com/icons2/901/PNG/512/facebook_icon-icons.com_69263.png"
                         alt="facebook"></a>
                 <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg center"><img
-                        class="icon"
-                        src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721672-instagram_108066.png"
+                        class="icon" src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721672-instagram_108066.png"
                         alt="instagram"></a>
             </div>
         </footer>
@@ -270,4 +317,5 @@
 <script src="./js/auth.js"></script>
 <script src="./js/account.js"></script>
 <script src="./js/chart.js"></script>
+
 </html>

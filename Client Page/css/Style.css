@@ -27,20 +27,20 @@ body {
   background-color: var(--light);
 }
 
-#id_confrmdiv{
-    display: none;
-    background-color: var(--dark);
-    border-radius: 5px;
-    border: 5px solid var(--more);
-    position: fixed;
-    top: 20%;
-    left: 25%;
-    width: 50%;
-    height: fit-content;
-    padding: 6px 8px 8px;
-    box-sizing: border-box;
-    text-align: center;
-    z-index: 9909;
+#id_confrmdiv {
+  display: none;
+  background-color: var(--dark);
+  border-radius: 5px;
+  border: 5px solid var(--more);
+  position: fixed;
+  top: 20%;
+  left: 25%;
+  width: 50%;
+  height: fit-content;
+  padding: 6px 8px 8px;
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 9909;
 }
 
 #id_confrmdiv p {
@@ -57,18 +57,18 @@ body {
 }
 
 #id_confrmdiv button {
-    background-color: var(--teeth);
-    border-radius: 3px;
-    border: 1px solid var(--more);
-    padding: 10px 20px 10px 20px;
-    font-weight: 500;
-    margin-left: 10%;
-    margin-right: 10%;
-    text-align: center;
-    width: fit-content;
-    height: fit-content;
-    cursor: pointer;
-    z-index: 999;
+  background-color: var(--teeth);
+  border-radius: 3px;
+  border: 1px solid var(--more);
+  padding: 10px 20px 10px 20px;
+  font-weight: 500;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+  z-index: 999;
 }
 
 #id_confrmdiv div {
@@ -80,14 +80,14 @@ body {
   justify-content: center;
 }
 
-#id_confrmdiv button:hover{
-    background-color: var(--more);
+#id_confrmdiv button:hover {
+  background-color: var(--more);
 }
 
-#confirmBox .message{
-    text-align: left;
-    margin-bottom: 8px;
-    z-index: 999;
+#confirmBox .message {
+  text-align: left;
+  margin-bottom: 8px;
+  z-index: 999;
 }
 
 .modal {
@@ -167,7 +167,7 @@ body {
 .connection-icons {
   width: 66px;
   height: 66px;
-  
+
 }
 
 .connect button {
@@ -182,9 +182,6 @@ body {
   padding: 7px 5px 7px 5px;
 }
 
-#facebook-connect {
-  background-color: var(--more);
-}
 
 #google-connect:hover {
   cursor: pointer;
@@ -344,7 +341,8 @@ body {
 }
 
 .save-info {
-  width: fit-content;
+  overflow: hidden;
+  min-width: fit-content !important;
   height: auto;
   padding: 10px 7px 10px 7px;
   background-color: var(--another);
@@ -520,7 +518,6 @@ h4 {
 
 #facebook-sign-in {
   margin-top: 20px;
-  background-color: var(--more);
 }
 
 .sign-in-icons {
@@ -747,7 +744,7 @@ a {
 @keyframes fadeOut {
   from {
     opacity: 1;
-    
+
   }
 
   to {
@@ -1140,7 +1137,7 @@ a {
     width: 20%;
   }
 
-  .addtochart1{
+  .addtochart1 {
     margin: 10%;
     font-size: xx-large;
     padding-bottom: 20px !important;
@@ -1299,6 +1296,7 @@ a {
     margin-right: 55%;
     margin-left: 10%;
   }
+
   .prod1 p {
     margin-left: 10%;
   }
@@ -1320,7 +1318,7 @@ a {
 
 @media screen and (max-width: 992px) {
   .hr {
-  display: none !important;
+    display: none !important;
   }
 
   .navright {
@@ -1374,29 +1372,30 @@ a {
 
 @media screen and (max-width: 768px) and (min-width: 571px) {
   .previous {
-    
+
     font-size: 60px;
-    
+
     line-height: 30px;
     padding-bottom: 10px;
   }
 
   #skip-slides {
-  margin-left: 40%;
+    margin-left: 40%;
   }
 
   .skippers {
     width: 8px;
-  height: 8px;
+    height: 8px;
   }
-  
+
   .next {
-    
+
     font-size: 60px;
-    
+
     line-height: 30px;
     padding-bottom: 10px;
   }
+
   .const1 {
     color: var(--light);
     font-size: x-small;
@@ -1444,7 +1443,7 @@ a {
 }
 
 @media screen and (max-width: 570px) {
-  #id_confrmdiv{
+  #id_confrmdiv {
     width: 80%;
     left: 10%;
   }
@@ -1454,14 +1453,16 @@ a {
   }
 
   .save-info {
+    font-size: x-small;
+    font-weight: 500;
     margin-left: 60%;
   }
 
   #account-email input,
-#account-password input,
-#account-bio input {
-  width: 55%;
-}
+  #account-password input,
+  #account-bio input {
+    width: 55%;
+  }
 
   #banner {
     margin-top: 10px;
@@ -1515,7 +1516,7 @@ a {
   }
 
   .addtochart1 {
-  font-size: small;
+    font-size: small;
   }
 
   .prod1 img {
