@@ -243,7 +243,6 @@ const handleGoogleAuth = () => {
                     }
 
                     database.ref("Users/" + user.uid).set(tempObj);
-
                 }
 
                 if (!snapshot.authMethods.includes("email")) {
@@ -460,6 +459,7 @@ const handleFacebookAuth = () => {
                         });
 
                     } else {
+                        console.log(methods);
                         let tempProvider = getProviderForProviderId(methods[0]);
 
                         auth.signInWithPopup(tempProvider).then(result => {
