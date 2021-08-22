@@ -434,7 +434,7 @@ const handleFacebookAuth = () => {
         }).catch((error) => {
 
             var errorCode = error.code;
-
+            console.log(error.email);
         });
 }
 
