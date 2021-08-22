@@ -229,7 +229,7 @@ const handleGoogleAuth = () => {
         .getRedirectResult()
         .then((result) => {
             /** @type {firebase.auth.OAuthCredential} */
-
+            console.log("1");
             var user = result.user;
 
 
