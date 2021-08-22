@@ -502,7 +502,7 @@ document.querySelector("#facebook-connect").addEventListener("click", () => {
                         picture: snapshot.picture,
                         bio: snapshot.bio,
                         moderator: snapshot.moderator,
-                        authMethods: snapshot.authMethods.replace("google", ""),
+                        authMethods: snapshot.authMethods.replace("facebook", ""),
                         chartProducts: snapshot.chartProducts,
                     }
                     database.ref("Users/" + user.uid).set(tempObj1);
