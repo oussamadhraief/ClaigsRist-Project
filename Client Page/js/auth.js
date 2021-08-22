@@ -377,7 +377,7 @@ const handleFacebookAuth = () => {
     facebookProvider.addScope('email');
     firebase.auth().useDeviceLanguage();
     firebase.auth()
-        .signInWithPopup(facebookProvider)
+        .signInWithRedirect(facebookProvider)
         .then((result) => {
             /** @type {firebase.auth.OAuthCredential} */
 
