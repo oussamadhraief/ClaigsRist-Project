@@ -448,7 +448,6 @@ const handleFacebookAuth = () => {
                         element.click();
                         document.querySelector("#link-accounts").onclick = () => {
                             let password = document.querySelector("#provided-password").value;
-                            document.body.removeChild(element);
                             let passwordModal = document.querySelector("#modal-password");
                             auth.signInWithEmailAndPassword(email, password).then(result => {
                                 return result.user.linkWithCredential(pendingCred);
