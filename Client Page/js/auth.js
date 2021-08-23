@@ -450,7 +450,6 @@ const handleFacebookAuth = () => {
                             let password = document.querySelector("#provided-password").value;
                             document.body.removeChild(element);
                             let passwordModal = document.querySelector("#modal-password");
-                            M.Modal.getInstance(passwordModal).close();
                             auth.signInWithEmailAndPassword(email, password).then(result => {
                                 return result.user.linkWithCredential(pendingCred);
                             }).then(() => {
@@ -460,7 +459,12 @@ const handleFacebookAuth = () => {
 
                     } else {
                         console.log(methods);
-                        let tempProvider = getProviderForProviderId(methods[0]);
+                        if(methods[0].includes("google")){
+                            let tempProvider = googleProvider;
+                        }else {
+                            let tempProvider = facebookProvider;
+                        }
+                        
 
                         auth.signInWithPopup(tempProvider).then(result => {
 
