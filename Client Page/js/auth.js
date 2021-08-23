@@ -1,3 +1,5 @@
+const { database } = require("firebase-admin");
+
 const auth = firebase.auth();
 
 const loggedOutLinks = document.querySelectorAll(".logged-out");
@@ -450,6 +452,10 @@ const handleFacebookAuth = () => {
                             let password = document.querySelector("#provided-password").value;
                             let passwordModal = document.querySelector("#modal-password");
                             auth.signInWithEmailAndPassword(email, password).then(result => {
+                                database.ref("Users/"+result.user.uid).on("value",(snapshot) => {
+                                    snapshot = snapshot.val();
+                                    database.ref("Users/"+result.user.uid).update({authMethods: `${authMethods} facebook`});
+                                });
                                 return result.user.linkWithCredential(pendingCred);
                             }).then(() => {
                                 window.location.reload(true);
