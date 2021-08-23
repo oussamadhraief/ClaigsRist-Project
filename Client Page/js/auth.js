@@ -433,7 +433,7 @@ const handleFacebookAuth = () => {
         }).catch((err) => {
 
             if (err.code === 'auth/account-exists-with-different-credential') {
-
+                handleCloseModal("modal-login");
                 var pendingCred = err.credential;
 
                 var email = err.email;
@@ -457,7 +457,7 @@ const handleFacebookAuth = () => {
                             let password = document.querySelector("#provided-password").value;
 
                             auth.signInWithEmailAndPassword(email, password).then(result => {
-                                
+
                                 database.ref("Users/" + result.user.uid).on("value", (snapshot) => {
                                     snapshot = snapshot.val();
                                     database.ref("Users/" + result.user.uid).update({
@@ -492,7 +492,7 @@ const handleFacebookAuth = () => {
                         document.querySelector("#link-accounts").onclick = () => {
 
                             auth.signInWithPopup(tempProvider).then(result => {
-                                
+
                                 database.ref("Users/" + result.user.uid).on("value", (snapshot) => {
                                     snapshot = snapshot.val();
                                     database.ref("Users/" + result.user.uid).update({
