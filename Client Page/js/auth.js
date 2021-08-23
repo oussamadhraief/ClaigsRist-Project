@@ -457,11 +457,11 @@ const handleFacebookAuth = () => {
                             let password = document.querySelector("#provided-password").value;
 
                             auth.signInWithEmailAndPassword(email, password).then(result => {
-                                console.log(result.user.uid);
+                                
                                 database.ref("Users/" + result.user.uid).on("value", (snapshot) => {
                                     snapshot = snapshot.val();
                                     database.ref("Users/" + result.user.uid).update({
-                                        authMethods: `${authMethods} facebook`
+                                        authMethods: `${snapshot.authMethods} facebook`
                                     });
                                 });
                                 return result.user.linkWithCredential(pendingCred);
@@ -492,11 +492,11 @@ const handleFacebookAuth = () => {
                         document.querySelector("#link-accounts").onclick = () => {
 
                             auth.signInWithPopup(tempProvider).then(result => {
-                                console.log(result.user.uid);
+                                
                                 database.ref("Users/" + result.user.uid).on("value", (snapshot) => {
                                     snapshot = snapshot.val();
                                     database.ref("Users/" + result.user.uid).update({
-                                        authMethods: `${authMethods} facebook`
+                                        authMethods: `${snapshot.authMethods} facebook`
                                     });
                                 });
                                 result.user.linkWithCredential(pendingCred).then(usercred => {
@@ -511,6 +511,7 @@ const handleFacebookAuth = () => {
         });
 }
 
+console.log("gg");
 
 let facebookProvider = new firebase.auth.FacebookAuthProvider();
 
