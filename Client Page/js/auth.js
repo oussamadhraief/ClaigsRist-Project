@@ -440,7 +440,11 @@ const handleFacebookAuth = () => {
 
                 auth.fetchSignInMethodsForEmail(email).then(methods => {
 
-                    if (methods[0] === 'password') {
+                    let methodElement = methods.find((item) => {
+                        return item === 'password';
+                    });
+
+                    if (!(typeof methodElement === 'undefined')){
 
                         let element = document.createElement("a");
                         element.style.display = "none";
@@ -466,7 +470,7 @@ const handleFacebookAuth = () => {
                         };
 
                     } else {
-                        console.log(methods);
+
                         let tempProvider;
                         if (methods[0].includes("google")) {
                             tempProvider = new firebase.auth.GoogleAuthProvider();
