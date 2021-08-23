@@ -434,13 +434,13 @@ const handleFacebookAuth = () => {
         }).catch((err) => {
 
             if (err.code === 'auth/account-exists-with-different-credential') {
-                
+
                 var pendingCred = err.credential;
-                
+
                 var email = err.email;
-                
+
                 auth.fetchSignInMethodsForEmail(email).then(methods => {
-                    
+
                     if (methods[0] === 'password') {
 
                         let element = document.createElement("a");
@@ -453,9 +453,11 @@ const handleFacebookAuth = () => {
                             let password = document.querySelector("#provided-password").value;
                             let passwordModal = document.querySelector("#modal-password");
                             auth.signInWithEmailAndPassword(email, password).then(result => {
-                                database.ref("Users/"+result.user.uid).on("value",(snapshot) => {
+                                database.ref("Users/" + result.user.uid).on("value", (snapshot) => {
                                     snapshot = snapshot.val();
-                                    database.ref("Users/"+result.user.uid).update({authMethods: `${authMethods} facebook`});
+                                    database.ref("Users/" + result.user.uid).update({
+                                        authMethods: `${authMethods} facebook`
+                                    });
                                 });
                                 return result.user.linkWithCredential(pendingCred);
                             }).then(() => {
@@ -466,15 +468,20 @@ const handleFacebookAuth = () => {
                     } else {
                         console.log(methods);
                         let tempProvider;
-                        if(methods[0].includes("google")){
+                        if (methods[0].includes("google")) {
                             tempProvider = new firebase.auth.GoogleAuthProvider();
-                        }else {
+                        } else {
                             tempProvider = new firebase.auth.FacebookAuthProvider();
                         }
-                        
+
 
                         auth.signInWithPopup(tempProvider).then(result => {
-
+                            database.ref("Users/" + result.user.uid).on("value", (snapshot) => {
+                                snapshot = snapshot.val();
+                                database.ref("Users/" + result.user.uid).update({
+                                    authMethods: `${authMethods} facebook`
+                                });
+                            });
                             result.user.linkWithCredential(pendingCred).then(usercred => {
 
                                 window.location.reload(true);
@@ -502,7 +509,7 @@ document.querySelector("#facebook-connect").addEventListener("click", () => {
 
             document.getElementById('id_truebtn').onclick = function () {
 
-                database.ref("Users/" + result.user.uid).once("value", (snapshot) => { 
+                database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
                     snapshot = snapshot.val();
                     let photo = result.user.providerData.find((item) => {
                         return item.providerId.includes("facebook");
