@@ -267,7 +267,7 @@ const handleGoogleAuth = () => {
                     document.getElementById('id_falsebtn').onclick = function () {
                         auth.onAuthStateChanged(user => {
 
-                            user.unlink(user.providerData[0].providerId).then(() => {
+                            user.unlink(googleProvider).then(() => {
                                 database.ref("Users/" + user.uid).once("value", (snapshot) => {
                                     snapshot = snapshot.val();
                                     let tempObj1 = {
