@@ -243,6 +243,50 @@ const handleGoogleAuth = () => {
                     }
 
                     database.ref("Users/" + user.uid).set(tempObj);
+                } else {
+                    document.querySelector("#first-p").innerHTML = "A ClaigsRist account with this email already exists.";
+                    document.querySelector("#first-p").innerHTML = "Would you like to link it to your Google Account ? (if you press no, you will be logged out)";
+                    document.getElementById('id_confrmdiv').style.display = "block";
+
+                    document.getElementById('id_truebtn').onclick = function () {
+                        database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
+                            snapshot = snapshot.val();
+
+                            let tempObj1 = {
+                                picture: snapshot.picture,
+                                bio: snapshot.bio,
+                                moderator: snapshot.moderator,
+                                authMethods: `${snapshot.authMethods} google`,
+                                chartProducts: snapshot.chartProducts,
+                            }
+                            database.ref("Users/" + result.user.uid).set(tempObj1);
+                        });
+                        document.getElementById('id_confrmdiv').style.display = "none";
+                    }
+
+                    document.getElementById('id_falsebtn').onclick = function () {
+                        auth.onAuthStateChanged(user => {
+
+                            user.unlink(user.providerData[0].providerId).then(() => {
+                                database.ref("Users/" + user.uid).once("value", (snapshot) => {
+                                    snapshot = snapshot.val();
+                                    let tempObj1 = {
+                                        picture: snapshot.picture,
+                                        bio: snapshot.bio,
+                                        moderator: snapshot.moderator,
+                                        authMethods: snapshot.authMethods.replace("google", ""),
+                                        chartProducts: snapshot.chartProducts,
+                                    }
+                                    database.ref("Users/" + user.uid).set(tempObj1);
+                                });
+                                googleConnect.innerText = "Connect";
+                                googleConnectState.innerHTML = `Your account is not connected to Google.`;
+                            }).catch((error) => {
+
+                            });
+                        });
+                        document.getElementById('id_confrmdiv').style.display = "none";
+                    }
                 }
 
                 if (!snapshot.authMethods.includes("email")) {
