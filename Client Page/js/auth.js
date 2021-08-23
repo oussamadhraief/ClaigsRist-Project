@@ -245,7 +245,7 @@ const handleGoogleAuth = () => {
                     database.ref("Users/" + user.uid).set(tempObj);
                 } else {
                     document.querySelector("#first-p").innerHTML = "A ClaigsRist account with this email already exists.";
-                    document.querySelector("#first-p").innerHTML = "Would you like to link it to your Google Account ? (if you press no, you will be logged out)";
+                    document.querySelector("#second-p").innerHTML = "Would you like to link it to your Google Account ? (if you press no, you will be logged out)";
                     document.getElementById('id_confrmdiv').style.display = "block";
 
                     document.getElementById('id_truebtn').onclick = function () {
