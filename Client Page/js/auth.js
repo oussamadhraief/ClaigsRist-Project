@@ -498,7 +498,7 @@ document.querySelector("#facebook-connect").addEventListener("click", () => {
 
                 database.ref("Users/" + result.user.uid).once("value", (snapshot) => { 
                     snapshot = snapshot.val();
-
+                    console.log(result.user.providerData[0].photoURL);
                     let tempObj1 = {
                         picture: result.user.providerData[0].photoURL + "/picture?height=500",
                         bio: snapshot.bio,
