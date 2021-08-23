@@ -446,7 +446,7 @@ const handleFacebookAuth = () => {
                         element.setAttribute("data-target", "modal-password");
                         document.body.appendChild(element);
                         element.click();
-                        document.querySelector("#link-accounts").onclick(() => {
+                        document.querySelector("#link-accounts").onclick = () => {
                             let password = document.querySelector("#provided-password").value;
                             document.body.removeChild(element);
                             let passwordModal = document.querySelector("#modal-password");
@@ -455,7 +455,7 @@ const handleFacebookAuth = () => {
                             }).then(() => {
                                 window.location.reload(true);
                             });
-                        });
+                        };
 
                     } else {
                         console.log(methods);
