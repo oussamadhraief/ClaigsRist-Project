@@ -555,7 +555,7 @@ const handleFacebookAuth = () => {
         });
 }
 
-console.log("ggg");
+console.log("gg");
 
 let facebookProvider = new firebase.auth.FacebookAuthProvider();
 
