@@ -519,11 +519,16 @@ const handleFacebookAuth = () => {
                     } else {
 
                         let tempProvider;
-                        if (methods[0].includes("google")) {
-                            tempProvider = new firebase.auth.GoogleAuthProvider();
-                        } else {
-                            tempProvider = new firebase.auth.FacebookAuthProvider();
+
+                        for(let i =0; i < methods.length; i++){
+                            if (methods[i].includes("google")) {
+                                tempProvider = new firebase.auth.GoogleAuthProvider();
+                            } else if (methods[i].includes("facebook")){
+                                tempProvider = new firebase.auth.FacebookAuthProvider();
+                            }
                         }
+
+                        
 
 
                         document.querySelector("#modal-password").innerHTML = ` 
