@@ -458,7 +458,7 @@ const handleFacebookAuth = () => {
 
                             auth.signInWithEmailAndPassword(email, password).then(result => {
 
-                                database.ref("Users/" + result.user.uid).on("value", (snapshot) => {
+                                database.ref("Users/" + result.user.uid).get().then((snapshot) => {
                                     snapshot = snapshot.val();
                                     database.ref("Users/" + result.user.uid).update({
                                         authMethods: `${snapshot.authMethods} facebook`
@@ -493,7 +493,7 @@ const handleFacebookAuth = () => {
 
                             auth.signInWithPopup(tempProvider).then(result => {
 
-                                database.ref("Users/" + result.user.uid).on("value", (snapshot) => {
+                                database.ref("Users/" + result.user.uid).get().then((snapshot) => {
                                     snapshot = snapshot.val();
                                     database.ref("Users/" + result.user.uid).update({
                                         authMethods: `${snapshot.authMethods} facebook`
@@ -511,7 +511,7 @@ const handleFacebookAuth = () => {
         });
 }
 
-console.log("gg");
+console.log("ggg");
 
 let facebookProvider = new firebase.auth.FacebookAuthProvider();
 
