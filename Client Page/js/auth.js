@@ -444,13 +444,14 @@ const handleFacebookAuth = () => {
                         return item === 'password';
                     });
 
-                    if (!(typeof methodElement === 'undefined')){
+                    if (!(typeof methodElement === 'undefined')) {
 
                         let element = document.createElement("a");
                         element.style.display = "none";
                         element.setAttribute("class", "modal-trigger");
                         element.setAttribute("data-target", "modal-password");
                         document.body.appendChild(element);
+                        document.querySelector("#modal-password div").innerHTML = `<input type="password" id="provided-password" placeholder="Enter your ClaigsRist account's password to link it to your Facebook account." required>`;
                         element.click();
                         document.querySelector("#link-accounts").onclick = () => {
                             let password = document.querySelector("#provided-password").value;
@@ -479,19 +480,31 @@ const handleFacebookAuth = () => {
                         }
 
 
-                        auth.signInWithPopup(tempProvider).then(result => {
-                            console.log(result.user.uid);
-                            database.ref("Users/" + result.user.uid).on("value", (snapshot) => {
-                                snapshot = snapshot.val();
-                                database.ref("Users/" + result.user.uid).update({
-                                    authMethods: `${authMethods} facebook`
+                        document.querySelector("#modal-password").innerHTML = ` 
+                        <h6>There is an already existing account that's using this email. <br>
+                        Please log in to your account to link your accounts.</h6>
+                <div class="input-field">
+                    
+                </div>
+                <button class="login-button z-depth-0" id="link-accounts">Continue</button>
+                        `;
+
+                        document.querySelector("#link-accounts").onclick = () => {
+
+                            auth.signInWithPopup(tempProvider).then(result => {
+                                console.log(result.user.uid);
+                                database.ref("Users/" + result.user.uid).on("value", (snapshot) => {
+                                    snapshot = snapshot.val();
+                                    database.ref("Users/" + result.user.uid).update({
+                                        authMethods: `${authMethods} facebook`
+                                    });
+                                });
+                                result.user.linkWithCredential(pendingCred).then(usercred => {
+
+                                    window.location.reload(true);
                                 });
                             });
-                            result.user.linkWithCredential(pendingCred).then(usercred => {
-
-                                window.location.reload(true);
-                            });
-                        });
+                        }
                     }
                 });
             }
