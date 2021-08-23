@@ -108,6 +108,13 @@ body {
   color: var(--teeth);
 }
 
+#modal-password h6 {
+  text-align: center;
+  font-size: large;
+  font-weight: 700;
+  color: var(--teeth);
+}
+
 #attention {
   color: var(--teeth);
   text-align: justify;
@@ -225,6 +232,11 @@ body {
 
 
 #login-form>* {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#link-accounts {
   margin-left: auto;
   margin-right: auto;
 }
