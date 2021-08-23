@@ -574,7 +574,7 @@ document.querySelector("#facebook-connect").addEventListener("click", () => {
 
     }
 });
-
+//
 ///////////////////////////////////////////////////////
 
 function handleCloseModal(id) {
