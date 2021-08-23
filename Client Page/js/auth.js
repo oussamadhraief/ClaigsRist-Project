@@ -459,10 +459,11 @@ const handleFacebookAuth = () => {
 
                     } else {
                         console.log(methods);
+                        let tempProvider;
                         if(methods[0].includes("google")){
-                            let tempProvider = googleProvider;
+                            tempProvider = new firebase.auth.GoogleAuthProvider();
                         }else {
-                            let tempProvider = facebookProvider;
+                            tempProvider = new firebase.auth.FacebookAuthProvider();
                         }
                         
 
