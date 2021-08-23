@@ -476,6 +476,7 @@ const handleFacebookAuth = () => {
 
 
                         auth.signInWithPopup(tempProvider).then(result => {
+                            console.log(result.user.uid);
                             database.ref("Users/" + result.user.uid).on("value", (snapshot) => {
                                 snapshot = snapshot.val();
                                 database.ref("Users/" + result.user.uid).update({
