@@ -344,9 +344,9 @@ document.querySelector("#google-connect").addEventListener("click", () => {
 
         auth.currentUser.linkWithPopup(googleProvider).then((result) => {
 
-            document.getElementById('first-p').innerHTML =  `Would you like to import your photo and display name from your Google account to your ClaigsRist account?`;
+            document.getElementById('first-p').innerHTML = `Would you like to import your photo and display name from your Google account to your ClaigsRist account?`;
             document.getElementById('second-p').innerHTML = `(if you press no, your ClaigsRist photo and display name will not change)`;
-        
+
             document.getElementById('id_confrmdiv').style.display = "block";
 
             document.getElementById('id_truebtn').onclick = function () {
@@ -520,15 +520,17 @@ const handleFacebookAuth = () => {
 
                         let tempProvider;
 
-                        for(let i =0; i < methods.length; i++){
+                        for (let i = 0; i < methods.length; i++) {
                             if (methods[i].includes("google")) {
                                 tempProvider = new firebase.auth.GoogleAuthProvider();
-                            } else if (methods[i].includes("facebook")){
+                                break;
+                            } else if (methods[i].includes("facebook")) {
                                 tempProvider = new firebase.auth.FacebookAuthProvider();
+                                break;
                             }
                         }
 
-                        
+
 
 
                         document.querySelector("#modal-password").innerHTML = ` 
