@@ -491,7 +491,7 @@ document.querySelector("#facebook-connect").addEventListener("click", () => {
 
             document.getElementById('id_truebtn').onclick = function () {
 
-                database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
+                database.ref("Users/" + result.user.uid).once("value", (snapshot) => { 
                     snapshot = snapshot.val();
 
                     let tempObj1 = {
