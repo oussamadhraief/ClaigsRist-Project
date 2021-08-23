@@ -309,9 +309,12 @@ document.querySelector("#google-connect").addEventListener("click", () => {
 
                 database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
                     snapshot = snapshot.val();
+                    let photo = result.user.providerData.find((item) => {
+                        return item.providerId.includes("google");
+                    });
 
                     let tempObj1 = {
-                        picture: result.user.providerData[0].photoURL,
+                        picture: photo.photoURL,
                         bio: snapshot.bio,
                         moderator: snapshot.moderator,
                         authMethods: `${snapshot.authMethods} google`,
@@ -503,9 +506,12 @@ document.querySelector("#facebook-connect").addEventListener("click", () => {
 
                 database.ref("Users/" + result.user.uid).once("value", (snapshot) => { 
                     snapshot = snapshot.val();
-                    console.log(result.user.providerData[0].photoURL);
+                    let photo = result.user.providerData.find((item) => {
+                        return item.providerId.includes("facebook");
+                    });
+
                     let tempObj1 = {
-                        picture: result.user.providerData[0].photoURL + "/picture?height=500",
+                        picture: photo.photoURL + "/picture?height=500",
                         bio: snapshot.bio,
                         moderator: snapshot.moderator,
                         authMethods: `${snapshot.authMethods} facebook`,
