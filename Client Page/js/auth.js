@@ -451,8 +451,9 @@ const handleFacebookAuth = () => {
                         element.click();
                         document.querySelector("#link-accounts").onclick = () => {
                             let password = document.querySelector("#provided-password").value;
-                            let passwordModal = document.querySelector("#modal-password");
+
                             auth.signInWithEmailAndPassword(email, password).then(result => {
+                                console.log(result.user.uid);
                                 database.ref("Users/" + result.user.uid).on("value", (snapshot) => {
                                     snapshot = snapshot.val();
                                     database.ref("Users/" + result.user.uid).update({
