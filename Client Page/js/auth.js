@@ -1,5 +1,3 @@
-const { database } = require("firebase-admin");
-
 const auth = firebase.auth();
 
 const loggedOutLinks = document.querySelectorAll(".logged-out");
