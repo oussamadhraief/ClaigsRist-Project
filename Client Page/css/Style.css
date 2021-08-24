@@ -277,6 +277,11 @@ body {
   font-weight: 500;
 }
 
+.confirm-buttons button:hover {
+  cursor: pointer;
+  background-color: var(--more);
+}
+
 .confirm-buttons h6 {
   color: var(--teeth);
   font-weight: 500;

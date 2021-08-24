@@ -253,6 +253,8 @@ const handleGoogleAuth = () => {
                     document.querySelector("#first-h6").innerHTML = "A ClaigsRist account with this email already exists.";
                     document.querySelector("#second-h6").innerHTML = "Would you like to link it to your Google Account ? (if you press no, you will be logged out)";
                     
+                    const modalConfirm = document.querySelector("#modal-confirm");
+                    
 
                     document.getElementById('yes-option').onclick = function () {
                         database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
@@ -267,13 +269,13 @@ const handleGoogleAuth = () => {
                             }
                             database.ref("Users/" + result.user.uid).set(tempObj1);
                         });
-                        
+                        M.Modal.getInstance(modalConfirm).close();
                     }
 
                     document.getElementById('no-option').onclick = function () {
                         auth.onAuthStateChanged(user => {
 
-                            user.unlink(googleProvider).then(() => {
+                            user.unlink("google.com").then(() => {
                                 database.ref("Users/" + user.uid).once("value", (snapshot) => {
                                     snapshot = snapshot.val();
                                     let tempObj1 = {
@@ -291,7 +293,7 @@ const handleGoogleAuth = () => {
 
                             });
                         });
-                        
+                        M.Modal.getInstance(modal).close();
                     }
                 }
 
@@ -328,12 +330,6 @@ const handleGoogleAuth = () => {
             });
             handleCloseModal("modal-login");
         }).catch((error) => {
-
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            var email = error.email;
-            var credential = error.credential;
-
 
         });
 }
@@ -572,7 +568,7 @@ const handleFacebookAuth = () => {
         });
 }
 
-console.log("gg");
+console.log("new");
 
 let facebookProvider = new firebase.auth.FacebookAuthProvider();
 
