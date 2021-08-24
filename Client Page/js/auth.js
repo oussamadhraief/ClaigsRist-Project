@@ -252,9 +252,9 @@ const handleGoogleAuth = () => {
                     anchorElement.click();
                     document.querySelector("#first-h6").innerHTML = "A ClaigsRist account with this email already exists.";
                     document.querySelector("#second-h6").innerHTML = "Would you like to link it to your Google Account ? (if you press no, you will be logged out)";
-                    
+
                     const modalConfirm = document.querySelector("#modal-confirm");
-                    
+
 
                     document.getElementById('yes-option').onclick = function () {
                         database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
@@ -287,12 +287,12 @@ const handleGoogleAuth = () => {
                                     }
                                     database.ref("Users/" + user.uid).set(tempObj1);
                                 });
-                                googleConnect.innerText = "Connect";
-                                googleConnectState.innerHTML = `Your account is not connected to Google.`;
+
                             }).catch((error) => {
 
                             });
                         });
+                        logout.click();
                         M.Modal.getInstance(modalConfirm).close();
                     }
                 }
@@ -397,7 +397,7 @@ document.querySelector("#google-connect").addEventListener("click", () => {
     } else {
         auth.onAuthStateChanged(user => {
 
-        
+
 
             user.unlink("google.com").then(() => {
                 database.ref("Users/" + user.uid).once("value", (snapshot) => {
