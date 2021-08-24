@@ -259,6 +259,32 @@ body {
   justify-content: center;
 }
 
+.confirm-buttons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.confirm-buttons button {
+  background-color: var(--another);
+  padding: 15px;
+  text-align: center;
+  border: none;
+  border-radius: 5%;
+  font-size: large;
+  font-weight: 500;
+}
+
+.confirm-buttons h6 {
+  color: var(--teeth);
+  font-weight: 500;
+  font-size: medium;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 #profile-pic label:hover {
   cursor: pointer;
   background-color: #aa8f43;

@@ -244,11 +244,17 @@ const handleGoogleAuth = () => {
 
                     database.ref("Users/" + user.uid).set(tempObj);
                 } else {
-                    document.querySelector("#first-p").innerHTML = "A ClaigsRist account with this email already exists.";
-                    document.querySelector("#second-p").innerHTML = "Would you like to link it to your Google Account ? (if you press no, you will be logged out)";
-                    document.getElementById('id_confrmdiv').style.display = "block";
+                    let anchorElement = document.createElement("a");
+                    anchorElement.setAttribute("class", "modal-trigger");
+                    anchorElement.style.display = "none";
+                    anchorElement.setAttribute("data-target", "modal-confirm");
+                    document.body.appendChild(anchorElement);
+                    anchorElement.click();
+                    document.querySelector("#first-h6").innerHTML = "A ClaigsRist account with this email already exists.";
+                    document.querySelector("#second-h6").innerHTML = "Would you like to link it to your Google Account ? (if you press no, you will be logged out)";
+                    
 
-                    document.getElementById('id_truebtn').onclick = function () {
+                    document.getElementById('yes-option').onclick = function () {
                         database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
                             snapshot = snapshot.val();
 
@@ -261,10 +267,10 @@ const handleGoogleAuth = () => {
                             }
                             database.ref("Users/" + result.user.uid).set(tempObj1);
                         });
-                        document.getElementById('id_confrmdiv').style.display = "none";
+                        
                     }
 
-                    document.getElementById('id_falsebtn').onclick = function () {
+                    document.getElementById('no-option').onclick = function () {
                         auth.onAuthStateChanged(user => {
 
                             user.unlink(googleProvider).then(() => {
@@ -285,7 +291,7 @@ const handleGoogleAuth = () => {
 
                             });
                         });
-                        document.getElementById('id_confrmdiv').style.display = "none";
+                        
                     }
                 }
 
@@ -647,7 +653,7 @@ document.querySelector("#facebook-connect").addEventListener("click", () => {
     }
 });
 
-console.log("1");
+console.log("2");
 //
 ///////////////////////////////////////////////////////
 
