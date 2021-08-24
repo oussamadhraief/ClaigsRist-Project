@@ -568,7 +568,7 @@ const handleFacebookAuth = () => {
         });
 }
 
-console.log("new");
+console.log("new ");
 
 let facebookProvider = new firebase.auth.FacebookAuthProvider();
 
