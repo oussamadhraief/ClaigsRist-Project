@@ -231,7 +231,7 @@ const handleGoogleAuth = () => {
             var user = result.user;
 
 
-            database.ref("Users/" + user.uid).on("value", (snapshot) => {
+            database.ref("Users/" + user.uid).get().then((snapshot) => {
                 snapshot = snapshot.val();
                 if (snapshot == null) {
                     let tempObj = {
