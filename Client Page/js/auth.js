@@ -624,7 +624,7 @@ document.querySelector("#facebook-connect").addEventListener("click", () => {
         });
     } else {
         auth.onAuthStateChanged(user => {
-
+            console.log(user.providerData);
             user.unlink(user.providerData[0].providerId).then(() => {
                 database.ref("Users/" + user.uid).once("value", (snapshot) => {
                     snapshot = snapshot.val();
