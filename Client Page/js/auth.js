@@ -293,7 +293,7 @@ const handleGoogleAuth = () => {
 
                             });
                         });
-                        M.Modal.getInstance(modal).close();
+                        M.Modal.getInstance(modalConfirm).close();
                     }
                 }
 
