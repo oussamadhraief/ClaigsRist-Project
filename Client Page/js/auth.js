@@ -646,6 +646,8 @@ document.querySelector("#facebook-connect").addEventListener("click", () => {
 
     }
 });
+
+console.log("1");
 //
 ///////////////////////////////////////////////////////
 
