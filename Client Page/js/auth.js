@@ -401,7 +401,9 @@ document.querySelector("#google-connect").addEventListener("click", () => {
     } else {
         auth.onAuthStateChanged(user => {
 
-            user.unlink(user.providerData[0].providerId).then(() => {
+        
+
+            user.unlink("google.com").then(() => {
                 database.ref("Users/" + user.uid).once("value", (snapshot) => {
                     snapshot = snapshot.val();
                     let tempObj1 = {
@@ -630,10 +632,11 @@ document.querySelector("#facebook-connect").addEventListener("click", () => {
         });
     } else {
         auth.onAuthStateChanged(user => {
-            console.log(user.providerData);
-            user.unlink(user.providerData[0].providerId).then(() => {
+
+
+            user.unlink("facebook.com").then(() => {
                 database.ref("Users/" + user.uid).once("value", (snapshot) => {
-                    snapshot = snapshot.val();
+                    snapshot = snapshot.val()
                     let tempObj1 = {
                         picture: snapshot.picture,
                         bio: snapshot.bio,
@@ -641,8 +644,8 @@ document.querySelector("#facebook-connect").addEventListener("click", () => {
                         authMethods: snapshot.authMethods.replace("facebook", ""),
                         chartProducts: snapshot.chartProducts,
                     }
-                    database.ref("Users/" + user.uid).set(tempObj1);
-                });
+                    database.ref("Users/" + user.uid).set(tempObj1)
+                })
                 facebookConnect.innerText = "Connect";
                 facebookConnectState.innerHTML = `Your account is not connected to Facebook.`;
             }).catch((error) => {
@@ -651,8 +654,8 @@ document.querySelector("#facebook-connect").addEventListener("click", () => {
         });
 
     }
-});
-//
+})
+
 ///////////////////////////////////////////////////////
 
 function handleCloseModal(id) {
