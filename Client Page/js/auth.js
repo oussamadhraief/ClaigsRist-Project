@@ -255,20 +255,20 @@ const handleGoogleAuth = () => {
 
                     const modalConfirm = document.querySelector("#modal-confirm");
 
+                    database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
+                        snapshot = snapshot.val();
+
+                        let tempObj1 = {
+                            picture: snapshot.picture,
+                            bio: snapshot.bio,
+                            moderator: snapshot.moderator,
+                            authMethods: `${snapshot.authMethods} google`,
+                            chartProducts: snapshot.chartProducts,
+                        }
+                        database.ref("Users/" + result.user.uid).set(tempObj1);
+                    });
 
                     document.getElementById('yes-option').onclick = function () {
-                        database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
-                            snapshot = snapshot.val();
-
-                            let tempObj1 = {
-                                picture: snapshot.picture,
-                                bio: snapshot.bio,
-                                moderator: snapshot.moderator,
-                                authMethods: `${snapshot.authMethods} google`,
-                                chartProducts: snapshot.chartProducts,
-                            }
-                            database.ref("Users/" + result.user.uid).set(tempObj1);
-                        });
                         M.Modal.getInstance(modalConfirm).close();
                     }
 
@@ -278,14 +278,7 @@ const handleGoogleAuth = () => {
                             user.unlink("google.com").then(() => {
                                 database.ref("Users/" + user.uid).once("value", (snapshot) => {
                                     snapshot = snapshot.val();
-                                    let tempObj1 = {
-                                        picture: snapshot.picture,
-                                        bio: snapshot.bio,
-                                        moderator: snapshot.moderator,
-                                        authMethods: snapshot.authMethods.replace("google", ""),
-                                        chartProducts: snapshot.chartProducts,
-                                    }
-                                    database.ref("Users/" + user.uid).set(tempObj1);
+                                    database.ref("Users/" + user.uid).update({authMethods: snapshot.authMethods.replace("google", "")});
                                 });
 
                             }).catch((error) => {
