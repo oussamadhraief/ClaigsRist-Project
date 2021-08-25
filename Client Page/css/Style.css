@@ -277,6 +277,7 @@ body {
   border-radius: 5%;
   font-size: large;
   font-weight: 500;
+  margin-top: 80px;
 }
 
 .confirm-buttons button:hover {
