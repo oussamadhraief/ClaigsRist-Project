@@ -243,7 +243,7 @@ const handleGoogleAuth = () => {
                     }
 
                     database.ref("Users/" + user.uid).set(tempObj);
-                } else {
+                } else if (!snapshot.authMethods.includes("google")){
                     let anchorElement = document.createElement("a");
                     anchorElement.setAttribute("class", "modal-trigger");
                     anchorElement.style.display = "none";
@@ -568,7 +568,7 @@ const handleFacebookAuth = () => {
         });
 }
 
-console.log("newone");
+console.log("new");
 
 let facebookProvider = new firebase.auth.FacebookAuthProvider();
 
