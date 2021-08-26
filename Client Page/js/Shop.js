@@ -38,15 +38,9 @@ function productsBox({
 }) {
   return `<div class="prod1" id="${id}">
     <div class="remargin"><img src="${picture}" class="prodimg" alt="product image" width="150px" height="150px"></div>
-    <div class="info"><div class="hr"></div>
-    <div class="forflex">
-    <p class="const1 formargin">Product Name:</p>
     <p class="vari1">${name}</p>
-    <p class="const1">Price:</p>
     <p class="vari1">${price} DT.</p>
-    <p class="const1">Quantity Available: </p>
-    <p class="vari1">${quantity} pieces.</p>
-    </div>
+
     <button class="addtochart" onClick="handleOrderButton(${id})">Add To Chart</button></div>
 </div>`;
 }
@@ -165,7 +159,7 @@ window.addEventListener("resize",() => {
       document.querySelector("#sort-menu-area").style.marginTop = "20px";
     }
     
-    globalThis.end = 7;
+    globalThis.end = 8;
     globalThis.start = 0;
 
   } else {
@@ -190,8 +184,8 @@ window.addEventListener("resize",() => {
         document.querySelector("#sort-menu-area").style.marginTop = (document.querySelector("#nav").offsetHeight + 10) + "px";
       }
     }
-    globalThis.end = 7 + ((pageIndex - 1) * 10);
-    globalThis.start = 7 + ((pageIndex - 1) * 10) - 10;
+    globalThis.end = 8 + ((pageIndex - 1) * 20);
+    globalThis.start = 8 + ((pageIndex - 1) * 20) - 20;
   }
 
   displayProduct();
@@ -204,9 +198,9 @@ function displayPages() {
     let keys = Object.keys(snapshot);
     let shopPages = document.querySelector("#pages");
 
-    globalThis.pagesNumber = Math.floor(Math.abs((keys.length - 7) / 10));
+    globalThis.pagesNumber = Math.floor(Math.abs((keys.length - 8) / 20));
 
-    if (pagesNumber < ((keys.length - 7) / 10)) {
+    if (pagesNumber < ((keys.length - 8) / 20)) {
       pagesNumber++;
     }
 

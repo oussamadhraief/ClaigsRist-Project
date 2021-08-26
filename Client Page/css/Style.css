@@ -4,10 +4,11 @@
 
 
   ;
-  --light: #d19fe8;
+  --light: #fff;
   --more: rgb(143, 143, 143);
   --another: #9770d7;
   --teeth: #f5f5f5;
+  --old: #d19fe8;
 }
 
 * {
@@ -283,6 +284,12 @@ body {
 .confirm-buttons button:hover {
   cursor: pointer;
   background-color: var(--more);
+}
+
+#first-h6, #second-h6 {
+  color: var(--teeth) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .modal-confirm h6 {
@@ -586,7 +593,7 @@ h4 {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 5px;
 }
 
@@ -674,7 +681,7 @@ nav {
   background-color: var(--fornav);
   min-height: 80px !important;
   border-bottom: 2px solid var(--more);
-  z-index: 7;
+  z-index: 9999;
   transition: background 250ms ease-in;
 }
 
@@ -951,9 +958,10 @@ a {
 }
 
 #sort-menu-area {
-  border-top: 3px solid var(--more);
-  border-bottom: 3px solid var(--more);
-  background-color: var(--dark);
+  border-top: 1px solid var(--more);
+  border-bottom: 1px solid var(--dark);
+  box-shadow: 3px 1px 3px black;
+  background-color: var(--more);
   width: 100%;
   height: 40px;
   display: flex;
@@ -973,7 +981,7 @@ a {
   height: 25px;
   margin: 5px;
   padding: 0;
-  background-color: var(--more);
+  background-color: var(--light);
   border: none;
   border-radius: 5px;
 }
@@ -982,26 +990,39 @@ a {
   cursor: pointer;
 }
 
+#products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .prod1 {
   position: relative;
-  width: 95%;
-  min-height: 400px;
-  background-color: var(--dark);
-  border: 3px solid rgb(143, 143, 143);
+  display: grid;
+  background-color: var(--light);
+  width: 20%;
+  min-height: 300px;
   margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 2%;
+  margin-right: 2%;
   padding: 0px;
+  justify-content: center;
+}
+
+
+.prod1:hover {
+  border: 2px solid var(--dark);
+  transform: scale(1.2);
+  z-index: 9998;
 }
 
 .prod1 img {
-  float: left;
   height: auto;
   margin-top: 20px;
-  margin-left: 30px;
+  margin-left: 5%;
   padding: 0;
-  width: 20%;
-  border: 5px solid rgb(143, 143, 143);
+  width: 90%;
+  border: 1px solid rgb(143, 143, 143);
   border-radius: 3%;
 }
 
@@ -1036,23 +1057,16 @@ a {
   padding: 5px;
 }
 
-.prod1 p {
-  float: center;
-  margin: 10px 10px 10px 28%;
-  padding: 5px;
-}
-
 
 .addtochart1 {
   margin: 0;
   max-height: 60px;
-  bottom: 30px;
   width: fit-content;
   background-color: var(--another);
   border: none;
   border-radius: 5%;
   padding: 10px;
-  font-size: large;
+  font-size: medium;
   font-weight: 700;
   color: var(--teeth);
 }
@@ -1062,32 +1076,24 @@ a {
   background-color: var(--more);
 }
 
-
-.const1 {
-  color: var(--light);
-  font-size: medium;
-  font-weight: 500;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 .vari1 {
-  font-size: large;
-  color: var(--teeth);
-  font-weight: 900;
+  font-size: medium;
+  color: var(--dark);
+  font-weight: 500;
+  margin-left: auto;
+  margin-right: auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .addtochart {
-  position: absolute;
   width: fit-content;
-  margin: 0px 0px 0px 60%;
-  bottom: 30px;
+  margin: 20px auto;
   background-color: var(--another);
   border: none;
   border-radius: 5%;
-  padding: 20px;
-  font-size: large;
-  font-weight: 700;
+  padding: 10px;
+  font-size: medium;
+  font-weight: 500;
   color: var(--teeth);
 }
 
@@ -1128,6 +1134,20 @@ a {
     box-sizing: border-box;
   }
 
+  .prod1 img {
+    width: 400px;
+    height: 400px;
+  }
+
+  .vari1 {
+    font-size: x-large;
+  }
+
+  .addtochart {
+    padding: 20px;
+    font-size: xx-large;
+  }
+
   #profile-pic label {
     height: fit-content;
     font-weight: 700;
@@ -1155,7 +1175,7 @@ a {
     padding: 5px;
     background-color: var(--fornav);
     min-height: 60px;
-    z-index: 7;
+    z-index: 9999;
   }
 
   span {
@@ -1230,91 +1250,10 @@ a {
     margin-right: 10px;
   }
 
-
-  .prod1 {
-    position: relative;
-    width: 65%;
-    display: flex;
-    min-height: 400px;
-    background-color: var(--dark);
-    border: 3px solid rgb(143, 143, 143);
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0px;
-
-  }
-
-  .prod1 img {
-    height: 340px;
-    margin-top: 20px;
-    margin-left: 30px;
-    padding: 0;
-    width: 400px;
-    border: 5px solid rgb(143, 143, 143);
-    border-radius: 3%;
-  }
-
-  .prod1 p {
-    margin: 10px 10px 10px 50px;
-    padding: 5px;
-    height: 100%;
-    font-size: x-large;
-  }
-
-  .const1 {
-    color: var(--light);
-    font-size: medium;
-    font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  .vari1 {
-    font-size: large;
-    color: var(--teeth);
-    font-weight: 900;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  .addtochart {
-    width: fit-content;
-    position: absolute;
-    right: 5%;
-    bottom: 30px;
-    background-color: var(--another);
-    border: none;
-    border-radius: 5%;
-    padding: 20px;
-    font-size: large;
-    font-weight: 700;
-    color: var(--teeth);
-  }
-
-  .addtochart:hover {
-    cursor: pointer;
-    background-color: var(--more);
-  }
-
-  .formargin {
-    margin-top: 20px !important;
-  }
-
-  .hr {
-    position: absolute;
-    margin: 10px 0px 0px 30px;
-    border-left: 3px solid rgb(143, 143, 143);
-    height: 95%;
-  }
 }
 
 @media screen and (min-width:769px) and (max-width: 992px) {
 
-  .const1 {
-    color: var(--light);
-    font-size: small;
-    font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
 
   .nav-scrolled {
     background-color: var(--dark);
@@ -1325,36 +1264,6 @@ a {
     margin-right: 7px;
   }
 
-  .vari1 {
-    font-size: medium;
-    color: var(--teeth);
-    font-weight: 900;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  .hr {
-    height: 0px;
-  }
-
-  .prod1 img {
-    height: 250px;
-    width: 30%;
-    margin-right: 55%;
-    margin-left: 10%;
-  }
-
-  .prod1 p {
-    margin-left: 10%;
-  }
-
-  .formargin {
-    margin-top: 290px !important;
-  }
-
-  .addtochart {
-    padding: 15px;
-  }
-
   #webname {
     font-size: 24px;
     margin-top: 0%;
@@ -1363,9 +1272,6 @@ a {
 }
 
 @media screen and (max-width: 992px) {
-  .hr {
-    display: none !important;
-  }
 
   .navright {
     position: fixed;
@@ -1433,6 +1339,10 @@ a {
     width: 8px;
     height: 8px;
   }
+  
+  .prod1 {
+    width: 35%;
+  }
 
   .next {
 
@@ -1440,13 +1350,6 @@ a {
 
     line-height: 30px;
     padding-bottom: 10px;
-  }
-
-  .const1 {
-    color: var(--light);
-    font-size: x-small;
-    font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
   .nav-scrolled {
@@ -1459,36 +1362,13 @@ a {
     margin-right: 5px;
   }
 
-  .vari1 {
-    font-size: small;
-    color: var(--teeth);
-    font-weight: 700;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  .prod1 {
-    display: grid;
-  }
-
-  .prod1 img {
-    height: auto;
-    margin-right: 30%;
-    margin-left: 30%;
-    padding: 0;
-    width: 40%;
-    border: 5px solid var(--more);
-    border-radius: 3%;
-  }
-
-  .addtochart {
-    margin-left: 70%;
-    width: fit-content;
-    padding: 15px;
-  }
-
 }
 
 @media screen and (max-width: 570px) {
+  .prod1 {
+    width: 70%;
+  }
+
   #id_confrmdiv {
     width: 80%;
     left: 10%;
@@ -1528,32 +1408,10 @@ a {
     margin-right: 3px;
   }
 
-  .const1 {
-    color: var(--light);
-    font-size: xx-small;
-    font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  .vari1 {
-    font-size: x-small;
-    color: var(--teeth);
-    font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
   #webname {
     font-size: 20px;
     margin-top: 0%;
     margin-left: 10%;
-  }
-
-  .hr {
-    height: 0px;
-  }
-
-  .prod1 {
-    display: grid;
   }
 
   .searchbar {
@@ -1563,31 +1421,6 @@ a {
 
   .addtochart1 {
     font-size: small;
-  }
-
-  .prod1 img {
-    height: auto;
-    margin-right: 30%;
-    margin-left: 30%;
-    padding: 0;
-    width: 40%;
-    border: 5px solid var(--more);
-    border-radius: 3%;
-  }
-
-
-  .prod1 p {
-    margin-left: 10%;
-  }
-
-  .addtochart {
-    margin-left: 60%;
-    padding: 10px;
-    width: fit-content;
-  }
-
-  .hr {
-    height: 0px;
   }
 }
 
@@ -1601,15 +1434,6 @@ a {
     font-size: 18px;
     margin-top: 0%;
     margin-left: 10%;
-  }
-
-  .addtochart {
-    margin-left: 50% !important;
-    padding: 10px;
-    width: fit-content;
-    bottom: 15px;
-    font-weight: 500;
-    width: 40%;
   }
 }
 

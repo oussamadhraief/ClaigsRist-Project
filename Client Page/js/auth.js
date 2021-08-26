@@ -274,16 +274,11 @@ const handleGoogleAuth = () => {
 
                     document.getElementById('no-option').onclick = function () {
                         auth.onAuthStateChanged(user => {
-
-                            user.unlink("google.com").then(() => {
-                                database.ref("Users/" + user.uid).once("value", (snapshot) => {
-                                    snapshot = snapshot.val();
-                                    database.ref("Users/" + user.uid).update({authMethods: snapshot.authMethods.replace("google", "")});
-                                });
-
-                            }).catch((error) => {
-
+                            database.ref("Users/" + user.uid).once("value", (snapshot) => {
+                                snapshot = snapshot.val();
+                                database.ref("Users/" + user.uid).update({authMethods: snapshot.authMethods.replace("google", "")});
                             });
+                            user.unlink("google.com");
                         });
                         logout.click();
                         M.Modal.getInstance(modalConfirm).close();
