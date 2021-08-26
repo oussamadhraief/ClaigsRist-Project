@@ -255,17 +255,10 @@ const handleGoogleAuth = () => {
 
                     const modalConfirm = document.querySelector("#modal-confirm");
 
-                    database.ref("Users/" + result.user.uid).once("value", (snapshot) => {
+                    database.ref("Users/" + result.user.uid).get().then((snapshot) => {
                         snapshot = snapshot.val();
 
-                        let tempObj1 = {
-                            picture: snapshot.picture,
-                            bio: snapshot.bio,
-                            moderator: snapshot.moderator,
-                            authMethods: `${snapshot.authMethods} google`,
-                            chartProducts: snapshot.chartProducts,
-                        }
-                        database.ref("Users/" + result.user.uid).set(tempObj1);
+                        database.ref("Users/" + result.user.uid).update({authMethods: `${snapshot.authMethods} google`});
                     });
 
                     document.getElementById('yes-option').onclick = function () {
@@ -322,6 +315,7 @@ const handleGoogleAuth = () => {
         });
 }
 
+console.log("1");
 
 let googleProvider = new firebase.auth.GoogleAuthProvider();
 
