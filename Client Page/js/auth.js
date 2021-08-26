@@ -155,7 +155,7 @@ const logout = document.querySelector("#logout");
 logout.addEventListener("click", (e) => {
     e.preventDefault();
     auth.signOut();
-    window.location.reload(true);
+
 });
 
 //Log in
@@ -231,7 +231,7 @@ const handleGoogleAuth = () => {
                     }
 
                     database.ref("Users/" + user.uid).set(tempObj);
-                } else if (!snapshot.authMethods.includes("google")){
+                } else if (!snapshot.authMethods.includes("google")) {
                     let anchorElement = document.createElement("a");
                     anchorElement.setAttribute("class", "modal-trigger");
                     anchorElement.style.display = "none";
@@ -246,7 +246,9 @@ const handleGoogleAuth = () => {
                     database.ref("Users/" + result.user.uid).get().then((snapshot) => {
                         snapshot = snapshot.val();
 
-                        database.ref("Users/" + result.user.uid).update({authMethods: `${snapshot.authMethods} google`});
+                        database.ref("Users/" + result.user.uid).update({
+                            authMethods: `${snapshot.authMethods} google`
+                        });
                     });
 
                     document.getElementById('yes-option').onclick = function () {
@@ -255,14 +257,17 @@ const handleGoogleAuth = () => {
 
                     document.getElementById('no-option').onclick = function () {
                         auth.onAuthStateChanged(user => {
-                            database.ref("Users/" + user.uid).once("value", (snapshot) => {
+                            database.ref("Users/" + user.uid).get().then((snapshot) => {
                                 snapshot = snapshot.val();
-                                database.ref("Users/" + user.uid).update({authMethods: snapshot.authMethods.replace("google", "")});
+                                database.ref("Users/" + user.uid).update({
+                                    authMethods: snapshot.authMethods.replace("google", "")
+                                });
                             });
                             user.unlink("google.com");
-                        });
-                        logout.click();
+                            logout.click();
                         M.Modal.getInstance(modalConfirm).close();
+                        });
+                        
                     }
                 }
 

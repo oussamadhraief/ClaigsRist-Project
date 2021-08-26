@@ -94,20 +94,8 @@ function handlePageButton(id, pageIndex) {
             entries.forEach(entry => {
               if (!entry.isIntersecting) {
                 header.classList.remove("nav-scrolled");
-                anchors.forEach(item => item.classList.add("nav-anchors-unscrolled"));
-                searchTerm.classList.add("nav-input-unscrolled");
-                webname.classList.remove("webname");
-                webname.classList.add("webname-unscrolled");
-                searchBorder.classList.add("search-unscrolled");
-                searchIcon.src = "search-unscrolled.png";
               } else {
                 header.classList.add("nav-scrolled");
-                anchors.forEach(item => item.classList.remove("nav-anchors-unscrolled"));
-                searchTerm.classList.remove("nav-input-unscrolled");
-                webname.classList.add("webname");
-                webname.classList.remove("webname-unscrolled");
-                searchBorder.classList.remove("search-unscrolled");
-                searchIcon.src = "search.png";
               }
             });
           },
@@ -134,31 +122,31 @@ function handlePageButton(id, pageIndex) {
             </div>
         
 	</div>`;
-  
-  document.querySelector("#slider img").addEventListener("load", () => {
-    document.querySelector("#slider").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
-    document.querySelector("#slider").style.marginTop = header.offsetHeight.toString() + "px";
-    document.querySelector("#slider").style.padding = "0px";
-    document.querySelector("#slider img").style.marginTop = "3px";
-    header.style.top = "0px";
-});
 
-window.addEventListener("resize",() => {
-        
-  document.querySelector("#slider").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
-  document.querySelector("#slider").style.marginTop = header.offsetHeight.toString() + "px";
-  document.querySelector("#slider").style.padding = "0px";
-  document.querySelector("#slider img").style.marginTop = "3px";
-  header.style.top = "0px";
+        document.querySelector("#slider img").addEventListener("load", () => {
+          document.querySelector("#slider").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
+          document.querySelector("#slider").style.marginTop = header.offsetHeight.toString() + "px";
+          document.querySelector("#slider").style.padding = "0px";
+          document.querySelector("#slider img").style.marginTop = "3px";
+          header.style.top = "0px";
+        });
 
-});
+        window.addEventListener("resize", () => {
+
+          document.querySelector("#slider").style.height = document.querySelector("#slider img").offsetHeight.toString() + "px";
+          document.querySelector("#slider").style.marginTop = header.offsetHeight.toString() + "px";
+          document.querySelector("#slider").style.padding = "0px";
+          document.querySelector("#slider img").style.marginTop = "3px";
+          header.style.top = "0px";
+
+        });
 
         globalThis.slidingPics = document.querySelector("#slider");
         slider2();
       }
-      document.querySelector("#sort-menu-area").style.marginTop = "20px";
+      document.querySelector("#container").style.marginTop = "0px";
     }
-    
+
     globalThis.end = 8;
     globalThis.start = 0;
 
@@ -169,7 +157,7 @@ window.addEventListener("resize",() => {
       if (randomize == 1) {
         bannerRemoval.innerHTML = "";
         document.querySelector("#nav").style.top = "0px";
-        document.querySelector("#sort-menu-area").style.marginTop = (document.querySelector("#nav").offsetHeight + 10) + "px";
+        document.querySelector("#container").style.marginTop = (document.querySelector("#nav").offsetHeight + 10) + "px";
       } else {
         for (let i = 0; i < timeouts.length; i++) {
           clearTimeout(timeouts[i]);
@@ -179,9 +167,9 @@ window.addEventListener("resize",() => {
           clearTimeout(anotherTimeouts[i]);
         }
         bannerRemoval.innerHTML = "";
-        
+
         document.querySelector("#nav").style.top = "0px";
-        document.querySelector("#sort-menu-area").style.marginTop = (document.querySelector("#nav").offsetHeight + 10) + "px";
+        document.querySelector("#container").style.marginTop = (document.querySelector("#nav").offsetHeight + 10) + "px";
       }
     }
     globalThis.end = 8 + ((pageIndex - 1) * 20);

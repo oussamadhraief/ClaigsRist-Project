@@ -28,12 +28,12 @@ function productBox({
   return `<div class="prod2" id="${id}">
     <img src="${picture}" class="prodimg1" alt="product image">
     <div>
-    <p class="const1 formargin">Product Name:</p>
-    <p class="vari1">${name}</p>
-    <p class="const1">Price:</p>
-    <p class="vari1">${price} DT.</p>
-    <p class="const1">Quantity Available: </p>
-    <p class="vari1">${quantity} pieces.</p>
+    <p class="const2 formargin">Product Name:</p>
+    <p class="vari2">${name}</p>
+    <p class="const2">Price:</p>
+    <p class="vari2">${price} DT.</p>
+    <p class="const2">Quantity Available: </p>
+    <p class="vari2">${quantity} pieces.</p>
     <button class="addtochart1" onClick="handleOrderButton(${id})">Add To Chart</button></div>
     </div>
     

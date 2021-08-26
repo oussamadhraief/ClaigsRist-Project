@@ -4,10 +4,11 @@
 
 
   ;
-  --light: #d19fe8;
+  --light: #fff;
   --more: rgb(143, 143, 143);
   --another: #9770d7;
   --teeth: #f5f5f5;
+  --old: #d19fe8;
 }
 
 * {
@@ -667,7 +668,7 @@ td {
   border-bottom: 3px solid var(--more);
   position: relative;
   margin-top: 30px;
-  background-color: #484447bf;
+  background-color: var(--dark);
   box-shadow: 3px  3px 7px 7px rgba(0, 0, 0, 0.439);
   height: max-content;
   padding-top: 10px;
@@ -730,7 +731,7 @@ td {
 }
 
 .addtochart2 {
-  background-color: var(--light);
+  background-color: var(--old);
   border-radius: 5px;
   border: none;
   font-size: medium;
@@ -780,12 +781,13 @@ td {
 #order-form {
   display: grid;
   align-items: flex-start;
-  width: 85%;
+  width: 90%;
   background-color: var(--dark);
   margin-top: 30px;
   border: 3px solid var(--more);
   border-radius: 15px;
-  margin-left: 5%;
+  margin-left: auto;
+  margin-right: auto;
   box-shadow: 3px 3px 7px black;
 }
 

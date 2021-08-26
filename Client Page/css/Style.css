@@ -96,6 +96,7 @@ body {
   padding: 20px;
   border-radius: 1%;
   border: 1px solid var(--light);
+  z-index: 9999 !important;
 }
 
 .close-modal {
@@ -286,7 +287,8 @@ body {
   background-color: var(--more);
 }
 
-#first-h6, #second-h6 {
+#first-h6,
+#second-h6 {
   color: var(--teeth) !important;
   margin-left: auto !important;
   margin-right: auto !important;
@@ -681,7 +683,7 @@ nav {
   background-color: var(--fornav);
   min-height: 80px !important;
   border-bottom: 2px solid var(--more);
-  z-index: 9999;
+  z-index: 9998;
   transition: background 250ms ease-in;
 }
 
@@ -835,42 +837,6 @@ a {
   margin-right: 10px;
 }
 
-.nav-anchors-unscrolled {
-  color: var(--teeth) !important;
-}
-
-.nav-anchors-unscrolled:hover {
-  color: var(--more) !important;
-}
-
-.nav-input-unscrolled {
-  color: var(--teeth) !important;
-}
-
-.sign-up-button-unscrolled {
-  background-color: var(--teeth) !important;
-  border: 1px solid var(--teeth) !important;
-}
-
-.sign-up-button-unscrolled:hover {
-  background-color: rgb(218, 214, 214) !important;
-  color: var(--dark) !important;
-  cursor: pointer;
-}
-
-
-.nav-input-unscrolled::placeholder {
-  color: var(--teeth) !important;
-}
-
-.search-unscrolled {
-  border: 3px solid var(--teeth) !important;
-}
-
-.webname-unscrolled {
-  background: linear-gradient(to right, var(--teeth) 0, var(--dark) 10%, var(--teeth) 20%);
-}
-
 .space {
   font-size: small;
   font-weight: 500;
@@ -883,18 +849,12 @@ a {
   margin-bottom: 5px !important;
 }
 
-#banner {
-  border-bottom: 3px solid var(--more);
-
-}
-
 .banner {
   width: 100%;
 }
 
 #slider {
   position: relative;
-  box-shadow: 1px 1px 3px black;
   overflow: hidden;
   width: 100%;
   background-color: var(--teeth);
@@ -957,15 +917,55 @@ a {
   width: 10px;
 }
 
+#container {
+  display: flex;
+  width: 100% !important;
+}
+
+#main {
+  width: 80%;
+  flex-grow: 100;
+}
+
+.mirror-image {
+  transform: scaleX(-1);
+}
+
+#explore-options {
+  transition: all 0.5s ease;
+  width: 20%;
+  background-color: var(--dark);
+  border-top: 1px solid var(--dark);
+  border-right: 3px solid var(--more);
+}
+
+.explore-options-closed {
+  width: 30px !important;
+  overflow: hidden !important;
+}
+
+#close-explore-options {
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+  float: right;
+}
+
+#close-explore-options img {
+  height: 20px;
+  width: 20px;
+}
+
 #sort-menu-area {
-  border-top: 1px solid var(--more);
+  border-top: 1px solid var(--dark);
   border-bottom: 1px solid var(--dark);
-  box-shadow: 3px 1px 3px black;
-  background-color: var(--more);
+  box-shadow: 1px 1px 3px black;
+  background-color: var(--dark);
   width: 100%;
   height: 40px;
   display: flex;
   flex-wrap: nowrap;
+  margin-bottom: 20px;
 }
 
 #sort-menu-area p {
@@ -992,6 +992,10 @@ a {
 
 #products {
   display: flex;
+  border: 1px solid var(--more);
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
   flex-wrap: wrap;
   justify-content: space-around;
 }
@@ -1013,7 +1017,7 @@ a {
 .prod1:hover {
   border: 2px solid var(--dark);
   transform: scale(1.2);
-  z-index: 9998;
+  z-index: 9997;
 }
 
 .prod1 img {
@@ -1079,6 +1083,24 @@ a {
 .vari1 {
   font-size: medium;
   color: var(--dark);
+  font-weight: 500;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.const2 {
+  font-size: medium;
+  color: var(--old);
+  font-weight: 500;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.vari2 {
+  font-size: medium;
+  color: var(--teeth);
   font-weight: 500;
   margin-left: auto;
   margin-right: auto;
@@ -1175,7 +1197,7 @@ a {
     padding: 5px;
     background-color: var(--fornav);
     min-height: 60px;
-    z-index: 9999;
+    z-index: 9998;
   }
 
   span {
@@ -1339,7 +1361,7 @@ a {
     width: 8px;
     height: 8px;
   }
-  
+
   .prod1 {
     width: 35%;
   }
@@ -1365,6 +1387,14 @@ a {
 }
 
 @media screen and (max-width: 570px) {
+  #container {
+    display: block;
+  }
+
+  #main {
+    width: 100%;
+  }
+
   .prod1 {
     width: 70%;
   }

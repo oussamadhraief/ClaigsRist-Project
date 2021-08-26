@@ -266,46 +266,55 @@
         <section class="banner">
 
         </section>
+        <div id="container">
+            <div id="explore-options">
+                <a href="" id="close-explore-options"><img src="arrow.png" alt=""></a>
+                <div id="options">
 
-        <form id="sort-menu-area">
-            <p>Sort by:</p>
-            <select name="sort-menu" id="sort-menu" onchange="handleSortMenu()" style="display: block;">
-                <option value="ascend">From lowest to highest price</option>
-                <option value="descend">From highest to lowest price</option>
-                <option value="newest">From newest to oldest</option>
-                <option value="oldest" selected>From oldest to newest</option>
-            </select>
-            <noscript><input type=”submit” value=”Submit”></noscript>
-        </form>
-
-        <div class="products" id="products">
-        </div>
-        
-        <div id="pages">
-            <a href="#" id="page-1" onClick="handlePageButton('page-1',1)" class="page">1</a>
-        </div>
-
-
-        <div id="id_confrmdiv">
-            <p id="first-p">Would you like to import your photo and display name from your Google account to your
-                ClaigsRist account
-                ?
-            </p>
-            <p id="second-p">
-                (if you press no, your ClaigsRist photo and display name will not change)
-            </p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div>
-                <button id="id_truebtn">Yes</button>
-                <button id="id_falsebtn">No</button>
+                </div>
             </div>
+            <div id="main" class="main">
+                <form id="sort-menu-area">
+                    <p>Sort by:</p>
+                    <select name="sort-menu" id="sort-menu" onchange="handleSortMenu()" style="display: block;">
+                        <option value="ascend">From lowest to highest price</option>
+                        <option value="descend">From highest to lowest price</option>
+                        <option value="newest">From newest to oldest</option>
+                        <option value="oldest" selected>From oldest to newest</option>
+                    </select>
+                    <noscript><input type=”submit” value=”Submit”></noscript>
+                </form>
 
+                <div class="products" id="products">
+                </div>
+
+                <div id="pages">
+                    <a href="#" id="page-1" onClick="handlePageButton('page-1',1)" class="page">1</a>
+                </div>
+
+
+                <div id="id_confrmdiv">
+                    <p id="first-p">Would you like to import your photo and display name from your Google account to
+                        your
+                        ClaigsRist account
+                        ?
+                    </p>
+                    <p id="second-p">
+                        (if you press no, your ClaigsRist photo and display name will not change)
+                    </p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div>
+                        <button id="id_truebtn">Yes</button>
+                        <button id="id_falsebtn">No</button>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-
-
 
         <footer id="footer">
             <p>Oussama Dhraief <span>© </span>2021</p>
