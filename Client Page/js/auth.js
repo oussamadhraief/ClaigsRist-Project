@@ -155,19 +155,7 @@ const logout = document.querySelector("#logout");
 logout.addEventListener("click", (e) => {
     e.preventDefault();
     auth.signOut();
-    let footer = document.querySelector("#footer");
-    footer.innerHTML = `
-
-    <p>Oussama Dhraief <span>© </span>2021</p>
-            <div>
-            <a href="About.html" target="_blank" class="underline">About Us</a>
-            <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://cdn.icon-icons.com/icons2/901/PNG/512/facebook_icon-icons.com_69263.png"
-                    alt="facebook"></a>
-            <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721672-instagram_108066.png"
-                    alt="instagram"></a>
-        </div>`;
+    window.location.reload(true);
 });
 
 //Log in
@@ -315,7 +303,7 @@ const handleGoogleAuth = () => {
         });
 }
 
-console.log("1");
+console.log("2");
 
 let googleProvider = new firebase.auth.GoogleAuthProvider();
 
