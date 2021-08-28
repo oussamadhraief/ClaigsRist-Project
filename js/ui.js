@@ -31,7 +31,9 @@ function errData(error) {
 
 function gotData(data) {
     let productsElement = document.querySelector("#left");
-    productsElement.innerHTML = `<button id="json-button" onclick="handleDownloadButton()">Download products</button>`;
+    productsElement.innerHTML = `<button id="json-button" onclick="handleDownloadButton()">Download products</button>
+    <button id="delete-all-products" onclick="handleDeleteAllButton()">Delete all products</button>
+    `;
     if (data.exists()) {
         data = data.val();
         let keys = Object.keys(data);
@@ -47,9 +49,13 @@ function gotData(data) {
 function getFormData() {
     let formData = {
         name: document.querySelector("#name").value,
-        price: parseInt(document.querySelector("#price").value),
-        quantity: parseInt(document.querySelector("#quantity").value),
+        category: document.querySelector("#category").value,
+        manufacturer: document.querySelector("#manufacturer").value,
         picture: document.querySelector("#picture").value,
+        description: document.querySelector("#product-description").value,
+        price: parseFloat(document.querySelector("#price").value),
+        quantity: parseFloat(document.querySelector("#quantity").value),
+        
     };
 
     return formData;
@@ -57,16 +63,22 @@ function getFormData() {
 
 function addProduct({
     name,
+    category,
+    manufacturer,
+    picture,    
+    description,
     price,
-    quantity,
-    picture
+    quantity
 }) {
     let newProduct = {
         id: x,
         name: name,
+        category: category,
+        manufacturer: manufacturer,
+        picture: picture,
+        description: description,
         price: price,
         quantity: quantity,
-        picture: picture,
     };
     ref.push(newProduct);
 }
@@ -81,10 +93,7 @@ function handleCreateButton() {
 }
 
 function handleResetButton() {
-    document.querySelector("#name").value = "";
-    document.querySelector("#price").value = "";
-    document.querySelector("#quantity").value = "";
-    document.querySelector("#picture").value = "";
+    document.querySelector("#form").reset();
     let disab = document.querySelector("#saveButton");
     disab.disabled = true;
     disab.classList.add("clickable-save");
@@ -108,6 +117,9 @@ function addToForm(id) {
             }
         }
         document.querySelector("#name").value = data[fbi].name;
+        document.querySelector("#category").value = data[fbi].category;
+        document.querySelector("#manufacturer").value = data[fbi].manufacturer;
+        document.querySelector("#product-description").value = data[fbi].description;
         document.querySelector("#price").value = data[fbi].price;
         document.querySelector("#quantity").value = data[fbi].quantity;
         document.querySelector("#picture").value = data[fbi].picture;
@@ -119,9 +131,12 @@ function handleSaveProduct(bruh) {
     globalThis.saveVal = {
         id: bruh,
         name: document.querySelector("#name").value,
+        category: document.querySelector("#category").value,
+        manufacturer: document.querySelector("#manufacturer").value,
+        picture: document.querySelector("#picture").value,
+        description: document.querySelector("#product-description").value,
         price: parseInt(document.querySelector("#price").value),
         quantity: parseInt(document.querySelector("#quantity").value),
-        picture: document.querySelector("#picture").value,
     };
     let disab = document.querySelector("#saveButton");
     disab.disabled = true;
@@ -173,9 +188,12 @@ function handleDownloadButton() {
         for (let i = 0; i < keys.length; i++) {
             let newObj = {
                 name: snapshot[keys[i]].name,
+                category: snapshot[keys[i]].category,
+                manufacturer: snapshot[keys[i]].manufacturer,
+                picture: snapshot[keys[i]].picture,
+                description: snapshot[keys[i]].description,
                 price: snapshot[keys[i]].price,
                 quantity: snapshot[keys[i]].quantity,
-                picture: snapshot[keys[i]].picture,
             }
             products.push(newObj);
         }
@@ -195,4 +213,8 @@ function download(filename, text) {
     element.click();
 
     document.body.removeChild(element);
+}
+
+function handleDeleteAllButton(){
+    ref.set({});
 }

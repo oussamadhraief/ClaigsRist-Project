@@ -23,6 +23,7 @@ fileInput.addEventListener("change", function (e) {
         if (confirm("Are you sure you want add this/these product(s) ?", "confirm")) {
             for (let i = 0; i < prods.length; i++) {
                 addProduct(prods[i]);
+                handleResetButton();
             }
         }
     }
