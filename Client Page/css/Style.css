@@ -923,7 +923,6 @@ a {
 #container {
   display: flex;
   width: 100% !important;
-  min-height: 1000px;
 }
 
 #main {
@@ -1189,6 +1188,7 @@ input[type=range]::-ms-thumb {
   display: flex;
   border: 1px solid var(--more);
   width: 95%;
+  min-height: 800px;
   margin-left: auto;
   margin-right: auto;
   flex-wrap: wrap;
@@ -1200,6 +1200,7 @@ input[type=range]::-ms-thumb {
   display: grid;
   background-color: var(--light);
   width: 20%;
+  max-height: 400px;
   min-height: 300px;
   margin-top: 30px;
   margin-left: 2%;
@@ -1351,9 +1352,18 @@ input[type=range]::-ms-thumb {
     box-sizing: border-box;
   }
 
+  #products {
+    min-height: 1800px;
+  }
+
   .prod1 img {
-    width: 400px;
-    height: 400px;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  .prod1 {
+    min-height: 500px;
+    max-height: 700px;
   }
 
   .vari1 {
@@ -1361,8 +1371,8 @@ input[type=range]::-ms-thumb {
   }
 
   .addtochart {
-    padding: 20px;
-    font-size: xx-large;
+    padding: 10px;
+    font-size: x-large;
   }
 
   #profile-pic label {
