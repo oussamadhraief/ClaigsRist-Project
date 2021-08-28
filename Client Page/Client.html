@@ -50,7 +50,7 @@
         </header>
 
 
-
+        
 
 
 
@@ -270,9 +270,31 @@
             <div id="explore-options">
                 <a href="" id="close-explore-options"><img src="arrow.png" alt=""></a>
                 <div id="options">
-
+                    <p class="option-name">Active filters</p>
+                    <div id="active-filters"></div>
+                    <hr>
+                    <p class="option-name">Manufacturer</p>
+                    <div id="manufacturers"></div>
+                    <hr>
+                    <div id="price">
+                        <p class="option-name">Price</p>
+                        <div class="price-slider"><span>from
+                            <input type="number" class="unempty-input" value="0" min="0" max="20000"/>	to
+                            <input type="number" class="unempty-input" value="20000" min="0" max="120000"/></span>
+                          <input value="0" min="0" max="20000" step="100" type="range"/>
+                          <input value="120000" min="0" max="20000" step="100" type="range"/>
+                          <svg width="100%" height="24">
+                            <line x1="4" y1="0" x2="300" y2="0" stroke="#212121" stroke-width="12" stroke-dasharray="1 28"></line>
+                          </svg>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <hr>
                 </div>
             </div>
+            <div class="loading loading--full-height" id="loading-animation"></div>
             <div id="main" class="main">
                 <form id="sort-menu-area">
                     <p>Sort by:</p>

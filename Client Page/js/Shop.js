@@ -58,6 +58,14 @@ function displayProduct() {
       shopProducts.innerHTML += productsBox(products[i]);
     }
   }
+
+  if (products.length == 0) {
+    shopProducts.innerHTML = `<p style="color: #383838;">There are no products to display.</p>`;
+  }
+
+  document.querySelector(".loading").style.height = (document.querySelector("#container").offsetHeight - 40) + "px";
+  document.querySelector(".loading").style.width = document.getElementById('sort-menu-area').offsetWidth + "px";
+  document.querySelector("#loading-animation").style.display = "none";
 }
 
 function handlePageButton(id, pageIndex) {
@@ -181,22 +189,17 @@ function handlePageButton(id, pageIndex) {
 
 function displayPages() {
 
-  ref.once("value", (snapshot) => {
-    snapshot = snapshot.val();
-    let keys = Object.keys(snapshot);
     let shopPages = document.querySelector("#pages");
+    shopPages.innerHTML =`<a href="#" id="page-1" onClick="handlePageButton('page-1',1)" class="page">1</a>`;
+    globalThis.pagesNumber = Math.floor(Math.abs((products.length - 8) / 20));
 
-    globalThis.pagesNumber = Math.floor(Math.abs((keys.length - 8) / 20));
-
-    if (pagesNumber < ((keys.length - 8) / 20)) {
+    if (pagesNumber < ((products.length - 8) / 20)) {
       pagesNumber++;
     }
 
     for (let j = 0; j < pagesNumber; j++) {
       shopPages.innerHTML += `<a href="#" id='page-${j+2}' onClick='handlePageButton("page-${j+2}",${j+2})' class="page">${j+2}</p>`
     }
-    handleSortMenu();
-  });
 
 }
 
@@ -208,10 +211,22 @@ function handleSortMenu() {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
         products.length = 0;
-        for (let i = 0; i < keys.length; i++) {
-          products.push(snapshot[keys[i]]);
+        if(mqMedia.matches == false){
+          let priceInputs = document.querySelectorAll(".unempty-input");
+          let minimumPrice = priceInputs[0].value;
+          let maximumPrice = priceInputs[1].value;
+        }else{
+          let minimumPrice = 0;
+          let maximumPrice = 20000;
         }
+        for (let i = 0; i < keys.length; i++) {
+          if (snapshot[keys[i]].price >= minimumPrice && snapshot[keys[i]].price <= maximumPrice) {
+            products.push(snapshot[keys[i]]);
+          }
+        }
+        displayPages();
       });
+
       for (let i = products.length - 1; i >= 0; i--) {
         for (let j = 1; j <= i; j++) {
           if (products[j - 1].price > products[j].price) {
@@ -234,9 +249,20 @@ function handleSortMenu() {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
         products.length = 0;
-        for (let i = 0; i < keys.length; i++) {
-          products.push(snapshot[keys[i]]);
+        if(mqMedia.matches == false){
+          let priceInputs = document.querySelectorAll(".unempty-input");
+          let minimumPrice = priceInputs[0].value;
+          let maximumPrice = priceInputs[1].value;
+        }else{
+          let minimumPrice = 0;
+          let maximumPrice = 20000;
         }
+        for (let i = 0; i < keys.length; i++) {
+          if (snapshot[keys[i]].price >= minimumPrice && snapshot[keys[i]].price <= maximumPrice) {
+            products.push(snapshot[keys[i]]);
+          }
+        }
+        displayPages();
       });
       for (let i = 0; i < products.length; i++) {
         for (let j = 0; j < products.length; j++) {
@@ -260,9 +286,20 @@ function handleSortMenu() {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
         products.length = 0;
-        for (let i = 0; i < keys.length; i++) {
-          products.push(snapshot[keys[i]]);
+        if(mqMedia.matches == false){
+          let priceInputs = document.querySelectorAll(".unempty-input");
+          let minimumPrice = priceInputs[0].value;
+          let maximumPrice = priceInputs[1].value;
+        }else{
+          let minimumPrice = 0;
+          let maximumPrice = 20000;
         }
+        for (let i = 0; i < keys.length; i++) {
+          if (snapshot[keys[i]].price >= minimumPrice && snapshot[keys[i]].price <= maximumPrice) {
+            products.push(snapshot[keys[i]]);
+          }
+        }
+        displayPages();
       });
       products = products.reverse();
       if (pageInd !== 1) {
@@ -279,10 +316,23 @@ function handleSortMenu() {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
         products.length = 0;
-        for (let i = 0; i < keys.length; i++) {
-          products.push(snapshot[keys[i]]);
-
+        console.log(mqMedia.matches);
+        let minimumPrice;
+        let maximumPrice;
+        if(mqMedia.matches == false){
+          let priceInputs = document.querySelectorAll(".unempty-input");
+          minimumPrice = priceInputs[0].value;
+          maximumPrice = priceInputs[1].value;
+        }else{
+          minimumPrice = 0;
+          maximumPrice = 20000;
         }
+        for (let i = 0; i < keys.length; i++) {
+          if (snapshot[keys[i]].price >= minimumPrice && snapshot[keys[i]].price <= maximumPrice) {
+            products.push(snapshot[keys[i]]);
+          }
+        }
+        displayPages();
         if (s == 0 || pageInd !== 1) {
           s++;
           handlePageButton("page-1", 1);
@@ -299,10 +349,22 @@ function handleSortMenu() {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
         products.length = 0;
-        for (let i = 0; i < keys.length; i++) {
-          products.push(snapshot[keys[i]]);
-
+        
+        if(mqMedia.matches == false){
+          let priceInputs = document.querySelectorAll(".unempty-input");
+          let minimumPrice = priceInputs[0].value;
+          let maximumPrice = priceInputs[1].value;
+        }else{
+          let minimumPrice = 0;
+          let maximumPrice = 20000;
         }
+        
+        for (let i = 0; i < keys.length; i++) {
+          if (snapshot[keys[i]].price >= minimumPrice && snapshot[keys[i]].price <= maximumPrice) {
+            products.push(snapshot[keys[i]]);
+          }
+        }
+        displayPages();
         if (pageInd !== 1) {
           handlePageButton("page-1", 1);
         }
@@ -315,4 +377,7 @@ function handleSortMenu() {
   }
 }
 
-displayPages();
+
+const mqMedia = window.matchMedia("(max-width: 570px)");
+
+handleSortMenu();

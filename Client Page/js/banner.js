@@ -29,6 +29,66 @@ if (mq1.matches == false) {
             exploreOptionsState = true;
         }
     });
+
+    (function() {
+ 
+        var parent = document.querySelector(".price-slider");
+        if(!parent) return;
+       
+        var
+          rangeS = parent.querySelectorAll("input[type=range]"),
+          numberS = parent.querySelectorAll("input[type=number]");
+       
+        rangeS.forEach(function(el) {
+          el.onchange = function() {
+            var slide1 = parseFloat(rangeS[0].value),
+                  slide2 = parseFloat(rangeS[1].value);
+       
+            if (slide1 > slide2) {
+              [slide1, slide2] = [slide2, slide1];
+            }
+       
+            numberS[0].value = slide1;
+            numberS[1].value = slide2;
+            handleSortMenu();
+          }
+        });
+       
+        numberS.forEach(function(el) {
+          el.onchange = function() {
+              var number1 = parseFloat(numberS[0].value),
+              number2 = parseFloat(numberS[1].value);
+              
+            if (number1 > number2) {
+              var tmp = number1;
+              numberS[0].value = number2;
+              numberS[1].value = tmp;
+            }
+       
+            rangeS[0].value = number1;
+            rangeS[1].value = number2;
+            handleSortMenu();
+          }
+        });
+       
+        numberS[0].addEventListener("change",() => {
+            if(numberS[0].value == ""){
+              numberS[0].value = 0;
+              rangeS[0].value = parseFloat(0);
+            }
+          })
+
+          numberS[1].addEventListener("change",() => {
+            if(numberS[1].value == ""){
+              numberS[1].value = 20000;
+              rangeS[1].value = parseFloat(20000);
+            }
+          })
+
+      })();
+
+      
+      
     if (randomize == 1) {
         banner.innerHTML = `<video id="banner" width="100%" height="auto" loop muted autoplay>
     <source src="video.mp4" type="video/mp4">

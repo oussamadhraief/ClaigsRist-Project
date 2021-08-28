@@ -857,7 +857,10 @@ a {
   position: relative;
   overflow: hidden;
   width: 100%;
-  background-color: var(--teeth);
+  background-image: url("https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif");
+  background-repeat: no-repeat;
+  background-size: 1%;
+  background-position: center;
 }
 
 #slider img {
@@ -920,6 +923,7 @@ a {
 #container {
   display: flex;
   width: 100% !important;
+  min-height: 1000px;
 }
 
 #main {
@@ -955,6 +959,197 @@ a {
   height: 20px;
   width: 20px;
 }
+
+.option-name {
+  color: var(--light);
+  font-size: large;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#price {
+  align-items: center;
+}
+
+.option-name {
+  margin-left: 5px;
+}
+
+#price p {
+  margin-left: 0% !important;
+  text-align: center;
+}
+
+
+/* LOADING ANIMATION */
+
+.loading {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  background-color: #fff;
+  z-index: 99;
+  margin-left: 20%;
+  margin-top: 40px;
+  width: 80% !important;
+  right: 0% !important;
+}
+
+.loading--full-height {
+  align-items: center;
+}
+
+.loading::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border: 10px solid #dddddd;
+  border-top-color: var(--another);
+  border-radius: 50%;
+  transform: rotate(0.16turn);
+  animation: loading 1s ease infinite;
+}
+
+@keyframes loading {
+  /* Safari support */
+  from {
+    transform: rotate(0turn);
+  }
+  
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/*                   */
+
+/*            */
+
+.price-slider {
+  width: 95%;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  height: 6em;
+}
+.price-slider svg,
+.price-slider input[type=range] {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  box-shadow: 0;
+  outline: 0;
+}
+input[type=number] {
+  border: 1px solid var(--another);
+  text-align: center;
+  font-size: 1.6em;
+  -moz-appearance: textfield;
+  box-shadow: 0;
+  outline: 0;
+  color: var(--light);
+  border-bottom: none !important;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type=number]:invalid,
+input[type=number]:out-of-range {
+  border: 2px solid #e60023;
+}
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: var(--old);
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: var(--old);
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: var(--old);
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: var(--old);
+  border-radius: 1px;
+  box-shadow: none;
+  border: 0;
+}
+input[type=range]::-webkit-slider-thumb {
+  z-index: 2;
+  position: relative;
+  box-shadow: 0px 0px 0px #000;
+  border: 1px solid var(--old);
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: var(--another);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: var(--old);
+  border-radius: 1px;
+  box-shadow: none;
+  border: 0;
+}
+input[type=range]::-moz-range-thumb {
+  z-index: 2;
+  position: relative;
+  box-shadow: 0px 0px 0px #000;
+  border: 1px solid var(--old);
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: var(--another);
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower,
+input[type=range]::-ms-fill-upper {
+  background: var(--old);
+  border-radius: 1px;
+  box-shadow: none;
+  border: 0;
+}
+input[type=range]::-ms-thumb {
+  z-index: 2;
+  position: relative;
+  box-shadow: 0px 0px 0px #000;
+  border: 1px solid var(--old);
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: var(--another);
+  cursor: pointer;
+}
+
+/*              */
 
 #sort-menu-area {
   border-top: 1px solid var(--dark);
@@ -1387,6 +1582,11 @@ a {
 }
 
 @media screen and (max-width: 570px) {
+  .loading {
+    margin-left: 0% !important;
+    width: 100% !important;
+  }
+
   #container {
     display: block;
   }
