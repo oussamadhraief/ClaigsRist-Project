@@ -217,5 +217,9 @@ function download(filename, text) {
 }
 
 function handleDeleteAllButton(){
-    ref.set({});
+    let conf = confirm("Are you sure you want to delete all these products ?", "confirm");
+    if(conf){
+        ref.set({});
+    }
+    
 }

@@ -211,13 +211,15 @@ function handleSortMenu() {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
         products.length = 0;
+        let minimumPrice;
+        let maximumPrice;
         if(mqMedia.matches == false){
           let priceInputs = document.querySelectorAll(".unempty-input");
-          let minimumPrice = priceInputs[0].value;
-          let maximumPrice = priceInputs[1].value;
+          minimumPrice = priceInputs[0].value;
+          maximumPrice = priceInputs[1].value;
         }else{
-          let minimumPrice = 0;
-          let maximumPrice = 20000;
+          minimumPrice = 0;
+          maximumPrice = 20000;
         }
         for (let i = 0; i < keys.length; i++) {
           if (snapshot[keys[i]].price >= minimumPrice && snapshot[keys[i]].price <= maximumPrice) {
@@ -249,13 +251,15 @@ function handleSortMenu() {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
         products.length = 0;
+        let minimumPrice;
+        let maximumPrice;
         if(mqMedia.matches == false){
           let priceInputs = document.querySelectorAll(".unempty-input");
-          let minimumPrice = priceInputs[0].value;
-          let maximumPrice = priceInputs[1].value;
+          minimumPrice = priceInputs[0].value;
+          maximumPrice = priceInputs[1].value;
         }else{
-          let minimumPrice = 0;
-          let maximumPrice = 20000;
+          minimumPrice = 0;
+          maximumPrice = 20000;
         }
         for (let i = 0; i < keys.length; i++) {
           if (snapshot[keys[i]].price >= minimumPrice && snapshot[keys[i]].price <= maximumPrice) {
@@ -286,13 +290,15 @@ function handleSortMenu() {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
         products.length = 0;
+        let minimumPrice;
+        let maximumPrice;
         if(mqMedia.matches == false){
           let priceInputs = document.querySelectorAll(".unempty-input");
-          let minimumPrice = priceInputs[0].value;
-          let maximumPrice = priceInputs[1].value;
+          minimumPrice = priceInputs[0].value;
+          maximumPrice = priceInputs[1].value;
         }else{
-          let minimumPrice = 0;
-          let maximumPrice = 20000;
+          minimumPrice = 0;
+          maximumPrice = 20000;
         }
         for (let i = 0; i < keys.length; i++) {
           if (snapshot[keys[i]].price >= minimumPrice && snapshot[keys[i]].price <= maximumPrice) {
@@ -316,7 +322,6 @@ function handleSortMenu() {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
         products.length = 0;
-        console.log(mqMedia.matches);
         let minimumPrice;
         let maximumPrice;
         if(mqMedia.matches == false){
@@ -350,13 +355,15 @@ function handleSortMenu() {
         let keys = Object.keys(snapshot);
         products.length = 0;
         
+        let minimumPrice;
+        let maximumPrice;
         if(mqMedia.matches == false){
           let priceInputs = document.querySelectorAll(".unempty-input");
-          let minimumPrice = priceInputs[0].value;
-          let maximumPrice = priceInputs[1].value;
+          minimumPrice = priceInputs[0].value;
+          maximumPrice = priceInputs[1].value;
         }else{
-          let minimumPrice = 0;
-          let maximumPrice = 20000;
+          minimumPrice = 0;
+          maximumPrice = 20000;
         }
         
         for (let i = 0; i < keys.length; i++) {
