@@ -145,6 +145,7 @@ textarea {
     border: 0.5px solid black;
     margin-bottom: 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-appearance: textfield;
 }
 
 textarea::placeholder {
