@@ -383,3 +383,10 @@ input::placeholder {
         margin-right: 20%;
     }
 }
+
+@media screen and (max-width: 768px) {
+    #delete-all-products {
+        width: fit-content;
+        margin-right: 0%;
+    }
+}
