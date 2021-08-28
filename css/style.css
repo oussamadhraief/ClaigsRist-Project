@@ -245,7 +245,7 @@ input::placeholder {
     margin-top: 35px;
     margin-right: auto;
     margin-bottom: 20px;
-    max-height: 30px !important;
+    height: 30px;
     margin-left: 7px;
 }
 
@@ -267,11 +267,11 @@ input::placeholder {
     font-weight: bold;
     width: 20%;
     padding: 10px;
-    height: auto;
+    height: fit-content;
     box-shadow: 1px 1px 3px black;
     margin-top: 3%;
     margin-bottom: 0%;
-    margin-right: 0%;
+    margin-right: 5%;
     margin-left: 25%;
 }
 
@@ -288,12 +288,12 @@ input::placeholder {
     font-weight: bold;
     width: 20%;
     padding: 10px;
-    height: auto;
+    height: fit-content;
     box-shadow: 1px 1px 3px black;
     margin-top: 3%;
     margin-bottom: 0%;
     margin-right: 25%;
-    margin-left: 0%;
+    margin-left: 5%;
 }
 
 #delete-all-products:active,
@@ -302,14 +302,49 @@ input::placeholder {
     cursor: pointer;
 }
 
-@media screen and (min-width: 1333px) {
+@media screen and (min-width: 1921px) {
+
+    #delete-all-products {
+        width: 20%;
+        margin-right: 25%;
+        margin-left: 5%;
+        padding: 10px;
+    }
+
+    #json-button {
+        padding: 10px;
+        width: 20%;
+        margin-right: 5%;
+        margin-left: 25%;
+    }
+
     #left {
         margin-top: 120px;
     }
 
     #right {
         width: 25%;
+        height: 80vh;
         margin-top: 7em;
+    }
+
+    #form {
+        height: 70vh;
+    }
+    #form input {
+        height: 60px;
+    }
+
+    #form button {
+        height: 60px;
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    #resetButton {
+        height: 50px; 
     }
 }
 
@@ -385,8 +420,15 @@ input::placeholder {
 }
 
 @media screen and (max-width: 768px) {
+    #json-button {
+        width: 40%;
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+
     #delete-all-products {
-        width: fit-content;
-        margin-right: 0%;
+        width: 40%;
+        margin-left: 30%;
+        margin-right: 30%;
     }
 }

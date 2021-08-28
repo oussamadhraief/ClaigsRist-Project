@@ -33,6 +33,7 @@ function gotData(data) {
     let productsElement = document.querySelector("#left");
     productsElement.innerHTML = `<button id="json-button" onclick="handleDownloadButton()">Download products</button>
     <button id="delete-all-products" onclick="handleDeleteAllButton()">Delete all products</button>
+    <br>
     `;
     if (data.exists()) {
         data = data.val();
