@@ -3,6 +3,7 @@
     "animate.css": "^4.1.1",
     "firebase-admin": "^9.11.0",
     "fs": "^0.0.1-security",
+    "jquery": "^3.5.1",
     "sf": "^0.1.9",
     "uniq": "^1.0.1"
   }

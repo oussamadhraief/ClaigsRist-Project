@@ -5,10 +5,10 @@ function slide(direction) {
     let scrollCompleted = 0;
     var slideVar = setInterval(function () {
         if (direction == 'left') {
-            container.scrollLeft -= 60;
+            container.scrollLeft -= 50;
         } else {
             let temp = container.scrollLeft;
-            container.scrollLeft += 60;
+            container.scrollLeft += 50;
             if (container.scrollLeft == temp) {
                 count++;
                 if (count > 1) {
@@ -28,9 +28,9 @@ function slide(direction) {
                 document.querySelector("#next-prod").disabled = false;
             }
         }
-        scrollCompleted += 50;
+        scrollCompleted += 1;
 
-        if (scrollCompleted >= 300) {
+        if (scrollCompleted >= 8) {
             window.clearInterval(slideVar);
         }
     }, 50);

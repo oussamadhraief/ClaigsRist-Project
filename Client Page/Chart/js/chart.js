@@ -66,13 +66,17 @@ const displayProducts = () => {
             database.ref("Products").get().then((snapshot) => {
                 snapshot = snapshot.val();
                 let keys = Object.keys(snapshot);
-                let length = keys.length;
                 if (!data.chartProducts == "") {
-                    for (let i = 0; i < length; i++) {
+                    for (let i = 0; i < keys.length; i++) {
                         if (data.chartProducts.includes(keys[i])) {
 
                             chartProductsElement.innerHTML += chartProductBox(snapshot[keys[i]]);
                         }
+                    }
+                    if(chartProductsElement.innerHTML == ""){
+                        chartProductsElement.innerHTML += `<tr>
+                    <td colspan="7" id="no-products-chart">Your chart is empty ! Explore our products and add them to your shopping chart to view them here.</td>
+                    </tr>`;
                     }
                 } else {
 
