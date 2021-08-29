@@ -33,14 +33,12 @@ function productsBox({
   id,
   name,
   price,
-  quantity,
   picture
 }) {
   return `<div class="prod1" id="${id}">
     <div class="remargin"><img src="${picture}" class="prodimg" alt="product image" width="150px" height="150px"></div>
     <p class="vari1">${name}</p>
     <p class="vari1">${price} DT.</p>
-
     <button class="addtochart" onClick="handleOrderButton(${id})">Add To Chart</button></div>
 </div>`;
 }
@@ -48,7 +46,6 @@ function productsBox({
 function displayProduct() {
   let shopProducts = document.querySelector("#products");
   shopProducts.innerHTML = ``;
-
   if (pageInd == (pagesNumber + 1)) {
     for (let i = start; i < products.length; i++) {
       shopProducts.innerHTML += productsBox(products[i]);
@@ -58,6 +55,8 @@ function displayProduct() {
       shopProducts.innerHTML += productsBox(products[i]);
     }
   }
+
+
 
   if (products.length == 0) {
     shopProducts.innerHTML = `<p style="color: #383838;">There are no products to display.</p>`;
@@ -189,17 +188,16 @@ function handlePageButton(id, pageIndex) {
 
 function displayPages() {
 
-    let shopPages = document.querySelector("#pages");
-    shopPages.innerHTML =`<a href="#" id="page-1" onClick="handlePageButton('page-1',1)" class="page">1</a>`;
-    globalThis.pagesNumber = Math.floor(Math.abs((products.length - 8) / 20));
+  let shopPages = document.querySelector("#pages");
+  shopPages.innerHTML = `<a href="#" id="page-1" onClick="handlePageButton('page-1',1)" class="page">1</a>`;
+  globalThis.pagesNumber = Math.floor(Math.abs((products.length - 8) / 20));
+  if (pagesNumber < ((products.length - 8) / 20)) {
+    pagesNumber++;
+  }
 
-    if (pagesNumber < ((products.length - 8) / 20)) {
-      pagesNumber++;
-    }
-
-    for (let j = 0; j < pagesNumber; j++) {
-      shopPages.innerHTML += `<a href="#" id='page-${j+2}' onClick='handlePageButton("page-${j+2}",${j+2})' class="page">${j+2}</p>`
-    }
+  for (let j = 0; j < pagesNumber; j++) {
+    shopPages.innerHTML += `<a href="#" id='page-${j+2}' onClick='handlePageButton("page-${j+2}",${j+2})' class="page">${j+2}</p>`
+  }
 
 }
 
@@ -207,193 +205,309 @@ function handleSortMenu() {
   let sortMenu = document.querySelector("#sort-menu");
   switch (sortMenu.value) {
     case 'ascend':
-      ref.on("value", (snapshot) => {
+      products.length = 0;
+      ref.get().then((snapshot) => {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
-        products.length = 0;
-        let minimumPrice;
-        let maximumPrice;
-        if(mqMedia.matches == false){
-          let priceInputs = document.querySelectorAll(".unempty-input");
-          minimumPrice = priceInputs[0].value;
-          maximumPrice = priceInputs[1].value;
-        }else{
-          minimumPrice = 0;
-          maximumPrice = 20000;
-        }
-        for (let i = 0; i < keys.length; i++) {
-          if (snapshot[keys[i]].price >= minimumPrice && snapshot[keys[i]].price <= maximumPrice) {
-            products.push(snapshot[keys[i]]);
-          }
-        }
-        displayPages();
-      });
+        for (let j = 0; j < keys.length; j++) {
+          database.ref("Products/" + keys[j]).get().then((data) => {
+            data = data.val();
+            let key = Object.keys(data);
+            let minimumPrice;
+            let maximumPrice;
+            if (mqMedia.matches == false) {
+              let priceInputs = document.querySelectorAll(".unempty-input");
+              minimumPrice = priceInputs[0].value;
+              maximumPrice = priceInputs[1].value;
+            } else {
+              minimumPrice = 0;
+              maximumPrice = 20000;
+            }
+            for (let i = 0; i < key.length; i++) {
+              if(selectedManufacturers != ""){
+                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
+                  products.push(data[key[i]]);
+                }
+              }else{
+                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
+                  products.push(data[key[i]]);
+                }
+              }
+            }
+            displayPages();
+            if (j == (keys.length - 1)) {
+              for (let i = products.length - 1; i >= 0; i--) {
+                for (let j = 1; j <= i; j++) {
+                  if (products[j - 1].price > products[j].price) {
+                    let temp = products[j - 1];
+                    products[j - 1] = products[j];
+                    products[j] = temp;
+                  }
+                }
+              }
 
-      for (let i = products.length - 1; i >= 0; i--) {
-        for (let j = 1; j <= i; j++) {
-          if (products[j - 1].price > products[j].price) {
-            let temp = products[j - 1];
-            products[j - 1] = products[j];
-            products[j] = temp;
-          }
+              handlePageButton("page-1", 1);
+
+
+              displayProduct();
+            }
+          })
         }
-      }
-      
-        handlePageButton("page-1", 1);
-    
 
-      displayProduct();
 
+
+      })
       break;
 
+
     case 'descend':
-      ref.on("value", (snapshot) => {
+      products.length = 0;
+      ref.get().then((snapshot) => {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
-        products.length = 0;
-        let minimumPrice;
-        let maximumPrice;
-        if(mqMedia.matches == false){
-          let priceInputs = document.querySelectorAll(".unempty-input");
-          minimumPrice = priceInputs[0].value;
-          maximumPrice = priceInputs[1].value;
-        }else{
-          minimumPrice = 0;
-          maximumPrice = 20000;
-        }
-        for (let i = 0; i < keys.length; i++) {
-          if (snapshot[keys[i]].price >= minimumPrice && snapshot[keys[i]].price <= maximumPrice) {
-            products.push(snapshot[keys[i]]);
-          }
-        }
-        displayPages();
-      });
-      for (let i = 0; i < products.length; i++) {
-        for (let j = 0; j < products.length; j++) {
-          if (products[i].price > products[j].price) {
-            let temp = products[i];
-            products[i] = products[j];
-            products[j] = temp;
-          }
-        }
-      }
-      
-        handlePageButton("page-1", 1);
-      
+        for (let j = 0; j < keys.length; j++) {
+          database.ref("Products/" + keys[j]).get().then((data) => {
+            data = data.val();
+            let key = Object.keys(data);
+            let minimumPrice;
+            let maximumPrice;
+            if (mqMedia.matches == false) {
+              let priceInputs = document.querySelectorAll(".unempty-input");
+              minimumPrice = priceInputs[0].value;
+              maximumPrice = priceInputs[1].value;
+            } else {
+              minimumPrice = 0;
+              maximumPrice = 20000;
+            }
+            for (let i = 0; i < key.length; i++) {
+              if(selectedManufacturers != ""){
+                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
+                  products.push(data[key[i]]);
+                }
+              }else{
+                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
+                  products.push(data[key[i]]);
+                }
+              }
+            }
+            displayPages();
+            if (j == (keys.length - 1)) {
+              for (let i = 0; i < products.length; i++) {
+                for (let j = 0; j < products.length; j++) {
+                  if (products[i].price > products[j].price) {
+                    let temp = products[i];
+                    products[i] = products[j];
+                    products[j] = temp;
+                  }
+                }
+              }
 
-      displayProduct();
+              handlePageButton("page-1", 1);
 
+
+              displayProduct();
+            }
+          })
+        }
+      })
       break;
 
     case 'newest':
-      ref.on("value", (snapshot) => {
+      products.length = 0;
+      ref.get().then((snapshot) => {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
-        products.length = 0;
-        let minimumPrice;
-        let maximumPrice;
-        if(mqMedia.matches == false){
-          let priceInputs = document.querySelectorAll(".unempty-input");
-          minimumPrice = priceInputs[0].value;
-          maximumPrice = priceInputs[1].value;
-        }else{
-          minimumPrice = 0;
-          maximumPrice = 20000;
-        }
-        for (let i = 0; i < keys.length; i++) {
-          if (snapshot[keys[i]].price >= minimumPrice && snapshot[keys[i]].price <= maximumPrice) {
-            products.push(snapshot[keys[i]]);
-          }
-        }
-        displayPages();
-      });
-      products = products.reverse();
-      
-        handlePageButton("page-1", 1);
-     
+        for (let j = 0; j < keys.length; j++) {
+          database.ref("Products/" + keys[j]).get().then((data) => {
+            data = data.val();
+            let key = Object.keys(data);
+            let minimumPrice;
+            let maximumPrice;
+            if (mqMedia.matches == false) {
+              let priceInputs = document.querySelectorAll(".unempty-input");
+              minimumPrice = priceInputs[0].value;
+              maximumPrice = priceInputs[1].value;
+            } else {
+              minimumPrice = 0;
+              maximumPrice = 20000;
+            }
+            for (let i = 0; i < key.length; i++) {
+              if(selectedManufacturers != ""){
+                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
+                  products.push(data[key[i]]);
+                }
+              }else{
+                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
+                  products.push(data[key[i]]);
+                }
+              }
+            }
+            displayPages();
+            if (j == (keys.length - 1)) {
+              products = products.reverse();
 
-      displayProduct();
+              handlePageButton("page-1", 1);
 
+
+              displayProduct();
+            }
+
+          })
+        }
+      })
       break;
 
     case 'oldest':
 
-      ref.on("value", (snapshot) => {
+      products.length = 0;
+      ref.get().then((snapshot) => {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
-        products.length = 0;
-        let minimumPrice;
-        let maximumPrice;
-        if(mqMedia.matches == false){
-          let priceInputs = document.querySelectorAll(".unempty-input");
-          minimumPrice = priceInputs[0].value;
-          maximumPrice = priceInputs[1].value;
-        }else{
-          minimumPrice = 0;
-          maximumPrice = 20000;
+        for (let j = 0; j < keys.length; j++) {
+          database.ref("Products/" + keys[j]).get().then((data) => {
+            data = data.val();
+            let key = Object.keys(data);
+            let minimumPrice;
+            let maximumPrice;
+            if (mqMedia.matches == false) {
+              let priceInputs = document.querySelectorAll(".unempty-input");
+              minimumPrice = priceInputs[0].value;
+              maximumPrice = priceInputs[1].value;
+            } else {
+              minimumPrice = 0;
+              maximumPrice = 20000;
+            }
+            for (let i = 0; i < key.length; i++) {
+              if(selectedManufacturers != ""){
+                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
+                  products.push(data[key[i]]);
+                }
+              }else{
+                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
+                  products.push(data[key[i]]);
+                }
+              }
+            }
+            displayPages();
+            handlePageButton("page-1", 1);
+            displayProduct();
+          })
         }
-        for (let i = 0; i < keys.length; i++) {
-          if (snapshot[keys[i]].price >= minimumPrice && snapshot[keys[i]].price <= maximumPrice) {
-            products.push(snapshot[keys[i]]);
-          }
-        }
-        displayPages();
-        
-          handlePageButton("page-1", 1);
-        
-        displayProduct();
-      });
-
+      })
 
       break;
 
     default:
 
-      ref.on("value", (snapshot) => {
+      products.length = 0;
+      ref.get().then((snapshot) => {
         snapshot = snapshot.val();
         let keys = Object.keys(snapshot);
-        products.length = 0;
-        
-        let minimumPrice;
-        let maximumPrice;
-        if(mqMedia.matches == false){
-          let priceInputs = document.querySelectorAll(".unempty-input");
-          minimumPrice = priceInputs[0].value;
-          maximumPrice = priceInputs[1].value;
-        }else{
-          minimumPrice = 0;
-          maximumPrice = 20000;
+        for (let j = 0; j < keys.length; j++) {
+          database.ref("Products/" + keys[j]).get().then((data) => {
+            data = data.val();
+            let key = Object.keys(data);
+            let minimumPrice;
+            let maximumPrice;
+            if (mqMedia.matches == false) {
+              let priceInputs = document.querySelectorAll(".unempty-input");
+              minimumPrice = priceInputs[0].value;
+              maximumPrice = priceInputs[1].value;
+            } else {
+              minimumPrice = 0;
+              maximumPrice = 20000;
+            }
+            for (let i = 0; i < key.length; i++) {
+              if(selectedManufacturers != ""){
+                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
+                  products.push(data[key[i]]);
+                }
+              }else{
+                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
+                  products.push(data[key[i]]);
+                }
+              }
+            }
+            displayPages();
+            handlePageButton("page-1", 1);
+            displayProduct();
+          })
         }
-        
-        for (let i = 0; i < keys.length; i++) {
-          if (snapshot[keys[i]].price >= minimumPrice && snapshot[keys[i]].price <= maximumPrice) {
-            products.push(snapshot[keys[i]]);
-          }
-        }
-        displayPages();
-        
-          handlePageButton("page-1", 1);
-        
-
-        displayProduct();
-      });
-
-
+      })
       break;
   }
 }
 
+const manufacturerSort = (manuId) => {
+  
+  if (manuId.checked) {
+    selectedManufacturers += manuId.value;
+  } else {
+    selectedManufacturers = selectedManufacturers.replace(manuId.value,"")
+  }
+  handleSortMenu();
+}
+
 const manufacturerDisplay = (category) => {
-  database.ref("Products/" + category).get().then((snapshot) => {
-    snapshot = snapshot.val();
-    let keys = Object.keys(snapshot)
-    for(let i =0; i < keys.length; i++){
-      if(snapshot[keys[i]])
-    }
-  })
+  let manufacturers = []
+  let manufacturerElement = document.getElementById('manufacturers');
+  manufacturerElement.innerHTML ="";
+  if (category == "") {
+    database.ref("Products").get().then((snapshot) => {
+      snapshot = snapshot.val();
+      let keys = Object.keys(snapshot);
+      for (let j = 0; j < keys.length; j++) {
+        database.ref("Products/" + keys[j]).get().then((data) => {
+            data = data.val();
+            let key = Object.keys(data);
+            let temp = "";
+            for(let i = 0; i < key.length; i++){
+              if(!temp.includes(data[key[i]].manufacturer)){
+                temp += data[key[i]].manufacturer;
+                manufacturers.push(data[key[i]].manufacturer)
+              }
+            }
+            
+            if(j == (keys.length - 1)){
+              for(let i = 0; i < manufacturers.length;i++){
+                manufacturerElement.innerHTML += `
+                <div>
+                <input type="checkbox" id="${manufacturers[i]}" name="${manufacturers[i]}" value="${manufacturers[i]}" onclick="manufacturerSort(${manufacturers[i]})">
+                <label for="${manufacturers[i]}">${manufacturers[i]}</label>
+                </div>
+                `;
+              }
+            }
+          })
+        }
+      })
+  }else {
+        database.ref("Products/" + category).get().then((data) => {
+            data = data.val();
+            let key = Object.keys(data);
+            let temp = "";
+            for(let i = 0; i < key.length; i++){
+              if(!temp.includes(data[key[i]].manufacturer)){
+                temp = temp + data[key[i]].manufacturer;
+                manufacturers.push(data[key[i]].manufacturer)
+              }
+            }
+            for(let i = 0; i < manufacturers.length;i++){
+              manufacturerElement.innerHTML = `
+              <input type="checkbox" id="${manufacturers[i]}" name="${manufacturers[i]}" value="${manufacturers[i]}" onclick="manufacturerSort(${manufacturers[i]})">
+              `;
+            }
+          })
+  }
 }
 
 
+let selectedManufacturers = "";
+
+let selectedCategory = "";
+
 const mqMedia = window.matchMedia("(max-width: 570px)");
+
+manufacturerDisplay(selectedCategory);
 
 handleSortMenu();

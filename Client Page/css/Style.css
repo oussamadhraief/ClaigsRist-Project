@@ -920,6 +920,59 @@ a {
   width: 10px;
 }
 
+#categories {
+  margin: 0px 0px 0px 0px;
+  padding: 10px;
+  width: fit-content;
+  color: var(--light);
+  font-size: large;
+  font-weight: 500;
+  
+}
+
+#categories:hover, #categories:active ~ .first-ul {
+  visibility: visible;
+}
+
+#first-ul {
+  visibility: hidden;
+  position: absolute;
+  background-color: var(--light);
+  width: 20%;
+  z-index: 999;
+  border: 1px solid var(--dark);
+}
+
+#categories ul li {
+  margin: 20px;
+  color: var(--dark);
+  border-bottom: 1px solid var(--more);
+  padding-bottom: 15px;
+}
+
+#categories li:hover ~  ul li ul {
+  display: grid;
+}
+
+ul li ul {
+  position: absolute;
+  display: none;
+  margin-left: 93%;
+  background-color: var(--light);
+  width: fit-content !important;
+  z-index: 9999;
+}
+
+li ul li {
+  color: var(--dark);
+  width: 75vw;
+  background-color: var(--light);
+}
+
+#categories:hover {
+  cursor: pointer;
+}
+
 #container {
   display: flex;
   width: 100% !important;
@@ -932,6 +985,10 @@ a {
 
 .mirror-image {
   transform: scaleX(-1);
+}
+
+#options {
+  margin-top: 30px;
 }
 
 #explore-options {
@@ -964,14 +1021,11 @@ a {
   font-size: large;
   font-weight: 500;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 5px;
 }
 
 #price {
   align-items: center;
-}
-
-.option-name {
-  margin-left: 5px;
 }
 
 #price p {
@@ -1150,6 +1204,42 @@ input[type=range]::-ms-thumb {
 }
 
 /*              */
+
+input[type="checkbox"] {
+  opacity: 1 !important;
+  -webkit-appearance: checkbox !important;
+  height: 10px !important;
+  width: 10px !important;
+}
+
+input[type="checkbox"]:hover {
+  cursor: pointer !important;
+}
+
+#manufacturers {
+  display: block;
+  align-items: center;
+}
+
+#manufacturers div {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  margin-bottom: 5px;
+}
+
+#manufacturers label {
+  color: var(--light);
+  font-size: small;
+  margin-left: 15px;
+}
+
+#manufacturers label:hover {
+  cursor: pointer;
+  color: var(--another);
+}
 
 #sort-menu-area {
   border-top: 1px solid var(--dark);

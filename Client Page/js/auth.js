@@ -308,8 +308,6 @@ const handleGoogleAuth = () => {
         });
 }
 
-console.log("2");
-
 let googleProvider = new firebase.auth.GoogleAuthProvider();
 
 document.querySelector("#google-sign-in").addEventListener("click", () => {

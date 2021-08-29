@@ -55,7 +55,7 @@ function getFormData() {
     let formData = {
         name: document.querySelector("#name").value,
         category: uppercaseFirstLetter(document.querySelector("#category").value),
-        manufacturer: document.querySelector("#manufacturer").value,
+        manufacturer: uppercaseFirstLetter(document.querySelector("#manufacturer").value),
         picture: document.querySelector("#picture").value,
         description: document.querySelector("#product-description").value,
         price: parseFloat(document.querySelector("#price").value),
