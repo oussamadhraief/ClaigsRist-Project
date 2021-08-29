@@ -594,7 +594,7 @@ thead{
 }
 
 tbody {
-  background-color: var(--teeth);
+  background-color: var(--light);
   color: black;
 }
 
@@ -821,6 +821,7 @@ td {
   padding: 10px 20px 10px 20px;
   background-color: var(--another);
   font-size: large;
+  color: var(--light);
   font-weight: 700;
   border: none;
   border-radius: 15px;

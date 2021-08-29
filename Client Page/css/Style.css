@@ -1054,6 +1054,7 @@ input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
 input[type=number]:invalid,
 input[type=number]:out-of-range {
   border: 2px solid #e60023;

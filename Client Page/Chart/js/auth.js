@@ -88,23 +88,6 @@ auth.onAuthStateChanged(user => {
                 bioInput.value = snapshot.bio;
                 picInput.src = snapshot.picture;
 
-                let footer = document.querySelector("#footer");
-
-                if (snapshot.moderator == true) {
-                    footer.innerHTML = `<a href="../index.html" class="underline">&larr; Go back to Admin Panel</a>
-
-                <p>Oussama Dhraief <span>© </span>2021</p>
-            <div>
-            <a href="About.html" target="_blank" class="underline">About Us</a>
-            <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://cdn.icon-icons.com/icons2/901/PNG/512/facebook_icon-icons.com_69263.png"
-                    alt="facebook"></a>
-            <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721672-instagram_108066.png"
-                    alt="instagram"></a>
-        </div>`;
-
-                }
             }
         });
     } else {
@@ -142,19 +125,7 @@ const logout = document.querySelector("#logout");
 logout.addEventListener("click", (e) => {
     e.preventDefault();
     auth.signOut();
-    let footer = document.querySelector("#footer");
-    footer.innerHTML = `
-
-    <p>Oussama Dhraief <span>© </span>2021</p>
-            <div>
-            <a href="About.html" target="_blank" class="underline">About Us</a>
-            <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://cdn.icon-icons.com/icons2/901/PNG/512/facebook_icon-icons.com_69263.png"
-                    alt="facebook"></a>
-            <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721672-instagram_108066.png"
-                    alt="instagram"></a>
-        </div>`;
+    
 });
 
 //Log in
@@ -178,23 +149,6 @@ loginForm.addEventListener("submit", (e) => {
             passwordInput.value = password;
             bioInput.value = snapshot.bio;
             picInput.src = snapshot.picture;
-
-            let footer = document.querySelector("#footer");
-            if (snapshot.moderator == true) {
-                footer.innerHTML = `<a href="../index.html" class="underline">&larr; Go back to Admin Panel</a>
-
-                <p>Oussama Dhraief <span>© </span>2021</p>
-        <div>
-            <a href="About.html" target="_blank" class="underline">About Us</a>
-            <a href="https://www.facebook.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://cdn.icon-icons.com/icons2/901/PNG/512/facebook_icon-icons.com_69263.png"
-                    alt="facebook"></a>
-            <a href="https://www.instagram.com/oussema.dhraief/" target="_blank" class="nomarg"><img class="icon"
-                    src="https://cdn.icon-icons.com/icons2/1584/PNG/512/3721672-instagram_108066.png"
-                    alt="instagram"></a>
-        </div>`;
-
-            }
 
         });
 

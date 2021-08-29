@@ -171,7 +171,7 @@ const handleRemoveProduct = (id) => {
 const displayFeaturedProducts = () => {
     const featuredProductsElement = document.querySelector("#featured-products ul");
     featuredProductsElement.innerHTML = "";
-    const randomVal = Math.floor((Math.random() * 2) + 1);
+    
     // Auth.onAuthStateChanged(user => {
     //     database.ref("Users/" + user.uid).get().then((data) => {
     //         data = data.val();
@@ -179,20 +179,12 @@ const displayFeaturedProducts = () => {
             database.ref("Products").on("value", (snapshot) => {
                 snapshot = snapshot.val();
                 let keys = Object.keys(snapshot);
-                if (randomVal == 1) {
+                
                     for (let i = 0; i < keys.length; i++) {
                         // if (!data.chartProducts.includes(keys[i])) {
                             featuredProductsElement.innerHTML += featuredProductsBox(snapshot[keys[i]]);
-                            i++;
                         }
                     // }
-                } else {
-                    for (let i = 1; i < keys.length; i++) {
-                        // if (!data.chartProducts.includes(keys[i])) {
-                            featuredProductsElement.innerHTML += featuredProductsBox(snapshot[keys[i]]);
-                            i++;
-                        }
-                    }
                 // }
             });
     //     });

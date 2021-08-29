@@ -51,6 +51,7 @@ if (mq1.matches == false) {
             numberS[0].value = slide1;
             numberS[1].value = slide2;
             handleSortMenu();
+            handlePageButton("page-1", 1);
           }
         });
        
@@ -68,6 +69,7 @@ if (mq1.matches == false) {
             rangeS[0].value = number1;
             rangeS[1].value = number2;
             handleSortMenu();
+            handlePageButton("page-1", 1);
           }
         });
        

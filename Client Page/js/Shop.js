@@ -238,9 +238,9 @@ function handleSortMenu() {
           }
         }
       }
-      if (pageInd !== 1) {
+      
         handlePageButton("page-1", 1);
-      }
+    
 
       displayProduct();
 
@@ -277,9 +277,9 @@ function handleSortMenu() {
           }
         }
       }
-      if (pageInd !== 1) {
+      
         handlePageButton("page-1", 1);
-      }
+      
 
       displayProduct();
 
@@ -308,9 +308,9 @@ function handleSortMenu() {
         displayPages();
       });
       products = products.reverse();
-      if (pageInd !== 1) {
+      
         handlePageButton("page-1", 1);
-      }
+     
 
       displayProduct();
 
@@ -338,10 +338,9 @@ function handleSortMenu() {
           }
         }
         displayPages();
-        if (s == 0 || pageInd !== 1) {
-          s++;
+        
           handlePageButton("page-1", 1);
-        }
+        
         displayProduct();
       });
 
@@ -372,9 +371,9 @@ function handleSortMenu() {
           }
         }
         displayPages();
-        if (pageInd !== 1) {
+        
           handlePageButton("page-1", 1);
-        }
+        
 
         displayProduct();
       });
@@ -382,6 +381,16 @@ function handleSortMenu() {
 
       break;
   }
+}
+
+const manufacturerDisplay = (category) => {
+  database.ref("Products/" + category).get().then((snapshot) => {
+    snapshot = snapshot.val();
+    let keys = Object.keys(snapshot)
+    for(let i =0; i < keys.length; i++){
+      if(snapshot[keys[i]])
+    }
+  })
 }
 
 

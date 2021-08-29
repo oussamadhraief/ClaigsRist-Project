@@ -22,41 +22,45 @@ function productBox({
 
 
 function displayProducts() {
-    ref.on("value", gotData, errData);
-}
-
-function errData(error) {
-    console.log(error.message, error.code);
-}
-
-function gotData(data) {
-    let productsElement = document.querySelector("#left");
-    productsElement.innerHTML = `<button id="json-button" onclick="handleDownloadButton()">Download products</button>
+    ref.get().then((data) => {
+        let productsElement = document.querySelector("#left");
+        let max = 0;
+        productsElement.innerHTML = `<button id="json-button" onclick="handleDownloadButton()">Download products</button>
     <button id="delete-all-products" onclick="handleDeleteAllButton()">Delete all products</button>
     <br>
     `;
-    if (data.exists()) {
-        data = data.val();
-        let keys = Object.keys(data);
-        globalThis.x = data[keys[keys.length - 1]].id + 1;
-        for (let a = 0; a < keys.length; a++) {
-            productsElement.innerHTML += productBox(data[keys[a]]);
+        if (data.exists()) {
+            data = data.val();
+            let keys = Object.keys(data);
+            for (let i = 0; i < keys.length; i++) {
+                database.ref("Products/" + keys[i]).get().then((snapshot) => {
+                    snapshot = snapshot.val();
+                    let key = Object.keys(snapshot)
+                    for (let a = 0; a < key.length; a++) {
+                        productsElement.innerHTML += productBox(snapshot[key[a]]);
+                        if (snapshot[key[a]].id > max) {
+                            max = snapshot[key[a]].id;
+                        }
+                    }
+                    globalThis.x = max + 1;
+                })
+            }
+        } else {
+            globalThis.x = 0;
         }
-    } else {
-        globalThis.x = 0;
-    }
+    })
 }
 
 function getFormData() {
     let formData = {
         name: document.querySelector("#name").value,
-        category: document.querySelector("#category").value,
+        category: uppercaseFirstLetter(document.querySelector("#category").value),
         manufacturer: document.querySelector("#manufacturer").value,
         picture: document.querySelector("#picture").value,
         description: document.querySelector("#product-description").value,
         price: parseFloat(document.querySelector("#price").value),
         quantity: parseFloat(document.querySelector("#quantity").value),
-        
+
     };
 
     return formData;
@@ -66,11 +70,13 @@ function addProduct({
     name,
     category,
     manufacturer,
-    picture,    
+    picture,
     description,
     price,
     quantity
 }) {
+    document.querySelector("#category").disabled = false;
+    document.querySelector("#manufacturer").disabled = false;
     let newProduct = {
         id: x,
         name: name,
@@ -81,7 +87,8 @@ function addProduct({
         price: price,
         quantity: quantity,
     };
-    ref.push(newProduct);
+    x++;
+    database.ref("Products/" + uppercaseFirstLetter(newProduct.category)).push(newProduct);
 }
 
 function handleCreateButton() {
@@ -95,6 +102,8 @@ function handleCreateButton() {
 
 function handleResetButton() {
     document.querySelector("#form").reset();
+    document.querySelector("#category").disabled = false;
+    document.querySelector("#manufacturer").disabled = false;
     let disab = document.querySelector("#saveButton");
     disab.disabled = true;
     disab.classList.add("clickable-save");
@@ -107,51 +116,50 @@ function addToForm(id) {
     disab.disabled = false;
     disab.classList.remove("clickable-save");
     disab.classList.add("clickable");
-    ref.on("value", getData, errData);
-
-    function getData(data) {
+    ref.get().then(("value", (data) => {
         data = data.val();
         let keys = Object.keys(data);
         for (let j = 0; j < keys.length; j++) {
-            if (data[keys[j]].id == id) {
-                globalThis.fbi = keys[j];
-            }
+            database.ref("Products/" + keys[j]).get().then((snapshot) => {
+                snapshot = snapshot.val();
+                let key = Object.keys(snapshot)
+                for (let u = 0; u < key.length; u++) {
+                    if (snapshot[key[u]].id == id) {
+                        fbi = snapshot[key[u]];
+                        globalThis.cia = key[u];
+                        document.querySelector("#name").value = fbi.name;
+                        document.querySelector("#category").value = fbi.category;
+                        document.querySelector("#category").disabled = true;
+                        document.querySelector("#manufacturer").value = fbi.manufacturer;
+                        document.querySelector("#manufacturer").disabled = true;
+                        document.querySelector("#product-description").value = fbi.description;
+                        document.querySelector("#price").value = fbi.price;
+                        document.querySelector("#quantity").value = fbi.quantity;
+                        document.querySelector("#picture").value = fbi.picture;
+                        globalThis.bruh = id;
+                    }
+                }
+            })
         }
-        document.querySelector("#name").value = data[fbi].name;
-        document.querySelector("#category").value = data[fbi].category;
-        document.querySelector("#manufacturer").value = data[fbi].manufacturer;
-        document.querySelector("#product-description").value = data[fbi].description;
-        document.querySelector("#price").value = data[fbi].price;
-        document.querySelector("#quantity").value = data[fbi].quantity;
-        document.querySelector("#picture").value = data[fbi].picture;
-        globalThis.bruh = id;
-    }
+    }))
 }
 
 function handleSaveProduct(bruh) {
-    globalThis.saveVal = {
+    saveVal = {
         id: bruh,
         name: document.querySelector("#name").value,
-        category: document.querySelector("#category").value,
-        manufacturer: document.querySelector("#manufacturer").value,
         picture: document.querySelector("#picture").value,
         description: document.querySelector("#product-description").value,
         price: parseInt(document.querySelector("#price").value),
         quantity: parseInt(document.querySelector("#quantity").value),
-    };
+    }
+    document.querySelector("#category").disabled = false;
+    document.querySelector("#manufacturer").disabled = false;
     let disab = document.querySelector("#saveButton");
     disab.disabled = true;
     disab.classList.add("clickable-save");
     disab.classList.remove("clickable");
-    ref.on("value", (snapshot) => {
-        snapshot = snapshot.val();
-        let keys = Object.keys(snapshot);
-        for (let o = 0; o < keys.length; o++) {
-            if (snapshot[keys[o]].id == bruh) {
-                globalThis.saveVar = keys[o];
-            }
-        }
-    });
+    database.ref("Products/" + uppercaseFirstLetter(document.getElementById('category').value) + "/" + cia).update(saveVal)
 }
 
 
@@ -161,46 +169,61 @@ function handleDeleteButton(bro) {
     conf = confirm("Are you sure you want to delete this product ?", "confirm");
     if (conf) {
 
-        ref.on("value", geatData, errData);
-
-        function geatData(data) {
+        ref.get().then((data) => {
             data = data.val();
             let keys = Object.keys(data);
-            for (let index = 0; index < keys.length; index++) {
-                if (data[keys[index]].id == bro) {
-                    globalThis.delVar = keys[index];
-                }
+            for (let j = 0; j < keys.length; j++) {
+                database.ref("Products/" + keys[j]).get().then((snapshot) => {
+                    snapshot = snapshot.val();
+                    let key = Object.keys(snapshot)
+                    for (let u = 0; u < key.length; u++) {
+                        if (snapshot[key[u]].id == bro) {
+                            ref.child(keys[j]).child(key[u]).remove();
+                            let disab = document.querySelector("#saveButton");
+                            disab.disabled = true;
+                            disab.classList.add("clickable-save");
+                            disab.classList.remove("clickable");
+                            document.querySelector("#category").disabled = false;
+                            document.querySelector("#manufacturer").disabled = false;
+                            handleResetButton();
+                            displayProducts();
+                        }
+                    }
+                })
             }
-        }
-        ref.child(delVar).remove();
+        })
     }
-    let disab = document.querySelector("#saveButton");
-    disab.disabled = true;
-    disab.classList.add("clickable-save");
-    disab.classList.remove("clickable");
-    displayProducts();
 }
 
 function handleDownloadButton() {
     products.length = 0;
-    ref.on("value", (snapshot) => {
-        snapshot = snapshot.val();
-        let keys = Object.keys(snapshot);
-        for (let i = 0; i < keys.length; i++) {
-            let newObj = {
-                name: snapshot[keys[i]].name,
-                category: snapshot[keys[i]].category,
-                manufacturer: snapshot[keys[i]].manufacturer,
-                picture: snapshot[keys[i]].picture,
-                description: snapshot[keys[i]].description,
-                price: snapshot[keys[i]].price,
-                quantity: snapshot[keys[i]].quantity,
-            }
-            products.push(newObj);
-        }
-    });
+    ref.get().then((data) => {
+        data = data.val();
+        let keys = Object.keys(data);
+        for (let j = 0; j < keys.length; j++) {
+            database.ref("Products/" + keys[j]).get().then((snapshot) => {
+                snapshot = snapshot.val();
+                let key = Object.keys(snapshot)
+                for (let i = 0; i < key.length; i++) {
+                    let newObj = {
+                        name: snapshot[key[i]].name,
+                        category: snapshot[key[i]].category,
+                        manufacturer: snapshot[key[i]].manufacturer,
+                        picture: snapshot[key[i]].picture,
+                        description: snapshot[key[i]].description,
+                        price: snapshot[key[i]].price,
+                        quantity: snapshot[key[i]].quantity,
+                    }
+                    products.push(newObj);
+                }
+                if (j == (keys.length - 1)) {
+                    console.log("1");
+                    download("products.json", JSON.stringify(products))
+                }
+            });
 
-    download("products.json", JSON.stringify(products))
+        }
+    })
 }
 
 function download(filename, text) {
@@ -216,10 +239,14 @@ function download(filename, text) {
     document.body.removeChild(element);
 }
 
-function handleDeleteAllButton(){
+function handleDeleteAllButton() {
     let conf = confirm("Are you sure you want to delete all these products ?", "confirm");
-    if(conf){
+    if (conf) {
         ref.set({});
+        displayProducts();
     }
-    
+}
+
+function uppercaseFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
 }
