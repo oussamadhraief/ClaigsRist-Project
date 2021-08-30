@@ -923,19 +923,28 @@ a {
 #categories {
   margin: 0px 0px 0px 0px;
   padding: 10px;
-  width: fit-content;
+  width: 100%;
+  height: 55px;
   color: var(--light);
   font-size: large;
   font-weight: 500;
-  
+  transition:0s 1s;
 }
 
-#categories:hover, #categories:active ~ .first-ul {
-  visibility: visible;
+#categories:active .first-ul {
+  display: grid;
+  transition:0s;
 }
 
-#first-ul {
-  visibility: hidden;
+#categories:hover .first-ul {
+  display: grid;
+  transition:0s;
+}
+
+.first-ul {
+  display: none;
+  padding-top: 5px;
+  transition:0s 3s;
   position: absolute;
   background-color: var(--light);
   width: 20%;
@@ -944,7 +953,7 @@ a {
 }
 
 #categories ul li {
-  margin: 20px;
+  margin: 10px;
   color: var(--dark);
   border-bottom: 1px solid var(--more);
   padding-bottom: 15px;
