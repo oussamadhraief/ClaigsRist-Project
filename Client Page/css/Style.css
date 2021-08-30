@@ -931,17 +931,17 @@ a {
   transition:0s 1s;
 }
 
-#categories:active .first-ul {
+#categories:active #first-ul {
   display: grid;
   transition:0s;
 }
 
-#categories:hover .first-ul {
+#categories:hover #first-ul {
   display: grid;
   transition:0s;
 }
 
-.first-ul {
+#first-ul {
   display: none;
   padding-top: 5px;
   transition:0s 3s;
@@ -959,15 +959,34 @@ a {
   padding-bottom: 15px;
 }
 
-#categories li:hover ~  ul li ul {
+#first-li:hover  .first-ul {
+  display: grid;
+}
+
+#second-li:hover   .second-ul {
+  display: grid;
+}
+
+#third-li:hover  .third-ul {
+  display: grid;
+}
+
+#fourth-li:hover .fourth-ul {
+  display: grid;
+}
+
+#fifth-li:hover .fifth-ul {
   display: grid;
 }
 
 ul li ul {
   position: absolute;
   display: none;
-  margin-left: 93%;
+  margin-left: 96%;
+  top: -1px;
+  height: 100%;
   background-color: var(--light);
+  border: 1px solid var(--dark) ;
   width: fit-content !important;
   z-index: 9999;
 }
