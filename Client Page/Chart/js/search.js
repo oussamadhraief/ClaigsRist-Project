@@ -34,7 +34,7 @@ function productBox({
     <p class="vari1">${price} DT.</p>
     <p class="const1">Quantity Available: </p>
     <p class="vari1">${quantity} pieces.</p>
-    <button class="addtochart1" onClick="handleOrderButton(${id})">Add To Chart</button></div>
+    <button class="addtochart1" onClick="handleOrderButton(${id})">Add To Cart</button></div>
     </div>
     
 </div>`;

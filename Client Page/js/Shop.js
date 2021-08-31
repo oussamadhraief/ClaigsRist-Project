@@ -39,7 +39,7 @@ function productsBox({
     <div class="remargin"><img src="${picture}" class="prodimg" alt="product image" width="150px" height="150px"></div>
     <p class="vari1">${name}</p>
     <p class="vari1">${price} DT.</p>
-    <button class="addtochart" onClick="handleOrderButton(${id})">Add To Chart</button></div>
+    <button class="addtochart" onClick="handleOrderButton(${id})">Add To Cart</button></div>
 </div>`;
 }
 

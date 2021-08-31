@@ -52,7 +52,7 @@ const featuredProductsBox = ({
             alt="product image" width="150px" height="150px"></div>
     <nobr class="vari2">${name}</nobr>
     <nobr class="vari2">${price} TND</nobr>
-    <button class="addtochart2" onClick="handleOrderButton(${id})">Add To Chart</button>
+    <button class="addtochart2" onClick="handleOrderButton(${id})">Add To Cart</button>
 </div></li>`;
 }
 

@@ -953,8 +953,10 @@ a {
 }
 
 #categories ul li {
-  margin: 10px;
+  margin-left: 5px;
+  margin-top: 10px;
   color: var(--dark);
+  width: 100%;
   border-bottom: 1px solid var(--more);
   padding-bottom: 15px;
 }
@@ -985,15 +987,16 @@ ul li ul {
   margin-left: 96%;
   top: -1px;
   height: 100%;
+  width: 75vw;
   background-color: var(--light);
   border: 1px solid var(--dark) ;
-  width: fit-content !important;
   z-index: 9999;
 }
 
 li ul li {
   color: var(--dark);
-  width: 75vw;
+  width: 74vw;
+  padding-left: 5px;
   background-color: var(--light);
 }
 
@@ -1319,8 +1322,7 @@ input[type="checkbox"]:hover {
   display: grid;
   background-color: var(--light);
   width: 20%;
-  max-height: 400px;
-  min-height: 300px;
+  height: 25%;
   margin-top: 30px;
   margin-left: 2%;
   margin-right: 2%;
