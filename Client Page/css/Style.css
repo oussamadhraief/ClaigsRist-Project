@@ -932,21 +932,22 @@ a {
 }
 
 #categories:active #first-ul {
-  display: grid;
+  visibility: visible;
   transition:0s;
 }
 
 #categories:hover #first-ul {
-  display: grid;
+  visibility: visible;
   transition:0s;
 }
 
 #first-ul {
-  display: none;
+  display: grid;
+  visibility: hidden;
   padding-top: 5px;
-  transition:0s 3s;
+  transition:0s 1s;
   position: absolute;
-  background-color: var(--light);
+  background-color: rgb(255, 255, 247);
   width: 20%;
   z-index: 999;
   border: 1px solid var(--dark);
@@ -957,46 +958,61 @@ a {
   margin-top: 10px;
   color: var(--dark);
   width: 100%;
-  border-bottom: 1px solid var(--more);
   padding-bottom: 15px;
 }
 
 #first-li:hover  .first-ul {
-  display: grid;
+  visibility: visible;
+  
 }
 
 #second-li:hover   .second-ul {
-  display: grid;
+  visibility: visible;
+  
 }
 
 #third-li:hover  .third-ul {
-  display: grid;
+  visibility: visible;
+  
 }
 
 #fourth-li:hover .fourth-ul {
-  display: grid;
+  visibility: visible;
+
 }
 
 #fifth-li:hover .fifth-ul {
-  display: grid;
+  visibility: visible;
+  
 }
 
+.fifth-ul, .fourth-ul, .third-ul , .second-ul, .first-ul {
+  visibility: hidden;
+  z-index: 9998;
+}
+ 
 ul li ul {
   position: absolute;
-  display: none;
-  margin-left: 96%;
+  display: grid;
+  visibility: none;
+  margin-left: 99%;
+  padding-bottom: 50%;
   top: -1px;
   height: 100%;
-  width: 75vw;
+  width: 70vw;
   background-color: var(--light);
-  border: 1px solid var(--dark) ;
+  border-top: 1px solid var(--dark) ;
+  border-bottom: 1px solid var(--dark) ;
+  border-right: 1px solid var(--dark) ;
   z-index: 9999;
 }
 
 li ul li {
   color: var(--dark);
-  width: 74vw;
+  width: 69vw !important;
   padding-left: 5px;
+  height: 10% !important;
+  margin: 0%;
   background-color: var(--light);
 }
 
@@ -1236,16 +1252,6 @@ input[type=range]::-ms-thumb {
 
 /*              */
 
-input[type="checkbox"] {
-  opacity: 1 !important;
-  -webkit-appearance: checkbox !important;
-  height: 10px !important;
-  width: 10px !important;
-}
-
-input[type="checkbox"]:hover {
-  cursor: pointer !important;
-}
 
 #manufacturers {
   display: block;
@@ -1270,6 +1276,17 @@ input[type="checkbox"]:hover {
 #manufacturers label:hover {
   cursor: pointer;
   color: var(--another);
+}
+
+
+#manufacturers input{
+  opacity: 1 !important;
+  height: 10px !important;
+  width: 10px !important;
+}
+
+#manufacturers input:hover{
+  cursor: pointer;
 }
 
 #sort-menu-area {
@@ -1443,6 +1460,12 @@ input[type="checkbox"]:hover {
 
 .formargin {
   margin-top: 20px !important;
+}
+
+.hr1 {
+  margin: 10px 5% 0px 5%;
+  border-bottom: 1px solid var(--dark);
+  width: 90%;
 }
 
 .hr {

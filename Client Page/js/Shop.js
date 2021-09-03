@@ -219,16 +219,21 @@ function handleSortMenu() {
               let priceInputs = document.querySelectorAll(".unempty-input");
               minimumPrice = priceInputs[0].value;
               maximumPrice = priceInputs[1].value;
+              for (let i = 0; i < key.length; i++) {
+                if (selectedManufacturers != "") {
+                  if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
+                    products.push(data[key[i]]);
+                  }
+                } else {
+                  if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
+                    products.push(data[key[i]]);
+                  }
+                }
+              }
             } else {
               minimumPrice = 0;
               maximumPrice = 20000;
-            }
-            for (let i = 0; i < key.length; i++) {
-              if(selectedManufacturers != ""){
-                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
-                  products.push(data[key[i]]);
-                }
-              }else{
+              for (let i = 0; i < key.length; i++) {
                 if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
                   products.push(data[key[i]]);
                 }
@@ -275,16 +280,21 @@ function handleSortMenu() {
               let priceInputs = document.querySelectorAll(".unempty-input");
               minimumPrice = priceInputs[0].value;
               maximumPrice = priceInputs[1].value;
+              for (let i = 0; i < key.length; i++) {
+                if (selectedManufacturers != "") {
+                  if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
+                    products.push(data[key[i]]);
+                  }
+                } else {
+                  if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
+                    products.push(data[key[i]]);
+                  }
+                }
+              }
             } else {
               minimumPrice = 0;
               maximumPrice = 20000;
-            }
-            for (let i = 0; i < key.length; i++) {
-              if(selectedManufacturers != ""){
-                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
-                  products.push(data[key[i]]);
-                }
-              }else{
+              for (let i = 0; i < key.length; i++) {
                 if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
                   products.push(data[key[i]]);
                 }
@@ -327,21 +337,27 @@ function handleSortMenu() {
               let priceInputs = document.querySelectorAll(".unempty-input");
               minimumPrice = priceInputs[0].value;
               maximumPrice = priceInputs[1].value;
+              for (let i = 0; i < key.length; i++) {
+                if (selectedManufacturers != "") {
+                  if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
+                    products.push(data[key[i]]);
+                  }
+                } else {
+                  if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
+                    products.push(data[key[i]]);
+                  }
+                }
+              }
             } else {
               minimumPrice = 0;
               maximumPrice = 20000;
-            }
-            for (let i = 0; i < key.length; i++) {
-              if(selectedManufacturers != ""){
-                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
-                  products.push(data[key[i]]);
-                }
-              }else{
+              for (let i = 0; i < key.length; i++) {
                 if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
                   products.push(data[key[i]]);
                 }
               }
             }
+
             displayPages();
             if (j == (keys.length - 1)) {
               products = products.reverse();
@@ -373,16 +389,21 @@ function handleSortMenu() {
               let priceInputs = document.querySelectorAll(".unempty-input");
               minimumPrice = priceInputs[0].value;
               maximumPrice = priceInputs[1].value;
+              for (let i = 0; i < key.length; i++) {
+                if (selectedManufacturers != "") {
+                  if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
+                    products.push(data[key[i]]);
+                  }
+                } else {
+                  if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
+                    products.push(data[key[i]]);
+                  }
+                }
+              }
             } else {
               minimumPrice = 0;
               maximumPrice = 20000;
-            }
-            for (let i = 0; i < key.length; i++) {
-              if(selectedManufacturers != ""){
-                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
-                  products.push(data[key[i]]);
-                }
-              }else{
+              for (let i = 0; i < key.length; i++) {
                 if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
                   products.push(data[key[i]]);
                 }
@@ -413,16 +434,21 @@ function handleSortMenu() {
               let priceInputs = document.querySelectorAll(".unempty-input");
               minimumPrice = priceInputs[0].value;
               maximumPrice = priceInputs[1].value;
+              for (let i = 0; i < key.length; i++) {
+                if (selectedManufacturers != "") {
+                  if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
+                    products.push(data[key[i]]);
+                  }
+                } else {
+                  if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
+                    products.push(data[key[i]]);
+                  }
+                }
+              }
             } else {
               minimumPrice = 0;
               maximumPrice = 20000;
-            }
-            for (let i = 0; i < key.length; i++) {
-              if(selectedManufacturers != ""){
-                if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice) && selectedManufacturers.includes(data[key[i]].manufacturer)) {
-                  products.push(data[key[i]]);
-                }
-              }else{
+              for (let i = 0; i < key.length; i++) {
                 if ((data[key[i]].price >= minimumPrice && data[key[i]].price <= maximumPrice)) {
                   products.push(data[key[i]]);
                 }
@@ -439,11 +465,11 @@ function handleSortMenu() {
 }
 
 const manufacturerSort = (manuId) => {
-  
+
   if (manuId.checked) {
     selectedManufacturers += manuId.value;
   } else {
-    selectedManufacturers = selectedManufacturers.replace(manuId.value,"")
+    selectedManufacturers = selectedManufacturers.replace(manuId.value, "")
   }
   handleSortMenu();
 }
@@ -451,63 +477,65 @@ const manufacturerSort = (manuId) => {
 const manufacturerDisplay = (category) => {
   let manufacturers = []
   let manufacturerElement = document.getElementById('manufacturers');
-  manufacturerElement.innerHTML ="";
+  manufacturerElement.innerHTML = "";
   if (category == "") {
     database.ref("Products").get().then((snapshot) => {
       snapshot = snapshot.val();
       let keys = Object.keys(snapshot);
       for (let j = 0; j < keys.length; j++) {
         database.ref("Products/" + keys[j]).get().then((data) => {
-            data = data.val();
-            let key = Object.keys(data);
-            let temp = "";
-            for(let i = 0; i < key.length; i++){
-              if(!temp.includes(data[key[i]].manufacturer)){
-                temp += data[key[i]].manufacturer;
-                manufacturers.push(data[key[i]].manufacturer)
-              }
+          data = data.val();
+          let key = Object.keys(data);
+          let temp = "";
+          for (let i = 0; i < key.length; i++) {
+            if (!temp.includes(data[key[i]].manufacturer)) {
+              temp += data[key[i]].manufacturer;
+              manufacturers.push(data[key[i]].manufacturer)
             }
-            
-            if(j == (keys.length - 1)){
-              for(let i = 0; i < manufacturers.length;i++){
-                manufacturerElement.innerHTML += `
+          }
+
+          if (j == (keys.length - 1)) {
+            for (let i = 0; i < manufacturers.length; i++) {
+              manufacturerElement.innerHTML += `
                 <div>
                 <input type="checkbox" id="${manufacturers[i]}" name="${manufacturers[i]}" value="${manufacturers[i]}" onclick="manufacturerSort(${manufacturers[i]})">
                 <label for="${manufacturers[i]}">${manufacturers[i]}</label>
                 </div>
                 `;
-              }
             }
-          })
+          }
+        })
+      }
+    })
+  } else {
+    database.ref("Products/" + category).get().then((data) => {
+      data = data.val();
+      let key = Object.keys(data);
+      let temp = "";
+      for (let i = 0; i < key.length; i++) {
+        if (!temp.includes(data[key[i]].manufacturer)) {
+          temp = temp + data[key[i]].manufacturer;
+          manufacturers.push(data[key[i]].manufacturer)
         }
-      })
-  }else {
-        database.ref("Products/" + category).get().then((data) => {
-            data = data.val();
-            let key = Object.keys(data);
-            let temp = "";
-            for(let i = 0; i < key.length; i++){
-              if(!temp.includes(data[key[i]].manufacturer)){
-                temp = temp + data[key[i]].manufacturer;
-                manufacturers.push(data[key[i]].manufacturer)
-              }
-            }
-            for(let i = 0; i < manufacturers.length;i++){
-              manufacturerElement.innerHTML = `
+      }
+      for (let i = 0; i < manufacturers.length; i++) {
+        manufacturerElement.innerHTML = `
               <input type="checkbox" id="${manufacturers[i]}" name="${manufacturers[i]}" value="${manufacturers[i]}" onclick="manufacturerSort(${manufacturers[i]})">
               `;
-            }
-          })
+      }
+    })
   }
 }
 
 
-let selectedManufacturers = "";
 
 let selectedCategory = "";
 
 const mqMedia = window.matchMedia("(max-width: 570px)");
 
-manufacturerDisplay(selectedCategory);
+if (!mqMedia.matches) {
+  globalThis.selectedManufacturers = "";
+  manufacturerDisplay(selectedCategory);
+}
 
 handleSortMenu();
