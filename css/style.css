@@ -91,7 +91,7 @@ a:hover {
     margin-left: 30px;
     height: fit-content;
     background-color: #5f5f5f;
-    width: 20em;
+    width: 25%;
     border-radius: 1%;
 }
 
@@ -282,11 +282,12 @@ input::placeholder {
 }
 
 #delete-all-products {
-    background-color: rgb(245, 55, 55);
+    background-color: rgb(156, 71, 71);
     border-radius: 5%;
     border: none;
-    font-weight: bold;
+    font-weight: 700;
     width: 20%;
+    font-size: 14px;
     padding: 10px;
     height: fit-content;
     box-shadow: 1px 1px 3px black;

@@ -1,14 +1,14 @@
 :root {
-  --dark: #51484f
+  --dark: #212329
     /* #242124 */
 
 
   ;
   --light: #fff;
-  --more: rgb(143, 143, 143);
-  --another: #9770d7;
+  --more: #6faaff;
+  --another: #4a5667;
   --teeth: #f5f5f5;
-  --old: #d19fe8;
+  --old: #6faaff;
 }
 
 * {
@@ -688,7 +688,7 @@ nav {
 }
 
 .nav-scrolled {
-  --fornav: #51484f;
+  --fornav: #212329;
   border-bottom: 3px solid var(--more);
 }
 

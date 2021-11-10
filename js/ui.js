@@ -217,11 +217,9 @@ function handleDownloadButton() {
                     products.push(newObj);
                 }
                 if (j == (keys.length - 1)) {
-                    console.log("1");
                     download("products.json", JSON.stringify(products))
                 }
             });
-
         }
     })
 }
