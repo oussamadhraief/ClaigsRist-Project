@@ -5,26 +5,26 @@ Here are some screenshots of the project:
 
 Admin Pannel:
 
-[!Https admin]
+[!Admin]
 (https://res.cloudinary.com/dwvwjxizk/image/upload/v1640777918/folder/Screenshot_2021-12-29_121549_pguupz.jpg)\
 
 
 
 Client Page:
 
-[!Https Client]
+[!Client]
 (https://res.cloudinary.com/dwvwjxizk/image/upload/v1640777916/folder/Client_tmnprq.jpg)
 
 
-[!Https Client1]
+[!Client1]
 (https://res.cloudinary.com/dwvwjxizk/image/upload/v1640777918/folder/Screenshot_2021-12-29_122057_aj6oy0.jpg)
 
 
-[!Https Client2]
+[!Client2]
 (https://res.cloudinary.com/dwvwjxizk/image/upload/v1640777915/folder/Screenshot_2021-12-29_122139_stfw7l.jpg)
 
 
-[!Https Client3]
+[!Client3]
 (https://res.cloudinary.com/dwvwjxizk/image/upload/v1640777911/folder/Screenshot_2021-12-29_122123_jj6ajg.jpg)
 
 
@@ -34,5 +34,5 @@ Client Page:
 
 Cart Page:
 
-[!Https Cart]
+[!Cart]
 (https://res.cloudinary.com/dwvwjxizk/image/upload/v1640777915/folder/Screenshot_2021-12-29_122732_w5dum0.jpg)
