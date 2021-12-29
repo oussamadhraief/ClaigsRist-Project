@@ -5,7 +5,7 @@ Here are some screenshots of the project:
 
 Admin Pannel:
 
-[!Admin](https://res.cloudinary.com/dwvwjxizk/image/upload/v1640777918/folder/Screenshot_2021-12-29_121549_pguupz.jpg)\
+[!Admin](/ClaigsRist/Admin.jpg)
 
 
 
