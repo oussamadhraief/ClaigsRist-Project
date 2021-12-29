@@ -1,6 +1,6 @@
-This a my first big personal project which is an E-commerce website.
-I have worked on this project all alone because i wanted to learn and practice HTML, CSS and JavaScript using it.
-Here are some screenshots of the project:
+This a my first big personal project which is an E-commerce website. <br />
+I have worked on this project all alone because i wanted to learn and practice HTML, CSS and JavaScript using it. <br />
+Here are some screenshots of the project: <br />
 
 
 Admin Pannel:
