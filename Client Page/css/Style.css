@@ -857,10 +857,6 @@ a {
   position: relative;
   overflow: hidden;
   width: 100%;
-  background-image: url("https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif");
-  background-repeat: no-repeat;
-  background-size: 1%;
-  background-position: center;
 }
 
 #slider img {

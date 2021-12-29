@@ -127,7 +127,7 @@ if (mq1.matches == false) {
         <div id="slider">
             
             
-			<img src="https://www.scoop.com.tn/modules/sphomeslider/images/c3e8e4b0ad02f2470a20317442c308b549d37633_Asus%20(1).jpg" class="animate__animated animate__fadeIn">
+			<img src="banner.jpg" class="animate__animated animate__fadeIn">
 			<a href="#"  class="previous" onClick="nextIsSlider5()">&#8249;</a>
             <a href="#" class="next" onClick="nextIsSlider2()">&#8250;</a>
             <div id="skip-slides">
@@ -168,7 +168,7 @@ if (mq1.matches == false) {
     
     
             
-			<img src="https://www.scoop.com.tn/modules/sphomeslider/images/c3e8e4b0ad02f2470a20317442c308b549d37633_Asus%20(1).jpg" class="animate__animated animate__fadeIn">
+			<img src="banner.jpg" class="animate__animated animate__fadeIn">
 			
             <a href="#"  class="previous" onClick="nextIsSlider5()">&#8249;</a>   
             <a href="#" class="next" onClick="nextIsSlider2()">&#8250;</a>
@@ -207,7 +207,7 @@ if (mq1.matches == false) {
     
     
             
-			<img src="https://www.scoop.com.tn/modules/sphomeslider/images/54868396aa7ca3b6f246c8e234291f6d49878f52_ps5.jpg" class="animate__animated animate__fadeIn">
+			<img src="banner.jpg" class="animate__animated animate__fadeIn">
             <a href="#" class="previous" onClick="nextIsSlider1()">&#8249;</a>	
     <a href="#" class="next" onClick="nextIsSlider3()">&#8250;</a>        
     <div id="skip-slides">
@@ -242,7 +242,7 @@ if (mq1.matches == false) {
         
         
                 
-                <img src="https://www.scoop.com.tn/modules/sphomeslider/images/6f86d90fe53f580927195abf48c386264cbe69f2_VivoBook-15-X571.jpg" class="animate__animated animate__fadeIn">
+                <img src="banner.jpg" class="animate__animated animate__fadeIn">
                 
                 <a href="#" class="next" onClick="nextIsSlider4()">&#8250;</a>        
                 <a href="#" class="previous" onClick="nextIsSlider2()">&#8249;</a>
@@ -275,7 +275,7 @@ if (mq1.matches == false) {
         
         
                 
-                <img src="https://www.scoop.com.tn/modules/sphomeslider/images/26ae80b9cdad9996e1c8625abd021c70ef843804_ThinkPad-e15%20(1).jpg" class="animate__animated animate__fadeIn">
+                <img src="banner.jpg" class="animate__animated animate__fadeIn">
                 
                 <a href="#" class="previous" onClick="nextIsSlider3()">&#8249;</a>
                 <a href="#" class="next" onClick="nextIsSlider5()">&#8250;</a>
@@ -309,7 +309,7 @@ if (mq1.matches == false) {
         
         
                 
-                <img src="https://www.scoop.com.tn/modules/sphomeslider/images/56e32bb5499750aaf76651ffe6c0bb6b571f5571_Nintendo-switch.jpg" class="animate__animated animate__fadeIn">
+                <img src="banner.jpg" class="animate__animated animate__fadeIn">
                 
                 <a href="#"  class="previous" onClick="nextIsSlider4()">&#8249;</a>
                 <a href="#" class="next" onClick="nextIsSlider1()">&#8250;</a>
@@ -366,7 +366,7 @@ function nextIsSlider1() {
     
     
             
-			<img src="https://www.scoop.com.tn/modules/sphomeslider/images/c3e8e4b0ad02f2470a20317442c308b549d37633_Asus%20(1).jpg" class="animate__animated animate__fadeIn">
+			<img src="banner.jpg" class="animate__animated animate__fadeIn">
 			
             <a href="#"  class="previous" onClick="nextIsSlider5()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider2()">&#8250;</a>
@@ -407,7 +407,7 @@ function nextIsSlider2() {
     
     
             
-    <img src="https://www.scoop.com.tn/modules/sphomeslider/images/54868396aa7ca3b6f246c8e234291f6d49878f52_ps5.jpg" class="animate__animated animate__fadeIn">
+    <img src="banner.jpg" class="animate__animated animate__fadeIn">
 			
             <a href="#"  class="previous" onClick="nextIsSlider1()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider3()">&#8250;</a>
@@ -448,7 +448,7 @@ function nextIsSlider3() {
     
     
             
-    <img src="https://www.scoop.com.tn/modules/sphomeslider/images/6f86d90fe53f580927195abf48c386264cbe69f2_VivoBook-15-X571.jpg" class="animate__animated animate__fadeIn">
+    <img src="banner.jpg" class="animate__animated animate__fadeIn">
 			
             <a href="#"  class="previous" onClick="nextIsSlider2()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider4()">&#8250;</a>
@@ -489,7 +489,9 @@ function nextIsSlider4() {
     
     
             
-    <img src="https://www.scoop.com.tn/modules/sphomeslider/images/26ae80b9cdad9996e1c8625abd021c70ef843804_ThinkPad-e15%20(1).jpg" class="animate__animated animate__fadeIn">
+    <img src="banner.jpg
+banner.jpg
+banner.jpg" class="animate__animated animate__fadeIn">
 			
             <a href="#"  class="previous" onClick="nextIsSlider3()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider5()">&#8250;</a>
@@ -527,7 +529,7 @@ function nextIsSlider5() {
     anotherTimeouts.length = 0;
     slidingPics.innerHTML = ` 
             
-    <img src="https://www.scoop.com.tn/modules/sphomeslider/images/56e32bb5499750aaf76651ffe6c0bb6b571f5571_Nintendo-switch.jpg" class="animate__animated animate__fadeIn">
+    <img src="banner.jpg" class="animate__animated animate__fadeIn">
 			
             <a href="#"  class="previous" onClick="nextIsSlider4()">&#8249;</a>   
     <a href="#" class="next" onClick="nextIsSlider1()">&#8250;</a>

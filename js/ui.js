@@ -20,7 +20,6 @@ function productBox({
     `;
 }
 
-
 function displayProducts() {
     ref.get().then((data) => {
         let productsElement = document.querySelector("#left");
