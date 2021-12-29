@@ -11,21 +11,21 @@ Admin Pannel:
 
 Client Page:
 
-[!Client](https://res.cloudinary.com/dwvwjxizk/image/upload/v1640777916/folder/Client_tmnprq.jpg)
+![Client](/ClaigsRist/Admin.jpg)
 
 
-[!Client1](https://res.cloudinary.com/dwvwjxizk/image/upload/v1640777918/folder/Screenshot_2021-12-29_122057_aj6oy0.jpg)
+![Client1](/ClaigsRist/Admin.jpg)
 
 
-[!Client2](https://res.cloudinary.com/dwvwjxizk/image/upload/v1640777915/folder/Screenshot_2021-12-29_122139_stfw7l.jpg)
+![Client2](/ClaigsRist/Admin.jpg)
 
 
-[!Client3](https://res.cloudinary.com/dwvwjxizk/image/upload/v1640777911/folder/Screenshot_2021-12-29_122123_jj6ajg.jpg)
+![Client3](/ClaigsRist/Admin.jpg)
 
 
-[!Https Client4](https://res.cloudinary.com/dwvwjxizk/image/upload/v1640777912/folder/Screenshot_2021-12-29_122009_fegm2k.jpg)
+![Https Client4](/ClaigsRist/Admin.jpg)
 
 
 Cart Page:
 
-[!Cart](https://res.cloudinary.com/dwvwjxizk/image/upload/v1640777915/folder/Screenshot_2021-12-29_122732_w5dum0.jpg)
+![Cart](/ClaigsRist/Admin.jpg)
