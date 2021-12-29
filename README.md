@@ -11,21 +11,21 @@ Admin Pannel:
 
 Client Page:
 
-![Client](/ClaigsRist/Admin.jpg)
+![Client](/ClaigsRist/Client.jpg)
 
 
-![Client1](/ClaigsRist/Admin.jpg)
+![Client1](/ClaigsRist/Client1.jpg)
 
 
-![Client2](/ClaigsRist/Admin.jpg)
+![Client2](/ClaigsRist/Client2.jpg)
 
 
-![Client3](/ClaigsRist/Admin.jpg)
+![Client3](/ClaigsRist/Client3.jpg)
 
 
-![Https Client4](/ClaigsRist/Admin.jpg)
+![Client4](/ClaigsRist/Client4.jpg)
 
 
 Cart Page:
 
-![Cart](/ClaigsRist/Admin.jpg)
+![Cart](/ClaigsRist/Cart.jpg)
