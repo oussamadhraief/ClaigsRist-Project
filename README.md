@@ -5,7 +5,7 @@ Here are some screenshots of the project:
 
 Admin Pannel:
 
-[!Admin](/ClaigsRist/Admin.jpg)
+![Admin](/ClaigsRist/Admin.jpg)
 
 
 
